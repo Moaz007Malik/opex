@@ -1,27 +1,48 @@
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
 import { Section } from '../components/Section';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
 
 const USE_CASES = [
   {
-    id: 'packaging-group-margin-visibility',
-    sector: 'Packaging Group',
-    title: 'How a multi-site packaging group improved margin visibility across 3 plants',
-    summary: 'An anonymised illustrative use case showing how a packaging manufacturer could connect downtime, waste, and product mix to contribution and margin visibility across plants.',
+    sector: 'Food & Beverage Manufacturing',
+    scenario: 'Gaining structured downtime visibility across a high-volume production line',
+    body: 'Consider a food manufacturer operating multiple high-volume lines. Without structured downtime visibility, recurring equipment failures accumulate costs that are difficult to quantify or attribute. The Exec App\'s Downtime & Reliability dashboard framework is designed to help leadership identify recurring failure patterns, track MTBF and MTTR by asset, and give maintenance and operations teams a structured view of downtime by cause.',
+    questions: [
+      'What is our actual unplanned downtime cost?',
+      'Which assets are generating the most downtime?',
+      'Are the same faults repeating?',
+    ],
   },
   {
-    id: 'precision-engineering-downtime-reduction',
     sector: 'Precision Engineering',
-    title: 'How a precision engineering manufacturer reduced downtime and improved schedule attainment',
-    summary: 'An anonymised illustrative use case showing how a precision engineering operation could use structured downtime visibility to reduce recurring stops and support better schedule adherence.',
+    scenario: 'Giving a multi-site leadership team a consolidated operational view',
+    body: 'Consider a precision engineering group operating four manufacturing sites. Without a consolidated view, leadership relies on site-level weekly reports with inconsistent formats and definitions. The Exec App is designed to support a single dashboard framework covering production, quality, and performance across multiple sites — with consistent metric definitions and structured comparison across locations.',
+    questions: [
+      'How are our sites performing relative to each other?',
+      'Where is OEE strongest and weakest?',
+      'Are quality trends consistent across sites?',
+    ],
   },
   {
-    id: 'chemicals-quality-and-compliance',
-    sector: 'Chemicals & Materials',
-    title: 'How a chemicals manufacturer improved quality visibility and reduced deviation-response time',
-    summary: 'An anonymised illustrative use case showing how a chemicals manufacturer could bring batch quality, deviations, and compliance metrics into one structured view to shorten response times.',
+    sector: 'Industrial Components',
+    scenario: 'Structuring safety performance visibility for a group-level safety leadership team',
+    body: 'Consider a manufacturing group with a strong safety commitment but reliance on manual, site-level safety reports. Near-miss data is inconsistent across sites. The Exec App\'s Safety & Risk dashboard framework is designed to support structured group-level safety performance visibility — incident tracking, near-miss data, corrective action closure status, and compliance metrics in one place.',
+    questions: [
+      'What is our group TRIR?',
+      'Are near-misses being captured and acted on consistently?',
+      'Where are corrective actions overdue?',
+    ],
+  },
+  {
+    sector: 'Process Manufacturing',
+    scenario: 'Connecting operational performance data to margin visibility for the finance and operations leadership team',
+    body: 'Consider a process manufacturer where the Finance Director has limited visibility of how operational decisions are affecting margin between month-end closes. The Exec App\'s Margin Intelligence framework is designed to help connect operational data — cost per unit, material waste, labour efficiency — to margin visibility, supporting more informed joint decision-making between operational and financial leadership.',
+    questions: [
+      'Where is margin pressure coming from operationally?',
+      'Which product lines or shifts are performing above or below cost expectations?',
+      'What is the cost impact of our current waste levels?',
+    ],
   },
 ];
 
@@ -29,62 +50,46 @@ export function UseCases() {
   return (
     <>
       <Helmet>
-        <title>Customer Use Cases — OpEx6 | Illustrative Manufacturing Scenarios</title>
-        <meta
-          name="description"
-          content="Anonymised illustrative customer use cases showing how OpEx6 is designed to help manufacturing leaders turn siloed operational data into structured visibility, faster decisions, and measurable financial outcomes."
-        />
+        <title>Use Cases — OpEx6 | Operational Scenarios the Exec App Is Designed to Support</title>
+        <meta name="description" content="Illustrative operational scenarios the Exec App is built to help address: downtime visibility, multi-site view, safety performance, margin intelligence." />
       </Helmet>
 
       {/* Section 7.1 — Hero */}
       <section className="py-24 max-w-7xl mx-auto px-6">
         <div className="max-w-3xl">
-          <p className="text-accent text-sm font-medium uppercase tracking-widest mb-2">
-            Anonymised illustrative customer use cases
-          </p>
+          <p className="text-accent text-sm font-medium uppercase tracking-widest mb-2">Use Cases</p>
           <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
-            Customer Use Cases
+            Operational Scenarios the Exec App Is Designed to Support.
           </h1>
-          <p className="text-lg text-text-secondary mb-4">
-            See how OpEx6 is designed to help manufacturing leaders turn siloed operational data into structured visibility, faster decisions, and measurable financial outcomes.
-          </p>
-          <p className="text-sm text-text-secondary max-w-3xl">
-            These are anonymised illustrative customer use cases based on common manufacturing scenarios. They are provided for
-            general information and do not represent a named customer endorsement or guarantee of results.
+          <p className="text-lg text-text-secondary">
+            The following scenarios illustrate the kinds of operational visibility challenges the Exec App is built to help address. These are illustrative examples of common leadership questions and operational gaps — they are not representations of specific customers or confirmed deployment outcomes.
           </p>
         </div>
       </section>
 
-      {/* Section 7.2 — Use Case Cards */}
+      {/* Section 7.2 — Use Case Cards (4 cards) */}
       <Section className="bg-secondary/50">
-        <div className="grid md:grid-cols-3 gap-6">
-          {USE_CASES.map((uc) => (
-            <Card key={uc.id} className="flex flex-col">
-              <span className="inline-block w-fit text-[11px] font-medium uppercase tracking-wider text-accent mb-2">
+        <div className="grid md:grid-cols-2 gap-6">
+          {USE_CASES.map((uc, i) => (
+            <Card key={i} className="flex flex-col">
+              <span className="inline-block w-fit text-xs font-medium uppercase tracking-wider text-accent mb-2">
                 {uc.sector}
               </span>
-              <h2 className="font-semibold text-base md:text-lg text-text-primary mb-2">
-                {uc.title}
-              </h2>
-              <p className="text-text-secondary text-sm mb-4 flex-1">
-                {uc.summary}
+              <h2 className="font-semibold text-lg text-text-primary mb-3">{uc.scenario}</h2>
+              <p className="text-text-secondary text-sm mb-4 flex-1">{uc.body}</p>
+              <p className="text-text-primary text-sm font-medium mb-2">
+                Questions this scenario is designed to help answer:
               </p>
-              <Link
-                to={`/use-cases/${uc.id}`}
-                className="text-accent font-medium text-sm hover:underline inline-flex items-center gap-1"
-              >
-                View use case
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
+              <ul className="space-y-1 text-text-secondary text-sm list-disc list-inside">
+                {uc.questions.map((q, j) => (
+                  <li key={j}>{q}</li>
+                ))}
+              </ul>
             </Card>
           ))}
         </div>
         <div className="text-center mt-12">
-          <Button to="/register-interest">
-            Register Interest in the Exec App
-          </Button>
+          <Button to="/register-interest">Register Interest</Button>
         </div>
       </Section>
     </>

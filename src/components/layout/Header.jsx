@@ -4,7 +4,7 @@ import { Button } from '../ui/Button';
 
 const productLinks = [
   { to: '/exec-app', label: 'Exec App' },
-  { to: '/kpis', label: 'KPIs & Dashboards' },
+  { to: '/kpis-dashboards', label: 'KPIs & Dashboards' },
   { to: '/how-it-works', label: 'How It Works' },
 ];
 

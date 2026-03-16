@@ -20,8 +20,9 @@ export function RegisterInterest() {
   const [form, setForm] = useState({
     name: '',
     email: '',
+    jobTitle: '',
     company: '',
-    message: '',
+    consentContact: false,
     consentUpdates: false,
   });
 
@@ -32,6 +33,10 @@ export function RegisterInterest() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!form.consentContact) {
+      setError('You must confirm that OpEx6 may contact you about your registration.');
+      return;
+    }
     setLoading(true);
     setError('');
     try {
@@ -41,12 +46,10 @@ export function RegisterInterest() {
         body: JSON.stringify({
           name: form.name,
           email: form.email,
+          jobTitle: form.jobTitle,
           company: form.company,
-          message: form.message,
+          consentContact: form.consentContact,
           consentUpdates: form.consentUpdates,
-          _sourcePage: 'register_interest',
-          _sourceForm: 'exec_app_register_interest_primary',
-          _noticeVersion: 'privacy_v1_terms_v1',
           _timestamp: new Date().toISOString(),
         }),
       });
@@ -69,7 +72,7 @@ export function RegisterInterest() {
           <div className="max-w-xl mx-auto text-center py-12">
             <h1 className="text-2xl font-bold text-text-primary mb-4">Thank you.</h1>
             <p className="text-text-secondary">
-              You are on the list. We will be in touch ahead of launch with your early access details and information about the £50 for 50 credits + 25 free credits pre-launch offer.
+              You are on the list. We will be in touch ahead of launch with your early access details.
             </p>
           </div>
         </Section>
@@ -96,7 +99,7 @@ export function RegisterInterest() {
           <div className="bg-highlight/10 border border-highlight/30 rounded-xl p-5 text-text-primary">
             <p className="font-medium mb-1">Early Access Offer</p>
             <p className="text-sm text-text-secondary">
-              Register interest now to secure eligibility for £50 for 50 credits + 25 free credits at launch. This is a pre-launch registration — no payment is taken now. Subject to final launch terms.
+              Early registrants will be eligible for 100 credits for £50 when the Exec App opens. This is a pre-launch registration — no payment is taken now. Subject to final launch terms.
             </p>
           </div>
         </div>
@@ -105,6 +108,12 @@ export function RegisterInterest() {
       {/* Section 8.2 — Register Interest Form */}
       <Section className="bg-secondary/50">
         <div className="max-w-xl mx-auto">
+          <p className="text-text-secondary text-sm mb-6">
+            Your information is handled in accordance with our{' '}
+            <Link to="/privacy-notice" className="text-accent hover:underline">Privacy Notice</Link>.
+            We will only contact you about your interest registration unless you opt in to product updates.
+          </p>
+
           <form onSubmit={handleSubmit} className="space-y-6">
             <Input
               label="Full Name"
@@ -122,42 +131,49 @@ export function RegisterInterest() {
               placeholder="you@company.com"
             />
             <Input
-              label="Company (optional)"
+              label="Job Title"
+              required
+              value={form.jobTitle}
+              onChange={(e) => handleChange('jobTitle', e.target.value)}
+              placeholder="e.g. Operations Director"
+            />
+            <Input
+              label="Company Name"
+              required
               value={form.company}
               onChange={(e) => handleChange('company', e.target.value)}
               placeholder="Your company"
             />
-            <Input
-              label="Message (optional)"
-              value={form.message}
-              onChange={(e) => handleChange('message', e.target.value)}
-              placeholder="Anything helpful about your operations, context, or questions"
-            />
 
-            <p className="text-xs text-text-secondary">
-              We&apos;ll use the details you provide to respond to your enquiry and manage your early-access request. Read our{' '}
-              <Link to="/privacy" className="text-accent hover:underline">Privacy Notice</Link>.
-            </p>
-
-            <p className="text-xs text-text-secondary">
-              By submitting this form, you confirm you have read our{' '}
-              <Link to="/privacy" className="text-accent hover:underline">Privacy Notice</Link> and{' '}
-              <Link to="/terms" className="text-accent hover:underline">Terms of Use</Link>.
-            </p>
-
-            <Checkbox
-              id="consentUpdates"
-              label="Yes, I'd like to receive product updates and marketing emails from OpEx6."
-              checked={form.consentUpdates}
-              onChange={(v) => handleChange('consentUpdates', v)}
-            />
+            <div className="space-y-4">
+              <Checkbox
+                id="consentContact"
+                label="I confirm that OpEx6 may contact me about the product interest I am registering through this form."
+                checked={form.consentContact}
+                onChange={(v) => handleChange('consentContact', v)}
+                required
+              />
+              <Checkbox
+                id="consentUpdates"
+                label="I would like to receive product updates and launch communications by email."
+                checked={form.consentUpdates}
+                onChange={(v) => handleChange('consentUpdates', v)}
+              />
+            </div>
 
             {error && <p className="text-danger text-sm">{error}</p>}
 
             <Button type="submit" disabled={loading} className="w-full justify-center">
-              {loading ? 'Sending…' : 'Register Interest in the Exec App'}
+              {loading ? 'Sending…' : 'Register My Interest'}
             </Button>
           </form>
+
+          <p className="text-sm text-text-secondary mt-6">
+            By registering, you confirm you have read our{' '}
+            <Link to="/privacy-notice" className="text-accent hover:underline">Privacy Notice</Link>
+            {' '}and{' '}
+            <Link to="/cookie-notice" className="text-accent hover:underline">Cookie Notice</Link>.
+          </p>
         </div>
       </Section>
 

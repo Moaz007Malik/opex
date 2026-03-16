@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const productLinks = [
   { to: '/exec-app', label: 'Exec App' },
-  { to: '/kpis', label: 'KPIs & Dashboards' },
+  { to: '/kpis-dashboards', label: 'KPIs & Dashboards' },
   { to: '/how-it-works', label: 'How It Works' },
   { to: '/pricing', label: 'Pricing' },
 ];
@@ -11,14 +11,15 @@ const companyLinks = [
   { to: '/about', label: 'About' },
   { to: '/use-cases', label: 'Use Cases' },
   { to: '/resources', label: 'Resources' },
+  { to: '/contact', label: 'Contact' },
 ];
 
 const legalLinks = [
   { to: '/support', label: 'Support' },
   { to: '/faq', label: 'FAQ' },
-  { to: '/privacy', label: 'Privacy Notice' },
-  { to: '/cookies', label: 'Cookie Policy' },
-  { to: '/terms', label: 'Terms of Use' },
+  { to: '/privacy-notice', label: 'Privacy Notice' },
+  { to: '/cookie-notice', label: 'Cookie Notice' },
+  { to: '/terms-of-use', label: 'Terms of Use' },
 ];
 
 function FooterColumn({ title, links }) {
@@ -48,23 +49,18 @@ export function Footer() {
             <p className="text-sm text-text-secondary max-w-xs">
               Operational Intelligence That Executives Actually Use.
             </p>
-            <div className="text-[11px] text-text-secondary mt-6 space-y-1">
-              <p className="font-medium text-text-primary">OpEx6 Technologies Ltd</p>
-              <p>Registered in England and Wales | Company No. [company number]</p>
-              <p>Registered office: [registered office address]</p>
-              <p>Contact: <a href="mailto:[email]" className="hover:text-accent">[email]</a></p>
-            </div>
+            <p className="text-sm text-text-secondary mt-6">© 2025 OpEx6 Ltd.</p>
           </div>
           <FooterColumn title="Product" links={productLinks} />
           <FooterColumn title="Company" links={companyLinks} />
           <FooterColumn title="Legal & Support" links={legalLinks} />
         </div>
         <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-text-secondary text-center sm:text-left">
-          <span>© 2025 OpEx6 Technologies Ltd. All rights reserved.</span>
+          <span>© 2025 OpEx6 Ltd. All rights reserved.</span>
           <div className="flex gap-6">
-            <Link to="/privacy" className="hover:text-accent">Privacy Notice</Link>
-            <Link to="/cookies" className="hover:text-accent">Cookie Policy</Link>
-            <Link to="/terms" className="hover:text-accent">Terms of Use</Link>
+            <Link to="/privacy-notice" className="hover:text-accent">Privacy Notice</Link>
+            <Link to="/cookie-notice" className="hover:text-accent">Cookie Notice</Link>
+            <Link to="/terms-of-use" className="hover:text-accent">Terms of Use</Link>
           </div>
         </div>
       </div>

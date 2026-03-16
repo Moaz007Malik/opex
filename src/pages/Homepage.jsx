@@ -115,37 +115,29 @@ export function Homepage() {
 
       {/* Section 1.1 — Hero */}
       <section className="relative py-24 lg:py-32 max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-          <div>
-            <p className="text-accent text-sm font-medium uppercase tracking-widest mb-3">
-              Operational intelligence for manufacturing leaders
-            </p>
-            <p className="text-sm sm:text-base text-text-secondary max-w-xl mb-4">
-              Most manufacturers still run critical decisions on siloed reports, spreadsheets, and yesterday&apos;s data.
-            </p>
-            <h1 className="text-4xl sm:text-5xl lg:text-hero-lg font-bold text-text-primary mb-4">
-              From shop-floor data to executive clarity.
-            </h1>
-            <p className="text-lg sm:text-xl text-text-secondary max-w-xl mb-8">
-              The platform being built to help manufacturing leaders see performance, downtime, margin, safety, and execution in one structured view.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 items-start mb-4">
-              <Button to="/register-interest">
-                Register Interest in the Exec App
-              </Button>
-              <Link to="/exec-app" className="text-sm text-text-secondary underline-offset-4 hover:underline">
-                Learn more about the Exec App
-              </Link>
-            </div>
-            <div className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-highlight/15 text-highlight mb-4">
-              Register interest now to secure eligibility for £50 for 50 credits + 25 free credits at launch.
-            </div>
-            <p className="text-xs text-text-secondary max-w-xl">
-              OpEx6 is currently in pre-launch / early-access phase. Product features, screenshots, integrations, availability, and pricing may change before general release.
-            </p>
+        <div className="text-center mb-10">
+          <p className="text-accent text-sm font-medium uppercase tracking-widest mb-3">
+            Operational Intelligence Platform  |  Pre-Launch — Register Your Interest
+          </p>
+          <span className="inline-block px-4 py-2 rounded-full text-sm font-medium bg-highlight/20 text-highlight mb-4">
+            Early Access Offer: Register now to secure eligibility for 100 credits for £50 at launch
+          </span>
+          <h1 className="text-4xl sm:text-5xl lg:text-hero-lg font-bold text-text-primary mb-6">
+            The Command Centre Manufacturing Leaders Have Been Looking For.
+          </h1>
+          <p className="text-lg sm:text-xl text-text-secondary max-w-3xl mx-auto mb-8">
+            OpEx6's Exec App is being built to give manufacturing leaders a single, structured view of every KPI that matters. Production, quality, downtime, margin, safety — all in one place, designed to support the decisions that drive operational performance.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <Button to="/register-interest">Register Interest</Button>
+            <Button to="/kpis-dashboards" variant="secondary">Explore KPIs & Dashboards</Button>
           </div>
-          <div className="space-y-6">
+        </div>
+        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          <div className="order-2 lg:order-1">
             <HeroDashboardMockup />
+          </div>
+          <div className="order-1 lg:order-2">
             <HeroForm />
           </div>
         </div>
@@ -184,91 +176,6 @@ export function Homepage() {
             </Card>
           ))}
         </div>
-      </Section>
-
-      {/* Section 1.3b — Leader Questions Problem Section */}
-      <Section>
-        <h2 className="text-3xl lg:text-4xl font-bold text-text-primary text-center mb-8">
-          Most manufacturing leaders still cannot answer these questions quickly enough
-        </h2>
-        <div className="max-w-4xl mx-auto space-y-4 mb-8">
-          <Card>
-            <p className="text-text-secondary text-sm">
-              What is the true cost per unit of your top product right now? Not last year&apos;s assumption. Today&apos;s material, labour, machine, and overhead reality.
-            </p>
-          </Card>
-          <Card>
-            <p className="text-text-secondary text-sm">
-              How much cash is trapped in WIP across your factory floor? Busy production does not always mean healthy cash flow.
-            </p>
-          </Card>
-          <Card>
-            <p className="text-text-secondary text-sm">
-              Which products look successful on volume but are quietly losing margin? Without structured visibility, weak product economics stay hidden.
-            </p>
-          </Card>
-          <Card>
-            <p className="text-text-secondary text-sm">
-              Where is downtime eroding contribution without being translated into financial impact? Operational losses become commercial losses whether they are measured or not.
-            </p>
-          </Card>
-          <Card>
-            <p className="text-text-secondary text-sm">
-              If input costs moved next month, how quickly would leadership see the impact? Better decisions require faster operational and financial visibility.
-            </p>
-          </Card>
-        </div>
-        <p className="text-center text-text-secondary text-sm max-w-3xl mx-auto">
-          OpEx6 is being built to help manufacturing leaders answer these questions with more structure, consistency, and speed.
-        </p>
-      </Section>
-
-      {/* Section 1.3c — Hidden Cost Leakage */}
-      <Section className="bg-secondary/50">
-        <h2 className="text-3xl lg:text-4xl font-bold text-text-primary text-center mb-8">
-          Where margin and cash often disappear in manufacturing
-        </h2>
-        <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6 mb-8">
-          <Card>
-            <h3 className="font-semibold text-text-primary mb-2">Unplanned downtime</h3>
-            <p className="text-text-secondary text-sm">
-              Short stoppages repeated over time become unrecovered cost and lost output.
-            </p>
-          </Card>
-          <Card>
-            <h3 className="font-semibold text-text-primary mb-2">Scrap and rework</h3>
-            <p className="text-text-secondary text-sm">
-              What looks manageable on the floor can become commercially material at scale.
-            </p>
-          </Card>
-          <Card>
-            <h3 className="font-semibold text-text-primary mb-2">Outdated product costing</h3>
-            <p className="text-text-secondary text-sm">
-              Old assumptions on material, labour, machine recovery, and overhead distort current margins.
-            </p>
-          </Card>
-          <Card>
-            <h3 className="font-semibold text-text-primary mb-2">Cash trapped in WIP</h3>
-            <p className="text-text-secondary text-sm">
-              Production activity does not equal cash control.
-            </p>
-          </Card>
-          <Card>
-            <h3 className="font-semibold text-text-primary mb-2">Budgets disconnected from factory reality</h3>
-            <p className="text-text-secondary text-sm">
-              A spreadsheet can support a target the factory was never equipped to deliver.
-            </p>
-          </Card>
-          <Card>
-            <h3 className="font-semibold text-text-primary mb-2">Weak linkage between operations and finance</h3>
-            <p className="text-text-secondary text-sm">
-              If finance and production are working from different realities, leadership decisions will lag.
-            </p>
-          </Card>
-        </div>
-        <p className="text-center text-text-secondary text-sm max-w-3xl mx-auto">
-          OpEx6 is being built to expose hidden cost leakage before it becomes accepted normality.
-        </p>
       </Section>
 
       {/* Section 1.4 — Problem / Solution Table */}
@@ -372,39 +279,24 @@ export function Homepage() {
             </div>
           ))}
         </div>
-        <div className="text-center space-y-2">
-          <p className="text-text-secondary text-sm">
-            Integration availability and scope depend on implementation. Contact us to discuss your systems environment.
-          </p>
-          <p className="text-text-secondary text-sm italic">
-            <Link to="/use-cases" className="underline underline-offset-4">
-              Explore customer use cases
-            </Link>
-          </p>
-          <p className="text-text-secondary text-xs">
-            Illustrative customer use cases showing how operational visibility can improve margin, cash, and decision speed.
-          </p>
-          <p className="text-text-secondary text-[11px] max-w-3xl mx-auto">
-            All third-party names, trade marks, and logos are the property of their respective owners and are used for identification purposes only.
-          </p>
-        </div>
+        <p className="text-center text-text-secondary text-sm">
+          Integration availability and scope depend on implementation. Contact us to discuss your systems environment.
+        </p>
       </Section>
 
       {/* Section 1.9 — Launch Offer CTA Banner */}
       <section className="py-24 bg-highlight/10 border-y border-highlight/30">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold text-text-primary mb-4">
-            Ready to register your interest in the Exec App?
+            Register your interest. Secure your early access.
           </h2>
           <p className="text-text-secondary mb-4">
-            OpEx6 is preparing to open the Exec App to early users. Register your interest now to secure your place on the early access list — and eligibility for our pre-launch credit offer.
+            OpEx6 is preparing to open the Exec App to early users. Register your interest now to secure your place on the early access list — and eligibility for our pre-launch offer.
           </p>
           <p className="text-highlight font-medium mb-6">
-            Register interest now to secure eligibility for £50 for 50 credits + 25 free credits at launch. Subject to final launch terms.
+            Early registrants will be eligible for 100 credits for £50 when the Exec App opens to early users. Subject to final launch terms.
           </p>
-          <Button to="/register-interest" className="mb-4">
-            Register Interest in the Exec App
-          </Button>
+          <Button to="/register-interest" className="mb-4">Register My Interest</Button>
           <p className="text-text-secondary text-sm">
             This is a pre-launch registration. No payment is taken at this stage. You will be contacted with full details ahead of launch.
           </p>
