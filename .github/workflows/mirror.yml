@@ -18,6 +18,6 @@ jobs:
 
       - name: Push to Bitbucket
         run: |
-          git remote add bitbucket https://${{ secrets.BITBUCKET_USERNAME }}:${{ secrets.BITBUCKET_TOKEN }}@bitbucket.org/opex06/opexcode.git
+          git remote add bitbucket https://${{ secrets.BITBUCKET_USERNAME }}:${{ secrets.BITBUCKET_TOKEN }}@bitbucket.org/opex6/opexcode.git
           git push bitbucket --all
           git push bitbucket --tags
