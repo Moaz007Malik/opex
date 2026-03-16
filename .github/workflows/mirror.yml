@@ -21,3 +21,4 @@ jobs:
           git remote add bitbucket https://${{ secrets.BITBUCKET_USERNAME }}:${{ secrets.BITBUCKET_TOKEN }}@bitbucket.org/opex6/opexcode.git
           git push bitbucket --all
           git push bitbucket --tags
+          
