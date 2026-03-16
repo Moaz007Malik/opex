@@ -62,114 +62,219 @@ function StepIcon({ icon }) {
 
 export function HowItWorks() {
   return (
-    <>
-      <Helmet>
-        <title>How It Works — OpEx6 | From Operational Data to Executive Clarity</title>
-        <meta name="description" content="The Exec App is designed to reduce the time and effort to get a structured view of operational performance. Connect, configure, and give your leadership a structured intelligence view." />
-      </Helmet>
+  <>
+  <Helmet>
+    <title>How It Works — OpEx6 | From Operational Data to Executive Clarity</title>
+    <meta
+      name="description"
+      content="The Exec App is designed to reduce the time and effort to get a structured view of operational performance. Connect, configure, and give your leadership a structured intelligence view."
+    />
+  </Helmet>
 
-      {/* Section 4.1 — Hero */}
-      <section className="py-24 max-w-7xl mx-auto px-6">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
-            How the Exec App is being built to roll out.
-          </h1>
-          <p className="text-lg text-text-secondary mb-4">
-            The implementation approach is designed to be practical: connect the data sources that matter, apply a structured KPI framework, and give leadership teams the views they need to make better decisions.
-          </p>
-          <p className="text-sm text-text-secondary">
-            OpEx6 is currently in pre-launch / early-access phase. Product features, screenshots, integrations, availability, and pricing may change before general release.
-          </p>
-        </div>
-      </section>
+  {/* HERO */}
+  <section className="py-32 bg-gray-50 border-b border-black/10">
+    <div className="max-w-4xl mx-auto px-6 text-center">
 
-      {/* Section 4.2 — 4-Step Process */}
-      <Section className="bg-secondary/50">
-        <div className="grid md:grid-cols-2 gap-8">
+      <h1 className="text-4xl lg:text-5xl font-bold text-black mb-6">
+        How the Exec App is being built to roll out.
+      </h1>
+
+      <p className="text-lg text-black/70 mb-6">
+        The implementation approach is designed to be practical: connect the data
+        sources that matter, apply a structured KPI framework, and give leadership
+        teams the views they need to make better decisions.
+      </p>
+
+      <p className="text-sm text-black/60">
+        OpEx6 is currently in pre-launch / early-access phase. Product features,
+        screenshots, integrations, availability, and pricing may change before
+        general release.
+      </p>
+
+    </div>
+  </section>
+
+
+  {/* PROCESS STEPS */}
+  <Section>
+
+    <div className="max-w-5xl mx-auto">
+
+      <h2 className="text-3xl font-bold text-black mb-14 text-center">
+        The rollout process
+      </h2>
+
+      <div className="relative">
+
+        <div className="absolute left-5 top-0 bottom-0 w-px bg-black/10" />
+
+        <div className="space-y-12">
+
           {STEPS.map((step, i) => (
-            <Card key={i} className="flex flex-col h-full">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="shrink-0 w-10 h-10 rounded-xl bg-accent/15 flex items-center justify-center">
-                  <StepIcon icon={step.icon} />
-                </div>
-                <h3 className="font-semibold text-base text-text-primary">
-                  {step.title}
-                </h3>
+
+            <div key={i} className="relative pl-14">
+
+              <div className="absolute left-0 top-1 w-10 h-10 rounded-full bg-accent/15 text-accent flex items-center justify-center font-semibold">
+                {i + 1}
               </div>
-              <p className="text-text-secondary text-sm">
-                {step.body}
-              </p>
-            </Card>
-          ))}
-        </div>
-      </Section>
 
-      {/* Section 4.3 — Timeline / rollout framing */}
-      <Section>
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-text-primary mb-4">
-            A simple implementation progression.
-          </h2>
-          <p className="text-text-secondary text-sm mb-6">
-            Exact timelines depend on data complexity and integration scope, but the progression typically follows these stages.
-          </p>
-          <div className="relative">
-            <div className="absolute top-5 left-4 right-4 h-px bg-border/60 hidden md:block" />
-            <div className="grid md:grid-cols-4 gap-6">
-              {['Discovery & scoping', 'Data connection', 'Configuration & testing', 'Rollout & review'].map((label, index) => (
-                <div key={index} className="relative flex md:flex-col items-start gap-3">
-                  <div className="w-8 h-8 rounded-full bg-accent/20 text-accent font-semibold flex items-center justify-center z-10">
-                    {index + 1}
-                  </div>
-                  <div className="text-sm text-text-secondary">
-                    <p className="font-medium text-text-primary mb-1">{label}</p>
-                    {index === 0 && <p>Confirm scope, systems, and priority KPI areas.</p>}
-                    {index === 1 && <p>Connect core data sources and validate feeds.</p>}
-                    {index === 2 && <p>Apply KPI framework, configure views, and test with pilot users.</p>}
-                    {index === 3 && <p>Extend access, refine dashboards, and embed into leadership routines.</p>}
-                  </div>
+              <Card className="bg-white border border-black/10 rounded-xl shadow-sm p-6">
+
+                <div className="flex items-center gap-3 mb-3">
+                  <StepIcon icon={step.icon} />
+                  <h3 className="font-semibold text-black">
+                    {step.title}
+                  </h3>
                 </div>
-              ))}
+
+                <p className="text-sm text-black/70">
+                  {step.body}
+                </p>
+
+              </Card>
+
             </div>
-          </div>
+
+          ))}
+
         </div>
-      </Section>
 
-      {/* Section 4.4 — Implementation Support */}
-      <Section>
-        <h2 className="text-2xl font-bold text-text-primary mb-4">
-          Structured onboarding for early access customers.
-        </h2>
-        <p className="text-text-secondary max-w-3xl">
-          Early access customers receive structured onboarding support to help map data sources, configure dashboards, and get their teams set up. Implementation timelines depend on the complexity and number of integrations required.
-        </p>
-      </Section>
+      </div>
 
-      {/* Section 4.5 — FAQ teaser */}
-      <Section className="text-center">
-        <p className="text-text-secondary mb-2">
-          Questions about setup, rollout, or integrations?
-        </p>
-        <p className="text-text-secondary">
-          <Link to="/faq" className="underline underline-offset-4">
-            See the FAQ
-          </Link>
-          .
-        </p>
-      </Section>
+    </div>
 
-      {/* Section 4.6 — Bottom CTA */}
-      <Section className="bg-secondary/50 text-center">
-        <h2 className="text-2xl font-bold text-text-primary mb-4">
-          Register interest in the Exec App.
-        </h2>
-        <p className="text-text-secondary max-w-xl mx-auto mb-6">
-          Register your interest today to be contacted ahead of launch with your early access details and implementation guidance for your environment.
-        </p>
-        <Button to="/register-interest">
-          Register Interest in the Exec App
-        </Button>
-      </Section>
-    </>
+  </Section>
+
+
+  {/* IMPLEMENTATION TIMELINE */}
+  <Section className="bg-gray-50">
+
+    <div className="max-w-6xl mx-auto">
+
+      <h2 className="text-3xl font-bold text-black mb-4">
+        A simple implementation progression.
+      </h2>
+
+      <p className="text-black/70 text-sm mb-10 max-w-2xl">
+        Exact timelines depend on data complexity and integration scope, but
+        the progression typically follows these stages.
+      </p>
+
+      <div className="grid md:grid-cols-4 gap-6">
+
+        {[
+          'Discovery & scoping',
+          'Data connection',
+          'Configuration & testing',
+          'Rollout & review',
+        ].map((label, index) => (
+
+          <Card
+            key={index}
+            className="bg-white border border-black/10 rounded-xl shadow-sm p-6"
+          >
+
+            <div className="w-8 h-8 rounded-full bg-accent/20 text-accent flex items-center justify-center font-semibold mb-3">
+              {index + 1}
+            </div>
+
+            <p className="font-medium text-black text-sm mb-1">
+              {label}
+            </p>
+
+            {index === 0 && (
+              <p className="text-black/70 text-sm">
+                Confirm scope, systems, and priority KPI areas.
+              </p>
+            )}
+
+            {index === 1 && (
+              <p className="text-black/70 text-sm">
+                Connect core data sources and validate feeds.
+              </p>
+            )}
+
+            {index === 2 && (
+              <p className="text-black/70 text-sm">
+                Apply KPI framework, configure views, and test with pilot users.
+              </p>
+            )}
+
+            {index === 3 && (
+              <p className="text-black/70 text-sm">
+                Extend access, refine dashboards, and embed into leadership routines.
+              </p>
+            )}
+
+          </Card>
+
+        ))}
+
+      </div>
+
+    </div>
+
+  </Section>
+
+
+  {/* IMPLEMENTATION SUPPORT */}
+  <Section>
+
+    <div className="max-w-4xl">
+
+      <h2 className="text-2xl font-bold text-black mb-4">
+        Structured onboarding for early access customers.
+      </h2>
+
+      <p className="text-black/70">
+        Early access customers receive structured onboarding support to help
+        map data sources, configure dashboards, and get their teams set up.
+        Implementation timelines depend on the complexity and number of
+        integrations required.
+      </p>
+
+    </div>
+
+  </Section>
+
+
+  {/* FAQ LINK */}
+  <Section className="text-center">
+
+    <p className="text-black/70 mb-2">
+      Questions about setup, rollout, or integrations?
+    </p>
+
+    <p className="text-black/70">
+      <Link
+        to="/faq"
+        className="underline underline-offset-4 hover:text-accent"
+      >
+        See the FAQ
+      </Link>.
+    </p>
+
+  </Section>
+
+
+  {/* CTA */}
+  <Section className="bg-gray-50 text-center">
+
+    <h2 className="text-2xl font-bold text-black mb-4">
+      Register interest in the Exec App.
+    </h2>
+
+    <p className="text-black/70 max-w-xl mx-auto mb-6">
+      Register your interest today to be contacted ahead of launch with your
+      early access details and implementation guidance for your environment.
+    </p>
+
+    <Button to="/register-interest">
+      Register Interest in the Exec App
+    </Button>
+
+  </Section>
+
+</>
   );
 }

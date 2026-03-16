@@ -85,108 +85,209 @@ const PRICING_FAQ = [
 export function Pricing() {
   return (
     <>
-      <Helmet>
-        <title>Pricing — OpEx6 | Straightforward. Transparent. Structured for scale.</title>
-        <meta name="description" content="The Exec App uses a credit-based commercial model. Early registrants can secure a pre-launch offer. Full pricing at launch." />
-      </Helmet>
+  <Helmet>
+    <title>Pricing — OpEx6 | Straightforward. Transparent. Structured for scale.</title>
+    <meta
+      name="description"
+      content="The Exec App uses a credit-based commercial model. Early registrants can secure a pre-launch offer. Full pricing at launch."
+    />
+  </Helmet>
 
-      {/* Section 5.1 — Hero */}
-      <section className="py-24 max-w-7xl mx-auto px-6">
-        <div className="max-w-3xl">
-          <p className="text-accent text-sm font-medium uppercase tracking-widest mb-2">Pricing</p>
-          <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
-            Straightforward. Transparent. Structured for scale.
-          </h1>
-          <p className="text-lg text-text-secondary mb-4">
-            The Exec App is planned to use a credit-based commercial model. Credits are expected to support dashboard usage, reporting, and data connections. Full pricing details will be published at launch — early registrants can secure eligibility for the pre-launch offer.
-          </p>
-          <p className="text-sm text-text-secondary font-medium max-w-3xl">
-            Pricing shown is indicative for pre-launch / early-access purposes and may change. Final commercial terms will be set out in the applicable order form or contract.
-          </p>
-        </div>
-      </section>
 
-      {/* Section 5.2 — Three Pricing Cards */}
-      <Section className="bg-secondary/50">
-        <div className="grid md:grid-cols-3 gap-6 items-stretch">
-          {PRICING_CARDS.map((plan) => (
-            <Card
-              key={plan.id}
-              className={`flex flex-col ${plan.highlighted ? 'md:-mt-2 md:mb-2 border-accent ring-1 ring-accent/30 shadow-lg shadow-accent/10' : ''}`}
-            >
-              <span
-                className={`inline-block w-fit px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wider mb-4 ${
-                  plan.badge.variant === 'amber' ? 'bg-highlight/20 text-highlight' : 'bg-accent/20 text-accent'
-                }`}
+  {/* HERO */}
+  <section className="py-28 border-b border-black/10 bg-gray-50">
+    <div className="max-w-4xl mx-auto px-6 text-center">
+
+      <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
+        Pricing
+      </p>
+
+      <h1 className="text-4xl lg:text-5xl font-bold text-black mb-6">
+        Straightforward. Transparent. Structured for scale.
+      </h1>
+
+      <p className="text-lg text-black/70 mb-6">
+        The Exec App is planned to use a credit-based commercial model. Credits
+        support dashboard usage, reporting, and data connections.
+      </p>
+
+      <p className="text-sm text-black/60">
+        Pricing shown is indicative for pre-launch purposes and may change.
+        Final commercial terms will be confirmed at launch.
+      </p>
+
+    </div>
+  </section>
+
+
+
+  {/* PRICING CARDS */}
+  <Section>
+
+    <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+
+      {PRICING_CARDS.map(plan => (
+
+        <Card
+          key={plan.id}
+          className={`flex flex-col border rounded-xl p-6
+          ${
+            plan.highlighted
+              ? 'border-accent shadow-lg scale-[1.03]'
+              : 'border-black/10'
+          }`}
+        >
+
+          <span
+            className={`text-xs font-semibold px-3 py-1 rounded-full w-fit mb-4
+            ${
+              plan.badge.variant === 'amber'
+                ? 'bg-yellow-100 text-yellow-700'
+                : 'bg-blue-100 text-accent'
+            }`}
+          >
+            {plan.badge.text}
+          </span>
+
+
+          <h2 className="text-xl font-bold text-black mb-1">
+            {plan.headline}
+          </h2>
+
+          <p className="font-semibold text-black mb-1">
+            {plan.priceDisplay}
+          </p>
+
+          <p className="text-sm text-black/60 mb-4">
+            {plan.subline}
+          </p>
+
+
+          <p className="text-sm text-black/70 mb-6 flex-1">
+            {plan.description}
+          </p>
+
+
+          {/* FEATURES */}
+          <ul className="space-y-2 mb-6">
+
+            {plan.inclusions.map((item, i) => (
+
+              <li
+                key={i}
+                className="flex items-start gap-2 text-sm text-black/70"
               >
-                {plan.badge.text}
-              </span>
-              <h2 className="text-xl font-bold text-text-primary mb-1">{plan.headline}</h2>
-              <p className="text-text-primary font-semibold mb-0.5">{plan.priceDisplay}</p>
-              <p className="text-text-secondary text-sm mb-4">{plan.subline}</p>
-              <p className="text-text-secondary text-sm mb-6 flex-1">{plan.description}</p>
-              <ul className="space-y-2 mb-6">
-                {plan.inclusions.map((item, i) => (
-                  <li key={i} className="flex items-start gap-2 text-text-secondary text-sm">
-                    <span className="text-success shrink-0">✓</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <Button to={plan.ctaTo} className="w-full justify-center">
-                {plan.cta}
-              </Button>
-              {plan.noteBelowCta && (
-                <p className="text-text-secondary text-xs mt-4 text-center">{plan.noteBelowCta}</p>
+
+                <span className="text-green-600">✓</span>
+
+                {item}
+
+              </li>
+
+            ))}
+
+          </ul>
+
+
+          <Button to={plan.ctaTo} className="w-full justify-center">
+            {plan.cta}
+          </Button>
+
+
+          {plan.noteBelowCta && (
+            <p className="text-xs text-black/60 mt-4 text-center">
+              {plan.noteBelowCta}
+            </p>
+          )}
+
+        </Card>
+
+      ))}
+
+    </div>
+
+  </Section>
+
+
+
+  {/* FAQ */}
+  <Section className="bg-gray-50">
+
+    <div className="max-w-3xl mx-auto">
+
+      <h2 className="text-2xl font-bold text-black mb-6">
+        Pricing FAQ
+      </h2>
+
+
+      <div className="space-y-3">
+
+        {PRICING_FAQ.map((faq, i) => (
+
+          <details
+            key={i}
+            className="border border-black/10 rounded-lg bg-white"
+          >
+
+            <summary className="cursor-pointer px-4 py-3 flex justify-between items-center text-sm font-medium text-black">
+
+              {faq.q}
+
+              <span className="text-black/60">+</span>
+
+            </summary>
+
+
+            <div className="px-4 pb-4 text-sm text-black/70">
+
+              {faq.a.includes('sales@opex6.com') ? (
+                <>
+                  Yes. Organisations with multi-site or complex requirements
+                  can discuss custom credit arrangements and dedicated support.
+
+                  <a
+                    href="mailto:sales@opex6.com"
+                    className="text-accent ml-1 hover:underline"
+                  >
+                    Contact us at sales@opex6.com
+                  </a>
+                </>
+              ) : (
+                faq.a
               )}
-            </Card>
-          ))}
-        </div>
-      </Section>
 
-      {/* Section 5.3 — Pricing FAQ Strip */}
-      <Section>
-        <h2 className="text-2xl font-bold text-text-primary mb-6">Pricing FAQ</h2>
-        <div className="space-y-3 max-w-3xl">
-          {PRICING_FAQ.map((faq, i) => (
-            <details key={i} className="border border-slate-700 rounded-lg bg-card-bg">
-              <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-3">
-                <span className="font-medium text-sm text-text-primary">{faq.q}</span>
-                <span className="shrink-0 text-slate-400">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </span>
-              </summary>
-              <div className="px-4 pb-4 pt-0">
-                <p className="text-text-secondary text-sm">
-                  {faq.a.includes('sales@opex6.com') ? (
-                    <>
-                      Yes. Organisations with multi-site or complex requirements can discuss custom credit arrangements and dedicated support.{' '}
-                      <a href="mailto:sales@opex6.com" className="text-accent hover:underline">Contact us at sales@opex6.com</a>.
-                    </>
-                  ) : (
-                    faq.a
-                  )}
-                </p>
-              </div>
-            </details>
-          ))}
-        </div>
-      </Section>
+            </div>
 
-      {/* Section 5.4 — Final CTA */}
-      <Section className="bg-secondary/50 text-center">
-        <h2 className="text-2xl font-bold text-text-primary mb-4">
-          Register interest in the Exec App.
-        </h2>
-        <p className="text-text-secondary max-w-2xl mx-auto mb-6">
-          Register your interest today to secure eligibility for £50 for 50 credits + 25 free credits at launch, subject to final launch terms and contract.
-        </p>
-        <Button to="/register-interest">
-          Register Interest in the Exec App
-        </Button>
-      </Section>
-    </>
+          </details>
+
+        ))}
+
+      </div>
+
+    </div>
+
+  </Section>
+
+
+
+  {/* CTA */}
+  <Section className="text-center">
+
+    <h2 className="text-2xl font-bold text-black mb-4">
+      Register interest in the Exec App.
+    </h2>
+
+    <p className="text-black/70 max-w-xl mx-auto mb-6">
+      Register your interest today to secure eligibility for
+      £50 for 50 credits + 25 free credits at launch.
+    </p>
+
+    <Button to="/register-interest">
+      Register Interest in the Exec App
+    </Button>
+
+  </Section>
+
+</>
   );
 }

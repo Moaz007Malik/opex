@@ -1,4 +1,11 @@
-export function Checkbox({ id, label, checked, onChange, required, className = '' }) {
+export function Checkbox({
+  id,
+  label,
+  checked,
+  onChange,
+  required,
+  className = '',
+}) {
   return (
     <div className={`flex items-start gap-3 ${className}`}>
       <input
@@ -7,9 +14,23 @@ export function Checkbox({ id, label, checked, onChange, required, className = '
         checked={checked}
         onChange={(e) => onChange(e.target.checked)}
         required={required}
-        className="mt-1 h-4 w-4 rounded border-slate-600 bg-slate-900 text-accent focus:ring-accent focus:ring-offset-0"
+        className="
+          mt-1
+          h-4 w-4
+          rounded
+          border border-black/20
+          bg-white
+          text-accent
+          focus:ring-2
+          focus:ring-accent/30
+          focus:outline-none
+        "
       />
-      <label htmlFor={id} className="text-sm text-text-secondary cursor-pointer">
+
+      <label
+        htmlFor={id}
+        className="text-sm text-black/70 cursor-pointer select-none"
+      >
         {label}
       </label>
     </div>

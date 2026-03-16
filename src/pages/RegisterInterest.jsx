@@ -50,9 +50,11 @@ export function RegisterInterest() {
           _timestamp: new Date().toISOString(),
         }),
       });
+
       if (!res.ok) throw new Error('Submission failed');
       setSubmitted(true);
-    } catch (err) {
+
+    } catch {
       setError('Something went wrong. Please try again or contact us directly.');
     } finally {
       setLoading(false);
@@ -65,10 +67,14 @@ export function RegisterInterest() {
         <Helmet>
           <title>Thank you — OpEx6</title>
         </Helmet>
+
         <Section>
-          <div className="max-w-xl mx-auto text-center py-12">
-            <h1 className="text-2xl font-bold text-text-primary mb-4">Thank you.</h1>
-            <p className="text-text-secondary">
+          <div className="max-w-xl mx-auto text-center py-16">
+            <h1 className="text-3xl font-bold text-black mb-4">
+              Thank you.
+            </h1>
+
+            <p className="text-black/70">
               You are on the list. We will be in touch ahead of launch with your early access details and information about the £50 for 50 credits + 25 free credits pre-launch offer.
             </p>
           </div>
@@ -81,31 +87,55 @@ export function RegisterInterest() {
     <>
       <Helmet>
         <title>Register Your Interest — OpEx6 | Exec App Early Access</title>
-        <meta name="description" content="Register your interest in the OpEx6 Exec App. Be among the first to access it when it opens to early users. Pre-launch offer: 100 credits for £50." />
+        <meta
+          name="description"
+          content="Register your interest in the OpEx6 Exec App. Be among the first to access it when it opens to early users. Pre-launch offer: 100 credits for £50."
+        />
       </Helmet>
 
-      {/* Section 8.1 — Hero */}
-      <section className="py-24 max-w-7xl mx-auto px-6">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
+
+      {/* HERO */}
+      <section className="py-28 border-b border-black/10 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+
+          <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
+            Early Access
+          </p>
+
+          <h1 className="text-4xl lg:text-5xl font-bold text-black mb-6">
             Register Your Interest in the Exec App
           </h1>
-          <p className="text-lg text-text-secondary mb-6">
+
+          <p className="text-lg text-black/70 mb-8">
             Be among the first to access OpEx6's Exec App when it opens to early users. Register your interest now to secure your place on the early access list.
           </p>
-          <div className="bg-highlight/10 border border-highlight/30 rounded-xl p-5 text-text-primary">
-            <p className="font-medium mb-1">Early Access Offer</p>
-            <p className="text-sm text-text-secondary">
+
+
+          <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6 text-left max-w-xl mx-auto">
+            <p className="font-semibold text-black mb-1">
+              Early Access Offer
+            </p>
+
+            <p className="text-sm text-black/70">
               Register interest now to secure eligibility for £50 for 50 credits + 25 free credits at launch. This is a pre-launch registration — no payment is taken now. Subject to final launch terms.
             </p>
           </div>
+
         </div>
       </section>
 
-      {/* Section 8.2 — Register Interest Form */}
-      <Section className="bg-secondary/50">
+
+
+      {/* FORM */}
+      <Section>
+
         <div className="max-w-xl mx-auto">
-          <form onSubmit={handleSubmit} className="space-y-6">
+
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-6 border border-black/10 rounded-xl p-8 bg-white"
+          >
+
             <Input
               label="Full Name"
               required
@@ -113,6 +143,7 @@ export function RegisterInterest() {
               onChange={(e) => handleChange('name', e.target.value)}
               placeholder="Your full name"
             />
+
             <Input
               label="Work Email"
               type="email"
@@ -121,12 +152,14 @@ export function RegisterInterest() {
               onChange={(e) => handleChange('email', e.target.value)}
               placeholder="you@company.com"
             />
+
             <Input
               label="Company (optional)"
               value={form.company}
               onChange={(e) => handleChange('company', e.target.value)}
               placeholder="Your company"
             />
+
             <Input
               label="Message (optional)"
               value={form.message}
@@ -134,16 +167,25 @@ export function RegisterInterest() {
               placeholder="Anything helpful about your operations, context, or questions"
             />
 
-            <p className="text-xs text-text-secondary">
+
+            <p className="text-xs text-black/60">
               We&apos;ll use the details you provide to respond to your enquiry and manage your early-access request. Read our{' '}
-              <Link to="/privacy" className="text-accent hover:underline">Privacy Notice</Link>.
+              <Link to="/privacy" className="text-accent hover:underline">
+                Privacy Notice
+              </Link>.
             </p>
 
-            <p className="text-xs text-text-secondary">
+            <p className="text-xs text-black/60">
               By submitting this form, you confirm you have read our{' '}
-              <Link to="/privacy" className="text-accent hover:underline">Privacy Notice</Link> and{' '}
-              <Link to="/terms" className="text-accent hover:underline">Terms of Use</Link>.
+              <Link to="/privacy" className="text-accent hover:underline">
+                Privacy Notice
+              </Link>{' '}
+              and{' '}
+              <Link to="/terms" className="text-accent hover:underline">
+                Terms of Use
+              </Link>.
             </p>
+
 
             <Checkbox
               id="consentUpdates"
@@ -152,28 +194,55 @@ export function RegisterInterest() {
               onChange={(v) => handleChange('consentUpdates', v)}
             />
 
-            {error && <p className="text-danger text-sm">{error}</p>}
+            {error && (
+              <p className="text-red-600 text-sm">{error}</p>
+            )}
 
-            <Button type="submit" disabled={loading} className="w-full justify-center">
+            <Button
+              type="submit"
+              disabled={loading}
+              className="w-full justify-center"
+            >
               {loading ? 'Sending…' : 'Register Interest in the Exec App'}
             </Button>
+
           </form>
+
         </div>
+
       </Section>
 
-      {/* Section 8.3 — What Happens Next */}
-      <Section>
-        <h2 className="text-2xl font-bold text-text-primary mb-8">What happens next</h2>
-        <div className="max-w-2xl space-y-6">
-          {WHAT_HAPPENS_NEXT.map((item) => (
-            <div key={item.step} className="flex gap-4">
-              <div className="shrink-0 w-10 h-10 rounded-full bg-accent/20 text-accent font-bold flex items-center justify-center">
-                {item.step}
+
+
+      {/* WHAT HAPPENS NEXT */}
+      <Section className="bg-gray-50">
+
+        <div className="max-w-3xl mx-auto">
+
+          <h2 className="text-2xl font-bold text-black mb-8">
+            What happens next
+          </h2>
+
+          <div className="space-y-6">
+
+            {WHAT_HAPPENS_NEXT.map((item) => (
+              <div key={item.step} className="flex gap-4">
+
+                <div className="shrink-0 w-10 h-10 rounded-full bg-accent/20 text-accent font-bold flex items-center justify-center">
+                  {item.step}
+                </div>
+
+                <p className="text-black/70 pt-1.5">
+                  {item.text}
+                </p>
+
               </div>
-              <p className="text-text-secondary pt-1.5">{item.text}</p>
-            </div>
-          ))}
+            ))}
+
+          </div>
+
         </div>
+
       </Section>
     </>
   );

@@ -31,30 +31,40 @@ function formatAnswer(text) {
 
 function FaqAccordionItem({ item, isOpen, onToggle }) {
   return (
-    <div className="border border-slate-700 rounded-lg bg-card-bg overflow-hidden">
+    <div className="bg-white border border-black/10 rounded-xl shadow-sm overflow-hidden">
+
       <button
         type="button"
         onClick={onToggle}
-        className="w-full flex items-center justify-between gap-4 px-4 py-3 text-left hover:bg-slate-800/50 transition-colors"
+        className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-gray-50 transition"
       >
-        <span className="font-medium text-text-primary">{item.q}</span>
-        <span className="shrink-0 text-slate-400">
-          <svg className={`w-5 h-5 transition-transform ${isOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
+        <span className="font-medium text-black">
+          {item.q}
         </span>
+
+        <svg
+          className={`w-5 h-5 text-black/60 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+
       </button>
+
       {isOpen && (
-        <div className="px-4 pb-4 pt-0">
-          <p className="text-text-secondary text-sm">{formatAnswer(item.a)}</p>
+        <div className="px-6 pb-5 text-sm text-black/70">
+          {formatAnswer(item.a)}
         </div>
       )}
+
     </div>
   );
 }
 
 export function FAQ() {
-  const [openKey, setOpenKey] = useState(null); // 'groupIndex-itemIndex'
+  const [openKey, setOpenKey] = useState(null);
 
   return (
     <>
@@ -63,40 +73,70 @@ export function FAQ() {
         <meta name="description" content="Frequently asked questions about the Exec App, register interest, integrations, and pricing." />
       </Helmet>
 
-      {/* Section 10.1 — Hero */}
-      <section className="py-24 max-w-7xl mx-auto px-6">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl lg:text-5xl font-bold text-text-primary">
-            Frequently Asked Questions
-          </h1>
+      {/* HERO */}
+      <section className="py-28 border-b border-black/10 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+
+          <div className="max-w-3xl">
+
+            <h1 className="text-4xl lg:text-5xl font-bold text-black mb-4">
+              Frequently Asked Questions
+            </h1>
+
+            <p className="text-black/70">
+              Answers to common questions about the Exec App, early access, integrations, and pricing.
+            </p>
+
+          </div>
+
         </div>
       </section>
 
-      {/* Section 10.2 — FAQ Accordions (4 groups) */}
-      <Section className="bg-secondary/50">
-        <div className="max-w-3xl space-y-10">
+      {/* FAQ GROUPS */}
+      <Section>
+
+        <div className="max-w-3xl mx-auto space-y-12">
+
           {faqGroups.map((group, gi) => (
+
             <div key={gi}>
-              <h2 className="text-xl font-bold text-text-primary mb-4">{group.title}</h2>
-              <div className="space-y-2">
+
+              <h2 className="text-xl font-bold text-black mb-4">
+                {group.title}
+              </h2>
+
+              <div className="space-y-3">
+
                 {group.items.map((item, ii) => {
                   const key = `${gi}-${ii}`;
+
                   return (
                     <FaqAccordionItem
                       key={ii}
                       item={item}
                       isOpen={openKey === key}
-                      onToggle={() => setOpenKey((prev) => (prev === key ? null : key))}
+                      onToggle={() =>
+                        setOpenKey(prev => (prev === key ? null : key))
+                      }
                     />
                   );
                 })}
+
               </div>
+
             </div>
+
           ))}
+
         </div>
-        <div className="mt-12 text-center">
-          <Button to="/register-interest">Register Interest</Button>
+
+        {/* CTA */}
+        <div className="mt-16 text-center">
+          <Button to="/register-interest">
+            Register Interest
+          </Button>
         </div>
+
       </Section>
     </>
   );
