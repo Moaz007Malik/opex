@@ -49,33 +49,81 @@ export function Resources() {
           <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
             Resources for Manufacturing Leaders
           </h1>
-          <p className="text-lg text-text-secondary">
+          <p className="text-lg text-text-secondary mb-3">
             Guides, articles, and operational intelligence thinking for operations directors, plant managers, and manufacturing executives.
+          </p>
+          <p className="text-sm text-text-secondary max-w-3xl">
+            This page is a curated list of resources. Article content is illustrative and subject to change as the Exec App and OpEx6 platform develop.
           </p>
         </div>
       </section>
 
-      {/* Section 6.2 — Article Cards (6 articles, 3-column grid) */}
+      {/* Section 6.2 — Article list (list page only) */}
       <Section className="bg-secondary/50">
+        <div className="flex items-baseline justify-between gap-4 mb-6">
+          <h2 className="text-2xl font-bold text-text-primary">Latest resources</h2>
+          <p className="text-xs text-text-secondary">
+            List page only — full articles will be published as the platform develops.
+          </p>
+        </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {ARTICLES.map((article, i) => (
             <Card key={i} className="flex flex-col">
-              <span className="inline-block w-fit text-xs font-medium uppercase tracking-wider text-accent mb-3">
-                {article.category}
+              <div className="flex items-center justify-between gap-2 mb-2">
+                <span className="inline-block w-fit text-[11px] font-medium uppercase tracking-wider text-accent">
+                  {article.category}
+                </span>
+              </div>
+              <h2 className="font-semibold text-base md:text-lg text-text-primary mb-2 line-clamp-3">
+                {article.title}
+              </h2>
+              <p className="text-text-secondary text-sm mb-4 flex-1 line-clamp-5">
+                {article.excerpt}
+              </p>
+              <span className="text-text-secondary text-xs">
+                Full article coming soon.
               </span>
-              <h2 className="font-semibold text-lg text-text-primary mb-2">{article.title}</h2>
-              <p className="text-text-secondary text-sm mb-4 flex-1">{article.excerpt}</p>
-              <a
-                href="#"
-                className="text-accent font-medium text-sm hover:underline inline-flex items-center gap-1"
-              >
-                Read More
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
             </Card>
           ))}
+        </div>
+      </Section>
+
+      {/* Section 6.3 — Manufacturing questions cards */}
+      <Section>
+        <h2 className="text-3xl font-bold text-text-primary mb-6">
+          Questions manufacturing leaders should be able to answer faster
+        </h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <Card>
+            <p className="text-text-secondary text-sm">
+              What is the true cost per unit of your top product right now?
+            </p>
+          </Card>
+          <Card>
+            <p className="text-text-secondary text-sm">
+              How much cash is trapped in WIP across your factory floor?
+            </p>
+          </Card>
+          <Card>
+            <p className="text-text-secondary text-sm">
+              Which products are quietly losing you money?
+            </p>
+          </Card>
+          <Card>
+            <p className="text-text-secondary text-sm">
+              How much unrecovered cost sits inside recurring downtime?
+            </p>
+          </Card>
+          <Card>
+            <p className="text-text-secondary text-sm">
+              Is your budget grounded in factory reality or spreadsheet optimism?
+            </p>
+          </Card>
+          <Card>
+            <p className="text-text-secondary text-sm">
+              How quickly would leadership see the impact of a raw-material price jump?
+            </p>
+          </Card>
         </div>
       </Section>
     </>
