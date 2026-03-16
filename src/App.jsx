@@ -7,14 +7,16 @@ import { KPIsDashboards } from './pages/KPIsDashboards';
 import { Pricing } from './pages/Pricing';
 import { Resources } from './pages/Resources';
 import { UseCases } from './pages/UseCases';
+import { UseCasePackagingMargin } from './pages/UseCasePackagingMargin';
+import { UseCasePrecisionDowntime } from './pages/UseCasePrecisionDowntime';
+import { UseCaseChemicalsQuality } from './pages/UseCaseChemicalsQuality';
 import { RegisterInterest } from './pages/RegisterInterest';
 import { Support } from './pages/Support';
 import { FAQ } from './pages/FAQ';
 import { About } from './pages/About';
-import { Contact } from './pages/Contact';
-import { PrivacyNotice } from './pages/PrivacyNotice';
-import { CookieNotice } from './pages/CookieNotice';
-import { TermsOfUse } from './pages/TermsOfUse';
+import { Privacy } from './pages/Privacy';
+import { Cookies } from './pages/Cookies';
+import { Terms } from './pages/Terms';
 
 function App() {
   return (
@@ -22,19 +24,21 @@ function App() {
       <Route path="/" element={<BaseLayout />}>
         <Route index element={<Homepage />} />
         <Route path="exec-app" element={<ExecApp />} />
-        <Route path="kpis-dashboards" element={<KPIsDashboards />} />
+        <Route path="kpis" element={<KPIsDashboards />} />
         <Route path="how-it-works" element={<HowItWorks />} />
         <Route path="pricing" element={<Pricing />} />
         <Route path="resources" element={<Resources />} />
         <Route path="use-cases" element={<UseCases />} />
+        <Route path="use-cases/packaging-group-margin-visibility" element={<UseCasePackagingMargin />} />
+        <Route path="use-cases/precision-engineering-downtime-reduction" element={<UseCasePrecisionDowntime />} />
+        <Route path="use-cases/chemicals-quality-and-compliance" element={<UseCaseChemicalsQuality />} />
         <Route path="register-interest" element={<RegisterInterest />} />
         <Route path="support" element={<Support />} />
         <Route path="faq" element={<FAQ />} />
         <Route path="about" element={<About />} />
-        <Route path="contact" element={<Contact />} />
-        <Route path="privacy-notice" element={<PrivacyNotice />} />
-        <Route path="cookie-notice" element={<CookieNotice />} />
-        <Route path="terms-of-use" element={<TermsOfUse />} />
+        <Route path="privacy" element={<Privacy />} />
+        <Route path="cookies" element={<Cookies />} />
+        <Route path="terms" element={<Terms />} />
       </Route>
     </Routes>
   );

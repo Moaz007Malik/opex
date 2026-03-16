@@ -1,0 +1,163 @@
+import { Helmet } from 'react-helmet-async';
+import { Section } from '../components/Section';
+import { Button } from '../components/ui/Button';
+import { Card } from '../components/ui/Card';
+
+export function UseCasePrecisionDowntime() {
+  return (
+    <>
+      <Helmet>
+        <title>Precision Engineering — Downtime Reduction Use Case | OpEx6</title>
+        <meta
+          name="description"
+          content="An anonymised illustrative use case showing how a precision engineering manufacturer could use OpEx6 to reduce recurring downtime and improve schedule attainment in a high-mix environment."
+        />
+      </Helmet>
+
+      <Section>
+        <div className="max-w-4xl mx-auto">
+          <p className="text-accent text-sm font-medium uppercase tracking-widest mb-2">
+            Anonymised illustrative customer use case
+          </p>
+          <h1 className="text-3xl lg:text-4xl font-bold text-text-primary mb-3">
+            Reducing downtime visibility gaps in a high-mix precision engineering environment
+          </h1>
+          <p className="text-lg text-text-secondary mb-2">
+            A precision engineering manufacturer needed better visibility into machine downtime, changeovers, schedule adherence, and output
+            reliability across a complex production environment. OpEx6 was configured to help the leadership team move from reactive
+            reporting to structured operational review.
+          </p>
+          <p className="text-sm text-text-secondary mb-4">
+            Executive sponsor: Chief Operating Officer, UK precision engineering manufacturer.
+          </p>
+          <p className="text-xs text-text-secondary mb-6">
+            These are anonymised illustrative customer use cases based on common manufacturing scenarios. They are provided for general
+            information and do not represent a named customer endorsement or guarantee of results.
+          </p>
+
+          <div className="border-l-4 border-accent bg-card-bg/60 p-4 rounded-md mb-8">
+            <p className="text-text-secondary text-sm italic">
+              &ldquo;We knew where we were hurting, but we did not have one disciplined way to see it across shifts and machines. OpEx6 helped
+              us move from anecdotal firefighting to structured action.&rdquo;
+            </p>
+            <p className="text-[11px] text-text-secondary mt-2">
+              — COO, UK precision engineering manufacturer (anonymised illustrative scenario)
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+            <Card>
+              <p className="text-[11px] text-text-secondary mb-1 uppercase tracking-wider">
+                Recurring downtime change
+              </p>
+              <p className="text-xl font-semibold text-text-primary">-14%</p>
+              <p className="text-[10px] text-text-secondary mt-1">Illustrative scenario, not a guarantee.</p>
+            </Card>
+            <Card>
+              <p className="text-[11px] text-text-secondary mb-1 uppercase tracking-wider">
+                Schedule attainment
+              </p>
+              <p className="text-xl font-semibold text-text-primary">81% → 90%</p>
+            </Card>
+            <Card>
+              <p className="text-[11px] text-text-secondary mb-1 uppercase tracking-wider">
+                Changeover overrun change
+              </p>
+              <p className="text-xl font-semibold text-text-primary">-21%</p>
+              <p className="text-[10px] text-text-secondary mt-1">Average over illustrative period.</p>
+            </Card>
+            <Card>
+              <p className="text-[11px] text-text-secondary mb-1 uppercase tracking-wider">
+                On-time delivery change
+              </p>
+              <p className="text-xl font-semibold text-text-primary">+8 pts</p>
+              <p className="text-[10px] text-text-secondary mt-1">Illustrative scenario, not a guarantee.</p>
+            </Card>
+            <Card>
+              <p className="text-[11px] text-text-secondary mb-1 uppercase tracking-wider">
+                Estimated annualised value
+              </p>
+              <p className="text-xl font-semibold text-text-primary">£860,000</p>
+              <p className="text-[10px] text-text-secondary mt-1">Illustrative value model only.</p>
+            </Card>
+          </div>
+
+          <h2 className="text-xl font-semibold text-text-primary mt-6 mb-3">
+            Challenge
+          </h2>
+          <p className="text-text-secondary text-sm mb-4">
+            The business produced high-mix, lower-volume work with frequent setup changes. Recurring downtime was hidden inside broad
+            reason codes, changeover overruns were not surfaced consistently, and weekly reporting arrived too late to drive action.
+          </p>
+
+          <h2 className="text-xl font-semibold text-text-primary mt-6 mb-3">
+            Leadership questions behind the project
+          </h2>
+          <ul className="list-disc list-inside text-text-secondary text-sm space-y-1 mb-4">
+            <li>Which changeovers are drifting furthest from standard?</li>
+            <li>Which downtime reasons are recurring but still buried in broad categories?</li>
+            <li>Where is schedule underperformance becoming customer-delivery risk?</li>
+            <li>How much productive capacity is being lost without a disciplined visibility model?</li>
+          </ul>
+
+          <h2 className="text-xl font-semibold text-text-primary mt-6 mb-3">
+            What was implemented
+          </h2>
+          <p className="text-text-secondary text-sm mb-2">
+            In this illustrative scenario, the Exec App is configured to provide:
+          </p>
+          <ul className="list-disc list-inside text-text-secondary text-sm space-y-1 mb-4">
+            <li>Machine-level downtime views.</li>
+            <li>Reason-code rollups for leadership.</li>
+            <li>Shift-by-shift schedule attainment views.</li>
+            <li>Delivery risk dashboards.</li>
+            <li>Exception-focused weekly review dashboards.</li>
+            <li>Structured export views for operations meetings.</li>
+          </ul>
+
+          <h2 className="text-xl font-semibold text-text-primary mt-6 mb-3">
+            Time to rollout
+          </h2>
+          <p className="text-text-secondary text-sm mb-4">
+            Illustratively 6 weeks from scoping to first structured downtime and schedule review, depending on the availability of downtime
+            data, tagging standards, and cell connectivity.
+          </p>
+
+          <h2 className="text-xl font-semibold text-text-primary mt-6 mb-3">
+            Results
+          </h2>
+          <p className="text-text-secondary text-sm mb-4">
+            In this anonymised example, recurring downtime reduced by 14%, schedule attainment improved from 81% to 90%, average changeover
+            overrun reduced by 21%, on-time delivery improved by 8 percentage points, and weekly reporting preparation time reduced by
+            around 65%. Leadership gains line-of-sight to where capacity is being lost and how that relates to missed schedule.
+          </p>
+
+          <h2 className="text-xl font-semibold text-text-primary mt-6 mb-3">
+            ROI story
+          </h2>
+          <p className="text-text-secondary text-sm mb-4">
+            Illustratively, the annualised value model for this scenario is built from: recovered productive capacity (approximately
+            £410,000), lower expediting and delivery penalties (approximately £260,000), reduced reporting and admin effort (approximately
+            £90,000), and changeover efficiency gains (approximately £100,000). Together these give an estimated annualised total value of
+            around £860,000. This is a scenario only and not a guarantee of results; actual ROI would vary by customer and execution.
+          </p>
+
+          <h2 className="text-xl font-semibold text-text-primary mt-6 mb-3">
+            Why it mattered
+          </h2>
+          <p className="text-text-secondary text-sm mb-6">
+            The business gained faster visibility into recurring losses, clearer issue prioritisation, more disciplined weekly reviews, and
+            a better connection between shop-floor loss and customer-delivery performance. A structured downtime view helped protect
+            schedule reliability by focusing effort on the specific machines and causes that most threatened delivery.
+          </p>
+
+          <Button to="/register-interest">
+            Register Interest in the Exec App
+          </Button>
+        </div>
+      </Section>
+    </>
+  );
+}
+
+

@@ -8,11 +8,23 @@ import { faqGroups } from '../data/faq';
 function formatAnswer(text) {
   if (text.includes('our KPIs & Dashboards page')) {
     const [before, after] = text.split('our KPIs & Dashboards page');
-    return <>{before}our <Link to="/kpis-dashboards" className="text-accent hover:underline">KPIs & Dashboards page</Link>{after}</>;
+    return (
+      <>
+        {before}
+        our <Link to="/kpis" className="text-accent hover:underline">KPIs & Dashboards page</Link>
+        {after}
+      </>
+    );
   }
   if (text.includes('sales@opex6.com')) {
     const [before, after] = text.split('sales@opex6.com');
-    return <>{before}<a href="mailto:sales@opex6.com" className="text-accent hover:underline">sales@opex6.com</a>{after}</>;
+    return (
+      <>
+        {before}
+        <a href="mailto:sales@opex6.com" className="text-accent hover:underline">sales@opex6.com</a>
+        {after}
+      </>
+    );
   }
   return text;
 }

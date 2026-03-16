@@ -1,28 +1,29 @@
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import { Section } from '../components/Section';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
 
 const STEPS = [
   {
-    title: 'Connect Your Systems',
+    title: 'Step 1 — Connect your data sources',
     icon: 'plug',
-    body: 'The Exec App is designed to integrate with your existing ERP, MES, SCADA, and data systems. Supported integration targets include SAP, Oracle, Infor, Epicor, Microsoft Dynamics, Rockwell, Siemens MindSphere, and Ignition. Integration scope and timelines are determined during implementation scoping. No rip-and-replace is required.',
+    body: 'Connect the operational systems, files, and reporting inputs that matter most — starting with where OEE, throughput, downtime, quality, and cost data already live. Integration scope and timelines are defined during implementation scoping.',
   },
   {
-    title: 'Configure Your Dashboards',
+    title: 'Step 2 — Configure your KPI framework',
     icon: 'sliders',
-    body: 'Select your KPI categories and configure dashboards to reflect your operational structure — by plant, line, shift, and role. The framework is structured to be configured around your operations, not a generic template.',
+    body: 'Apply the KPI categories, metrics, and visibility structure relevant to your operation. Configure views by plant, line, shift, and role so the framework reflects how your business actually runs.',
   },
   {
-    title: 'Set Up Your Users',
+    title: 'Step 3 — Set up leadership views',
     icon: 'users',
-    body: 'Add your leadership team, plant managers, and operational leads. Role-based access is designed so each user sees what is relevant to their level and function. Executives see the strategic view; plant teams see the operational detail.',
+    body: 'Give executives, plant leaders, and operational managers the views that are relevant to them. Executives see the structured high-level picture; site and functional leaders see the operational detail they need to act.',
   },
   {
-    title: 'Structured Operational Intelligence',
+    title: 'Step 4 — Go live with structured operational visibility',
     icon: 'dashboard',
-    body: 'Your leadership team has a single, structured view of operational performance across the KPI areas configured for your business. Consistent data. Consistent definitions. One place.',
+    body: 'Use one framework to review performance, issues, and improvement priorities more consistently. Shift leadership conversations from assembling data to deciding what to do about it.',
   },
 ];
 
@@ -71,32 +72,70 @@ export function HowItWorks() {
       <section className="py-24 max-w-7xl mx-auto px-6">
         <div className="max-w-3xl">
           <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
-            From Operational Data to Executive Clarity.
+            How the Exec App is being built to roll out.
           </h1>
-          <p className="text-lg text-text-secondary">
-            The Exec App is designed to reduce the time and effort it takes to get a structured, consistent view of operational performance. The framework is structured for practical deployment — connecting to your existing systems, configuring to your operational context, and giving your leadership team a structured intelligence view.
+          <p className="text-lg text-text-secondary mb-4">
+            The implementation approach is designed to be practical: connect the data sources that matter, apply a structured KPI framework, and give leadership teams the views they need to make better decisions.
+          </p>
+          <p className="text-sm text-text-secondary">
+            OpEx6 is currently in pre-launch / early-access phase. Product features, screenshots, integrations, availability, and pricing may change before general release.
           </p>
         </div>
       </section>
 
       {/* Section 4.2 — 4-Step Process */}
       <Section className="bg-secondary/50">
-        <div className="space-y-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {STEPS.map((step, i) => (
-            <div key={i} className="flex gap-6">
-              <div className="shrink-0 w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center">
-                <StepIcon icon={step.icon} />
+            <Card key={i} className="flex flex-col h-full">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="shrink-0 w-10 h-10 rounded-xl bg-accent/15 flex items-center justify-center">
+                  <StepIcon icon={step.icon} />
+                </div>
+                <h3 className="font-semibold text-base text-text-primary">
+                  {step.title}
+                </h3>
               </div>
-              <Card className="flex-1">
-                <h3 className="font-semibold text-lg text-text-primary mb-2">{step.title}</h3>
-                <p className="text-text-secondary text-sm">{step.body}</p>
-              </Card>
-            </div>
+              <p className="text-text-secondary text-sm">
+                {step.body}
+              </p>
+            </Card>
           ))}
         </div>
       </Section>
 
-      {/* Section 4.3 — Implementation Support */}
+      {/* Section 4.3 — Timeline / rollout framing */}
+      <Section>
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-2xl font-bold text-text-primary mb-4">
+            A simple implementation progression.
+          </h2>
+          <p className="text-text-secondary text-sm mb-6">
+            Exact timelines depend on data complexity and integration scope, but the progression typically follows these stages.
+          </p>
+          <div className="relative">
+            <div className="absolute top-5 left-4 right-4 h-px bg-border/60 hidden md:block" />
+            <div className="grid md:grid-cols-4 gap-6">
+              {['Discovery & scoping', 'Data connection', 'Configuration & testing', 'Rollout & review'].map((label, index) => (
+                <div key={index} className="relative flex md:flex-col items-start gap-3">
+                  <div className="w-8 h-8 rounded-full bg-accent/20 text-accent font-semibold flex items-center justify-center z-10">
+                    {index + 1}
+                  </div>
+                  <div className="text-sm text-text-secondary">
+                    <p className="font-medium text-text-primary mb-1">{label}</p>
+                    {index === 0 && <p>Confirm scope, systems, and priority KPI areas.</p>}
+                    {index === 1 && <p>Connect core data sources and validate feeds.</p>}
+                    {index === 2 && <p>Apply KPI framework, configure views, and test with pilot users.</p>}
+                    {index === 3 && <p>Extend access, refine dashboards, and embed into leadership routines.</p>}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* Section 4.4 — Implementation Support */}
       <Section>
         <h2 className="text-2xl font-bold text-text-primary mb-4">
           Structured onboarding for early access customers.
@@ -106,13 +145,30 @@ export function HowItWorks() {
         </p>
       </Section>
 
-      {/* Section 4.4 — Bottom CTA */}
-      <Section className="bg-secondary/50 text-center">
-        <h2 className="text-2xl font-bold text-text-primary mb-4">Ready to get started?</h2>
-        <p className="text-text-secondary max-w-xl mx-auto mb-6">
-          Register your interest today to be contacted ahead of launch with your early access details.
+      {/* Section 4.5 — FAQ teaser */}
+      <Section className="text-center">
+        <p className="text-text-secondary mb-2">
+          Questions about setup, rollout, or integrations?
         </p>
-        <Button to="/register-interest">Register My Interest</Button>
+        <p className="text-text-secondary">
+          <Link to="/faq" className="underline underline-offset-4">
+            See the FAQ
+          </Link>
+          .
+        </p>
+      </Section>
+
+      {/* Section 4.6 — Bottom CTA */}
+      <Section className="bg-secondary/50 text-center">
+        <h2 className="text-2xl font-bold text-text-primary mb-4">
+          Register interest in the Exec App.
+        </h2>
+        <p className="text-text-secondary max-w-xl mx-auto mb-6">
+          Register your interest today to be contacted ahead of launch with your early access details and implementation guidance for your environment.
+        </p>
+        <Button to="/register-interest">
+          Register Interest in the Exec App
+        </Button>
       </Section>
     </>
   );

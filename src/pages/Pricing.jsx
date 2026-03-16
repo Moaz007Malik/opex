@@ -8,9 +8,9 @@ const PRICING_CARDS = [
     id: 'register',
     badge: { text: 'Early Access Offer', variant: 'amber' },
     headline: 'Register Interest',
-    priceDisplay: 'Early launch offer — details confirmed at launch',
+    priceDisplay: 'Pre-launch early-access offer',
     subline: 'Register now to secure eligibility',
-    description: 'Register your interest now to secure your place on the early access list. Early registrants will be eligible for our introductory launch offer — 100 credits for £50 — when the Exec App opens to users. Subject to final launch terms.',
+    description: 'Register your interest now to secure your place on the early-access list. Early registrants will be eligible for our pre-launch offer — £50 for 50 credits + 25 free credits — when the Exec App opens to early users. Subject to final launch terms.',
     inclusions: [
       '100 platform credits',
       'Access to all KPI categories',
@@ -27,9 +27,9 @@ const PRICING_CARDS = [
     id: 'payg',
     badge: { text: 'Coming at Launch', variant: 'accent' },
     headline: 'PAYG',
-    priceDisplay: 'Credit-based — pricing confirmed at launch',
-    subline: 'Flexible usage, no long-term commitment',
-    description: 'The PAYG tier is designed for organisations that want flexible access without a fixed contract. Buy credits as you need them and use the platform on your schedule. Pricing will be published at launch.',
+    priceDisplay: 'Credit-based — indicative only',
+    subline: 'Planned flexible usage, no long-term commitment',
+    description: 'The PAYG tier is being designed for organisations that want flexible access without a fixed contract. Credits would be purchased as needed and used on your schedule. Indicative only — final commercial terms will be confirmed at launch.',
     inclusions: [
       'Credits purchased as needed',
       'No minimum contract requirement',
@@ -45,9 +45,9 @@ const PRICING_CARDS = [
     id: 'enterprise',
     badge: { text: 'Custom', variant: 'accent' },
     headline: 'Enterprise',
-    priceDisplay: "Let's talk",
+    priceDisplay: 'Custom — to be agreed',
     subline: 'Volume pricing and dedicated support for multi-site operations',
-    description: 'Built for larger manufacturing organisations with multi-site operations, complex data environments, and enterprise requirements. Custom credit arrangements and dedicated implementation support. Contact us to discuss your requirements.',
+    description: 'Built for larger manufacturing organisations with multi-site operations, complex data environments, and enterprise requirements. Expected to include custom credit arrangements and dedicated implementation support. Contact us to discuss your requirements ahead of launch.',
     inclusions: [
       'Volume credit arrangements',
       'Multi-site deployment support',
@@ -56,8 +56,8 @@ const PRICING_CARDS = [
       'Priority support',
       'Account management',
     ],
-    cta: 'Get in Touch',
-    ctaTo: '/contact',
+    cta: 'Register Interest to Discuss Enterprise Needs',
+    ctaTo: '/register-interest',
     noteBelowCta: null,
     highlighted: false,
   },
@@ -97,8 +97,11 @@ export function Pricing() {
           <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
             Straightforward. Transparent. Structured for scale.
           </h1>
-          <p className="text-lg text-text-secondary">
-            The Exec App uses a credit-based commercial model. Credits support your dashboard usage, reporting, and data connections. Full pricing details will be published at launch — but early registrants can secure a pre-launch offer.
+          <p className="text-lg text-text-secondary mb-4">
+            The Exec App is planned to use a credit-based commercial model. Credits are expected to support dashboard usage, reporting, and data connections. Full pricing details will be published at launch — early registrants can secure eligibility for the pre-launch offer.
+          </p>
+          <p className="text-sm text-text-secondary font-medium max-w-3xl">
+            Pricing shown is indicative for pre-launch / early-access purposes and may change. Final commercial terms will be set out in the applicable order form or contract.
           </p>
         </div>
       </section>
@@ -143,24 +146,46 @@ export function Pricing() {
 
       {/* Section 5.3 — Pricing FAQ Strip */}
       <Section>
-        <h2 className="text-2xl font-bold text-text-primary mb-8">Pricing FAQ</h2>
-        <div className="space-y-6 max-w-3xl">
+        <h2 className="text-2xl font-bold text-text-primary mb-6">Pricing FAQ</h2>
+        <div className="space-y-3 max-w-3xl">
           {PRICING_FAQ.map((faq, i) => (
-            <div key={i}>
-              <h3 className="font-semibold text-text-primary mb-1">{faq.q}</h3>
-              <p className="text-text-secondary text-sm">
-                {faq.a.includes('sales@opex6.com') ? (
-                  <>
-                    Yes. Organisations with multi-site or complex requirements can discuss custom credit arrangements and dedicated support.{' '}
-                    <a href="mailto:sales@opex6.com" className="text-accent hover:underline">Contact us at sales@opex6.com</a>.
-                  </>
-                ) : (
-                  faq.a
-                )}
-              </p>
-            </div>
+            <details key={i} className="border border-slate-700 rounded-lg bg-card-bg">
+              <summary className="cursor-pointer px-4 py-3 flex items-center justify-between gap-3">
+                <span className="font-medium text-sm text-text-primary">{faq.q}</span>
+                <span className="shrink-0 text-slate-400">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </span>
+              </summary>
+              <div className="px-4 pb-4 pt-0">
+                <p className="text-text-secondary text-sm">
+                  {faq.a.includes('sales@opex6.com') ? (
+                    <>
+                      Yes. Organisations with multi-site or complex requirements can discuss custom credit arrangements and dedicated support.{' '}
+                      <a href="mailto:sales@opex6.com" className="text-accent hover:underline">Contact us at sales@opex6.com</a>.
+                    </>
+                  ) : (
+                    faq.a
+                  )}
+                </p>
+              </div>
+            </details>
           ))}
         </div>
+      </Section>
+
+      {/* Section 5.4 — Final CTA */}
+      <Section className="bg-secondary/50 text-center">
+        <h2 className="text-2xl font-bold text-text-primary mb-4">
+          Register interest in the Exec App.
+        </h2>
+        <p className="text-text-secondary max-w-2xl mx-auto mb-6">
+          Register your interest today to secure eligibility for £50 for 50 credits + 25 free credits at launch, subject to final launch terms and contract.
+        </p>
+        <Button to="/register-interest">
+          Register Interest in the Exec App
+        </Button>
       </Section>
     </>
   );
