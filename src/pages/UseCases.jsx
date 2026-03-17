@@ -1,7 +1,9 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Section } from '../components/Section';
 import { Button } from '../components/ui/Button';
+import { RegisterInterestCTA } from '../components/RegisterInterestCTA';
 import { Card } from '../components/ui/Card';
 
 const USE_CASES = [
@@ -38,28 +40,34 @@ export function UseCases() {
 
 
       {/* HERO */}
-      <section className="py-28 border-b border-black/10 bg-gray-50">
+      <motion.section
+        className="py-28 border-b border-border bg-background"
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px 0px' }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+      >
         <div className="max-w-4xl mx-auto px-6">
 
           <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
             Anonymised illustrative customer use cases
           </p>
 
-          <h1 className="text-4xl lg:text-5xl font-bold text-black mb-6">
+          <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
             Customer Use Cases
           </h1>
 
-          <p className="text-lg text-black/70 mb-4">
+          <p className="text-lg text-text-secondary mb-4">
             See how OpEx6 is designed to help manufacturing leaders turn siloed operational data into structured visibility, faster decisions, and measurable financial outcomes.
           </p>
 
-          <p className="text-sm text-black/60 max-w-3xl">
+          <p className="text-sm text-text-secondary max-w-3xl">
             These are anonymised illustrative customer use cases based on common manufacturing scenarios. They are provided for
             general information and do not represent a named customer endorsement or guarantee of results.
           </p>
 
         </div>
-      </section>
+      </motion.section>
 
 
 
@@ -72,18 +80,18 @@ export function UseCases() {
 
             <Card
               key={uc.id}
-              className="flex flex-col border border-black/10 rounded-xl p-6 bg-white hover:shadow-md transition-shadow"
+              className="flex flex-col border border-border rounded-xl p-6 bg-card-bg hover:shadow-md transition-shadow"
             >
 
               <span className="inline-block w-fit text-[11px] font-medium uppercase tracking-wider text-accent mb-2">
                 {uc.sector}
               </span>
 
-              <h2 className="font-semibold text-base md:text-lg text-black mb-2">
+              <h2 className="font-semibold text-base md:text-lg text-text-primary mb-2">
                 {uc.title}
               </h2>
 
-              <p className="text-black/70 text-sm mb-6 flex-1">
+              <p className="text-text-secondary text-sm mb-6 flex-1">
                 {uc.summary}
               </p>
 
@@ -118,17 +126,7 @@ export function UseCases() {
 
 
         {/* CTA */}
-        <div className="text-center mt-16">
-
-          <p className="text-black/70 mb-6 max-w-xl mx-auto">
-            Interested in how the Exec App could support visibility and decision-making across your manufacturing operations?
-          </p>
-
-          <Button to="/register-interest">
-            Register Interest in the Exec App
-          </Button>
-
-        </div>
+        <RegisterInterestCTA />
 
       </Section>
 

@@ -22,7 +22,7 @@ function NavLink({ to, children }) {
     <Link
       to={to}
       className={`font-medium text-[15px] transition-colors ${
-        active ? "text-accent" : "text-black hover:text-accent"
+        active ? "text-accent" : "text-text-secondary hover:text-accent"
       }`}
     >
       {children}
@@ -39,7 +39,7 @@ function Dropdown({ label, links, open, onToggle }) {
     >
       <button
         type="button"
-        className="font-medium text-[15px] text-black hover:text-accent transition-colors flex items-center gap-1"
+        className="font-medium text-[15px] text-text-secondary hover:text-accent transition-colors flex items-center gap-1"
       >
         {label}
 
@@ -54,13 +54,13 @@ function Dropdown({ label, links, open, onToggle }) {
       </button>
 
       {open && (
-        <div className="absolute top-full left-0 mt-2 py-2 w-52 bg-white border border-black/10 rounded-xl shadow-lg z-50">
+        <div className="absolute top-full left-0 py-2 w-52 bg-card-bg border border-border rounded-xl shadow-lg z-50">
 
           {links.map(({ to, label }) => (
             <Link
               key={to}
               to={to}
-              className="block px-4 py-2 text-sm text-black/70 hover:text-accent hover:bg-gray-50 transition-colors"
+              className="block px-4 py-2 text-sm text-text-secondary hover:text-accent hover:bg-background/80 transition-colors"
             >
               {label}
             </Link>
@@ -79,19 +79,19 @@ export function Header() {
   const [bannerVisible, setBannerVisible] = useState(true);
 
   return (
-    <header className="sticky top-0 z-40 bg-white border-b border-black/10">
+    <header className="sticky top-0 z-40 bg-background/90 border-b border-border backdrop-blur">
 
       {bannerVisible && (
-        <div className="bg-blue-50 border-b border-blue-100">
-          <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between gap-4 text-xs sm:text-sm">
-            <p className="text-black/80">
+        <div className="bg-accent/10 border-b border-accent/30">
+          <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between gap-4 text-xs sm:text-sm text-text-secondary">
+            <p>
               Pre-launch early access: 50 credits for £50 + 25 free credits at launch (subject to final terms). No payment taken today.
             </p>
             <button
               type="button"
               onClick={() => setBannerVisible(false)}
               aria-label="Dismiss early-access banner"
-              className="shrink-0 text-black/50 hover:text-black"
+              className="shrink-0 text-text-secondary hover:text-text-primary"
             >
               ✕
             </button>
@@ -132,6 +132,8 @@ export function Header() {
 
           <NavLink to="/support">Support</NavLink>
 
+          <NavLink to="/contact">Contact</NavLink>
+
           <Button to="/register-interest">
             Register Interest
           </Button>
@@ -148,7 +150,7 @@ export function Header() {
           <button
             type="button"
             onClick={() => setMobileOpen(true)}
-            className="p-2 text-black hover:text-accent"
+            className="p-2 text-text-secondary hover:text-accent"
             aria-label="Open menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -161,14 +163,14 @@ export function Header() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="fixed inset-0 z-50 bg-white lg:hidden">
+        <div className="fixed inset-0 z-50 bg-background lg:hidden">
 
           <div className="flex flex-col h-full pt-20 px-6 pb-8">
 
             <button
               type="button"
               onClick={() => setMobileOpen(false)}
-              className="absolute top-6 right-6 p-2 text-black hover:text-accent"
+              className="absolute top-6 right-6 p-2 text-text-secondary hover:text-accent"
               aria-label="Close menu"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -188,14 +190,14 @@ export function Header() {
                     key={to}
                     to={to}
                     onClick={() => setMobileOpen(false)}
-                    className="block py-2 text-black hover:text-accent"
+                    className="block py-2 text-text-secondary hover:text-accent"
                   >
                     {label}
                   </Link>
                 ))}
               </div>
 
-              <Link to="/pricing" onClick={() => setMobileOpen(false)} className="block py-2 text-black hover:text-accent">
+              <Link to="/pricing" onClick={() => setMobileOpen(false)} className="block py-2 text-text-secondary hover:text-accent">
                 Pricing
               </Link>
 
@@ -209,19 +211,23 @@ export function Header() {
                     key={to}
                     to={to}
                     onClick={() => setMobileOpen(false)}
-                    className="block py-2 text-black hover:text-accent"
+                    className="block py-2 text-text-secondary hover:text-accent"
                   >
                     {label}
                   </Link>
                 ))}
               </div>
 
-              <Link to="/about" onClick={() => setMobileOpen(false)} className="block py-2 text-black hover:text-accent">
+              <Link to="/about" onClick={() => setMobileOpen(false)} className="block py-2 text-text-secondary hover:text-accent">
                 About
               </Link>
 
-              <Link to="/support" onClick={() => setMobileOpen(false)} className="block py-2 text-black hover:text-accent">
+              <Link to="/support" onClick={() => setMobileOpen(false)} className="block py-2 text-text-secondary hover:text-accent">
                 Support
+              </Link>
+
+              <Link to="/contact" onClick={() => setMobileOpen(false)} className="block py-2 text-text-secondary hover:text-accent">
+                Contact
               </Link>
 
               <Button to="/register-interest" className="w-full justify-center mt-4">

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { motion } from 'framer-motion';
 import { Section } from '../components/Section';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
@@ -51,20 +52,26 @@ export function Contact() {
       </Helmet>
 
       {/* HERO */}
-      <section className="py-28 max-w-7xl mx-auto px-6">
+      <motion.section
+        className="py-28 max-w-7xl mx-auto px-6"
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px 0px' }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+      >
         <div className="grid lg:grid-cols-2 gap-16 items-center">
 
           <div>
 
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6">
+            <h1 className="text-5xl lg:text-6xl font-bold mb-6 text-text-primary">
               Get in Touch
             </h1>
 
-            <p className="text-lg text-black/70 mb-4">
+            <p className="text-lg text-text-secondary mb-4">
               Whether you have a question about the platform, want to discuss your requirements, or are interested in enterprise pricing — we would like to hear from you.
             </p>
 
-            <p className="text-black/70 text-sm mb-6">
+            <p className="text-text-secondary text-sm mb-6">
               Email us at{' '}
               <a
                 href="mailto:sales@opex6.com"
@@ -75,20 +82,20 @@ export function Contact() {
             </p>
 
             <img
-              src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7"
+              src="https://static.vecteezy.com/system/resources/thumbnails/001/263/984/small/contact-us-concept.jpg?auto=format&fit=crop&w=1200&q=80"
               className="rounded-xl shadow-lg"
-              alt="Contact team"
+              alt="Team collaborating over data dashboards"
             />
 
           </div>
 
           {/* FORM CARD */}
-          <div className="bg-white border border-black/10 rounded-xl p-8 shadow-sm">
+          <div className="bg-card-bg border border-border rounded-xl p-8 shadow-sm">
 
             {sent ? (
-              <div className="bg-green-50 border border-green-200 rounded-xl p-5 text-black">
+              <div className="bg-success/10 border border-success/40 rounded-xl p-5 text-text-primary">
                 <p className="font-medium">Message sent.</p>
-                <p className="text-sm text-black/70 mt-1">
+                <p className="text-sm text-text-secondary mt-1">
                   We aim to respond to all enquiries within 1 business day.
                 </p>
               </div>
@@ -127,7 +134,7 @@ export function Contact() {
                 />
 
                 <div>
-                  <label className="block text-sm font-medium text-black mb-1">
+                  <label className="block text-xs font-medium tracking-[0.1em] uppercase text-text-secondary mb-1">
                     Message
                   </label>
 
@@ -139,7 +146,7 @@ export function Contact() {
                     }
                     placeholder="Your message"
                     rows={5}
-                    className="w-full border border-black/10 rounded-lg px-4 py-3 text-black placeholder-black/40 focus:outline-none focus:border-accent transition-colors resize-y"
+                    className="w-full border border-border rounded-lg px-4 py-3 bg-[#020617] text-text-primary placeholder-text-secondary focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/40 transition-colors resize-y"
                   />
                 </div>
 
@@ -157,7 +164,7 @@ export function Contact() {
                   {loading ? 'Sending…' : 'Submit'}
                 </Button>
 
-                <p className="text-black/70 text-sm">
+                <p className="text-text-secondary text-sm">
                   We aim to respond to all enquiries within 1 business day.
                 </p>
 
@@ -167,16 +174,16 @@ export function Contact() {
           </div>
 
         </div>
-      </section>
+      </motion.section>
 
       {/* SECOND CTA */}
-      <Section className="bg-gray-50 text-center">
+      <Section className="text-center">
 
-        <h2 className="text-3xl font-bold mb-4">
+        <h2 className="text-3xl font-bold mb-4 text-text-primary">
           Prefer email?
         </h2>
 
-        <p className="text-black/70 mb-6">
+        <p className="text-text-secondary mb-6">
           You can also contact us directly and we will respond as soon as possible.
         </p>
 

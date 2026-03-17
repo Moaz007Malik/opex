@@ -7,29 +7,29 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Core colors
-        background: '#FFFFFF',
-        foreground: '#000000',
+        // Core colors — dark theme
+        background: '#0F172A', // Page Background (Dark Navy)
+        foreground: '#F8FAFC',
 
         // UI surfaces
-        primary: '#FFFFFF',
-        secondary: '#F8FAFC',
-        'card-bg': '#F8FAFC',
+        primary: '#0F172A',
+        secondary: '#1E293B', // Section / card background
+        'card-bg': '#1E293B',
 
         // Brand / action
-        accent: '#2563EB',
+        accent: '#6366F1', // Indigo buttons / highlights
 
         // Supporting colors
-        highlight: '#F59E0B',
+        highlight: '#F59E0B', // Launch offer badge / pricing callouts
         success: '#10B981',
         danger: '#EF4444',
 
-        // Text colors (no gray text)
-        'text-primary': '#000000',
-        'text-secondary': '#000000B3', // black at ~70% opacity
+        // Text colors
+        'text-primary': '#F8FAFC',
+        'text-secondary': '#94A3B8',
 
         // Borders
-        border: '#0000001A', // black at ~10% opacity
+        border: '#334155',
       },
 
       fontFamily: {

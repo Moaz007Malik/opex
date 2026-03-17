@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Section } from '../components/Section';
 import { Button } from '../components/ui/Button';
 import { faqGroups } from '../data/faq';
@@ -31,19 +32,19 @@ function formatAnswer(text) {
 
 function FaqAccordionItem({ item, isOpen, onToggle }) {
   return (
-    <div className="bg-white border border-black/10 rounded-xl shadow-sm overflow-hidden">
+    <div className="bg-card-bg border border-border rounded-xl shadow-sm overflow-hidden">
 
       <button
         type="button"
         onClick={onToggle}
-        className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-gray-50 transition"
+        className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-background/70 transition"
       >
-        <span className="font-medium text-black">
+        <span className="font-medium text-text-primary">
           {item.q}
         </span>
 
         <svg
-          className={`w-5 h-5 text-black/60 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          className={`w-5 h-5 text-text-secondary transition-transform ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -54,7 +55,7 @@ function FaqAccordionItem({ item, isOpen, onToggle }) {
       </button>
 
       {isOpen && (
-        <div className="px-6 pb-5 text-sm text-black/70">
+        <div className="px-6 pb-5 text-sm text-text-secondary">
           {formatAnswer(item.a)}
         </div>
       )}
@@ -74,23 +75,29 @@ export function FAQ() {
       </Helmet>
 
       {/* HERO */}
-      <section className="py-28 border-b border-black/10 bg-gray-50">
+      <motion.section
+        className="py-28 border-b border-border bg-background"
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px 0px' }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+      >
         <div className="max-w-7xl mx-auto px-6">
 
           <div className="max-w-3xl">
 
-            <h1 className="text-4xl lg:text-5xl font-bold text-black mb-4">
+            <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-4">
               Frequently Asked Questions
             </h1>
 
-            <p className="text-black/70">
+            <p className="text-text-secondary">
               Answers to common questions about the Exec App, early access, integrations, and pricing.
             </p>
 
           </div>
 
         </div>
-      </section>
+      </motion.section>
 
       {/* FAQ GROUPS */}
       <Section>
@@ -101,7 +108,7 @@ export function FAQ() {
 
             <div key={gi}>
 
-              <h2 className="text-xl font-bold text-black mb-4">
+              <h2 className="text-xl font-bold text-text-primary mb-4">
                 {group.title}
               </h2>
 

@@ -18,8 +18,8 @@ export function Checkbox({
           mt-1
           h-4 w-4
           rounded
-          border border-black/20
-          bg-white
+          border border-border
+          bg-background
           text-accent
           focus:ring-2
           focus:ring-accent/30
@@ -29,7 +29,7 @@ export function Checkbox({
 
       <label
         htmlFor={id}
-        className="text-sm text-black/70 cursor-pointer select-none"
+        className="text-sm text-text-secondary cursor-pointer select-none"
       >
         {label}
       </label>

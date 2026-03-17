@@ -11,6 +11,7 @@ const companyLinks = [
   { to: '/about', label: 'About' },
   { to: '/use-cases', label: 'Use Cases' },
   { to: '/resources', label: 'Resources' },
+  { to: '/contact', label: 'Contact' },
 ];
 
 const legalLinks = [
@@ -25,7 +26,7 @@ function FooterColumn({ title, links }) {
   return (
     <div>
 
-      <h3 className="font-semibold text-black mb-4">
+      <h3 className="font-semibold text-text-primary mb-4">
         {title}
       </h3>
 
@@ -34,7 +35,7 @@ function FooterColumn({ title, links }) {
           <li key={to}>
             <Link
               to={to}
-              className="text-black/70 hover:text-accent transition-colors text-sm"
+              className="text-text-secondary hover:text-accent transition-colors text-sm"
             >
               {label}
             </Link>
@@ -48,7 +49,7 @@ function FooterColumn({ title, links }) {
 
 export function Footer() {
   return (
-    <footer className="bg-white border-t border-black/10">
+    <footer className="bg-secondary border-t border-border">
 
       <div className="max-w-7xl mx-auto px-6 py-16">
 
@@ -69,16 +70,16 @@ export function Footer() {
               />
             </Link>
 
-            <p className="text-sm text-black/70 max-w-xs">
+            <p className="text-sm text-text-secondary max-w-xs">
               Operational Intelligence That Executives Actually Use.
             </p>
-            <p className="text-sm text-black/70 max-w-xs mt-2">
+            <p className="text-sm text-text-secondary max-w-xs mt-2">
               Being built around 130+ manufacturing KPIs across 12 dashboard areas — structured for plant, multi-site, and board reviews.
             </p>
 
-            <div className="text-[11px] text-black/60 mt-6 space-y-1">
+            <div className="text-[11px] text-text-secondary mt-6 space-y-1">
 
-              <p className="font-medium text-black">
+              <p className="font-medium text-text-primary">
                 OpEx6 Technologies Ltd
               </p>
 
@@ -112,7 +113,7 @@ export function Footer() {
 
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-black/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-black/60 text-center sm:text-left">
+        <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-text-secondary text-center sm:text-left">
 
           <span>
             © 2025 OpEx6 Technologies Ltd. All rights reserved.

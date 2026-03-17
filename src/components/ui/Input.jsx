@@ -2,7 +2,7 @@ export function Input({ label, error, className = '', ...props }) {
   return (
     <div className={className}>
       {label && (
-        <label className="block text-sm font-medium text-black mb-1">
+        <label className="block text-xs font-medium tracking-[0.1em] uppercase text-text-secondary mb-1">
           {label}
         </label>
       )}
@@ -10,15 +10,15 @@ export function Input({ label, error, className = '', ...props }) {
       <input
         className="
           w-full
-          bg-white
-          border border-black/10
+          bg-background
+          border border-border
           rounded-lg
           px-4 py-3
-          text-black
-          placeholder-black/40
+          text-text-primary
+          placeholder-text-secondary
           focus:outline-none
           focus:ring-2
-          focus:ring-accent/30
+          focus:ring-accent/40
           focus:border-accent
           transition
         "
@@ -26,7 +26,7 @@ export function Input({ label, error, className = '', ...props }) {
       />
 
       {error && (
-        <p className="mt-1 text-sm text-red-500">
+        <p className="mt-1 text-sm text-danger">
           {error}
         </p>
       )}

@@ -19,11 +19,11 @@ export function CookieBanner() {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-black/10 shadow-lg">
+    <div className="fixed bottom-0 left-0 right-0 z-50 bg-secondary border-t border-border shadow-lg">
 
       <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
 
-        <p className="text-sm text-black/70 max-w-3xl">
+        <p className="text-sm text-text-secondary max-w-3xl">
           This site uses only strictly necessary cookies to support core functionality. 
           No analytics or marketing cookies are used at launch.{' '}
           <Link to="/cookies" className="text-accent hover:underline">

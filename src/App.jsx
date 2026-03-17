@@ -29,6 +29,7 @@ function App() {
           <Route index element={<Homepage />} />
           <Route path="exec-app" element={<ExecApp />} />
           <Route path="kpis" element={<KPIsDashboards />} />
+          <Route path="kpis-dashboards" element={<KPIsDashboards />} />
           <Route path="how-it-works" element={<HowItWorks />} />
           <Route path="pricing" element={<Pricing />} />
           <Route path="resources" element={<Resources />} />

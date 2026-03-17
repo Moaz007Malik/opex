@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Section } from '../components/Section';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
@@ -75,30 +76,36 @@ export function Support() {
       </Helmet>
 
       {/* HERO */}
-      <section className="py-32 bg-gray-50 border-b border-black/10">
+      <motion.section
+      className="py-32 bg-background border-b border-border"
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px 0px' }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+      >
         <div className="max-w-4xl mx-auto px-6 text-center">
 
           <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
             Support
           </p>
 
-          <h1 className="text-4xl lg:text-5xl font-bold text-black mb-6">
+          <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
             How Can We Help?
           </h1>
 
-          <p className="text-lg text-black/70 max-w-2xl mx-auto">
+          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
             Find answers to common questions or get in touch with the OpEx6 team directly.
           </p>
 
         </div>
-      </section>
+      </motion.section>
 
 
 
       {/* SUPPORT CATEGORIES */}
       <Section>
 
-        <h2 className="text-2xl font-bold text-black mb-8">
+        <h2 className="text-2xl font-bold text-text-primary mb-8">
           Browse support topics
         </h2>
 
@@ -108,13 +115,13 @@ export function Support() {
 
             <Link key={i} to={cat.to} className="block">
 
-              <Card className="h-full border border-black/10 rounded-xl p-6 bg-white hover:shadow-md hover:border-accent transition-all">
+              <Card className="h-full border border-border rounded-xl p-6 bg-card-bg hover:shadow-md hover:border-accent transition-all">
 
-                <h3 className="font-semibold text-black mb-2">
+                <h3 className="font-semibold text-text-primary mb-2">
                   {cat.title}
                 </h3>
 
-                <p className="text-black/70 text-sm">
+                <p className="text-text-secondary text-sm">
                   {cat.description}
                 </p>
 
@@ -131,22 +138,22 @@ export function Support() {
 
 
       {/* CONTACT SECTION */}
-      <Section className="bg-gray-50">
+      <Section className="bg-secondary">
 
         <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
 
           {/* LEFT SIDE */}
           <div>
 
-            <h2 className="text-3xl font-bold text-black mb-4">
+            <h2 className="text-3xl font-bold text-text-primary mb-4">
               Still need help?
             </h2>
 
-            <p className="text-black/70 mb-6">
+            <p className="text-text-secondary mb-6">
               If you cannot find the answer you are looking for, send us a message and our team will respond as soon as possible.
             </p>
 
-            <p className="text-black/70 text-sm">
+            <p className="text-text-secondary text-sm">
               Or email us directly at{' '}
               <a
                 href="mailto:sales@opex6.com"
@@ -165,13 +172,13 @@ export function Support() {
 
             {sent ? (
 
-              <div className="bg-green-50 border border-green-200 rounded-xl p-6">
+              <div className="bg-success/10 border border-success/40 rounded-xl p-6">
 
-                <p className="font-medium text-black">
+                <p className="font-medium text-text-primary">
                   Message sent.
                 </p>
 
-                <p className="text-sm text-black/70 mt-1">
+                <p className="text-sm text-text-secondary mt-1">
                   We aim to respond within 1 business day.
                 </p>
 
@@ -181,7 +188,7 @@ export function Support() {
 
               <form
                 onSubmit={handleSubmit}
-                className="space-y-5 border border-black/10 rounded-xl p-8 bg-white"
+                className="space-y-5 border border-border rounded-xl p-8 bg-card-bg"
               >
 
                 <Input
@@ -216,7 +223,7 @@ export function Support() {
                 />
 
                 <div>
-                  <label className="block text-sm font-medium text-black mb-1">
+                  <label className="block text-sm font-medium text-text-secondary mb-1">
                     Message
                   </label>
 
@@ -228,12 +235,12 @@ export function Support() {
                     }
                     placeholder="Your message"
                     rows={5}
-                    className="w-full border border-black/20 rounded-lg px-4 py-3 text-black placeholder-black/40 focus:outline-none focus:border-accent transition-colors resize-y"
+                    className="w-full border border-border rounded-lg px-4 py-3 text-text-primary placeholder-text-secondary bg-background focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/40 transition-colors resize-y"
                   />
                 </div>
 
                 {error && (
-                  <p className="text-red-600 text-sm">
+                  <p className="text-danger text-sm">
                     {error}
                   </p>
                 )}
@@ -246,7 +253,7 @@ export function Support() {
                   {loading ? 'Sending…' : 'Send Message'}
                 </Button>
 
-                <p className="text-black/60 text-sm">
+                <p className="text-text-secondary text-sm">
                   We aim to respond to all enquiries within 1 business day.
                 </p>
 

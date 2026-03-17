@@ -4,14 +4,21 @@
 
 @layer base {
   :root {
-    /* Core colors */
-    --background: #ffffff;
-    --foreground: #000000;
+    /* Core colors — dark theme */
+    --background: #0F172A;        /* Page Background */
+    --foreground: #F8FAFC;        /* Text Primary */
+
+    /* Text tokens */
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
 
     /* UI colors */
-    --accent: #2563EB;
-    --border: #E5E7EB;
-    --surface: #F8FAFC;
+    --accent: #6366F1;           /* Accent Indigo */
+    --border: #334155;           /* Slate border */
+    --surface: #1E293B;          /* Card / section background */
+    --highlight: #F59E0B;        /* Launch offer badge / pricing */
+    --success: #10B981;
+    --danger: #EF4444;
   }
 
   html {

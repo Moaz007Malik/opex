@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Section } from '../components/Section';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
@@ -72,11 +73,11 @@ export function RegisterInterest() {
 
         <Section>
           <div className="max-w-xl mx-auto text-center py-16">
-            <h1 className="text-3xl font-bold text-black mb-4">
+            <h1 className="text-3xl font-bold text-text-primary mb-4">
               Thank you.
             </h1>
 
-            <p className="text-black/70">
+            <p className="text-text-secondary">
               You are on the list. We will be in touch ahead of launch with your early access details and information about the £50 for 50 credits + 25 free credits pre-launch offer.
             </p>
           </div>
@@ -97,34 +98,40 @@ export function RegisterInterest() {
 
 
       {/* HERO */}
-      <section className="py-28 border-b border-black/10 bg-gray-50">
+      <motion.section
+        className="py-28 border-b border-border bg-background"
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-80px 0px' }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+      >
         <div className="max-w-4xl mx-auto px-6 text-center">
 
           <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
             Early Access
           </p>
 
-          <h1 className="text-4xl lg:text-5xl font-bold text-black mb-6">
+          <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
             Register Your Interest in the Exec App
           </h1>
 
-          <p className="text-lg text-black/70 mb-8">
+          <p className="text-lg text-text-secondary mb-8">
             Be among the first to access OpEx6's Exec App when it opens to early users. Register your interest now to secure your place on the early access list.
           </p>
 
 
-          <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-6 text-left max-w-xl mx-auto">
-            <p className="font-semibold text-black mb-1">
+          <div className="bg-highlight/10 border border-highlight/40 rounded-xl p-6 text-left max-w-xl mx-auto">
+            <p className="font-semibold text-text-primary mb-1">
               Early Access Offer
             </p>
 
-            <p className="text-sm text-black/70">
+            <p className="text-sm text-text-secondary">
               Register interest now to secure eligibility for £50 for 50 credits + 25 free credits at launch. This is a pre-launch registration — no payment is taken now. Subject to final launch terms.
             </p>
           </div>
 
         </div>
-      </section>
+      </motion.section>
 
 
 
@@ -135,7 +142,7 @@ export function RegisterInterest() {
 
           <form
             onSubmit={handleSubmit}
-            className="space-y-6 border border-black/10 rounded-xl p-8 bg-white"
+            className="space-y-6 border border-border rounded-xl p-8 bg-card-bg"
           >
 
             <Input
@@ -177,14 +184,14 @@ export function RegisterInterest() {
             />
 
 
-            <p className="text-xs text-black/60">
+            <p className="text-xs text-text-secondary">
               We&apos;ll use the details you provide to respond to your enquiry and manage your early-access request. Read our{' '}
               <Link to="/privacy" className="text-accent hover:underline">
                 Privacy Notice
               </Link>.
             </p>
 
-            <p className="text-xs text-black/60">
+            <p className="text-xs text-text-secondary">
               By submitting this form, you confirm you have read our{' '}
               <Link to="/privacy" className="text-accent hover:underline">
                 Privacy Notice
@@ -204,7 +211,7 @@ export function RegisterInterest() {
             />
 
             {error && (
-              <p className="text-red-600 text-sm">{error}</p>
+              <p className="text-danger text-sm">{error}</p>
             )}
 
             <Button
@@ -224,11 +231,11 @@ export function RegisterInterest() {
 
 
       {/* WHAT HAPPENS NEXT */}
-      <Section className="bg-gray-50">
+      <Section className="bg-secondary">
 
         <div className="max-w-3xl mx-auto">
 
-          <h2 className="text-2xl font-bold text-black mb-8">
+          <h2 className="text-2xl font-bold text-text-primary mb-8">
             What happens next
           </h2>
 
@@ -241,7 +248,7 @@ export function RegisterInterest() {
                   {item.step}
                 </div>
 
-                <p className="text-black/70 pt-1.5">
+                <p className="text-text-secondary pt-1.5">
                   {item.text}
                 </p>
 

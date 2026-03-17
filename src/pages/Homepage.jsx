@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Section } from "../components/Section";
@@ -7,6 +8,7 @@ import { Card } from "../components/ui/Card";
 import { Input } from "../components/ui/Input";
 import { Checkbox } from "../components/ui/Checkbox";
 import { HeroDashboardMockup } from "../components/HeroDashboardMockup";
+import { RegisterInterestCTA } from "../components/RegisterInterestCTA";
 import { FORMSPREE_ENDPOINT } from "../config/formspree";
 
 const SECTORS = [
@@ -240,9 +242,9 @@ function HeroForm() {
 
   if (submitted) {
     return (
-      <div className="bg-white border border-black/10 rounded-xl p-6 text-center shadow-sm">
-        <p className="text-black font-medium">Thank you. You're on the list.</p>
-        <p className="text-black/70 text-sm mt-1">
+      <div className="bg-card-bg border border-border rounded-xl p-6 text-center shadow-sm">
+        <p className="text-text-primary font-medium">Thank you. You're on the list.</p>
+        <p className="text-text-secondary text-sm mt-1">
           We'll be in touch ahead of launch.
         </p>
       </div>
@@ -252,7 +254,7 @@ function HeroForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white border border-black/10 rounded-xl p-6 space-y-4 max-w-md mx-auto shadow-sm"
+      className="bg-card-bg border border-border rounded-xl p-6 space-y-4 max-w-md mx-auto shadow-sm"
     >
       <Input
         label="Full Name"
@@ -308,40 +310,63 @@ export function Homepage() {
       </Helmet>
 
       {/* Section 1.1 — Hero */}
-      <section className="relative py-24 lg:py-32 bg-white overflow-hidden">
+      <motion.section
+        className="relative py-24 lg:py-32 bg-background overflow-hidden"
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px 0px" }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
         {/* Subtle background accent */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,0,0,0.04),transparent_60%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(148,163,184,0.15),transparent_60%)] pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-6">
           {/* Top header */}
           <div className="max-w-3xl mb-14">
+            {/* Eyebrow label */}
             <p className="text-accent text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] mb-4">
-              Operational intelligence for manufacturing leaders
+              Operational Intelligence Platform · Pre-Launch — Register Your Interest
             </p>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-black leading-tight mb-6">
-              One executive view across{" "}
-              <span className="text-accent">130+ manufacturing KPIs</span>
+            {/* H1 headline */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-text-primary leading-tight mb-6">
+              Turn manufacturing KPIs into the command centre leaders have been looking for.
             </h1>
 
-            <p className="text-lg text-black/70 leading-relaxed">
-              Replace fragmented reports, spreadsheets, and lagging data with a
-              single, structured operating layer designed for plant, multi-site,
-              and board-level decisions.
+            {/* Sub-headline */}
+            <p className="text-lg text-text-secondary leading-relaxed mb-8">
+              OpEx6&apos;s Exec App is being built as a single operational intelligence layer for manufacturing leadership —{" "}
+              <span className="font-semibold">
+                130+ manufacturing KPIs across 12 dashboard areas
+              </span>{" "}
+              covering production, quality, downtime, margin, and safety in one structured view designed for decisions, not just reports.
             </p>
+
+            {/* Primary & secondary CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button to="/register-interest" className="px-6 py-3 justify-center">
+                Register Interest
+              </Button>
+              <Link
+                to="/kpis-dashboards"
+                className="text-sm text-text-secondary underline-offset-4 hover:underline flex items-center"
+              >
+                Explore KPIs &amp; Dashboards →
+              </Link>
+            </div>
           </div>
 
           {/* Main layout */}
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* LEFT — Dashboard */}
             <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-tr from-accent/10 to-transparent blur-2xl rounded-3xl" />
+              <div className="absolute -inset-4 bg-gradient-to-tr from-accent/20 to-transparent blur-2xl rounded-3xl" />
               <div className="relative">
                 <HeroDashboardMockup />
               </div>
 
               {/* Trust strip */}
-              <div className="mt-6 flex flex-wrap gap-4 text-xs text-black/60">
+              <div className="mt-6 flex flex-wrap gap-4 text-xs text-text-secondary">
                 <span>130+ KPIs</span>
                 <span>12 dashboard areas</span>
                 <span>Multi-site ready</span>
@@ -351,27 +376,31 @@ export function Homepage() {
 
             {/* RIGHT — Conversion */}
             <div className="relative">
-              <div className="bg-white border border-black/10 rounded-2xl p-6 sm:p-8 shadow-lg">
-                {/* Card header */}
-                <div className="mb-5">
-                  <h3 className="text-xl font-semibold text-black mb-2">
-                    Register for early access
-                  </h3>
-                  <p className="text-sm text-black/70">
-                    Get priority access and early pricing before public release.
-                  </p>
+              <div className="bg-card-bg border border-border rounded-2xl p-6 sm:p-8 shadow-lg">
+              {/* Card header */}
+              <div className="mb-5">
+                {/* Launch offer badge */}
+                <div className="inline-flex items-center px-3 py-1 rounded-full bg-amber-400/90 text-slate-900 text-[11px] font-semibold uppercase tracking-[0.18em] mb-3">
+                  Early Access Offer
                 </div>
+                <h3 className="text-2xl lg:text-3xl font-semibold text-text-primary mb-2">
+                  Register for early access
+                </h3>
+                <p className="text-sm text-text-secondary">
+                  Be first in line for the Exec App launch, with a limited early access offer for manufacturing leadership teams.
+                </p>
+              </div>
 
-                {/* Offer highlight */}
-                <div className="mb-5 rounded-lg bg-highlight/15 text-highlight text-sm px-4 py-3 font-medium">
-                  Early access: £50 for 50 credits + 25 free credits at launch
-                </div>
+              {/* Offer highlight */}
+              <div className="mb-5 rounded-lg bg-highlight/10 text-highlight text-sm px-4 py-3 font-medium">
+                Early Access Offer: Register now to secure eligibility for £50 for 50 credits + 25 free credits at launch
+              </div>
 
                 {/* Form */}
                 <HeroForm />
 
                 {/* Footer */}
-                <p className="text-[11px] text-black/50 mt-5 leading-relaxed">
+                <p className="text-[11px] text-text-secondary mt-5 leading-relaxed">
                   Pre-launch product. Features, integrations, and pricing may
                   evolve before general release.
                 </p>
@@ -381,7 +410,7 @@ export function Homepage() {
               <div className="mt-4 text-center">
                 <Link
                   to="/exec-app"
-                  className="text-sm text-black/70 underline-offset-4 hover:underline"
+                  className="text-sm text-text-secondary underline-offset-4 hover:underline"
                 >
                   Learn more about the Exec App →
                 </Link>
@@ -389,74 +418,86 @@ export function Homepage() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Section 1.2 — Product Direction Stats Bar */}
-      <section className="py-20 bg-white border-y border-black/10">
+      <motion.section
+        className="py-20 bg-secondary border-y border-border"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px 0px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         <div className="max-w-7xl mx-auto px-6">
           {/* Section intro */}
           <div className="max-w-2xl mx-auto text-center mb-12">
             <p className="text-xs uppercase tracking-[0.2em] text-accent font-semibold mb-3">
               Product structure
             </p>
-            <h2 className="text-2xl lg:text-3xl font-semibold text-black">
-              Built as a complete operational layer — not a collection of
-              dashboards
+            <h2 className="text-2xl lg:text-3xl font-semibold text-text-primary">
+              130+ manufacturing KPIs across 12 dashboard areas — as one
+              operational layer
             </h2>
           </div>
 
           {/* Stats */}
           <div className="grid md:grid-cols-3 gap-6">
             {/* Card 1 */}
-            <div className="bg-white border border-black/10 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
-              <p className="text-3xl font-semibold text-black mb-2">12</p>
-              <p className="text-sm text-black/70 leading-relaxed">
+            <div className="bg-card-bg border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+              <p className="text-3xl font-semibold text-text-primary mb-2">12</p>
+              <p className="text-sm text-text-secondary leading-relaxed">
                 Structured dashboard areas aligned to executive, plant, and
                 multi-site reviews
               </p>
             </div>
 
             {/* Card 2 */}
-            <div className="bg-white border border-black/10 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
-              <p className="text-3xl font-semibold text-black mb-2">130+</p>
-              <p className="text-sm text-black/70 leading-relaxed">
+            <div className="bg-card-bg border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+              <p className="text-3xl font-semibold text-text-primary mb-2">130+</p>
+              <p className="text-sm text-text-secondary leading-relaxed">
                 Manufacturing KPIs across production, quality, maintenance,
                 safety, and margin
               </p>
             </div>
 
             {/* Card 3 */}
-            <div className="bg-white border border-black/10 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
-              <p className="text-3xl font-semibold text-black mb-2">1</p>
-              <p className="text-sm text-black/70 leading-relaxed">
+            <div className="bg-card-bg border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition">
+              <p className="text-3xl font-semibold text-text-primary mb-2">1</p>
+              <p className="text-sm text-text-secondary leading-relaxed">
                 Unified operational intelligence layer — not another generic BI
                 workspace
               </p>
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Mid-page CTA focused on early access */}
-      <section className="py-24 relative overflow-hidden">
+      <motion.section
+        className="py-24 relative overflow-hidden bg-background"
+        initial={{ opacity: 0, scale: 0.97 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, margin: "-80px 0px" }}
+        transition={{ duration: 0.65, ease: "easeOut" }}
+      >
         {/* Background accent */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-white" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.05),transparent_70%)]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/60 to-slate-800/40" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(148,163,184,0.18),transparent_70%)]" />
 
         <div className="relative max-w-4xl mx-auto px-6 text-center">
           {/* Headline */}
-          <h2 className="text-3xl lg:text-4xl font-semibold text-black mb-5 leading-tight">
+          <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary mb-5 leading-tight">
             Early access to the Exec App is limited
           </h2>
 
           {/* Subtext */}
-          <p className="text-black/70 text-lg mb-6 leading-relaxed">
+          <p className="text-text-secondary text-lg mb-6 leading-relaxed">
             We’re onboarding a small number of manufacturing sites pre-launch.
             Register now to secure priority access and early pricing.
           </p>
 
           {/* Offer highlight */}
-          <div className="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-highlight/15 text-highlight font-medium text-sm mb-8">
+          <div className="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-highlight/20 text-highlight font-medium text-sm mb-8">
             £50 for 50 credits + 25 free credits at launch
           </div>
 
@@ -468,32 +509,32 @@ export function Homepage() {
 
             <Link
               to="/exec-app"
-              className="text-sm text-black/70 underline-offset-4 hover:underline flex items-center justify-center"
+              className="text-sm text-text-secondary underline-offset-4 hover:underline flex items-center justify-center"
             >
               Learn more →
             </Link>
           </div>
 
           {/* Disclaimer */}
-          <p className="text-[11px] text-black/50 mt-6 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[11px] text-text-secondary mt-6 max-w-2xl mx-auto leading-relaxed">
             No payment required at this stage. Final features, pricing, and
             availability may change before general release.
           </p>
         </div>
-      </section>
+      </motion.section>
 
       {/* Section 1.3 — Sectors We Focus On */}
-      <Section className="bg-white">
+      <Section>
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-14">
             <p className="text-xs uppercase tracking-[0.2em] text-accent font-semibold mb-3">
               Who it's for
             </p>
-            <h2 className="text-3xl lg:text-4xl font-semibold text-black">
+            <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary">
               Built for complex manufacturing environments
             </h2>
-            <p className="text-black/70 mt-3 max-w-2xl mx-auto">
+            <p className="text-text-secondary mt-3 max-w-2xl mx-auto">
               Designed for operations where margin, throughput, and cost control
               must be understood in real time.
             </p>
@@ -504,12 +545,12 @@ export function Homepage() {
             {SECTORS.map((s, i) => (
               <div
                 key={i}
-                className="group bg-white border border-black/10 rounded-2xl p-6 hover:shadow-md transition"
+                className="group bg-card-bg border border-border rounded-2xl p-6 hover:shadow-md transition"
               >
-                <h3 className="font-semibold text-lg text-black mb-2">
+                <h3 className="font-semibold text-lg text-text-primary mb-2">
                   {s.name}
                 </h3>
-                <p className="text-black/70 text-sm leading-relaxed">
+                <p className="text-text-secondary text-sm leading-relaxed">
                   {s.description}
                 </p>
 
@@ -522,25 +563,31 @@ export function Homepage() {
       </Section>
 
       {/* Section 1.3b — Leader Questions Problem Section */}
-      <section className="py-28 bg-black text-white relative overflow-hidden">
+      <motion.section
+        className="py-28 bg-background text-text-primary relative overflow-hidden"
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px 0px" }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
         {/* Background effects */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_60%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(255,255,255,0.04),transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.35),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(148,163,184,0.25),transparent_70%)]" />
 
         <div className="relative max-w-5xl mx-auto px-6">
           {/* Header */}
           <div className="text-center mb-16">
-            <p className="text-xs uppercase tracking-[0.25em] text-white/50 mb-4">
+            <p className="text-xs uppercase tracking-[0.25em] text-text-secondary mb-4">
               Reality check
             </p>
             <h2 className="text-3xl lg:text-4xl font-semibold leading-tight max-w-3xl mx-auto">
               Most manufacturing leaders still cannot answer these questions
-              <span className="text-white/60"> fast enough</span>
+              <span className="text-text-secondary"> fast enough</span>
             </h2>
           </div>
 
           {/* Questions */}
-          <div className="space-y-5 mb-14">
+            <div className="space-y-5 mb-14">
             {[
               {
                 q: "What is the true cost per unit of your top product right now?",
@@ -565,20 +612,20 @@ export function Homepage() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="group flex items-start gap-4 p-5 rounded-xl border border-white/10 bg-white/[0.04] hover:bg-white/[0.07] transition"
+                className="group flex items-start gap-4 p-5 rounded-xl border border-border/60 bg-card-bg/40 hover:bg-card-bg/60 transition"
               >
                 {/* Number */}
-                <div className="text-white/40 font-semibold text-sm w-6">
+                <div className="text-text-secondary font-semibold text-sm w-6">
                   {String(i + 1).padStart(2, "0")}
                 </div>
 
                 {/* Text */}
-                <p className="text-white/90 text-sm leading-relaxed">
+                <p className="text-text-secondary text-sm leading-relaxed">
                   {item.q.split(item.highlight).map((part, index, arr) => (
                     <>
                       {part}
                       {index < arr.length - 1 && (
-                        <span className="text-white font-medium">
+                        <span className="text-text-primary font-medium">
                           {item.highlight}
                         </span>
                       )}
@@ -590,26 +637,26 @@ export function Homepage() {
           </div>
 
           {/* Divider */}
-          <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent mb-10" />
+          <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-10" />
 
           {/* Closing */}
-          <p className="text-center text-white/60 text-sm max-w-2xl mx-auto leading-relaxed">
+          <p className="text-center text-text-secondary text-sm max-w-2xl mx-auto leading-relaxed">
             OpEx6 is being built to replace fragmented visibility with a
             structured, consistent operating layer — so these questions can be
             answered in minutes, not weeks.
           </p>
         </div>
-      </section>
+      </motion.section>
 
       {/* Section 1.3c — Hidden Cost Leakage */}
-      <Section className="bg-white">
+      <Section className="bg-secondary">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-14">
             <p className="text-xs uppercase tracking-[0.2em] text-accent font-semibold mb-3">
               Where it breaks
             </p>
-            <h2 className="text-3xl lg:text-4xl font-semibold text-black">
+            <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary">
               Where margin and cash actually disappear
             </h2>
           </div>
@@ -644,10 +691,12 @@ export function Homepage() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="bg-white border border-black/10 rounded-2xl p-6 shadow-sm hover:shadow-md transition"
+                className="bg-card-bg border border-border rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-accent transition"
               >
-                <h3 className="font-semibold text-black mb-2">{item.title}</h3>
-                <p className="text-black/70 text-sm leading-relaxed">
+                <h3 className="font-semibold text-text-primary mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-text-secondary text-sm leading-relaxed">
                   {item.desc}
                 </p>
               </div>
@@ -655,7 +704,7 @@ export function Homepage() {
           </div>
 
           {/* Closing */}
-          <p className="text-center text-black/70 text-sm max-w-3xl mx-auto">
+          <p className="text-center text-text-secondary text-sm max-w-3xl mx-auto">
             OpEx6 is being built to expose hidden cost leakage before it becomes
             accepted normality.
           </p>
@@ -663,13 +712,13 @@ export function Homepage() {
       </Section>
 
       {/* Section 1.4 — Problem / Solution Table */}
-      <Section className="bg-white">
+      <Section className="bg-background">
         {/* Header */}
         <div className="text-center mb-14 max-w-3xl mx-auto">
           <p className="text-accent text-xs uppercase tracking-[0.2em] font-semibold mb-3">
             Why operational intelligence matters
           </p>
-          <h2 className="text-3xl lg:text-4xl font-semibold text-black">
+          <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary">
             The visibility gap manufacturing leaders actually face
           </h2>
         </div>
@@ -679,14 +728,14 @@ export function Homepage() {
           {PROBLEM_SOLUTION.map((row, i) => (
             <div
               key={i}
-              className="grid md:grid-cols-2 gap-6 items-start bg-white border border-black/10 rounded-2xl p-6 shadow-sm hover:shadow-md transition"
+              className="grid md:grid-cols-2 gap-6 items-start bg-card-bg border border-border rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-accent transition"
             >
               {/* Problem */}
               <div>
-                <p className="text-xs uppercase text-black/40 mb-2">
+                <p className="text-xs uppercase text-text-secondary mb-2">
                   Challenge
                 </p>
-                <p className="text-black/80 text-sm leading-relaxed">
+                <p className="text-text-secondary text-sm leading-relaxed">
                   {row.challenge}
                 </p>
               </div>
@@ -696,7 +745,7 @@ export function Homepage() {
                 <p className="text-xs uppercase text-accent mb-2">
                   Exec App approach
                 </p>
-                <p className="text-black text-sm leading-relaxed font-medium">
+                <p className="text-text-primary text-sm leading-relaxed font-medium">
                   {row.solution}
                 </p>
               </div>
@@ -706,79 +755,99 @@ export function Homepage() {
       </Section>
 
       {/* Section 1.4b — Why not just use BI tools? */}
-      <section className="py-24 bg-black text-white relative overflow-hidden">
+      <motion.section
+        className="py-24 bg-background text-text-primary relative overflow-hidden"
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px 0px" }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
         {/* Background */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.18),transparent_60%)]" />
 
         <div className="relative max-w-6xl mx-auto px-6">
           {/* Header */}
           <div className="text-center mb-14 max-w-3xl mx-auto">
-            <h2 className="text-3xl lg:text-4xl font-semibold leading-tight">
-              This isn’t another BI tool
+            <p className="text-xs uppercase tracking-[0.25em] text-text-secondary mb-3">
+              Objection handling
+            </p>
+            <h2 className="text-3xl lg:text-4xl font-semibold leading-tight text-text-primary">
+              Why not just use Power BI, Tableau, or spreadsheets?
             </h2>
-            <p className="text-white/60 mt-4 text-sm">
-              Power BI, Tableau, and spreadsheets are flexible — but they leave
-              structure, consistency, and interpretation entirely up to each
-              team.
+            <p className="text-text-secondary mt-4 text-sm">
+              Those tools visualise whatever data you give them. OpEx6 is a{" "}
+              <span className="font-semibold">
+                manufacturing-specific operational intelligence layer
+              </span>{" "}
+              that arrives with the structure, KPI definitions, and leadership
+              views already defined.
             </p>
           </div>
 
           {/* Cards */}
           <div className="grid md:grid-cols-3 gap-6 mb-10">
             {/* Card 1 */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm hover:bg-white/10 transition">
-              <h3 className="font-semibold text-white mb-3">
-                Pre-structured, not blank
+            <div className="bg-card-bg border border-border rounded-2xl p-6 backdrop-blur-sm hover:border-accent transition">
+              <h3 className="font-semibold text-text-primary mb-3">
+                130+ KPIs, not a blank canvas
               </h3>
-              <p className="text-white/70 text-sm leading-relaxed">
-                Built as a manufacturing-specific layer with 130+ KPIs and 12
-                structured dashboard areas — not an empty canvas requiring
-                setup.
+              <p className="text-text-secondary text-sm leading-relaxed">
+                Exec App is built around{" "}
+                <span className="font-semibold">
+                  130+ manufacturing KPIs across 12 dashboard areas
+                </span>
+                , with formulas, units, and views pre-structured — not a DIY BI
+                workspace that each site configures differently.
               </p>
             </div>
 
             {/* Card 2 */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm hover:bg-white/10 transition">
-              <h3 className="font-semibold text-white mb-3">
-                Consistent KPI definitions
+            <div className="bg-card-bg border border-border rounded-2xl p-6 backdrop-blur-sm hover:border-accent transition">
+              <h3 className="font-semibold text-text-primary mb-3">
+                Shared KPI definitions across sites
               </h3>
-              <p className="text-white/70 text-sm leading-relaxed">
-                Every KPI follows a defined formula, unit, and structure across
-                sites — ensuring teams operate from the same language.
+              <p className="text-text-secondary text-sm leading-relaxed">
+                Every KPI is defined once and applied consistently — so OEE,
+                downtime, yield, and margin are calculated the same way in every
+                plant, instead of each team owning its own spreadsheet or BI
+                template.
               </p>
             </div>
 
             {/* Card 3 */}
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-sm hover:bg-white/10 transition">
-              <h3 className="font-semibold text-white mb-3">
-                Operational → financial linkage
+            <div className="bg-card-bg border border-border rounded-2xl p-6 backdrop-blur-sm hover:border-accent transition">
+              <h3 className="font-semibold text-text-primary mb-3">
+                Leadership-ready, not analyst-only
               </h3>
-              <p className="text-white/70 text-sm leading-relaxed">
-                Connect downtime, scrap, and variability directly to margin and
-                cash impact — in views designed for leadership decisions.
+              <p className="text-text-secondary text-sm leading-relaxed">
+                Views are designed for senior operations and finance — linking
+                downtime, scrap, and variability directly to cash, margin, and
+                contribution, without leaders needing to interpret complex BI
+                workbooks.
               </p>
             </div>
           </div>
 
           {/* Closing */}
-          <p className="text-center text-white/50 text-xs max-w-3xl mx-auto">
-            OpEx6 is currently in pre-launch. Features, scope, and visuals are
-            illustrative and may evolve before general release.
+          <p className="text-center text-text-secondary text-xs max-w-3xl mx-auto">
+            OpEx6 is not a replacement for tools like Power BI or Tableau. It
+            sits above them as a structured, manufacturing-specific operational
+            intelligence product focused on leadership decisions.
           </p>
         </div>
-      </section>
+      </motion.section>
 
       {/* Section 1.5 — Product Feature Overview (3 cards) */}
-      <Section className="bg-white">
+      <Section className="bg-secondary">
         {/* Header */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <p className="text-accent text-xs uppercase tracking-[0.2em] font-semibold mb-3">
             What the Exec App delivers
           </p>
-          <h2 className="text-3xl lg:text-4xl font-semibold text-black leading-tight">
+          <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary leading-tight">
             Built for manufacturing. Designed for decision-making.
           </h2>
-          <p className="text-black/70 mt-4 text-sm">
+          <p className="text-text-secondary mt-4 text-sm">
             A structured operational intelligence layer — not just dashboards.
           </p>
         </div>
@@ -788,7 +857,7 @@ export function Homepage() {
           {FEATURE_CARDS.map((card, i) => (
             <div
               key={i}
-              className="group relative bg-white border border-black/10 rounded-2xl p-6 shadow-sm hover:shadow-lg transition"
+              className="group relative bg-card-bg border border-border rounded-2xl p-6 shadow-sm hover:shadow-lg hover:border-accent transition"
             >
               {/* Top accent line */}
               <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-accent/60 to-transparent rounded-t-2xl" />
@@ -843,11 +912,11 @@ export function Homepage() {
               </div>
 
               {/* Content */}
-              <h3 className="font-semibold text-lg text-black mb-2">
+              <h3 className="font-semibold text-lg text-text-primary mb-2">
                 {card.title}
               </h3>
 
-              <p className="text-black/70 text-sm leading-relaxed">
+              <p className="text-text-secondary text-sm leading-relaxed">
                 {card.copy}
               </p>
 
@@ -859,16 +928,16 @@ export function Homepage() {
       </Section>
 
       {/* Section 1.6 — How It Works (3 Steps) */}
-      <Section className="bg-white">
+      <Section className="bg-background">
         {/* Header */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <p className="text-accent text-xs uppercase tracking-[0.2em] font-semibold mb-3">
             How it works
           </p>
-          <h2 className="text-3xl lg:text-4xl font-semibold text-black leading-tight">
+          <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary leading-tight">
             Structured for deployment in weeks, not months
           </h2>
-          <p className="text-black/70 text-sm mt-4">
+          <p className="text-text-secondary text-sm mt-4">
             A defined rollout approach — not an open-ended BI implementation.
           </p>
         </div>
@@ -876,24 +945,24 @@ export function Homepage() {
         {/* Steps */}
         <div className="relative max-w-6xl mx-auto">
           {/* Connector line */}
-          <div className="hidden md:block absolute top-6 left-0 right-0 h-px bg-black/10" />
+          <div className="hidden md:block absolute top-6 left-0 right-0 h-px bg-border/40" />
 
           <div className="grid md:grid-cols-3 gap-10 relative">
             {HOW_IT_WORKS_STEPS.map((step, i) => (
               <div key={i} className="text-center relative">
                 {/* Step number */}
-                <div className="relative z-10 w-14 h-14 rounded-full bg-white border border-black/10 shadow-sm flex items-center justify-center mx-auto mb-5">
+                <div className="relative z-10 w-14 h-14 rounded-full bg-card-bg border border-border shadow-sm flex items-center justify-center mx-auto mb-5">
                   <span className="text-accent font-semibold">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
 
                 {/* Content */}
-                <h3 className="font-semibold text-lg text-black mb-2">
+                <h3 className="font-semibold text-lg text-text-primary mb-2">
                   {step.title}
                 </h3>
 
-                <p className="text-black/70 text-sm leading-relaxed max-w-xs mx-auto">
+                <p className="text-text-secondary text-sm leading-relaxed max-w-xs mx-auto">
                   {step.body}
                 </p>
               </div>
@@ -910,13 +979,13 @@ export function Homepage() {
       </Section>
 
       {/* Section 1.7 — Why Leadership Teams Look for This */}
-      <Section className="bg-white">
+      <Section className="bg-secondary">
         {/* Header */}
         <div className="text-center mb-14 max-w-3xl mx-auto">
-          <h2 className="text-3xl lg:text-4xl font-semibold text-black leading-tight">
+          <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary leading-tight">
             What typically triggers the search for operational intelligence
           </h2>
-          <p className="text-black/70 text-sm mt-4">
+          <p className="text-text-secondary text-sm mt-4">
             These are the moments where visibility gaps become impossible to
             ignore.
           </p>
@@ -927,15 +996,15 @@ export function Homepage() {
           {LEADERSHIP_CHALLENGES.map((c, i) => (
             <div
               key={i}
-              className="bg-white border border-black/10 rounded-2xl p-6 shadow-sm hover:shadow-md transition"
+              className="bg-card-bg border border-border rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-accent transition"
             >
               {/* Quote */}
-              <p className="text-black/80 text-sm leading-relaxed mb-5">
+              <p className="text-text-secondary text-sm leading-relaxed mb-5">
                 “{c.statement}”
               </p>
 
               {/* Footer */}
-              <div className="flex items-center justify-between text-xs text-black/50">
+              <div className="flex items-center justify-between text-xs text-text-secondary">
                 <span className="uppercase tracking-wide text-accent font-medium">
                   {c.sector}
                 </span>
@@ -950,11 +1019,11 @@ export function Homepage() {
       </Section>
 
       {/* Section 1.8 — Integration Direction */}
-      <Section>
+      <Section className="bg-background">
         <p className="text-accent text-sm font-medium uppercase tracking-widest mb-2 text-center">
           Designed to connect with your existing systems
         </p>
-        <h2 className="text-3xl lg:text-4xl font-bold text-black text-center mb-8">
+        <h2 className="text-3xl lg:text-4xl font-bold text-text-primary text-center mb-8">
           Built to work alongside the tools you already use.
         </h2>
         <div className="overflow-hidden mb-6">
@@ -965,20 +1034,20 @@ export function Homepage() {
                   item.type === "image" ? (
                     <div
                       key={`${loop}-${item.name}`}
-                      className="h-10 w-28 md:w-32 flex items-center justify-center shrink-0"
+                      className="h-10 w-28 md:w-32 flex items-center justify-center shrink-0 rounded-md bg-transparent"
                     >
                       <img
                         src={item.src}
                         alt={item.name}
-                        className="max-h-8 max-w-full object-contain grayscale hover:grayscale-0 transition"
+                        className="max-h-8 max-w-full object-contain grayscale hover:grayscale-0 transition mix-blend-multiply"
                       />
                     </div>
                   ) : (
                     <div
                       key={`${loop}-${item.name}`}
-                      className="h-10 w-28 md:w-32 rounded-full bg-white border border-black/10 shadow-sm flex items-center justify-center shrink-0"
+                      className="h-10 w-28 md:w-32 rounded-full bg-card-bg border border-border shadow-sm flex items-center justify-center shrink-0"
                     >
-                      <span className="text-[11px] text-black/70 font-medium">
+                      <span className="text-[11px] text-text-secondary font-medium">
                         {item.abbr}
                       </span>
                     </div>
@@ -989,20 +1058,20 @@ export function Homepage() {
           </div>
         </div>
         <div className="text-center space-y-2">
-          <p className="text-black/70 text-sm">
+          <p className="text-text-secondary text-sm">
             Integration availability and scope depend on implementation. Contact
             us to discuss your systems environment.
           </p>
-          <p className="text-black/70 text-sm italic">
+          <p className="text-text-secondary text-sm italic">
             <Link to="/use-cases" className="underline underline-offset-4">
               Explore customer use cases
             </Link>
           </p>
-          <p className="text-black/70 text-xs">
+          <p className="text-text-secondary text-xs">
             Illustrative customer use cases showing how operational visibility
             can improve margin, cash, and decision speed.
           </p>
-          <p className="text-black/70 text-[11px] max-w-3xl mx-auto">
+          <p className="text-text-secondary text-[11px] max-w-3xl mx-auto">
             All third-party names, trade marks, and logos are the property of
             their respective owners and are used for identification purposes
             only.
@@ -1011,48 +1080,7 @@ export function Homepage() {
       </Section>
 
       {/* Section 1.9 — Launch Offer CTA Banner */}
-      <section className="py-32 relative overflow-hidden bg-white border-y border-blue-100">
-        {/* Background accents */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.12),transparent_60%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(59,130,246,0.08),transparent_70%)]" />
-
-        <div className="relative max-w-4xl mx-auto px-6">
-          {/* Card */}
-          <div className="bg-white border border-black/10 rounded-3xl shadow-xl px-8 py-12 text-center">
-            <h2 className="text-3xl lg:text-4xl font-semibold text-black mb-5 leading-tight">
-              Ready to register your interest in the Exec App?
-            </h2>
-
-            <p className="text-black/70 mb-4 max-w-2xl mx-auto leading-relaxed">
-              OpEx6 is preparing to open the Exec App to early users. Register
-              your interest now to secure your place on the early access list —
-              and eligibility for our pre-launch credit offer.
-            </p>
-
-            {/* Offer highlight */}
-            <p className="text-highlight font-medium mb-8 text-sm sm:text-base">
-              Register interest now to secure eligibility for £50 for 50 credits
-              + 25 free credits at launch. Subject to final launch terms.
-            </p>
-
-            {/* CTA */}
-            <div className="flex justify-center">
-              <Button
-                to="/register-interest"
-                className="px-6 py-3 text-base shadow-md hover:shadow-lg transition"
-              >
-                Register Interest in the Exec App
-              </Button>
-            </div>
-
-            {/* Footer */}
-            <p className="text-black/60 text-sm mt-6 max-w-xl mx-auto leading-relaxed">
-              This is a pre-launch registration. No payment is taken at this
-              stage. You will be contacted with full details ahead of launch.
-            </p>
-          </div>
-        </div>
-      </section>
+      <RegisterInterestCTA />
     </>
   );
 }

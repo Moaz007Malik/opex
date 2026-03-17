@@ -1,7 +1,9 @@
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Section } from '../components/Section';
 import { Button } from '../components/ui/Button';
+import { RegisterInterestCTA } from '../components/RegisterInterestCTA';
 import { Card } from '../components/ui/Card';
 
 const STEPS = [
@@ -72,27 +74,33 @@ export function HowItWorks() {
   </Helmet>
 
   {/* HERO */}
-  <section className="py-32 bg-gray-50 border-b border-black/10">
+  <motion.section
+  className="py-32 bg-background border-b border-border"
+    initial={{ opacity: 0, y: 32 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: '-80px 0px' }}
+    transition={{ duration: 0.7, ease: 'easeOut' }}
+  >
     <div className="max-w-4xl mx-auto px-6 text-center">
 
-      <h1 className="text-4xl lg:text-5xl font-bold text-black mb-6">
+      <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
         How the Exec App is being built to roll out.
       </h1>
 
-      <p className="text-lg text-black/70 mb-6">
+      <p className="text-lg text-text-secondary mb-6">
         The implementation approach is designed to be practical: connect the data
         sources that matter, apply a structured KPI framework, and give leadership
         teams the views they need to make better decisions.
       </p>
 
-      <p className="text-sm text-black/60">
+      <p className="text-sm text-text-secondary">
         OpEx6 is currently in pre-launch / early-access phase. Product features,
         screenshots, integrations, availability, and pricing may change before
         general release.
       </p>
 
     </div>
-  </section>
+  </motion.section>
 
 
   {/* PROCESS STEPS */}
@@ -100,7 +108,7 @@ export function HowItWorks() {
 
     <div className="max-w-5xl mx-auto">
 
-      <h2 className="text-3xl font-bold text-black mb-14 text-center">
+      <h2 className="text-3xl font-bold text-text-primary mb-14 text-center">
         The rollout process
       </h2>
 
@@ -118,16 +126,16 @@ export function HowItWorks() {
                 {i + 1}
               </div>
 
-              <Card className="bg-white border border-black/10 rounded-xl shadow-sm p-6">
+              <Card className="bg-card-bg border border-border rounded-xl shadow-sm p-6">
 
                 <div className="flex items-center gap-3 mb-3">
                   <StepIcon icon={step.icon} />
-                  <h3 className="font-semibold text-black">
+                  <h3 className="font-semibold text-text-primary">
                     {step.title}
                   </h3>
                 </div>
 
-                <p className="text-sm text-black/70">
+                <p className="text-sm text-text-secondary">
                   {step.body}
                 </p>
 
@@ -147,15 +155,15 @@ export function HowItWorks() {
 
 
   {/* IMPLEMENTATION TIMELINE */}
-  <Section className="bg-gray-50">
+  <Section className="bg-secondary">
 
     <div className="max-w-6xl mx-auto">
 
-      <h2 className="text-3xl font-bold text-black mb-4">
+      <h2 className="text-3xl font-bold text-text-primary mb-4">
         A simple implementation progression.
       </h2>
 
-      <p className="text-black/70 text-sm mb-10 max-w-2xl">
+      <p className="text-text-secondary text-sm mb-10 max-w-2xl">
         Exact timelines depend on data complexity and integration scope, but
         the progression typically follows these stages.
       </p>
@@ -171,37 +179,37 @@ export function HowItWorks() {
 
           <Card
             key={index}
-            className="bg-white border border-black/10 rounded-xl shadow-sm p-6"
+            className="bg-card-bg border border-border rounded-xl shadow-sm p-6"
           >
 
             <div className="w-8 h-8 rounded-full bg-accent/20 text-accent flex items-center justify-center font-semibold mb-3">
               {index + 1}
             </div>
 
-            <p className="font-medium text-black text-sm mb-1">
+            <p className="font-medium text-text-primary text-sm mb-1">
               {label}
             </p>
 
             {index === 0 && (
-              <p className="text-black/70 text-sm">
+              <p className="text-text-secondary text-sm">
                 Confirm scope, systems, and priority KPI areas.
               </p>
             )}
 
             {index === 1 && (
-              <p className="text-black/70 text-sm">
+              <p className="text-text-secondary text-sm">
                 Connect core data sources and validate feeds.
               </p>
             )}
 
             {index === 2 && (
-              <p className="text-black/70 text-sm">
+              <p className="text-text-secondary text-sm">
                 Apply KPI framework, configure views, and test with pilot users.
               </p>
             )}
 
             {index === 3 && (
-              <p className="text-black/70 text-sm">
+              <p className="text-text-secondary text-sm">
                 Extend access, refine dashboards, and embed into leadership routines.
               </p>
             )}
@@ -222,11 +230,11 @@ export function HowItWorks() {
 
     <div className="max-w-4xl">
 
-      <h2 className="text-2xl font-bold text-black mb-4">
+      <h2 className="text-2xl font-bold text-text-primary mb-4">
         Structured onboarding for early access customers.
       </h2>
 
-      <p className="text-black/70">
+      <p className="text-text-secondary">
         Early access customers receive structured onboarding support to help
         map data sources, configure dashboards, and get their teams set up.
         Implementation timelines depend on the complexity and number of
@@ -241,11 +249,11 @@ export function HowItWorks() {
   {/* FAQ LINK */}
   <Section className="text-center">
 
-    <p className="text-black/70 mb-2">
+    <p className="text-text-secondary mb-2">
       Questions about setup, rollout, or integrations?
     </p>
 
-    <p className="text-black/70">
+    <p className="text-text-secondary">
       <Link
         to="/faq"
         className="underline underline-offset-4 hover:text-accent"
@@ -258,22 +266,7 @@ export function HowItWorks() {
 
 
   {/* CTA */}
-  <Section className="bg-gray-50 text-center">
-
-    <h2 className="text-2xl font-bold text-black mb-4">
-      Register interest in the Exec App.
-    </h2>
-
-    <p className="text-black/70 max-w-xl mx-auto mb-6">
-      Register your interest today to be contacted ahead of launch with your
-      early access details and implementation guidance for your environment.
-    </p>
-
-    <Button to="/register-interest">
-      Register Interest in the Exec App
-    </Button>
-
-  </Section>
+  <RegisterInterestCTA />
 
 </>
   );
