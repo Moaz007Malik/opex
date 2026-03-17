@@ -72,6 +72,31 @@ export function Resources() {
 
 
 
+      {/* DOWNLOADABLE ASSET */}
+      <Section>
+        <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-start md:items-center gap-6">
+          <div className="flex-1">
+            <h2 className="text-2xl font-bold text-black mb-2">
+              Manufacturing KPI Reference Guide (pre-launch edition)
+            </h2>
+            <p className="text-black/70 text-sm mb-3">
+              A concise reference for manufacturing leaders covering the types of KPIs used across production, quality, maintenance,
+              safety, and margin — aligned with the 12 dashboard areas in the Exec App framework.
+            </p>
+            <p className="text-xs text-black/60">
+              The guide is illustrative and may evolve as the Exec App is developed with early users.
+            </p>
+          </div>
+          <a
+            href="/downloads/manufacturing-kpi-reference-guide.pdf"
+            className="inline-flex items-center justify-center px-5 py-3 rounded-lg bg-accent text-white text-sm font-medium hover:bg-blue-600 transition-colors"
+          >
+            Download PDF
+          </a>
+        </div>
+      </Section>
+
+
       {/* ARTICLES */}
       <Section>
 

@@ -21,6 +21,7 @@ export function RegisterInterest() {
     name: '',
     email: '',
     company: '',
+    industry: '',
     message: '',
     consentUpdates: false,
   });
@@ -42,6 +43,7 @@ export function RegisterInterest() {
           name: form.name,
           email: form.email,
           company: form.company,
+          industry: form.industry,
           message: form.message,
           consentUpdates: form.consentUpdates,
           _sourcePage: 'register_interest',
@@ -158,6 +160,13 @@ export function RegisterInterest() {
               value={form.company}
               onChange={(e) => handleChange('company', e.target.value)}
               placeholder="Your company"
+            />
+
+            <Input
+              label="Industry (optional)"
+              value={form.industry}
+              onChange={(e) => handleChange('industry', e.target.value)}
+              placeholder="e.g. Food & Beverage, Packaging, Chemicals"
             />
 
             <Input

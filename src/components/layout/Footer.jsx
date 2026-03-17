@@ -56,16 +56,24 @@ export function Footer() {
 
           {/* Brand */}
           <div>
-
+          
             <Link
               to="/"
-              className="text-xl font-bold text-black block mb-3"
+              className="inline-flex items-center gap-2 mb-3"
+              aria-label="OpEx6 home"
             >
-              OpEx6
+              <img
+                src="/images/icon.png"
+                alt="OpEx6 logo"
+                className="h-8 w-auto"
+              />
             </Link>
 
             <p className="text-sm text-black/70 max-w-xs">
               Operational Intelligence That Executives Actually Use.
+            </p>
+            <p className="text-sm text-black/70 max-w-xs mt-2">
+              Being built around 130+ manufacturing KPIs across 12 dashboard areas — structured for plant, multi-site, and board reviews.
             </p>
 
             <div className="text-[11px] text-black/60 mt-6 space-y-1">

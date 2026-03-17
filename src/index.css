@@ -26,6 +26,20 @@
   }
 }
 
+/* Horizontal logo carousel */
+@keyframes logoScrollX {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.logo-carousel-track {
+  animation: logoScrollX 30s linear infinite;
+}
+
 /* ---------- Animations ---------- */
 
 @keyframes scaleIn {

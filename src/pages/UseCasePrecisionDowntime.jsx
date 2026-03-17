@@ -214,6 +214,21 @@ export function UseCasePrecisionDowntime() {
           </p>
 
 
+          <h2 className="text-xl font-semibold text-black mt-6 mb-3">
+            KPI areas that mattered most in this scenario
+          </h2>
+          <p className="text-black/70 text-sm mb-3">
+            This precision engineering downtime scenario drew primarily on the Downtime &amp; Reliability, Maintenance, Production, and
+            Delivery &amp; Service KPI areas within the Exec App framework.
+          </p>
+          <ul className="list-disc list-inside text-black/70 text-sm space-y-1 mb-10">
+            <li><strong>Downtime &amp; Reliability</strong> — recurring stoppages, availability, and root-cause breakdowns.</li>
+            <li><strong>Maintenance</strong> — planned vs reactive work, backlog, and asset criticality coverage.</li>
+            <li><strong>Production</strong> — schedule attainment, changeover performance, and throughput.</li>
+            <li><strong>Delivery &amp; Service</strong> — OTIF/OTD and delivery risk linked back to operational loss.</li>
+          </ul>
+
+
 
           {/* CTA */}
           <div className="text-center">

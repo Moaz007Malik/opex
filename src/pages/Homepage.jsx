@@ -47,10 +47,20 @@ const LEADERSHIP_CHALLENGES = [
   { statement: "Margin is eroding and we can't pinpoint exactly where it's happening.", sector: 'Packaging' },
 ];
 
-const INTEGRATION_BRANDS = [
-  'SAP', 'Oracle', 'Infor', 'Epicor', 'Microsoft Dynamics 365',
-  'Rockwell Automation', 'Siemens MindSphere', 'Ignition by Inductive Automation',
-  'Wonderware', 'OSIsoft PI', 'Aveva', 'Honeywell Forge',
+const INTEGRATION_ITEMS = [
+  { name: 'SAP', type: 'image', src: 'https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg' },
+  { name: 'Oracle', type: 'image', src: '/images/oracle.png' },
+  { name: 'Power BI', type: 'image', src: '/images/power-bi.png' },
+  { name: 'Microsoft Dynamics 365', type: 'image', src: 'https://www.endeavoursolutions.ca/wp-content/uploads/2023/01/Dynamics-365-CRM-Logo.png' },
+  { name: 'Infor', type: 'image', src: 'https://mma.prnewswire.com/media/526907/Infor_Logo.jpg?p=twitter' },
+  { name: 'Epicor', type: 'image', src: 'https://www.inserito.com/wp-content/uploads/2020/09/epicor.png' },
+  { name: 'Rockwell Automation', type: 'image', src: 'https://eecoonline.com/media/cache/attachment/filter/original/491cfcb01a98f733dca1e9cbf0bc5220/1857075/6902f0ddae531027571471.png' },
+  { name: 'Siemens MindSphere', type: 'image', src: 'https://d3.harvard.edu/platform-digit/wp-content/uploads/sites/2/2021/03/dreiform_siemens_foyer_rohrdamm_keyvisual_mindsphere-1100x200.jpg' },
+  { name: 'Ignition by Inductive Automation', type: 'image', src: 'https://sandalwood.com/wp-content/uploads/2022/12/Ignition_logo.png' },
+  { name: 'Wonderware', type: 'image', src: 'https://static.wixstatic.com/media/65074b_69427804dcbc4676a93894ed146260e9~mv2.png/v1/fill/w_270,h_202,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/Wonderware%20Logo_edited.png' },
+  { name: 'OSIsoft PI', type: 'image', src: 'https://www.adlinktech.com/eDM/OSIsoft-Solutions/img/logo_OSIsoft.png' },
+  { name: 'Aveva', type: 'image', src: 'https://www.ict.eu/sites/corporate/files/images/AVEVA_logo_800x295%20copy.png' },
+  { name: 'Honeywell Forge', type: 'image', src: 'https://www.iisf.ie/files/UserFiles/cyber-security-news/2022/HF_Main_Lockup_Black_Text.png' },
 ];
 
 function HeroForm() {
@@ -125,10 +135,10 @@ export function Homepage() {
               Most manufacturers still run critical decisions on siloed reports, spreadsheets, and yesterday&apos;s data.
             </p>
             <h1 className="text-5xl sm:text-6xl lg:text-hero-lg font-bold text-black mb-6 leading-tight">
-              From shop-floor data to executive clarity.
+              Executive-ready visibility from 130+ manufacturing KPIs.
             </h1>
             <p className="text-lg sm:text-xl text-black/70 max-w-xl mb-8">
-              The platform being built to help manufacturing leaders see performance, downtime, margin, safety, and execution in one structured view.
+              OpEx6 is being built as a structured KPI layer for manufacturing leaders — 130+ KPIs across 12 dashboard areas, designed for plant, multi-site, and boardroom reviews.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 items-start mb-4">
               <Button to="/register-interest">
@@ -156,20 +166,37 @@ export function Homepage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
-              <p className="text-2xl lg:text-3xl font-bold text-black">15+</p>
-              <p className="text-black/70 text-sm mt-1">KPI Categories — structured across a single dashboard framework</p>
+              <p className="text-2xl lg:text-3xl font-bold text-black">12</p>
+              <p className="text-black/70 text-sm mt-1">dashboard areas structured for executive and site-level reviews</p>
             </div>
             <div>
-              <p className="text-2xl lg:text-3xl font-bold text-black">100+</p>
-              <p className="text-black/70 text-sm mt-1">individual KPI metrics — built into the Exec App at launch</p>
+              <p className="text-2xl lg:text-3xl font-bold text-black">130+</p>
+              <p className="text-black/70 text-sm mt-1">manufacturing KPIs across production, quality, maintenance, safety, margin, and more</p>
             </div>
             <div>
               <p className="text-2xl lg:text-3xl font-bold text-black">1</p>
-              <p className="text-black/70 text-sm mt-1">platform — designed to replace fragmented spreadsheets, reports, and disconnected systems</p>
+              <p className="text-black/70 text-sm mt-1">operational intelligence layer — not another generic BI workspace</p>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Mid-page CTA focused on early access */}
+      <Section className="text-center">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-2xl lg:text-3xl font-bold text-black mb-4">
+            Want early access to the Exec App?
+          </h2>
+          <p className="text-black/70 mb-4">
+            OpEx6 is preparing to open the Exec App to a limited number of manufacturing sites on a pre-launch basis.
+            Register interest to secure eligibility for 50 credits for £50 + 25 free credits at launch (subject to final terms).
+            No payment is taken at this stage.
+          </p>
+          <Button to="/register-interest">
+            Register for early access
+          </Button>
+        </div>
+      </Section>
 
       {/* Section 1.3 — Sectors We Focus On */}
       <Section className="bg-gray-50">
@@ -297,6 +324,36 @@ export function Homepage() {
         </div>
       </Section>
 
+      {/* Section 1.4b — Why not just use BI tools? */}
+      <Section>
+        <h2 className="text-3xl lg:text-4xl font-bold text-black text-center mb-8">
+          Why not just use Power BI, Tableau, or spreadsheets?
+        </h2>
+        <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-6 mb-6">
+          <Card>
+            <h3 className="font-semibold text-lg text-black mb-2">Not another blank BI canvas</h3>
+            <p className="text-black/70 text-sm">
+              BI tools give you charts and workspaces. OpEx6 is being built as a manufacturing-specific operational intelligence layer, with 130+ KPIs and 12 dashboard areas already structured for how plants and leadership actually review performance.
+            </p>
+          </Card>
+          <Card>
+            <h3 className="font-semibold text-lg text-black mb-2">Structured KPI definitions, not ad-hoc formulas</h3>
+            <p className="text-black/70 text-sm">
+              Each KPI is defined with consistent formulas, units, and views across sites — from OEE and first-pass yield to changeover losses and WIP exposure — so every team is reading from the same operating language.
+            </p>
+          </Card>
+          <Card>
+            <h3 className="font-semibold text-lg text-black mb-2">Operational–commercial linkage out of the box</h3>
+            <p className="text-black/70 text-sm">
+              Where data allows, the Exec App is being designed to connect downtime, scrap, and schedule volatility to margin and cash impact, in views built for weekly, monthly, and board reviews — not one-off spreadsheets.
+            </p>
+          </Card>
+        </div>
+        <p className="text-center text-black/60 text-xs max-w-3xl mx-auto">
+          OpEx6 is currently in pre-launch / early-access phase. Screens and scope are illustrative and may change before general release.
+        </p>
+      </Section>
+
       {/* Section 1.5 — Product Feature Overview (3 cards) */}
       <Section className="bg-gray-50">
         <p className="text-accent text-sm font-medium uppercase tracking-widest mb-2 text-center">What the Exec App Is Designed to Deliver</p>
@@ -365,15 +422,36 @@ export function Homepage() {
         <h2 className="text-3xl lg:text-4xl font-bold text-black text-center mb-8">
           Built to work alongside the tools you already use.
         </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-6">
-          {INTEGRATION_BRANDS.map((brand, i) => (
-              <div
-                key={i}
-                className="h-14 rounded-lg bg-white border border-black/10 flex items-center justify-center shadow-sm"
-              >
-                <span className="text-xs text-black/70 font-medium">{brand}</span>
-            </div>
-          ))}
+        <div className="overflow-hidden mb-6">
+          <div className="flex items-center gap-6 md:gap-10 logo-carousel-track w-[200%] whitespace-nowrap">
+            {[1, 2].map((loop) => (
+              <div key={loop} className="flex items-center gap-6 md:gap-10">
+                {INTEGRATION_ITEMS.map((item) =>
+                  item.type === 'image' ? (
+                    <div
+                      key={`${loop}-${item.name}`}
+                      className="h-10 w-28 md:w-32 flex items-center justify-center shrink-0"
+                    >
+                      <img
+                        src={item.src}
+                        alt={item.name}
+                        className="max-h-8 max-w-full object-contain grayscale hover:grayscale-0 transition"
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      key={`${loop}-${item.name}`}
+                      className="h-10 w-28 md:w-32 rounded-full bg-white border border-black/10 shadow-sm flex items-center justify-center shrink-0"
+                    >
+                      <span className="text-[11px] text-black/70 font-medium">
+                        {item.abbr}
+                      </span>
+                    </div>
+                  )
+                )}
+              </div>
+            ))}
+          </div>
         </div>
         <div className="text-center space-y-2">
           <p className="text-black/70 text-sm">

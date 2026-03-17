@@ -213,6 +213,21 @@ export function UseCaseChemicalsQuality() {
           </p>
 
 
+          <h2 className="text-xl font-semibold text-black mt-6 mb-3">
+            KPI areas that mattered most in this scenario
+          </h2>
+          <p className="text-black/70 text-sm mb-3">
+            This quality and deviation scenario relied most on the Quality, Safety &amp; Risk, Compliance &amp; Audit, and Margin Intelligence
+            KPI areas within the Exec App framework.
+          </p>
+          <ul className="list-disc list-inside text-black/70 text-sm space-y-1 mb-10">
+            <li><strong>Quality</strong> — deviation trends, rework, scrap, and right-first-time performance.</li>
+            <li><strong>Safety &amp; Risk</strong> — incident, near-miss, and risk control visibility tied to operations.</li>
+            <li><strong>Compliance &amp; Audit</strong> — non-conformances, corrective actions, and audit follow-up.</li>
+            <li><strong>Margin Intelligence</strong> — cost of poor quality and commercial impact where data allows.</li>
+          </ul>
+
+
 
           {/* CTA */}
           <div className="text-center">

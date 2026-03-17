@@ -120,6 +120,52 @@ export function Pricing() {
   </section>
 
 
+  {/* EARLY-ACCESS OFFER EXPLAINER */}
+  <Section>
+    <div className="max-w-4xl mx-auto">
+      <div className="bg-blue-50 border border-blue-100 rounded-2xl p-6 sm:p-8 text-left shadow-sm">
+        <h2 className="text-2xl font-bold text-black mb-3">
+          Pre-launch early-access offer
+        </h2>
+        <p className="text-black/70 mb-3">
+          Register interest now to secure eligibility for our introductory offer — 50 credits for £50 + 25 free credits at launch.
+          This is designed to give early users a meaningful period to evaluate the Exec App before standard pricing applies.
+        </p>
+        <p className="text-xs text-black/60 mb-4">
+          This is a pre-launch expression of interest only. No payment is taken at this stage.
+          Full commercial terms will be shared and agreed ahead of any commitment.
+        </p>
+        <Button to="/register-interest">
+          Register interest for early access
+        </Button>
+      </div>
+    </div>
+  </Section>
+
+
+  {/* HOW CREDITS WORK */}
+  <Section>
+    <div className="max-w-4xl mx-auto">
+      <h2 className="text-2xl font-bold text-black mb-3">
+        What is a credit and how does it work?
+      </h2>
+      <p className="text-black/70 mb-3">
+        In the Exec App, a credit is the basic unit of usage. Credits are consumed as your organisation uses dashboards,
+        refreshes data, and runs reports. The exact rate card will be published at launch, but the intent is that credits scale
+        with how many sites, users, and dashboards you are actively running — not just how many accounts you have created.
+      </p>
+      <p className="text-black/70 mb-3">
+        As an illustrative guide, a smaller manufacturing site using a focused KPI set for leadership and plant reviews would
+        typically consume fewer credits than a multi-site group running broader dashboards and more frequent refreshes.
+        Final thresholds and tiers will be confirmed as part of launch.
+      </p>
+      <p className="text-xs text-black/60">
+        All examples on this page are indicative and may change before general release.
+      </p>
+    </div>
+  </Section>
+
+
 
   {/* PRICING CARDS */}
   <Section>

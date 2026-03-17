@@ -22,7 +22,7 @@ export const faqGroups = [
   {
     title: 'Product & KPI Coverage',
     items: [
-      { q: 'How many KPIs does the Exec App include?', a: 'The Exec App is structured around over 100 individual KPI metrics across 15 categories. You can explore the full framework on our KPIs & Dashboards page.' },
+      { q: 'How many KPIs does the Exec App include?', a: 'The Exec App is being structured around 130+ individual manufacturing KPIs across 12 dashboard areas. You can explore the planned framework on our KPIs & Dashboards page.' },
       { q: 'Can OpEx6 help show which products or processes are eroding margin?', a: 'Yes — where underlying data is available, the Exec App is being designed to help connect operational signals such as downtime, scrap, and yield to margin and contribution visibility. The goal is to help leadership see which products, lines, or processes are quietly eroding margin, rather than relying solely on month-end finance reporting.' },
       { q: 'Can OpEx6 help identify cash trapped in WIP or operational delay?', a: 'Yes. One of the planned use cases is to highlight where WIP, schedule delays, and operational volatility are tying up cash. The Exec App is being designed to give leadership a structured view of where working capital is being affected by operational decisions, where data allows.' },
       { q: 'Why is this different from a standard monthly report?', a: 'Standard monthly reports are often static, delayed, and assembled manually. OpEx6 is being built as a structured operating view — with consistent KPI definitions, multi-site comparisons, and linkage between operational and financial signals — so leadership can review performance more frequently and move from reporting to action faster.' },

@@ -60,11 +60,11 @@ export function ExecApp() {
             </p>
 
             <h1 className="text-4xl lg:text-5xl font-bold text-black mb-6 leading-tight">
-              One structured operating view for manufacturing leadership.
+              A structured KPI layer for manufacturing leadership.
             </h1>
 
             <p className="text-lg text-black/70 mb-4">
-              The Exec App is the operational intelligence platform being built to give manufacturing leaders a single, structured view of performance, downtime, margin, safety, and execution.
+              The Exec App is being built around 130+ manufacturing KPIs across 12 dashboard areas — giving leaders a single, structured view of performance, downtime, quality, safety, and margin.
             </p>
 
             <p className="text-sm text-black/60 mb-8">
@@ -78,17 +78,62 @@ export function ExecApp() {
           </div>
 
           {/* Product visual */}
-          <div className="bg-white border border-black/10 rounded-xl p-8 shadow-sm">
-            <div className="h-64 rounded-lg bg-gradient-to-br from-blue-50 to-indigo-50 flex items-center justify-center">
-              <span className="text-sm text-black/60">
-                Exec App dashboard preview
-              </span>
+          <div className="bg-white border border-black/10 rounded-xl p-4 shadow-sm">
+            <div className="rounded-lg overflow-hidden mb-3">
+              <img
+                src="/images/dashboardHome2.jpeg"
+                alt="Illustrative Exec App dashboard preview"
+                className="w-full h-64 object-cover"
+              />
             </div>
+            <p className="text-xs text-black/60 text-center">
+              Illustrative Exec App dashboard preview. Final product may differ.
+            </p>
           </div>
 
         </div>
       </section>
 
+
+      {/* KPI DEPTH EXPLANATION */}
+      <Section>
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-black mb-4">
+            130+ manufacturing KPIs across 12 dashboard areas.
+          </h2>
+          <p className="text-black/70 mb-6">
+            Instead of starting from a blank BI canvas, the Exec App is being structured around a fixed manufacturing KPI framework.
+            Each KPI comes with a definition, calculation, and view designed for operational and leadership reviews.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div>
+              <h3 className="font-semibold text-black mb-2">Production & Throughput</h3>
+              <p className="text-black/70 text-sm">
+                OEE, schedule attainment, changeover losses, and shift-level throughput — structured so leadership can see where capacity is really being lost.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-black mb-2">Quality, Safety & Reliability</h3>
+              <p className="text-black/70 text-sm">
+                First-pass yield, deviation trends, incidents, MTBF/MTTR, and repeat failures — helping teams surface chronic loss before a major breakdown or compliance issue.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-black mb-2">Margin, Cash & Commercial</h3>
+              <p className="text-black/70 text-sm">
+                Cost per unit, waste cost, WIP exposure, working-capital drivers, and customer performance — where data allows, connecting operational changes to financial impact.
+              </p>
+            </div>
+          </div>
+          <p className="text-sm text-black/60 mt-6">
+            You can explore the planned KPI framework in more depth on the{' '}
+            <a href="/kpis" className="text-accent hover:underline">
+              KPIs &amp; Dashboards
+            </a>{' '}
+            page.
+          </p>
+        </div>
+      </Section>
 
       {/* WHY IT MATTERS */}
       <Section>

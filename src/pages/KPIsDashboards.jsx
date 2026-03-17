@@ -45,10 +45,10 @@ export function KPIsDashboards() {
   return (
     <>
   <Helmet>
-    <title>KPIs & Dashboards — OpEx6 | Explore the KPI Framework</title>
+    <title>KPIs & Dashboards — OpEx6 | 130+ Manufacturing KPIs Across 12 Areas</title>
     <meta
       name="description"
-      content="The Exec App is structured around 15 KPI categories and over 100 metrics. Explore Production, Quality, Downtime, Margin, Safety, and more."
+      content="Explore the 130+ manufacturing KPIs across 12 dashboard areas that the Exec App is being built around — from Production and Quality to Maintenance, Safety, Margin, and more."
     />
   </Helmet>
 
@@ -61,14 +61,15 @@ export function KPIsDashboards() {
         KPIs & Dashboards
       </p>
 
-      <h1 className="text-4xl lg:text-5xl font-bold text-black mb-6">
-        Explore the KPI Framework Built Into the Exec App.
+      <h1 className="text-4xl lg:text-5xl font-bold text-black mb-4">
+        130+ manufacturing KPIs across 12 dashboard areas.
       </h1>
 
-      <p className="text-lg text-black/70 mb-6">
-        The Exec App is structured around 15 KPI categories and over 100 individual metrics,
-        pre-built and ready to configure. Browse the categories below to see what is planned
-        for inclusion.
+      <p className="text-lg text-black/70 mb-2">
+        The Exec App is being structured around a fixed manufacturing KPI framework — 130+ individual metrics grouped into 12 dashboard areas, pre-defined for plant, multi-site, and board-level reviews.
+      </p>
+      <p className="text-sm text-black/70 mb-6">
+        Browse the categories below to see illustrative examples of what is planned for inclusion.
       </p>
 
       <p className="text-sm text-black/60 mb-8">
@@ -192,14 +193,14 @@ export function KPIsDashboards() {
         </p>
 
         <p className="text-xs text-black/60 mb-3">
-          Sample KPIs planned for this category:
+          Sample KPIs planned for this category — each with a structured definition and leadership-relevant view:
         </p>
 
 
         {/* KPI ACCORDION */}
-        <div className="space-y-2">
+        <div className="space-y-2 max-h-96 overflow-y-auto">
 
-          {activeCategory.kpis.slice(0,6).map((kpi, idx) => (
+        {activeCategory.kpis.map((kpi, idx) => (
 
             <div
               key={idx}

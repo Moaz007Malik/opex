@@ -76,14 +76,37 @@ export function Header() {
   const [productOpen, setProductOpen] = useState(false);
   const [resourceOpen, setResourceOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [bannerVisible, setBannerVisible] = useState(true);
 
   return (
     <header className="sticky top-0 z-40 bg-white border-b border-black/10">
 
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+      {bannerVisible && (
+        <div className="bg-blue-50 border-b border-blue-100">
+          <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between gap-4 text-xs sm:text-sm">
+            <p className="text-black/80">
+              Pre-launch early access: 50 credits for £50 + 25 free credits at launch (subject to final terms). No payment taken today.
+            </p>
+            <button
+              type="button"
+              onClick={() => setBannerVisible(false)}
+              aria-label="Dismiss early-access banner"
+              className="shrink-0 text-black/50 hover:text-black"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
 
-        <Link to="/" className="text-xl font-bold text-black tracking-tight">
-          OpEx6
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+      
+        <Link to="/" className="flex items-center gap-2" aria-label="OpEx6 home">
+          <img
+            src="/images/icon.png"
+            alt="OpEx6 logo"
+            className="h-8 w-auto"
+          />
         </Link>
 
         {/* Desktop Navigation */}
