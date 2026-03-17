@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { BaseLayout } from './components/layout/BaseLayout';
+import { ScrollToTop } from './components/ScrollToTop';
 import { Homepage } from './pages/Homepage';
 import { ExecApp } from './pages/ExecApp';
 import { HowItWorks } from './pages/HowItWorks';
@@ -21,28 +22,31 @@ import { Contact } from './pages/Contact';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<BaseLayout />}>
-        <Route index element={<Homepage />} />
-        <Route path="exec-app" element={<ExecApp />} />
-        <Route path="kpis" element={<KPIsDashboards />} />
-        <Route path="how-it-works" element={<HowItWorks />} />
-        <Route path="pricing" element={<Pricing />} />
-        <Route path="resources" element={<Resources />} />
-        <Route path="use-cases" element={<UseCases />} />
-        <Route path="use-cases/packaging-group-margin-visibility" element={<UseCasePackagingMargin />} />
-        <Route path="use-cases/precision-engineering-downtime-reduction" element={<UseCasePrecisionDowntime />} />
-        <Route path="use-cases/chemicals-quality-and-compliance" element={<UseCaseChemicalsQuality />} />
-        <Route path="register-interest" element={<RegisterInterest />} />
-        <Route path="support" element={<Support />} />
-        <Route path="faq" element={<FAQ />} />
-        <Route path="about" element={<About />} />
-        <Route path="contact" element={<Contact />} />
-        <Route path="privacy" element={<Privacy />} />
-        <Route path="cookies" element={<Cookies />} />
-        <Route path="terms" element={<Terms />} />
-      </Route>
-    </Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<BaseLayout />}>
+          <Route index element={<Homepage />} />
+          <Route path="exec-app" element={<ExecApp />} />
+          <Route path="kpis" element={<KPIsDashboards />} />
+          <Route path="how-it-works" element={<HowItWorks />} />
+          <Route path="pricing" element={<Pricing />} />
+          <Route path="resources" element={<Resources />} />
+          <Route path="use-cases" element={<UseCases />} />
+          <Route path="use-cases/packaging-group-margin-visibility" element={<UseCasePackagingMargin />} />
+          <Route path="use-cases/precision-engineering-downtime-reduction" element={<UseCasePrecisionDowntime />} />
+          <Route path="use-cases/chemicals-quality-and-compliance" element={<UseCaseChemicalsQuality />} />
+          <Route path="register-interest" element={<RegisterInterest />} />
+          <Route path="support" element={<Support />} />
+          <Route path="faq" element={<FAQ />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="privacy" element={<Privacy />} />
+          <Route path="cookies" element={<Cookies />} />
+          <Route path="terms" element={<Terms />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 
