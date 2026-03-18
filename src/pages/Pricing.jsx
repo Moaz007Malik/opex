@@ -14,16 +14,16 @@ const PRICING_CARDS = [
     subline: 'Register now to secure eligibility',
     description: 'Register your interest now to secure your place on the early-access list. Early registrants will be eligible for our pre-launch offer — £50 for 50 credits + 25 free credits — when the Exec App opens to early users. Subject to final launch terms.',
     inclusions: [
-      '100 platform credits',
-      'Access to all KPI categories',
-      'All 15 dashboard modules',
-      'Export and reporting tools',
-      'Early access status',
+      'Eligibility for the launch offer (subject to final terms)',
+      'Credit bundle as per early-access offer',
+      'Access to the KPI catalogue and dashboard areas available at launch',
+      'Reporting and export tools available at launch',
+      'Early-access onboarding sequence (details confirmed before launch)',
     ],
     cta: 'Register My Interest',
     ctaTo: '/register-interest',
     noteBelowCta: 'This is a pre-launch registration. No payment is taken now. Full offer terms will be communicated ahead of launch.',
-    highlighted: false,
+    highlighted: true,
   },
   {
     id: 'payg',
@@ -41,7 +41,7 @@ const PRICING_CARDS = [
     cta: 'Register Interest to Be Notified at Launch',
     ctaTo: '/register-interest',
     noteBelowCta: null,
-    highlighted: true,
+    highlighted: false,
   },
   {
     id: 'enterprise',
@@ -49,14 +49,14 @@ const PRICING_CARDS = [
     headline: 'Enterprise',
     priceDisplay: 'Custom — to be agreed',
     subline: 'Volume pricing and dedicated support for multi-site operations',
-    description: 'Built for larger manufacturing organisations with multi-site operations, complex data environments, and enterprise requirements. Expected to include custom credit arrangements and dedicated implementation support. Contact us to discuss your requirements ahead of launch.',
+    description: 'Built for larger manufacturing organisations with multi-site operations, complex data environments, and enterprise requirements. Enterprise arrangements are expected to include custom credit structures and implementation support options. Contact us to discuss requirements ahead of launch.',
     inclusions: [
       'Volume credit arrangements',
       'Multi-site deployment support',
-      'Dedicated implementation guidance',
+      'Implementation guidance (scope agreed)',
       'Custom integration scoping',
-      'Priority support',
-      'Account management',
+      'Support model agreed',
+      'Account management (if applicable)',
     ],
     cta: 'Register Interest to Discuss Enterprise Needs',
     ctaTo: '/register-interest',
@@ -106,7 +106,7 @@ export function Pricing() {
   >
     <div className="max-w-4xl mx-auto px-6 text-center">
 
-      <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
+      <p className="text-accent text-base font-semibold uppercase tracking-wider mb-3">
         Pricing
       </p>
 
@@ -119,7 +119,7 @@ export function Pricing() {
         support dashboard usage, reporting, and data connections.
       </p>
 
-      <p className="text-sm text-text-secondary">
+      <p className="text-base text-text-secondary">
         Pricing shown is indicative for pre-launch purposes and may change.
         Final commercial terms will be confirmed at launch.
       </p>
@@ -131,7 +131,8 @@ export function Pricing() {
   {/* EARLY-ACCESS OFFER EXPLAINER */}
   <Section>
     <div className="max-w-4xl mx-auto">
-      <div className="bg-secondary border border-accent/40 rounded-2xl p-6 sm:p-8 text-left shadow-sm">
+      <div className="relative bg-secondary border border-accent/40 rounded-2xl p-7 sm:p-9 text-left shadow-sm overflow-hidden">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-accent/80 via-accent/30 to-transparent" />
         <h2 className="text-2xl font-bold text-text-primary mb-3">
           Pre-launch early-access offer
         </h2>
@@ -139,13 +140,18 @@ export function Pricing() {
           Register interest now to secure eligibility for our introductory offer — 50 credits for £50 + 25 free credits at launch.
           This is designed to give early users a meaningful period to evaluate the Exec App before standard pricing applies.
         </p>
-        <p className="text-xs text-text-secondary mb-4">
+        <p className="text-base text-text-secondary mb-5">
           This is a pre-launch expression of interest only. No payment is taken at this stage.
           Full commercial terms will be shared and agreed ahead of any commitment.
         </p>
-        <Button to="/register-interest">
-          Register interest for early access
-        </Button>
+        <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+          <Button to="/register-interest" className="px-6">
+            Register interest for early access
+          </Button>
+          <p className="text-base text-text-secondary">
+            No payment today. Offer eligibility is confirmed ahead of launch.
+          </p>
+        </div>
       </div>
     </div>
   </Section>
@@ -167,7 +173,7 @@ export function Pricing() {
         typically consume fewer credits than a multi-site group running broader dashboards and more frequent refreshes.
         Final thresholds and tiers will be confirmed as part of launch.
       </p>
-      <p className="text-xs text-text-secondary">
+      <p className="text-sm text-text-secondary">
         All examples on this page are indicative and may change before general release.
       </p>
     </div>
@@ -178,17 +184,64 @@ export function Pricing() {
   {/* PRICING CARDS */}
   <Section>
 
-    <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+    <div className="max-w-6xl mx-auto space-y-6">
+      {/* Featured early-access offer (primary) */}
+      {(() => {
+        const featured = PRICING_CARDS.find((p) => p.id === 'register');
+        if (!featured) return null;
+        return (
+          <Card className="relative bg-card-bg border border-highlight/50 rounded-2xl p-7 sm:p-8 shadow-xl overflow-hidden">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-highlight/90 via-highlight/30 to-transparent" />
 
-      {PRICING_CARDS.map(plan => (
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+              <div className="min-w-0">
+                <span className="text-sm font-semibold px-3 py-1 rounded-full w-fit mb-4 bg-highlight text-background">
+                  {featured.badge.text}
+                </span>
+
+                <h2 className="text-2xl sm:text-3xl font-bold text-text-primary mb-2">
+                  {featured.priceDisplay}
+                </h2>
+                <p className="text-base text-text-secondary mb-4">
+                  {featured.description}
+                </p>
+
+                <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2 text-base text-text-secondary">
+                  {featured.inclusions.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="text-success">✓</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="shrink-0 w-full lg:w-[320px]">
+                <div className="rounded-2xl border border-border bg-background/40 p-5">
+                  <p className="text-base uppercase tracking-[0.18em] text-text-secondary font-semibold mb-2">
+                    Next step
+                  </p>
+                  <Button to={featured.ctaTo} className="w-full justify-center">
+                    {featured.cta}
+                  </Button>
+                  <p className="text-sm text-text-secondary mt-4 leading-relaxed">
+                    {featured.noteBelowCta}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Card>
+        );
+      })()}
+
+      {/* Secondary options */}
+      <div className="grid md:grid-cols-2 gap-6">
+        {PRICING_CARDS.filter((p) => p.id !== 'register').map((plan) => (
 
         <Card
           key={plan.id}
-          className={`flex flex-col border rounded-xl p-6
-          ${
-            plan.highlighted
-              ? 'border-accent shadow-lg scale-[1.03]'
-              : 'border-border'
+          className={`flex flex-col border rounded-2xl p-6 sm:p-7 ${
+            plan.highlighted ? 'border-accent shadow-lg' : 'border-border'
           }`}
         >
 
@@ -212,12 +265,12 @@ export function Pricing() {
             {plan.priceDisplay}
           </p>
 
-          <p className="text-sm text-text-secondary mb-4">
+          <p className="text-base text-text-secondary mb-4">
             {plan.subline}
           </p>
 
 
-          <p className="text-sm text-text-secondary mb-6 flex-1">
+          <p className="text-base text-text-secondary mb-6 flex-1">
             {plan.description}
           </p>
 
@@ -229,7 +282,7 @@ export function Pricing() {
 
               <li
                 key={i}
-                className="flex items-start gap-2 text-sm text-text-secondary"
+                className="flex items-start gap-2 text-base text-text-secondary"
               >
 
                 <span className="text-success">✓</span>
@@ -249,7 +302,7 @@ export function Pricing() {
 
 
           {plan.noteBelowCta && (
-            <p className="text-xs text-text-secondary mt-4 text-center">
+            <p className="text-sm text-text-secondary mt-4 text-center">
               {plan.noteBelowCta}
             </p>
           )}
@@ -257,7 +310,7 @@ export function Pricing() {
         </Card>
 
       ))}
-
+      </div>
     </div>
 
   </Section>
@@ -283,7 +336,7 @@ export function Pricing() {
             className="border border-border rounded-lg bg-card-bg"
           >
 
-            <summary className="cursor-pointer px-4 py-3 flex justify-between items-center text-sm font-medium text-text-primary">
+            <summary className="cursor-pointer px-4 py-3 flex justify-between items-center text-base font-medium text-text-primary">
 
               {faq.q}
 
@@ -292,7 +345,7 @@ export function Pricing() {
             </summary>
 
 
-            <div className="px-4 pb-4 text-sm text-text-secondary">
+            <div className="px-4 pb-4 text-base text-text-secondary">
 
               {faq.a.includes('sales@opex6.com') ? (
                 <>

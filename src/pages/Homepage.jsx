@@ -244,7 +244,7 @@ function HeroForm() {
     return (
       <div className="bg-card-bg border border-border rounded-xl p-6 text-center shadow-sm">
         <p className="text-text-primary font-medium">Thank you. You're on the list.</p>
-        <p className="text-text-secondary text-sm mt-1">
+        <p className="text-text-secondary text-base mt-1">
           We'll be in touch ahead of launch.
         </p>
       </div>
@@ -324,35 +324,70 @@ export function Homepage() {
           {/* Top header */}
           <div className="max-w-3xl mb-14">
             {/* Eyebrow label */}
-            <p className="text-accent text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] mb-4">
-              Operational Intelligence Platform · Pre-Launch — Register Your Interest
+            <p className="text-accent text-sm sm:text-base font-semibold uppercase tracking-[0.2em] mb-4">
+              Manufacturing exec app · Early access
             </p>
 
             {/* H1 headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-text-primary leading-tight mb-6">
-              Turn manufacturing KPIs into the command centre leaders have been looking for.
+            <h1 className="text-4xl sm:text-5xl lg:text-5xl font-semibold text-text-primary leading-tight mb-5">
+              Operational intelligence leaders can run the business on.
             </h1>
 
             {/* Sub-headline */}
-            <p className="text-lg text-text-secondary leading-relaxed mb-8">
-              OpEx6&apos;s Exec App is being built as a single operational intelligence layer for manufacturing leadership —{" "}
-              <span className="font-semibold">
-                130+ manufacturing KPIs across 12 dashboard areas
-              </span>{" "}
-              covering production, quality, downtime, margin, and safety in one structured view designed for decisions, not just reports.
+            <p className="text-lg text-text-secondary leading-relaxed mb-6">
+              The Exec App ships with a structured KPI framework — consistent
+              leadership views across sites, without rebuilding dashboards from
+              scratch.
             </p>
+
+            <ul className="mb-7 space-y-2 text-base text-text-secondary">
+              <li className="flex items-start gap-3">
+                <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-accent shrink-0" />
+                <span>
+                  <span className="text-text-primary font-semibold">130+ KPIs</span>{" "}
+                  across 12 dashboard areas
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-accent shrink-0" />
+                <span>
+                  <span className="text-text-primary font-semibold">
+                    Standard definitions
+                  </span>{" "}
+                  so sites stay aligned
+                </span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-accent shrink-0" />
+                <span>
+                  <span className="text-text-primary font-semibold">
+                    Executive reporting layer
+                  </span>{" "}
+                  for plant, multi-site, and board review
+                </span>
+              </li>
+            </ul>
 
             {/* Primary & secondary CTAs */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button to="/register-interest" className="px-6 py-3 justify-center">
+              <Button to="/register-interest" className="px-6 py-3 justify-center text-base">
                 Register Interest
               </Button>
-              <Link
-                to="/kpis-dashboards"
-                className="text-sm text-text-secondary underline-offset-4 hover:underline flex items-center"
-              >
-                Explore KPIs &amp; Dashboards →
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 sm:items-center justify-center">
+                <a
+                  href="#objections"
+                  className="text-base text-text-secondary underline-offset-4 hover:underline"
+                >
+                  Why not Power BI/Tableau?
+                </a>
+                <span className="hidden sm:inline text-text-secondary/40">•</span>
+                <Link
+                  to="/kpis-dashboards"
+                  className="text-base text-text-secondary underline-offset-4 hover:underline"
+                >
+                  Explore KPIs &amp; Dashboards
+                </Link>
+              </div>
             </div>
           </div>
 
@@ -366,7 +401,7 @@ export function Homepage() {
               </div>
 
               {/* Trust strip */}
-              <div className="mt-6 flex flex-wrap gap-4 text-xs text-text-secondary">
+              <div className="mt-6 flex flex-wrap gap-4 text-base text-text-secondary">
                 <span>130+ KPIs</span>
                 <span>12 dashboard areas</span>
                 <span>Multi-site ready</span>
@@ -380,19 +415,19 @@ export function Homepage() {
               {/* Card header */}
               <div className="mb-5">
                 {/* Launch offer badge */}
-                <div className="inline-flex items-center px-3 py-1 rounded-full bg-amber-400/90 text-slate-900 text-[11px] font-semibold uppercase tracking-[0.18em] mb-3">
+                <div className="inline-flex items-center px-3 py-1 rounded-full bg-amber-400/90 text-slate-900 text-sm font-semibold uppercase tracking-[0.18em] mb-3">
                   Early Access Offer
                 </div>
                 <h3 className="text-2xl lg:text-3xl font-semibold text-text-primary mb-2">
                   Register for early access
                 </h3>
-                <p className="text-sm text-text-secondary">
+                <p className="text-base text-text-secondary">
                   Be first in line for the Exec App launch, with a limited early access offer for manufacturing leadership teams.
                 </p>
               </div>
 
               {/* Offer highlight */}
-              <div className="mb-5 rounded-lg bg-highlight/10 text-highlight text-sm px-4 py-3 font-medium">
+              <div className="mb-5 rounded-lg bg-highlight/10 text-highlight text-base px-4 py-3 font-medium">
                 Early Access Offer: Register now to secure eligibility for £50 for 50 credits + 25 free credits at launch
               </div>
 
@@ -400,7 +435,7 @@ export function Homepage() {
                 <HeroForm />
 
                 {/* Footer */}
-                <p className="text-[11px] text-text-secondary mt-5 leading-relaxed">
+                <p className="text-sm text-text-secondary mt-5 leading-relaxed">
                   Pre-launch product. Features, integrations, and pricing may
                   evolve before general release.
                 </p>
@@ -410,7 +445,7 @@ export function Homepage() {
               <div className="mt-4 text-center">
                 <Link
                   to="/exec-app"
-                  className="text-sm text-text-secondary underline-offset-4 hover:underline"
+                  className="text-base text-text-secondary underline-offset-4 hover:underline"
                 >
                   Learn more about the Exec App →
                 </Link>
@@ -419,6 +454,122 @@ export function Homepage() {
           </div>
         </div>
       </motion.section>
+
+      {/* Section 1.2 — Objection handling (move earlier in scroll) */}
+      <motion.section
+        id="objections"
+        className="py-24 bg-background text-text-primary relative overflow-hidden"
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px 0px" }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
+        {/* Background */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.18),transparent_60%)]" />
+
+        <div className="relative max-w-6xl mx-auto px-6">
+          {/* Header */}
+          <div className="text-center mb-14 max-w-3xl mx-auto">
+            <p className="text-base uppercase tracking-[0.22em] text-text-secondary mb-3">
+              Objection handling
+            </p>
+            <h2 className="text-3xl lg:text-4xl font-semibold leading-tight text-text-primary">
+              Why not just use Power BI, Tableau, or spreadsheets?
+            </h2>
+            <p className="text-text-secondary mt-4 text-base leading-relaxed">
+              Those tools visualise whatever you build. OpEx6 is a{" "}
+              <span className="font-semibold text-text-primary">
+                manufacturing-specific operational intelligence layer
+              </span>{" "}
+              that arrives with the KPI structure, definitions, and leadership views already designed.
+            </p>
+          </div>
+
+          {/* Cards */}
+          <div className="grid md:grid-cols-3 gap-6 mb-10">
+            <div className="bg-card-bg border border-border rounded-2xl p-6 backdrop-blur-sm hover:border-accent transition">
+              <h3 className="font-semibold text-text-primary mb-3">
+                A defined KPI system, not a blank canvas
+              </h3>
+              <p className="text-text-secondary text-base leading-relaxed">
+                Exec App is structured around{" "}
+                <span className="font-semibold text-text-primary">
+                  130+ KPIs across 12 dashboard areas
+                </span>
+                , so sites don&apos;t drift into different templates, definitions, and rollups.
+              </p>
+            </div>
+
+            <div className="bg-card-bg border border-border rounded-2xl p-6 backdrop-blur-sm hover:border-accent transition">
+              <h3 className="font-semibold text-text-primary mb-3">
+                Consistency across sites
+              </h3>
+              <p className="text-text-secondary text-base leading-relaxed">
+                One set of KPI definitions applied everywhere — so OEE, downtime, yield, and margin mean the same thing in every plant.
+              </p>
+            </div>
+
+            <div className="bg-card-bg border border-border rounded-2xl p-6 backdrop-blur-sm hover:border-accent transition">
+              <h3 className="font-semibold text-text-primary mb-3">
+                Built for leaders, not analysts
+              </h3>
+              <p className="text-text-secondary text-base leading-relaxed">
+                Views are designed for senior ops and finance — connecting performance signals to margin and cash impact without interpreting complex BI workbooks.
+              </p>
+            </div>
+          </div>
+
+          <p className="text-center text-text-secondary text-base max-w-3xl mx-auto leading-relaxed">
+            OpEx6 is not a replacement for tools like Power BI or Tableau. It sits above them as a structured, manufacturing-specific operating layer focused on leadership decisions.
+          </p>
+        </div>
+      </motion.section>
+
+      {/* Section 1.2b — Built by people who have lived the problem */}
+      <Section className="bg-secondary">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <p className="text-sm uppercase tracking-[0.2em] text-accent font-semibold mb-3">
+              Why we&apos;re building this
+            </p>
+            <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary">
+              Built by people who have lived the problem
+            </h2>
+            <p className="text-text-secondary mt-4 max-w-3xl mx-auto text-base leading-relaxed">
+              We&apos;ve sat in plant reviews and board packs where the hardest part isn&apos;t charts — it&apos;s agreeing the right number, at the right level, early enough to act.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Too much time assembling reports",
+                body: "When leaders spend hours chasing exports and reconciling spreadsheets, the week is already gone.",
+              },
+              {
+                title: "Too many competing versions of truth",
+                body: "Different sites, different templates, different formulas — and meetings turn into debates instead of decisions.",
+              },
+              {
+                title: "Too little link to margin and cash",
+                body: "Downtime, scrap, and variability only become “real” when finance catches up. Leaders need that linkage earlier.",
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="bg-card-bg border border-border rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-accent transition"
+              >
+                <h3 className="font-semibold text-text-primary mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-text-secondary text-base leading-relaxed">
+                  {item.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Section>
 
       {/* Section 1.2 — Product Direction Stats Bar */}
       <motion.section
@@ -431,7 +582,7 @@ export function Homepage() {
         <div className="max-w-7xl mx-auto px-6">
           {/* Section intro */}
           <div className="max-w-2xl mx-auto text-center mb-12">
-            <p className="text-xs uppercase tracking-[0.2em] text-accent font-semibold mb-3">
+            <p className="text-sm uppercase tracking-[0.2em] text-accent font-semibold mb-3">
               Product structure
             </p>
             <h2 className="text-2xl lg:text-3xl font-semibold text-text-primary">
@@ -445,7 +596,7 @@ export function Homepage() {
             {/* Card 1 */}
             <div className="bg-card-bg border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition">
               <p className="text-3xl font-semibold text-text-primary mb-2">12</p>
-              <p className="text-sm text-text-secondary leading-relaxed">
+              <p className="text-base text-text-secondary leading-relaxed">
                 Structured dashboard areas aligned to executive, plant, and
                 multi-site reviews
               </p>
@@ -454,7 +605,7 @@ export function Homepage() {
             {/* Card 2 */}
             <div className="bg-card-bg border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition">
               <p className="text-3xl font-semibold text-text-primary mb-2">130+</p>
-              <p className="text-sm text-text-secondary leading-relaxed">
+              <p className="text-base text-text-secondary leading-relaxed">
                 Manufacturing KPIs across production, quality, maintenance,
                 safety, and margin
               </p>
@@ -463,7 +614,7 @@ export function Homepage() {
             {/* Card 3 */}
             <div className="bg-card-bg border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition">
               <p className="text-3xl font-semibold text-text-primary mb-2">1</p>
-              <p className="text-sm text-text-secondary leading-relaxed">
+              <p className="text-base text-text-secondary leading-relaxed">
                 Unified operational intelligence layer — not another generic BI
                 workspace
               </p>
@@ -480,9 +631,6 @@ export function Homepage() {
         viewport={{ once: true, margin: "-80px 0px" }}
         transition={{ duration: 0.65, ease: "easeOut" }}
       >
-        {/* Background accent */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/60 to-slate-800/40" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(148,163,184,0.18),transparent_70%)]" />
 
         <div className="relative max-w-4xl mx-auto px-6 text-center">
           {/* Headline */}
@@ -491,13 +639,13 @@ export function Homepage() {
           </h2>
 
           {/* Subtext */}
-          <p className="text-text-secondary text-lg mb-6 leading-relaxed">
+          <p className="text-text-secondary text-xl mb-6 leading-relaxed">
             We’re onboarding a small number of manufacturing sites pre-launch.
             Register now to secure priority access and early pricing.
           </p>
 
           {/* Offer highlight */}
-          <div className="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-highlight/20 text-highlight font-medium text-sm mb-8">
+          <div className="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-highlight/20 text-highlight font-medium text-base mb-8">
             £50 for 50 credits + 25 free credits at launch
           </div>
 
@@ -509,14 +657,14 @@ export function Homepage() {
 
             <Link
               to="/exec-app"
-              className="text-sm text-text-secondary underline-offset-4 hover:underline flex items-center justify-center"
+              className="text-base text-text-secondary underline-offset-4 hover:underline flex items-center justify-center"
             >
               Learn more →
             </Link>
           </div>
 
           {/* Disclaimer */}
-          <p className="text-[11px] text-text-secondary mt-6 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm text-text-secondary mt-6 max-w-2xl mx-auto leading-relaxed">
             No payment required at this stage. Final features, pricing, and
             availability may change before general release.
           </p>
@@ -528,7 +676,7 @@ export function Homepage() {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-14">
-            <p className="text-xs uppercase tracking-[0.2em] text-accent font-semibold mb-3">
+            <p className="text-sm uppercase tracking-[0.2em] text-accent font-semibold mb-3">
               Who it's for
             </p>
             <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary">
@@ -550,7 +698,7 @@ export function Homepage() {
                 <h3 className="font-semibold text-lg text-text-primary mb-2">
                   {s.name}
                 </h3>
-                <p className="text-text-secondary text-sm leading-relaxed">
+                <p className="text-text-secondary text-base leading-relaxed">
                   {s.description}
                 </p>
 
@@ -577,7 +725,7 @@ export function Homepage() {
         <div className="relative max-w-5xl mx-auto px-6">
           {/* Header */}
           <div className="text-center mb-16">
-            <p className="text-xs uppercase tracking-[0.25em] text-text-secondary mb-4">
+            <p className="text-sm uppercase tracking-[0.25em] text-text-secondary mb-4">
               Reality check
             </p>
             <h2 className="text-3xl lg:text-4xl font-semibold leading-tight max-w-3xl mx-auto">
@@ -615,12 +763,12 @@ export function Homepage() {
                 className="group flex items-start gap-4 p-5 rounded-xl border border-border/60 bg-card-bg/40 hover:bg-card-bg/60 transition"
               >
                 {/* Number */}
-                <div className="text-text-secondary font-semibold text-sm w-6">
+                <div className="text-text-secondary font-semibold text-base w-6">
                   {String(i + 1).padStart(2, "0")}
                 </div>
 
                 {/* Text */}
-                <p className="text-text-secondary text-sm leading-relaxed">
+                <p className="text-text-secondary text-base leading-relaxed">
                   {item.q.split(item.highlight).map((part, index, arr) => (
                     <>
                       {part}
@@ -640,7 +788,7 @@ export function Homepage() {
           <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-10" />
 
           {/* Closing */}
-          <p className="text-center text-text-secondary text-sm max-w-2xl mx-auto leading-relaxed">
+          <p className="text-center text-text-secondary text-base max-w-2xl mx-auto leading-relaxed">
             OpEx6 is being built to replace fragmented visibility with a
             structured, consistent operating layer — so these questions can be
             answered in minutes, not weeks.
@@ -653,7 +801,7 @@ export function Homepage() {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-14">
-            <p className="text-xs uppercase tracking-[0.2em] text-accent font-semibold mb-3">
+            <p className="text-sm uppercase tracking-[0.2em] text-accent font-semibold mb-3">
               Where it breaks
             </p>
             <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary">
@@ -696,7 +844,7 @@ export function Homepage() {
                 <h3 className="font-semibold text-text-primary mb-2">
                   {item.title}
                 </h3>
-                <p className="text-text-secondary text-sm leading-relaxed">
+                <p className="text-text-secondary text-base leading-relaxed">
                   {item.desc}
                 </p>
               </div>
@@ -704,7 +852,7 @@ export function Homepage() {
           </div>
 
           {/* Closing */}
-          <p className="text-center text-text-secondary text-sm max-w-3xl mx-auto">
+          <p className="text-center text-text-secondary text-base max-w-3xl mx-auto">
             OpEx6 is being built to expose hidden cost leakage before it becomes
             accepted normality.
           </p>
@@ -715,7 +863,7 @@ export function Homepage() {
       <Section className="bg-background">
         {/* Header */}
         <div className="text-center mb-14 max-w-3xl mx-auto">
-          <p className="text-accent text-xs uppercase tracking-[0.2em] font-semibold mb-3">
+          <p className="text-accent text-sm uppercase tracking-[0.2em] font-semibold mb-3">
             Why operational intelligence matters
           </p>
           <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary">
@@ -732,20 +880,20 @@ export function Homepage() {
             >
               {/* Problem */}
               <div>
-                <p className="text-xs uppercase text-text-secondary mb-2">
+                <p className="text-sm uppercase text-text-secondary mb-2">
                   Challenge
                 </p>
-                <p className="text-text-secondary text-sm leading-relaxed">
+                <p className="text-text-secondary text-base leading-relaxed">
                   {row.challenge}
                 </p>
               </div>
 
               {/* Solution */}
               <div>
-                <p className="text-xs uppercase text-accent mb-2">
+                <p className="text-sm uppercase text-accent mb-2">
                   Exec App approach
                 </p>
-                <p className="text-text-primary text-sm leading-relaxed font-medium">
+                <p className="text-text-primary text-base leading-relaxed font-medium">
                   {row.solution}
                 </p>
               </div>
@@ -754,100 +902,17 @@ export function Homepage() {
         </div>
       </Section>
 
-      {/* Section 1.4b — Why not just use BI tools? */}
-      <motion.section
-        className="py-24 bg-background text-text-primary relative overflow-hidden"
-        initial={{ opacity: 0, y: 32 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px 0px" }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-      >
-        {/* Background */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.18),transparent_60%)]" />
-
-        <div className="relative max-w-6xl mx-auto px-6">
-          {/* Header */}
-          <div className="text-center mb-14 max-w-3xl mx-auto">
-            <p className="text-xs uppercase tracking-[0.25em] text-text-secondary mb-3">
-              Objection handling
-            </p>
-            <h2 className="text-3xl lg:text-4xl font-semibold leading-tight text-text-primary">
-              Why not just use Power BI, Tableau, or spreadsheets?
-            </h2>
-            <p className="text-text-secondary mt-4 text-sm">
-              Those tools visualise whatever data you give them. OpEx6 is a{" "}
-              <span className="font-semibold">
-                manufacturing-specific operational intelligence layer
-              </span>{" "}
-              that arrives with the structure, KPI definitions, and leadership
-              views already defined.
-            </p>
-          </div>
-
-          {/* Cards */}
-          <div className="grid md:grid-cols-3 gap-6 mb-10">
-            {/* Card 1 */}
-            <div className="bg-card-bg border border-border rounded-2xl p-6 backdrop-blur-sm hover:border-accent transition">
-              <h3 className="font-semibold text-text-primary mb-3">
-                130+ KPIs, not a blank canvas
-              </h3>
-              <p className="text-text-secondary text-sm leading-relaxed">
-                Exec App is built around{" "}
-                <span className="font-semibold">
-                  130+ manufacturing KPIs across 12 dashboard areas
-                </span>
-                , with formulas, units, and views pre-structured — not a DIY BI
-                workspace that each site configures differently.
-              </p>
-            </div>
-
-            {/* Card 2 */}
-            <div className="bg-card-bg border border-border rounded-2xl p-6 backdrop-blur-sm hover:border-accent transition">
-              <h3 className="font-semibold text-text-primary mb-3">
-                Shared KPI definitions across sites
-              </h3>
-              <p className="text-text-secondary text-sm leading-relaxed">
-                Every KPI is defined once and applied consistently — so OEE,
-                downtime, yield, and margin are calculated the same way in every
-                plant, instead of each team owning its own spreadsheet or BI
-                template.
-              </p>
-            </div>
-
-            {/* Card 3 */}
-            <div className="bg-card-bg border border-border rounded-2xl p-6 backdrop-blur-sm hover:border-accent transition">
-              <h3 className="font-semibold text-text-primary mb-3">
-                Leadership-ready, not analyst-only
-              </h3>
-              <p className="text-text-secondary text-sm leading-relaxed">
-                Views are designed for senior operations and finance — linking
-                downtime, scrap, and variability directly to cash, margin, and
-                contribution, without leaders needing to interpret complex BI
-                workbooks.
-              </p>
-            </div>
-          </div>
-
-          {/* Closing */}
-          <p className="text-center text-text-secondary text-xs max-w-3xl mx-auto">
-            OpEx6 is not a replacement for tools like Power BI or Tableau. It
-            sits above them as a structured, manufacturing-specific operational
-            intelligence product focused on leadership decisions.
-          </p>
-        </div>
-      </motion.section>
-
       {/* Section 1.5 — Product Feature Overview (3 cards) */}
       <Section className="bg-secondary">
         {/* Header */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <p className="text-accent text-xs uppercase tracking-[0.2em] font-semibold mb-3">
+          <p className="text-accent text-sm uppercase tracking-[0.2em] font-semibold mb-3">
             What the Exec App delivers
           </p>
           <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary leading-tight">
             Built for manufacturing. Designed for decision-making.
           </h2>
-          <p className="text-text-secondary mt-4 text-sm">
+          <p className="text-text-secondary mt-4 text-base">
             A structured operational intelligence layer — not just dashboards.
           </p>
         </div>
@@ -916,7 +981,7 @@ export function Homepage() {
                 {card.title}
               </h3>
 
-              <p className="text-text-secondary text-sm leading-relaxed">
+              <p className="text-text-secondary text-base leading-relaxed">
                 {card.copy}
               </p>
 
@@ -931,13 +996,13 @@ export function Homepage() {
       <Section className="bg-background">
         {/* Header */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <p className="text-accent text-xs uppercase tracking-[0.2em] font-semibold mb-3">
+          <p className="text-accent text-sm uppercase tracking-[0.2em] font-semibold mb-3">
             How it works
           </p>
           <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary leading-tight">
             Structured for deployment in weeks, not months
           </h2>
-          <p className="text-text-secondary text-sm mt-4">
+          <p className="text-text-secondary text-base mt-4">
             A defined rollout approach — not an open-ended BI implementation.
           </p>
         </div>
@@ -962,7 +1027,7 @@ export function Homepage() {
                   {step.title}
                 </h3>
 
-                <p className="text-text-secondary text-sm leading-relaxed max-w-xs mx-auto">
+                <p className="text-text-secondary text-base leading-relaxed max-w-xs mx-auto">
                   {step.body}
                 </p>
               </div>
@@ -985,7 +1050,7 @@ export function Homepage() {
           <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary leading-tight">
             What typically triggers the search for operational intelligence
           </h2>
-          <p className="text-text-secondary text-sm mt-4">
+          <p className="text-text-secondary text-base mt-4">
             These are the moments where visibility gaps become impossible to
             ignore.
           </p>
@@ -999,12 +1064,12 @@ export function Homepage() {
               className="bg-card-bg border border-border rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-accent transition"
             >
               {/* Quote */}
-              <p className="text-text-secondary text-sm leading-relaxed mb-5">
+              <p className="text-text-secondary text-base leading-relaxed mb-5">
                 “{c.statement}”
               </p>
 
               {/* Footer */}
-              <div className="flex items-center justify-between text-xs text-text-secondary">
+              <div className="flex items-center justify-between text-sm text-text-secondary">
                 <span className="uppercase tracking-wide text-accent font-medium">
                   {c.sector}
                 </span>
@@ -1020,7 +1085,7 @@ export function Homepage() {
 
       {/* Section 1.8 — Integration Direction */}
       <Section className="bg-background">
-        <p className="text-accent text-sm font-medium uppercase tracking-widest mb-2 text-center">
+        <p className="text-accent text-base font-medium uppercase tracking-widest mb-2 text-center">
           Designed to connect with your existing systems
         </p>
         <h2 className="text-3xl lg:text-4xl font-bold text-text-primary text-center mb-8">
@@ -1039,7 +1104,7 @@ export function Homepage() {
                       <img
                         src={item.src}
                         alt={item.name}
-                        className="max-h-8 max-w-full object-contain grayscale hover:grayscale-0 transition mix-blend-multiply"
+                        className="max-h-8 max-w-full object-contain grayscale hover:grayscale-0 transition opacity-85 hover:opacity-100"
                       />
                     </div>
                   ) : (
@@ -1047,7 +1112,7 @@ export function Homepage() {
                       key={`${loop}-${item.name}`}
                       className="h-10 w-28 md:w-32 rounded-full bg-card-bg border border-border shadow-sm flex items-center justify-center shrink-0"
                     >
-                      <span className="text-[11px] text-text-secondary font-medium">
+                      <span className="text-sm text-text-secondary font-medium">
                         {item.abbr}
                       </span>
                     </div>
@@ -1058,20 +1123,20 @@ export function Homepage() {
           </div>
         </div>
         <div className="text-center space-y-2">
-          <p className="text-text-secondary text-sm">
+          <p className="text-text-secondary text-base">
             Integration availability and scope depend on implementation. Contact
             us to discuss your systems environment.
           </p>
-          <p className="text-text-secondary text-sm italic">
+          <p className="text-text-secondary text-base italic">
             <Link to="/use-cases" className="underline underline-offset-4">
               Explore customer use cases
             </Link>
           </p>
-          <p className="text-text-secondary text-xs">
+          <p className="text-text-secondary text-base">
             Illustrative customer use cases showing how operational visibility
             can improve margin, cash, and decision speed.
           </p>
-          <p className="text-text-secondary text-[11px] max-w-3xl mx-auto">
+          <p className="text-text-secondary text-sm max-w-3xl mx-auto">
             All third-party names, trade marks, and logos are the property of
             their respective owners and are used for identification purposes
             only.

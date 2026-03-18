@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 export function Section({ children, className = '' }) {
   return (
     <motion.section
-      className={`py-24 lg:py-32 bg-secondary ${className}`}
+      className={`py-16 lg:py-20 bg-secondary ${className}`}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px 0px' }}

@@ -102,8 +102,8 @@ export function ExecApp() {
         viewport={{ once: true, margin: "-80px 0px" }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
-          <div>
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-start">
+          <div className="order-2 lg:order-1 lg:col-span-5">
             <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
               The Exec App by OpEx6
             </p>
@@ -136,29 +136,45 @@ export function ExecApp() {
           </div>
 
           {/* Product visual — illustrative structured KPI mockup */}
-          <div className="bg-card-bg border border-border rounded-2xl p-5 shadow-md">
+          <div className="order-1 lg:order-2 lg:col-span-7 lg:pl-4">
+            <div className="relative bg-card-bg border border-border rounded-3xl p-6 sm:p-7 lg:p-8 shadow-xl overflow-hidden transform-gpu lg:scale-[1.03] 2xl:scale-[1.06] origin-center min-h-[520px]">
+              {/* Ambient highlight */}
+              <div className="pointer-events-none absolute -inset-24 bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.35),transparent_55%)]" />
+              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(15,23,42,0.0),rgba(15,23,42,0.35))]" />
+
             {/* Header bar */}
-            <div className="flex items-center justify-between mb-4">
+            <div className="relative flex items-center justify-between mb-5">
               <div>
-                <p className="text-[11px] uppercase tracking-[0.16em] text-text-secondary">
+                <p className="text-xs uppercase tracking-[0.16em] text-text-secondary">
                   Exec App · Illustrative preview
                 </p>
-                <h2 className="text-sm font-semibold text-text-primary mt-1">
+                <h2 className="text-base font-semibold text-text-primary mt-1">
                   Group Operations Dashboard
                 </h2>
+                <div className="mt-3 flex flex-wrap gap-2 text-xs">
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-full border border-border bg-background/40 text-text-secondary">
+                    12 dashboard areas
+                  </span>
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-full border border-border bg-background/40 text-text-secondary">
+                    130+ KPIs
+                  </span>
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-full border border-border bg-background/40 text-text-secondary">
+                    Multi-site rollups
+                  </span>
+                </div>
               </div>
               <div className="flex gap-2">
-                <span className="inline-flex items-center px-2 py-1 rounded-full text-[10px] bg-emerald-500/10 text-emerald-400">
+                <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs bg-emerald-500/10 text-emerald-400">
                   Live
                 </span>
-                <span className="inline-flex items-center px-2 py-1 rounded-full text-[10px] bg-slate-700 text-slate-200">
+                <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs bg-slate-700 text-slate-200">
                   FY24 Q3
                 </span>
               </div>
             </div>
 
             {/* Category navigation */}
-            <div className="flex flex-wrap gap-2 mb-4 text-[11px]">
+            <div className="relative flex flex-wrap gap-2 mb-5 text-xs">
               {[
                 "Executive summary",
                 "Production",
@@ -182,68 +198,70 @@ export function ExecApp() {
             </div>
 
             {/* KPI grid */}
-            <div className="grid grid-cols-2 gap-3 mb-4">
-              <div className="rounded-xl border border-border bg-background/60 p-3">
-                <p className="text-[11px] text-text-secondary mb-1">
+            <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+              <div className="rounded-2xl border border-border bg-background/60 p-4">
+                <p className="text-xs text-text-secondary mb-1">
                   Group OEE
                 </p>
                 <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-2xl font-semibold text-text-primary">
+                  <span className="text-3xl font-semibold text-text-primary">
                     87.2%
                   </span>
-                  <span className="text-[11px] text-emerald-400">
+                  <span className="text-xs text-emerald-400">
                     ▲ 2.4 pts vs last week
                   </span>
                 </div>
-                <div className="h-8 rounded-md bg-gradient-to-r from-emerald-500/60 via-emerald-400/40 to-emerald-300/30" />
+                <div className="h-10 rounded-lg bg-gradient-to-r from-emerald-500/60 via-emerald-400/40 to-emerald-300/30" />
               </div>
 
-              <div className="rounded-xl border border-border bg-background/60 p-3">
-                <p className="text-[11px] text-text-secondary mb-1">
+              <div className="rounded-2xl border border-border bg-background/60 p-4">
+                <p className="text-xs text-text-secondary mb-1">
                   Scrap & rework cost
                 </p>
                 <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-2xl font-semibold text-text-primary">
+                  <span className="text-3xl font-semibold text-text-primary">
                     £184k
                   </span>
-                  <span className="text-[11px] text-rose-400">
+                  <span className="text-xs text-rose-400">
                     ▲ £22k vs plan
                   </span>
                 </div>
-                <div className="h-8 rounded-md bg-gradient-to-r from-rose-500/70 via-rose-400/40 to-rose-300/30" />
+                <div className="h-10 rounded-lg bg-gradient-to-r from-rose-500/70 via-rose-400/40 to-rose-300/30" />
               </div>
 
-              <div className="rounded-xl border border-border bg-background/60 p-3">
-                <p className="text-[11px] text-text-secondary mb-1">
+              <div className="rounded-2xl border border-border bg-background/60 p-4">
+                <p className="text-xs text-text-secondary mb-1">
                   Unplanned downtime
                 </p>
                 <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-2xl font-semibold text-text-primary">
+                  <span className="text-3xl font-semibold text-text-primary">
                     9.3%
                   </span>
-                  <span className="text-[11px] text-emerald-400">
+                  <span className="text-xs text-emerald-400">
                     ▼ 1.1 pts vs last month
                   </span>
                 </div>
-                <div className="flex justify-between text-[10px] text-text-secondary">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 text-xs text-text-secondary">
                   <span>Top 3 causes</span>
-                  <span>Bearing failure · Changeover · Blocked conveyor</span>
+                  <span className="sm:text-right">
+                    Bearing failure · Changeover · Blocked conveyor
+                  </span>
                 </div>
               </div>
 
-              <div className="rounded-xl border border-border bg-background/60 p-3">
-                <p className="text-[11px] text-text-secondary mb-1">
+              <div className="rounded-2xl border border-border bg-background/60 p-4">
+                <p className="text-xs text-text-secondary mb-1">
                   Margin at risk (est.)
                 </p>
                 <div className="flex items-baseline gap-2 mb-1">
-                  <span className="text-2xl font-semibold text-text-primary">
+                  <span className="text-3xl font-semibold text-text-primary">
                     £612k
                   </span>
-                  <span className="text-[11px] text-text-secondary">
+                  <span className="text-xs text-text-secondary">
                     Linked to downtime, scrap, and yield
                   </span>
                 </div>
-                <div className="h-8 rounded-md border border-dashed border-border flex items-center justify-between px-2 text-[10px] text-text-secondary">
+                <div className="h-10 rounded-lg border border-dashed border-border flex items-center justify-between px-3 text-xs text-text-secondary">
                   <span>Downtime ▼</span>
                   <span>Scrap ▼</span>
                   <span>Yield ▼</span>
@@ -252,23 +270,23 @@ export function ExecApp() {
             </div>
 
             {/* Bottom panels */}
-            <div className="grid grid-cols-3 gap-3">
-              <div className="col-span-2 rounded-xl border border-border bg-background/60 p-3">
-                <p className="text-[11px] text-text-secondary mb-1">
+            <div className="relative grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="sm:col-span-2 rounded-2xl border border-border bg-background/60 p-4">
+                <p className="text-xs text-text-secondary mb-1">
                   Site comparison — OEE vs cost per unit
                 </p>
-                <div className="h-16 rounded-md bg-[radial-gradient(circle_at_top,_rgba(148,163,184,0.6),_transparent_60%)] flex items-end justify-between px-3 pb-2 text-[10px] text-text-secondary">
+                <div className="h-20 rounded-lg bg-[radial-gradient(circle_at_top,_rgba(148,163,184,0.6),_transparent_60%)] flex items-end justify-between px-3 pb-2 text-xs text-text-secondary">
                   <span>Plant A</span>
                   <span>Plant B</span>
                   <span>Plant C</span>
                   <span>Plant D</span>
                 </div>
               </div>
-              <div className="rounded-xl border border-border bg-background/60 p-3">
-                <p className="text-[11px] text-text-secondary mb-1">
+              <div className="rounded-2xl border border-border bg-background/60 p-4">
+                <p className="text-xs text-text-secondary mb-1">
                   Executive notes
                 </p>
-                <ul className="space-y-1 text-[11px] text-text-secondary">
+                <ul className="space-y-1 text-xs text-text-secondary">
                   <li>• Reliability gains starting to show in OEE.</li>
                   <li>• Scrap cost still elevated on Line 4.</li>
                   <li>• WIP days improving at Plant C.</li>
@@ -276,10 +294,11 @@ export function ExecApp() {
               </div>
             </div>
 
-            <p className="mt-4 text-[11px] text-text-secondary text-center">
+            <p className="relative mt-5 text-xs text-text-secondary text-center">
               Illustrative Exec App KPI layout for demonstration only. Final product, data, and design
               may differ.
             </p>
+            </div>
           </div>
         </div>
       </motion.section>

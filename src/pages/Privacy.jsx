@@ -33,7 +33,7 @@ export function Privacy() {
             How OpEx6 collects, uses, and protects personal data, and the rights available to individuals.
           </p>
 
-          <p className="text-sm text-text-secondary mt-4">
+          <p className="text-base text-text-secondary mt-4">
             Last updated: [TO BE INSERTED BY CLIENT BEFORE LAUNCH]
           </p>
 
@@ -46,10 +46,10 @@ export function Privacy() {
 
         <div className="max-w-4xl mx-auto px-6">
 
-          <div className="space-y-8 text-sm">
+          <div className="space-y-8 text-base leading-relaxed">
 
             <div className="border border-border rounded-xl p-6 bg-card-bg">
-              <h2 className="text-lg font-semibold text-text-primary mb-3">1. Who we are</h2>
+              <h2 className="text-xl font-semibold text-text-primary mb-3">1. Who we are</h2>
 
               <p className="text-text-secondary">
                 OpEx6 Technologies Ltd (&quot;OpEx6&quot;, &quot;we&quot;, &quot;us&quot;, &quot;our&quot;) operates this website and is
@@ -58,19 +58,19 @@ export function Privacy() {
               </p>
 
               <p className="text-text-secondary mt-3">
-                Contact: <a href="mailto:[email]" className="text-accent hover:underline">[email]</a>
+                Contact: <a href="mailto:[email]" className="text-accent hover:underline underline-offset-4">[email]</a>
               </p>
             </div>
 
 
             <div className="border border-border rounded-xl p-6 bg-card-bg">
-              <h2 className="text-lg font-semibold text-text-primary mb-3">2. What data we collect</h2>
+              <h2 className="text-xl font-semibold text-text-primary mb-3">2. What data we collect</h2>
 
               <p className="text-text-secondary">
                 Depending on how you interact with this site, we may collect:
               </p>
 
-              <ul className="list-disc list-inside mt-3 space-y-1 text-text-secondary">
+              <ul className="list-disc list-inside mt-3 space-y-2 text-text-secondary">
                 <li>Contact details you provide, such as name, work email address, company, and any message you choose to send.</li>
                 <li>Marketing preferences, such as whether you have opted in to receive product updates and marketing emails.</li>
                 <li>
@@ -82,11 +82,11 @@ export function Privacy() {
 
 
             <div className="border border-border rounded-xl p-6 bg-card-bg">
-              <h2 className="text-lg font-semibold text-text-primary mb-3">3. How we use your data</h2>
+              <h2 className="text-xl font-semibold text-text-primary mb-3">3. How we use your data</h2>
 
               <p className="text-text-secondary">We may use your personal data to:</p>
 
-              <ul className="list-disc list-inside mt-3 space-y-1 text-text-secondary">
+              <ul className="list-disc list-inside mt-3 space-y-2 text-text-secondary">
                 <li>Respond to enquiries and manage early-access registrations for the Exec App.</li>
                 <li>Send you product updates and marketing emails where you have explicitly opted in to receive them.</li>
                 <li>Maintain records of interest registrations, support enquiries, and consent preferences.</li>
@@ -97,7 +97,7 @@ export function Privacy() {
 
 
             <div className="border border-border rounded-xl p-6 bg-card-bg">
-              <h2 className="text-lg font-semibold text-text-primary mb-3">4. Lawful basis</h2>
+              <h2 className="text-xl font-semibold text-text-primary mb-3">4. Lawful basis</h2>
 
               <p className="text-text-secondary">
                 The appropriate lawful basis for each processing activity (for example, legitimate interests or contract for enquiry
@@ -108,7 +108,7 @@ export function Privacy() {
 
 
             <div className="border border-border rounded-xl p-6 bg-card-bg">
-              <h2 className="text-lg font-semibold text-text-primary mb-3">5. Who we share data with</h2>
+              <h2 className="text-xl font-semibold text-text-primary mb-3">5. Who we share data with</h2>
 
               <p className="text-text-secondary">
                 We do not sell your personal data. We may share it with trusted service providers who help us operate this website, manage
@@ -119,7 +119,7 @@ export function Privacy() {
 
 
             <div className="border border-border rounded-xl p-6 bg-card-bg">
-              <h2 className="text-lg font-semibold text-text-primary mb-3">6. International transfers</h2>
+              <h2 className="text-xl font-semibold text-text-primary mb-3">6. International transfers</h2>
 
               <p className="text-text-secondary">
                 Some of our service providers may be located outside the UK or European Economic Area. Where personal data is transferred
@@ -130,7 +130,7 @@ export function Privacy() {
 
 
             <div className="border border-border rounded-xl p-6 bg-card-bg">
-              <h2 className="text-lg font-semibold text-text-primary mb-3">7. Data retention</h2>
+              <h2 className="text-xl font-semibold text-text-primary mb-3">7. Data retention</h2>
 
               <p className="text-text-secondary">
                 We will not keep personal data longer than necessary for the purposes described above. Interest registration and enquiry
@@ -141,13 +141,13 @@ export function Privacy() {
 
 
             <div className="border border-border rounded-xl p-6 bg-card-bg">
-              <h2 className="text-lg font-semibold text-text-primary mb-3">8. Your rights</h2>
+              <h2 className="text-xl font-semibold text-text-primary mb-3">8. Your rights</h2>
 
               <p className="text-text-secondary">
                 Depending on where you are based, you may have rights under UK GDPR or other data protection laws to:
               </p>
 
-              <ul className="list-disc list-inside mt-3 space-y-1 text-text-secondary">
+              <ul className="list-disc list-inside mt-3 space-y-2 text-text-secondary">
                 <li>Request access to the personal data we hold about you.</li>
                 <li>Request correction or deletion of your personal data.</li>
                 <li>Object to or request restriction of certain types of processing.</li>
@@ -155,28 +155,28 @@ export function Privacy() {
               </ul>
 
               <p className="text-text-secondary mt-3">
-                To exercise any of these rights, contact us at <a href="mailto:[email]" className="text-accent hover:underline">[email]</a>.
+                To exercise any of these rights, contact us at <a href="mailto:[email]" className="text-accent hover:underline underline-offset-4">[email]</a>.
               </p>
             </div>
 
 
             <div className="border border-border rounded-xl p-6 bg-card-bg">
-              <h2 className="text-lg font-semibold text-text-primary mb-3">9. ICO complaint route</h2>
+              <h2 className="text-xl font-semibold text-text-primary mb-3">9. ICO complaint route</h2>
 
               <p className="text-text-secondary">
                 If you have concerns about how we handle your personal data, we would encourage you to contact us first so we can try to
                 resolve the issue. You also have the right to lodge a complaint with the UK Information Commissioner&apos;s Office (ICO)
-                at <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">ico.org.uk</a>.
+                at <a href="https://ico.org.uk" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline underline-offset-4">ico.org.uk</a>.
               </p>
             </div>
 
 
             <div className="border border-border rounded-xl p-6 bg-card-bg">
-              <h2 className="text-lg font-semibold text-text-primary mb-3">10. Cookies</h2>
+              <h2 className="text-xl font-semibold text-text-primary mb-3">10. Cookies</h2>
 
               <p className="text-text-secondary">
                 For information about how we use cookies and similar technologies, please see our{' '}
-                <Link to="/cookies" className="text-accent hover:underline">Cookie Policy</Link>.
+                <Link to="/cookies" className="text-accent hover:underline underline-offset-4">Cookie Policy</Link>.
               </p>
             </div>
 

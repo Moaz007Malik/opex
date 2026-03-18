@@ -26,7 +26,9 @@ export default {
 
         // Text colors
         'text-primary': '#F8FAFC',
-        'text-secondary': '#94A3B8',
+        // Slightly brighter for readability on dark backgrounds
+        'text-secondary': '#E2E8F0',
+        'text-muted': '#94A3B8',
 
         // Borders
         border: '#334155',

@@ -42,10 +42,10 @@ export function About() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(148,163,184,0.25),transparent_65%)] pointer-events-none" />
 
         <div className="relative max-w-6xl mx-auto px-6">
-          <div className="grid lg:grid-cols-[1.8fr_minmax(0,1fr)] gap-10 lg:gap-16 items-start">
-            {/* Left: Narrative */}
-            <div>
-              <p className="text-xs uppercase tracking-[0.2em] text-text-secondary font-semibold mb-4">
+          <div className="max-w-5xl mx-auto">
+            {/* Narrative (full-width) */}
+            <div className="mb-10">
+              <p className="text-sm uppercase tracking-[0.2em] text-accent font-semibold mb-4">
                 About OpEx6
               </p>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-text-primary leading-tight mb-6">
@@ -54,22 +54,23 @@ export function About() {
               <p className="text-base sm:text-lg text-text-secondary leading-relaxed mb-5">
                 The result is slow escalation of issues, inconsistent site comparisons, and leadership conversations that arrive days or weeks after the losses have already happened. OpEx6 is being built to give manufacturing leaders a single, structured operating view they can actually use.
               </p>
-              <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
+              <p className="text-sm sm:text-base text-text-secondary leading-relaxed">
                 OpEx6 is currently in pre-launch / early-access phase. Product features, screenshots, integrations, availability, and pricing may change before general release.
               </p>
             </div>
 
-            {/* Right: Highlight Card */}
-            <div className="lg:pt-4">
-              <Card className="bg-card-bg border border-border rounded-2xl shadow-sm lg:shadow-md p-6 sm:p-7 space-y-4">
-                <div className="text-xs uppercase tracking-[0.2em] text-text-secondary font-semibold">
-                  Operational visibility focus
+            {/* Highlight (below narrative) */}
+            <div>
+              <Card className="relative bg-card-bg/70 border border-border rounded-2xl shadow-sm lg:shadow-md p-6 sm:p-7 space-y-5 overflow-hidden">
+                <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-accent/80 via-accent/30 to-transparent" />
+                <div className="text-sm uppercase tracking-[0.2em] text-text-secondary font-semibold">
+                  What we&apos;re fixing
                 </div>
-                <p className="text-sm text-text-secondary leading-relaxed">
+                <p className="text-base text-text-secondary leading-relaxed">
                   In many manufacturing businesses, plant teams work hard to generate reports — OEE, downtime, scrap, safety, margin — but by the time those reports reach executives, they are often out of date, inconsistent across sites, or trapped in slide decks that are difficult to act on.
                 </p>
                 <div className="h-px bg-gradient-to-r from-border via-border/50 to-transparent" />
-                <p className="text-sm text-text-secondary leading-relaxed">
+                <p className="text-base text-text-secondary leading-relaxed">
                   Leaders are left stitching together shop-floor data, finance summaries, and anecdotal feedback to answer basic questions: Where are we losing margin? Which sites are underperforming? How much capacity is tied up in downtime, changeovers, and WIP? OpEx6 exists to make those questions faster and easier to answer.
                 </p>
               </Card>
@@ -82,37 +83,65 @@ export function About() {
       <Section className="py-20 lg:py-24">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-semibold text-text-primary">
+            <p className="text-sm uppercase tracking-[0.2em] text-accent font-semibold mb-3">
+              Why OpEx6 exists
+            </p>
+            <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary">
               Built by people who have lived the problem.
             </h2>
+            <p className="text-base text-text-secondary mt-4 max-w-3xl mx-auto leading-relaxed">
+              The goal is simple: make executive operational visibility repeatable, structured, and decision-ready — without rebuilding reporting every quarter.
+            </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 items-stretch">
-            <div className="flex flex-col text-left h-full">
-              <div className="w-8 h-8 mb-3 rounded-full border border-border bg-secondary flex items-center justify-center text-xs font-medium text-text-secondary">
-                01
-              </div>
-              <p className="text-text-secondary text-sm sm:text-base leading-relaxed bg-secondary border border-border/50 rounded-2xl p-6 flex-1">
-                OpEx6 was started by people who have spent years working with manufacturing leadership teams — in plant reviews, board packs, and continuous-improvement programmes — trying to answer the same questions with spreadsheets, exports, and manually assembled reports.
-              </p>
-            </div>
+          <div className="relative max-w-3xl mx-auto">
+            <div className="absolute left-5 top-2 bottom-2 w-px bg-border/40 hidden sm:block" />
 
-            <div className="flex flex-col text-left h-full">
-              <div className="w-8 h-8 mb-3 rounded-full border border-border bg-secondary flex items-center justify-center text-xs font-medium text-text-secondary">
-                02
-              </div>
-              <p className="text-text-secondary text-sm sm:text-base leading-relaxed bg-secondary border border-border/50 rounded-2xl p-6 flex-1">
-                We have seen operations reviews where half the meeting is spent debating which number is correct. We have seen CI and engineering teams struggle to prove the impact of their work because the data is scattered. We have seen finance teams trying to connect operational decisions to margin with tools that were never designed for it.
-              </p>
-            </div>
+            <div className="space-y-5">
+              <Card className="relative bg-card-bg border border-border rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-md transition">
+                <div className="absolute top-0 left-0 w-1 h-12 bg-accent rounded-tr-full rounded-br-full" />
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="relative z-10 inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-background/40 border border-border text-text-primary font-semibold">
+                    01
+                  </span>
+                  <p className="text-sm uppercase tracking-[0.18em] text-text-secondary font-semibold">
+                    Lived experience
+                  </p>
+                </div>
+                <p className="text-text-secondary text-base leading-relaxed">
+                  OpEx6 was started by people who have spent years working with manufacturing leadership teams — in plant reviews, board packs, and continuous-improvement programmes — trying to answer the same questions with spreadsheets, exports, and manually assembled reports.
+                </p>
+              </Card>
 
-            <div className="flex flex-col text-left h-full">
-              <div className="w-8 h-8 mb-3 rounded-full border border-border bg-secondary flex items-center justify-center text-xs font-medium text-text-secondary">
-                03
-              </div>
-              <p className="text-text-secondary text-sm sm:text-base leading-relaxed bg-card-bg border border-border rounded-2xl p-6 shadow-sm flex-1">
-                OpEx6 is being built as the platform we wished those teams had: one structured operating view that connects performance, downtime, quality, safety, and margin drivers — in a format that executives, plant leaders, and finance teams can all work from.
-              </p>
+              <Card className="relative bg-card-bg border border-border rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-md transition">
+                <div className="absolute top-0 left-0 w-1 h-12 bg-accent rounded-tr-full rounded-br-full" />
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="relative z-10 inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-background/40 border border-border text-text-primary font-semibold">
+                    02
+                  </span>
+                  <p className="text-sm uppercase tracking-[0.18em] text-text-secondary font-semibold">
+                    Seen the failure modes
+                  </p>
+                </div>
+                <p className="text-text-secondary text-base leading-relaxed">
+                  We have seen operations reviews where half the meeting is spent debating which number is correct. We have seen CI and engineering teams struggle to prove the impact of their work because the data is scattered. We have seen finance teams trying to connect operational decisions to margin with tools that were never designed for it.
+                </p>
+              </Card>
+
+              <Card className="relative bg-card-bg border border-border rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-md transition">
+                <div className="absolute top-0 left-0 w-1 h-12 bg-highlight rounded-tr-full rounded-br-full" />
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="relative z-10 inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-background/40 border border-border text-text-primary font-semibold">
+                    03
+                  </span>
+                  <p className="text-sm uppercase tracking-[0.18em] text-text-secondary font-semibold">
+                    Building the alternative
+                  </p>
+                </div>
+                <p className="text-text-secondary text-base leading-relaxed">
+                  OpEx6 is being built as the platform we wished those teams had: one structured operating view that connects performance, downtime, quality, safety, and margin drivers — in a format that executives, plant leaders, and finance teams can all work from.
+                </p>
+              </Card>
             </div>
           </div>
         </div>
@@ -175,7 +204,7 @@ export function About() {
       <Section className="py-20 lg:py-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center mb-14">
-            <h2 className="text-3xl font-semibold text-text-primary">
+            <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary">
               How we think about building OpEx6.
             </h2>
           </div>
@@ -187,10 +216,10 @@ export function About() {
                 className="relative p-6 bg-secondary border border-border rounded-2xl shadow-sm hover:shadow-md transition"
               >
                 <div className="absolute top-0 left-0 w-1 h-10 bg-accent rounded-tr-full rounded-br-full" />
-                <h3 className="font-semibold text-lg text-text-primary mb-2">
+                <h3 className="font-semibold text-xl text-text-primary mb-2">
                   {v.title}
                 </h3>
-                <p className="text-text-secondary text-sm leading-relaxed">{v.body}</p>
+                <p className="text-text-secondary text-base leading-relaxed">{v.body}</p>
               </Card>
             ))}
           </div>
@@ -198,11 +227,7 @@ export function About() {
       </Section>
 
       {/* CTA */}
-      <Section className="py-20 lg:py-24">
-          <div className="max-w-4xl mx-auto px-6 text-center">
-          <RegisterInterestCTA />
-        </div>
-      </Section>
+      <RegisterInterestCTA />
     </>
   );
 }

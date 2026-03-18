@@ -137,134 +137,147 @@ export function Support() {
 
 
 
-      {/* CONTACT SECTION */}
+      {/* CONTACT SECTION — styled to match Contact page */}
       <Section className="bg-secondary">
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
 
-        <div className="grid lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
-
-          {/* LEFT SIDE */}
-          <div>
-
-            <h2 className="text-3xl font-bold text-text-primary mb-4">
+          {/* LEFT SIDE — info cards */}
+          <div className="lg:col-span-5">
+            <p className="text-sm uppercase tracking-[0.22em] text-accent font-semibold mb-3">
               Still need help?
+            </p>
+            <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary mb-4">
+              Contact the OpEx6 team.
             </h2>
-
-            <p className="text-text-secondary mb-6">
-              If you cannot find the answer you are looking for, send us a message and our team will respond as soon as possible.
+            <p className="text-base text-text-secondary leading-relaxed mb-6">
+              If you can&apos;t find the answer you&apos;re looking for in the resources above, send us a message and we&apos;ll come back with a structured response.
             </p>
 
-            <p className="text-text-secondary text-sm">
-              Or email us directly at{' '}
-              <a
-                href="mailto:sales@opex6.com"
-                className="text-accent hover:underline"
-              >
-                sales@opex6.com
-              </a>
-            </p>
-
-          </div>
-
-
-
-          {/* RIGHT SIDE FORM */}
-          <div>
-
-            {sent ? (
-
-              <div className="bg-success/10 border border-success/40 rounded-xl p-6">
-
-                <p className="font-medium text-text-primary">
-                  Message sent.
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="rounded-2xl border border-border bg-card-bg/50 p-5">
+                <p className="text-sm uppercase tracking-[0.18em] text-text-secondary font-semibold mb-2">
+                  Email
                 </p>
-
-                <p className="text-sm text-text-secondary mt-1">
+                <a
+                  href="mailto:sales@opex6.com"
+                  className="text-text-primary font-semibold hover:underline underline-offset-4"
+                >
+                  sales@opex6.com
+                </a>
+                <p className="text-sm text-text-secondary mt-2 leading-relaxed">
                   We aim to respond within 1 business day.
                 </p>
-
               </div>
 
-            ) : (
-
-              <form
-                onSubmit={handleSubmit}
-                className="space-y-5 border border-border rounded-xl p-8 bg-card-bg"
-              >
-
-                <Input
-                  label="Name"
-                  required
-                  value={form.name}
-                  onChange={(e) =>
-                    setForm((p) => ({ ...p, name: e.target.value }))
-                  }
-                  placeholder="Your name"
-                />
-
-                <Input
-                  label="Email"
-                  type="email"
-                  required
-                  value={form.email}
-                  onChange={(e) =>
-                    setForm((p) => ({ ...p, email: e.target.value }))
-                  }
-                  placeholder="you@company.com"
-                />
-
-                <Input
-                  label="Subject"
-                  required
-                  value={form.subject}
-                  onChange={(e) =>
-                    setForm((p) => ({ ...p, subject: e.target.value }))
-                  }
-                  placeholder="What is your enquiry about?"
-                />
-
-                <div>
-                  <label className="block text-sm font-medium text-text-secondary mb-1">
-                    Message
-                  </label>
-
-                  <textarea
-                    required
-                    value={form.message}
-                    onChange={(e) =>
-                      setForm((p) => ({ ...p, message: e.target.value }))
-                    }
-                    placeholder="Your message"
-                    rows={5}
-                    className="w-full border border-border rounded-lg px-4 py-3 text-text-primary placeholder-text-secondary bg-background focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/40 transition-colors resize-y"
-                  />
-                </div>
-
-                {error && (
-                  <p className="text-danger text-sm">
-                    {error}
-                  </p>
-                )}
-
-                <Button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full justify-center"
-                >
-                  {loading ? 'Sending…' : 'Send Message'}
-                </Button>
-
-                <p className="text-text-secondary text-sm">
-                  We aim to respond to all enquiries within 1 business day.
+              <div className="rounded-2xl border border-border bg-card-bg/50 p-5">
+                <p className="text-sm uppercase tracking-[0.18em] text-text-secondary font-semibold mb-2">
+                  Helpful context
                 </p>
+                <ul className="text-sm text-text-secondary space-y-1 leading-relaxed">
+                  <li>• Which page or feature you&apos;re asking about</li>
+                  <li>• Any error messages or behaviour seen</li>
+                  <li>• How urgent the issue is</li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
-              </form>
+          {/* RIGHT SIDE — premium form card */}
+          <div className="lg:col-span-7 lg:pl-4">
+            <div className="relative bg-card-bg border border-border rounded-2xl p-7 sm:p-8 shadow-xl overflow-hidden">
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-accent/80 via-accent/30 to-transparent" />
 
-            )}
+              <div className="mb-6">
+                <p className="text-sm uppercase tracking-[0.22em] text-text-secondary font-semibold mb-2">
+                  Submit a support request
+                </p>
+                <p className="text-base text-text-secondary leading-relaxed">
+                  Share a brief description of what you&apos;re trying to do and what&apos;s not working as expected.
+                </p>
+              </div>
 
+              {sent ? (
+                <div className="bg-success/10 border border-success/40 rounded-xl p-6 text-text-primary">
+                  <p className="font-medium text-lg">Message sent.</p>
+                  <p className="text-base text-text-secondary mt-2">
+                    We aim to respond to all enquiries within 1 business day.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="grid sm:grid-cols-2 gap-5">
+                    <Input
+                      label="Name"
+                      required
+                      value={form.name}
+                      onChange={(e) =>
+                        setForm((p) => ({ ...p, name: e.target.value }))
+                      }
+                      placeholder="Your name"
+                    />
+
+                    <Input
+                      label="Email"
+                      type="email"
+                      required
+                      value={form.email}
+                      onChange={(e) =>
+                        setForm((p) => ({ ...p, email: e.target.value }))
+                      }
+                      placeholder="you@company.com"
+                    />
+                  </div>
+
+                  <Input
+                    label="Subject"
+                    required
+                    value={form.subject}
+                    onChange={(e) =>
+                      setForm((p) => ({ ...p, subject: e.target.value }))
+                    }
+                    placeholder="What is this about?"
+                  />
+
+                  <div>
+                    <label className="block text-sm font-medium tracking-[0.1em] uppercase text-text-secondary mb-2">
+                      Message
+                    </label>
+                    <textarea
+                      required
+                      value={form.message}
+                      onChange={(e) =>
+                        setForm((p) => ({ ...p, message: e.target.value }))
+                      }
+                      placeholder="Describe what you are trying to do and what you are seeing, including any relevant pages or KPI areas."
+                      rows={6}
+                      className="w-full border border-border rounded-xl px-4 py-3 bg-background/40 text-text-primary placeholder-text-secondary focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/40 transition-colors resize-y leading-relaxed"
+                    />
+                  </div>
+
+                  {error && (
+                    <div className="rounded-xl border border-danger/40 bg-danger/10 p-4">
+                      <p className="text-danger text-sm font-medium">{error}</p>
+                    </div>
+                  )}
+
+                  <div className="pt-2">
+                    <Button
+                      type="submit"
+                      disabled={loading}
+                      className="w-full justify-center py-3"
+                    >
+                      {loading ? 'Sending…' : 'Send support request'}
+                    </Button>
+                    <p className="text-text-secondary text-sm mt-3 text-center">
+                      We aim to respond within 1 business day.
+                    </p>
+                  </div>
+                </form>
+              )}
+            </div>
           </div>
 
         </div>
-
       </Section>
 
     </>

@@ -1,320 +1,386 @@
-import { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
-import { motion } from 'framer-motion';
-import { Section } from '../components/Section';
-import { Button } from '../components/ui/Button';
-import { Card } from '../components/ui/Card';
-import { RegisterInterestCTA } from '../components/RegisterInterestCTA';
-import { kpiCategories } from '../data/kpis';
-
-const DEFAULT_TAB_ID = 'production';
+import { useMemo, useState } from "react";
+import { Helmet } from "react-helmet-async";
+import { motion } from "framer-motion";
+import { Section } from "../components/Section";
+import { Button } from "../components/ui/Button";
+import { Card } from "../components/ui/Card";
+import { Input } from "../components/ui/Input";
+import { Badge } from "../components/ui/Badge";
+import { RegisterInterestCTA } from "../components/RegisterInterestCTA";
+import { kpiCategories } from "../data/kpis";
 
 const TOTAL_KPI_COUNT = kpiCategories.reduce(
   (sum, category) => sum + (category.kpis?.length || 0),
-  0
+  0,
 );
+const TOTAL_CATEGORY_COUNT = kpiCategories.length;
 
-const CATEGORY_VISIBILITY_NARRATIVES = {
-  production:
-    "Most leadership teams only see production issues once output has already missed plan. This category is designed to show, in one view, where capacity is really being gained or lost — across OEE, schedule attainment, throughput, and changeovers — before the month-end pack arrives.",
-  quality:
-    "Quality problems often show up as complaints and credits, long after the factory could have acted. This category surfaces where defects, rework, and escapes are emerging so leaders can see the commercial risk of quality performance as it develops, not weeks later.",
-  'downtime-reliability':
-    "Reliability issues are usually only visible after a major breakdown or capacity crisis. This category is designed to make chronic downtime patterns, repeat failures, and maintenance gaps visible early — so leadership can see where reliability is silently eroding performance.",
-  'margin-intelligence':
-    "Margin erosion is frequently discovered at month-end, disconnected from the operational decisions that caused it. This category helps leadership see how scrap, speed loss, yield drift, and cost variances are shaping cost per unit and margin while there is still time to act.",
-  'safety-risk':
-    "Safety is often reported as a lagging statistic, not a live risk picture. This category helps leadership see whether observations, near misses, training, and corrective actions are keeping pace with the real risk profile — before an incident forces the conversation.",
-  'delivery-service':
-    "Service failures usually reach leadership as escalations and lost orders. This category connects OTIF, complaints, lead times, and backlog into one view so leaders can see where delivery risk is building and which customers are likely to feel it first.",
-  'inventory-materials':
-    "Inventory is often treated as a finance line, not a live operational constraint. This category shows where stock accuracy, WIP, and material availability are creating cash traps or production risk, so leaders can see where inventory is quietly distorting performance.",
-  'continuous-improvement':
-    "Many CI programmes look busy but are hard to evidence at board level. This category shows whether ideas, projects, and savings are really flowing — turning improvement activity into a visible, quantifiable contribution to performance and culture.",
-  'energy-utilities':
-    "Energy and utilities spend typically appears as a single cost line. This category breaks it down into intensity, peaks, waste, and savings so leaders can see where operational decisions are driving cost and sustainability outcomes.",
-  'workforce-labour':
-    "Workforce performance is often discussed in anecdotes rather than structured data. This category helps leadership see how labour availability, skills, and utilisation are affecting throughput, cost, and resilience across shifts and sites.",
-  maintenance:
-    "Most leadership teams only feel maintenance problems after a major outage or spiralling backlog. This category makes planned vs reactive work, backlog, parts availability, and asset coverage visible — so reliability can be managed proactively, not only after failures.",
-  'sustainability-esg':
-    "ESG reporting is frequently disconnected from day-to-day operations. This category structures emissions, waste, water, and social metrics so leaders can see whether sustainability progress is genuinely embedded in how the factory runs.",
-  'compliance-audit':
-    "Compliance risk often sits in static spreadsheets until an audit or inspection. This category surfaces findings, actions, training, and permits so leadership can see whether compliance is improving or drifting before an external party arrives.",
-  'customer-commercial':
-    "Customer and commercial performance can look healthy in revenue while margin and service quietly erode. This category connects operational metrics to revenue, renewals, and profitability so leaders can see which customers and contracts are truly performing.",
-  'financial-performance':
-    "Financial performance is usually reviewed at period close, not as a live operational signal. This category helps connect factory performance to EBITDA, cost ratios, and working capital so leadership can see, in one place, how operations are shaping financial outcomes.",
-};
+function normaliseText(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[\u2019']/g, "'")
+    .replace(/\s+/g, " ")
+    .trim();
+}
 
-function KpiAccordionItem({ name, definition, isOpen, onToggle }) {
-  return (
-    <div className="border border-slate-700 rounded-lg bg-card-bg overflow-hidden">
-      <button
-        type="button"
-        onClick={onToggle}
-        className="w-full flex items-center justify-between gap-4 px-4 py-3 text-left hover:bg-slate-800/50 transition-colors"
-      >
-        <span className="font-medium text-text-primary">{name}</span>
-        <span className="shrink-0 text-slate-400">
-          <svg className={`w-5 h-5 transition-transform ${isOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
-        </span>
-      </button>
-      {isOpen && (
-        <div className="px-4 pb-4 pt-0">
-          <p className="text-text-secondary text-sm">{definition}</p>
-        </div>
-      )}
-    </div>
-  );
+function makeKpiKey(categoryId, kpiName) {
+  const base = normaliseText(kpiName)
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+  return `${categoryId}:${base}`;
+}
+
+function kpiWhyMatters(kpi, category) {
+  if (kpi?.why) return kpi.why;
+  const q = category?.leadershipQuestion;
+  if (!q) return "Helps leadership turn operational signals into faster, more consistent decisions.";
+  return `Decision signal for: ${q}`;
+}
+
+function getStoredShortlist() {
+  try {
+    if (typeof window === "undefined" || !window.localStorage) return [];
+    const raw = localStorage.getItem("opex6_kpi_shortlist");
+    const parsed = raw ? JSON.parse(raw) : [];
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+function setStoredShortlist(keys) {
+  try {
+    if (typeof window === "undefined" || !window.localStorage) return;
+    localStorage.setItem("opex6_kpi_shortlist", JSON.stringify(keys));
+  } catch {
+    // Ignore storage errors (e.g. private mode).
+  }
 }
 
 export function KPIsDashboards() {
-  const [activeTabId, setActiveTabId] = useState(DEFAULT_TAB_ID);
-  const [expandedKpiIndex, setExpandedKpiIndex] = useState(null);
+  const [kpiSearch, setKpiSearch] = useState("");
+  const [kpiCategoryFilter, setKpiCategoryFilter] = useState("all");
+  const [shortlistedKpis, setShortlistedKpis] = useState(() =>
+    getStoredShortlist(),
+  );
 
-  const activeCategory = kpiCategories.find((c) => c.id === activeTabId) || kpiCategories[0];
+  const pageTitle = `KPIs & Dashboards — OpEx6 | KPI Catalogue Across ${TOTAL_CATEGORY_COUNT} Areas`;
 
-  const handleTabChange = (id) => {
-    setActiveTabId(id);
-    setExpandedKpiIndex(null);
+  const search = normaliseText(kpiSearch);
+
+  const catalogue = useMemo(() => {
+    const categories = kpiCategories.map((category) => {
+      const kpis = (category.kpis || [])
+        .map((kpi) => ({
+          key: makeKpiKey(category.id, kpi.name),
+          name: kpi.name,
+          definition: kpi.definition,
+          whyMatters: kpiWhyMatters(kpi, category),
+        }))
+        .filter((kpi) => {
+          if (!search) return true;
+          const haystack = normaliseText(
+            `${kpi.name} ${kpi.definition} ${kpi.whyMatters} ${category.name}`,
+          );
+          return haystack.includes(search);
+        });
+
+      return {
+        id: category.id,
+        name: category.name,
+        leadershipQuestion: category.leadershipQuestion,
+        description: category.description,
+        leadershipExplanation: category.leadershipExplanation,
+        totalCount: category.kpis?.length || 0,
+        visibleCount: kpis.length,
+        kpis,
+      };
+    });
+
+    const filteredCategories =
+      kpiCategoryFilter === "all"
+        ? categories
+        : categories.filter((c) => c.id === kpiCategoryFilter);
+
+    const visibleCategories = filteredCategories.filter(
+      (c) => c.visibleCount > 0,
+    );
+    const visibleKpiCount = visibleCategories.reduce(
+      (sum, c) => sum + c.visibleCount,
+      0,
+    );
+
+    return {
+      categories: visibleCategories,
+      totalKpis: TOTAL_KPI_COUNT,
+      visibleKpis: visibleKpiCount,
+    };
+  }, [kpiCategoryFilter, search]);
+
+  const toggleShortlist = (kpiKey) => {
+    setShortlistedKpis((prev) => {
+      const next = prev.includes(kpiKey)
+        ? prev.filter((k) => k !== kpiKey)
+        : [...prev, kpiKey];
+      setStoredShortlist(next);
+      return next;
+    });
   };
 
   return (
     <>
-  <Helmet>
-    <title>KPIs & Dashboards — OpEx6 | 130+ Manufacturing KPIs Across 12 Areas</title>
-    <meta
-      name="description"
-      content="Explore the 130+ manufacturing KPIs across 12 dashboard areas that the Exec App is being built around — from Production and Quality to Maintenance, Safety, Margin, and more."
-    />
-  </Helmet>
+      <Helmet
+        title={pageTitle}
+        meta={[
+          {
+            name: "description",
+            content: `Explore the ${TOTAL_KPI_COUNT}+ manufacturing KPIs across ${TOTAL_CATEGORY_COUNT} dashboard areas that the Exec App is being built around — from Production and Quality to Maintenance, Safety, Margin, and more.`,
+          },
+        ]}
+      />
 
+      {/* HERO */}
+      <motion.section
+        className="py-20 lg:py-24 border-b border-border bg-background"
+        initial={{ opacity: 0, y: 32 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-80px 0px" }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center">
+          <p className="text-accent text-base font-semibold uppercase tracking-wider mb-3">
+            KPIs & Dashboards
+          </p>
 
-  {/* HERO */}
-  <motion.section
-  className="py-28 border-b border-border bg-background"
-    initial={{ opacity: 0, y: 32 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: '-80px 0px' }}
-    transition={{ duration: 0.7, ease: 'easeOut' }}
-  >
-    <div className="max-w-5xl mx-auto px-6 text-center">
+          <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-4">
+            {TOTAL_KPI_COUNT}+ manufacturing KPIs across {TOTAL_CATEGORY_COUNT} dashboard areas.
+          </h1>
 
-      <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
-        KPIs & Dashboards
-      </p>
+          <p className="text-lg text-text-secondary mb-2">
+            The Exec App is being structured around a fixed manufacturing KPI
+            framework —{" "}
+            <span className="font-semibold">
+              {TOTAL_KPI_COUNT}+ individual metrics
+            </span>{" "}
+            grouped into {TOTAL_CATEGORY_COUNT} dashboard areas, pre-defined for plant, multi-site,
+            and board-level reviews.
+          </p>
+          <p className="text-base text-text-secondary mb-6 max-w-3xl mx-auto">
+            Use the catalogue below to search every KPI, understand what it measures, and see why it matters for leadership reviews.
+          </p>
 
-      <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-4">
-        {TOTAL_KPI_COUNT}+ manufacturing KPIs across 12 dashboard areas.
-      </h1>
+          <p className="text-base text-text-secondary mb-6">
+            OpEx6 is currently in pre-launch / early-access phase. Product
+            features, screenshots, integrations, availability, and pricing may
+            change before general release.
+          </p>
 
-      <p className="text-lg text-text-secondary mb-2">
-        The Exec App is being structured around a fixed manufacturing KPI framework —{" "}
-        <span className="font-semibold">{TOTAL_KPI_COUNT}+ individual metrics</span> grouped into 12
-        dashboard areas, pre-defined for plant, multi-site, and board-level reviews.
-      </p>
-      <p className="text-sm text-text-secondary mb-6">
-        Browse the categories below to see how the KPI framework is structured — and drill into the full
-        list of planned KPIs for each area.
-      </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Button to="/register-interest">
+              Register Interest in the Exec App
+            </Button>
+            <Button to="/exec-app" variant="secondary">
+              See the Exec App preview
+            </Button>
+          </div>
+          </div>
 
-      <p className="text-sm text-text-secondary mb-8">
-        OpEx6 is currently in pre-launch / early-access phase. Product features, screenshots,
-        integrations, availability, and pricing may change before general release.
-      </p>
+          {/* Above-the-fold catalogue controls */}
+          <div className="mt-10 rounded-2xl border border-border bg-card-bg/40 p-5 sm:p-6">
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5">
+              <div className="flex flex-col sm:flex-row gap-3 sm:items-end">
+                <Input
+                  label="Search the catalogue"
+                  value={kpiSearch}
+                  onChange={(e) => setKpiSearch(e.target.value)}
+                  placeholder="e.g. OEE, OTIF, MTBF, scrap rate…"
+                  aria-label="Search the KPI catalogue"
+                  className="sm:min-w-[340px]"
+                />
 
-      <Button to="/register-interest">
-        Register Interest in the Exec App
-      </Button>
+                <div>
+                  <label className="block text-sm font-medium tracking-[0.1em] uppercase text-text-secondary mb-1">
+                    Category
+                  </label>
+                  <select
+                    value={kpiCategoryFilter}
+                    onChange={(e) => setKpiCategoryFilter(e.target.value)}
+                    className="w-full bg-background border border-border rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition"
+                    aria-label="Filter KPI catalogue by category"
+                  >
+                    <option value="all">All categories</option>
+                    {kpiCategories.map((cat) => (
+                      <option key={cat.id} value={cat.id}>
+                        {cat.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
 
-    </div>
-  </motion.section>
+              <div className="text-base text-text-secondary">
+                Showing{" "}
+                <span className="font-semibold text-text-primary">
+                  {catalogue.visibleKpis}
+                </span>{" "}
+                of{" "}
+                <span className="font-semibold text-text-primary">
+                  {catalogue.totalKpis}
+                </span>{" "}
+                KPIs.
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.section>
 
-
-  {/* KPI CATEGORY TABS */}
-  <Section>
-
-  <div className="max-w-7xl mx-auto grid lg:grid-cols-[260px_1fr] gap-10">
-
-    {/* KPI CATEGORY SIDEBAR */}
-    <div className="space-y-2">
-
-      <h2 className="text-lg font-semibold text-text-primary mb-1">
-        KPI Categories
-      </h2>
-      <p className="text-xs text-text-secondary mb-2">
-        Select a category to see its leadership question, representative dashboard view, and the full KPI
-        list planned for that area.
-      </p>
-
-      {kpiCategories.map(cat => (
-
-        <button
-          key={cat.id}
-          onClick={() => handleTabChange(cat.id)}
-          className={`w-full text-left px-4 py-3 rounded-lg text-sm transition
-          ${
-            activeTabId === cat.id
-              ? 'bg-accent text-white'
-              : 'hover:bg-card-bg text-text-secondary'
-          }`}
-        >
-          {cat.name}
-        </button>
-
-      ))}
-
-    </div>
-
-
-    {/* MAIN CONTENT */}
-    <div className="space-y-8">
-
-      {/* DASHBOARD PREVIEW */}
-      <div>
-
-        <h2 className="text-xl font-semibold text-text-primary mb-3">
-          Representative dashboard preview
-        </h2>
-
-        <p className="text-sm text-text-secondary mb-4">
-          This illustrative layout shows how metrics from the selected category
-          could be represented within the Exec App.
-        </p>
-
-        <Card className="bg-card-bg border border-border rounded-xl p-5">
-
-          <div className="flex justify-between items-center mb-5">
-
+      {/* KPI LIBRARY */}
+      <Section>
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-6">
             <div>
-              <p className="text-xs text-text-secondary uppercase">
-                KPI Category
-              </p>
-
-              <p className="font-medium text-text-primary">
-                {activeCategory.name}
+              <h2 className="text-2xl font-semibold text-text-primary mb-2">
+                KPI Catalogue
+              </h2>
+              <p className="text-base text-text-secondary max-w-3xl">
+                This is the structured KPI framework the Exec App is being built
+                around. Each KPI is discoverable, grouped into leadership
+                dashboard areas, and shown with a one-line explanation of what
+                it measures and why it matters.
               </p>
             </div>
 
-            <span className="text-xs px-2 py-1 rounded-full bg-accent/20 text-accent">
-              Illustrative preview
-            </span>
-
+            <div className="hidden lg:flex items-end gap-3">
+              {shortlistedKpis.length > 0 && (
+                <>
+                  <Badge variant="amber">
+                    {shortlistedKpis.length} shortlisted
+                  </Badge>
+                  <Button to="/register-interest">
+                    Register interest (tailored)
+                  </Button>
+                </>
+              )}
+            </div>
           </div>
 
-
-          {/* KPI CARDS */}
-          <div className="grid grid-cols-3 gap-3 mb-4">
-
-            <div className="bg-background/60 rounded-lg p-3">
-              <p className="text-xs text-text-secondary">Headline KPI</p>
-              <p className="text-lg font-semibold text-text-primary">92.4%</p>
-              <p className="text-xs text-success">+3.2 pts vs last week</p>
+          {shortlistedKpis.length > 0 && (
+            <div className="flex lg:hidden items-center gap-3 mb-4">
+              <Badge variant="amber">{shortlistedKpis.length} shortlisted</Badge>
+              <Button to="/register-interest">Register interest (tailored)</Button>
             </div>
+          )}
 
-            <div className="bg-background/60 rounded-lg p-3">
-              <p className="text-xs text-text-secondary">Supporting KPI</p>
-              <p className="text-lg font-semibold text-text-primary">1.8%</p>
-              <p className="text-xs text-danger">-0.4 pts vs target</p>
-            </div>
-
-            <div className="bg-background/60 rounded-lg p-3">
-              <p className="text-xs text-text-secondary">Trend KPI</p>
-              <p className="text-lg font-semibold text-text-primary">18.6 hrs</p>
-              <p className="text-xs text-success">Improving</p>
-            </div>
-
-          </div>
-
-        </Card>
-
-      </div>
-
-
-      {/* KPI CATEGORY DETAILS */}
-      <div>
-
-        <h3 className="text-lg font-semibold text-text-primary mb-1">
-          {activeCategory.name}
-        </h3>
-
-        <p className="text-sm text-text-secondary mb-3">
-          {activeCategory.description}
-        </p>
-
-        <p className="text-sm text-text-secondary mb-3">
-          {CATEGORY_VISIBILITY_NARRATIVES[activeCategory.id] ||
-            'This category is designed to turn a traditionally fragmented data area into a single, structured leadership view.'}
-        </p>
-
-        <p className="text-xs text-text-secondary mb-1">
-          Full KPI scope for this category —{" "}
-          <span className="font-semibold">{activeCategory.kpis.length} planned KPIs</span>, each with a
-          structured definition and leadership-relevant view:
-        </p>
-        <p className="text-[11px] text-text-secondary mb-3">
-          Scroll within the list to explore the complete KPI set. Names and definitions may evolve before
-          general release.
-        </p>
-
-
-        {/* KPI ACCORDION */}
-        <div className="space-y-2 max-h-96 overflow-y-auto">
-
-        {activeCategory.kpis.map((kpi, idx) => (
-
-            <div
-              key={idx}
-              className="border border-border rounded-lg bg-card-bg"
-            >
-
-              <button
-                onClick={() =>
-                  setExpandedKpiIndex(prev => prev === idx ? null : idx)
-                }
-                className="w-full flex justify-between items-center px-4 py-3 text-sm hover:bg-background/70"
+          <div className="space-y-8">
+            {catalogue.categories.map((category) => (
+              <div
+                key={category.id}
+                id={`cat-${category.id}`}
+                className="scroll-mt-24"
               >
+                <div className="mb-4">
+                  <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
+                    <div className="min-w-0">
+                      <p className="text-sm uppercase tracking-[0.2em] text-accent font-semibold mb-2">
+                        Dashboard area
+                      </p>
+                      <h3 className="text-2xl font-semibold text-text-primary">
+                        {category.name}
+                      </h3>
+                      {category.leadershipQuestion && (
+                        <p className="text-text-primary mt-2 text-base font-medium">
+                          Leadership question:{" "}
+                          <span className="text-text-secondary font-semibold">
+                            {category.leadershipQuestion}
+                          </span>
+                        </p>
+                      )}
+                      <p className="text-text-secondary mt-2 text-base max-w-4xl leading-relaxed">
+                        {category.leadershipExplanation || category.description}
+                      </p>
+                    </div>
 
-                <span className="font-medium text-text-primary">
-                  {kpi.name}
-                </span>
-
-                <span className="text-text-secondary">
-                  {expandedKpiIndex === idx ? '−' : '+'}
-                </span>
-
-              </button>
-
-
-              {expandedKpiIndex === idx && (
-
-                <div className="px-4 pb-4 text-sm text-text-secondary">
-                  {kpi.definition}
+                    <div className="flex items-center gap-3 shrink-0">
+                      <Badge variant="slate">
+                        {category.visibleCount}/{category.totalCount} KPIs
+                      </Badge>
+                    </div>
+                  </div>
                 </div>
 
-              )}
+                <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
+                  {category.kpis.map((kpi) => {
+                    const isShortlisted = shortlistedKpis.includes(kpi.key);
+                    return (
+                      <Card
+                        key={kpi.key}
+                        className="bg-card-bg border border-border rounded-xl p-5 flex flex-col"
+                      >
+                        <div className="flex items-start justify-between gap-4 mb-3">
+                          <div className="min-w-0">
+                            <h4 className="text-lg font-semibold text-text-primary leading-snug break-words">
+                              {kpi.name}
+                            </h4>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => toggleShortlist(kpi.key)}
+                            className={`shrink-0 px-3 py-1 rounded-full text-sm font-semibold uppercase tracking-wider border transition ${
+                              isShortlisted
+                                ? "bg-accent text-white border-accent"
+                                : "bg-background/50 text-text-secondary border-border hover:border-accent/60 hover:text-text-primary"
+                            }`}
+                            aria-pressed={isShortlisted}
+                            aria-label={
+                              isShortlisted
+                                ? "Remove KPI from shortlist"
+                                : "Add KPI to shortlist"
+                            }
+                          >
+                            {isShortlisted ? "Shortlisted" : "Shortlist"}
+                          </button>
+                        </div>
 
+                        <div className="space-y-3">
+                          <div>
+                            <p className="text-sm font-semibold uppercase tracking-wider text-text-secondary mb-1">
+                              What it measures
+                            </p>
+                            <p className="text-base text-text-secondary">
+                              {kpi.definition}
+                            </p>
+                          </div>
+                          <div>
+                            <p className="text-sm font-semibold uppercase tracking-wider text-text-secondary mb-1">
+                              Why it matters
+                            </p>
+                            <p className="text-base text-text-secondary clamp-2">
+                              {kpi.whyMatters}
+                            </p>
+                          </div>
+                        </div>
+                      </Card>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {catalogue.visibleKpis === 0 && (
+            <div className="mt-6 border border-border rounded-xl bg-card-bg p-6">
+              <p className="text-base text-text-secondary">
+                No KPIs match your search. Try a broader term (e.g. “yield”,
+                “downtime”, “inventory”), or clear the category filter.
+              </p>
             </div>
-
-          ))}
-
+          )}
         </div>
+      </Section>
 
-      </div>
-
-    </div>
-
-  </div>
-
-</Section>
-
-
-  {/* CTA */}
-  <RegisterInterestCTA />
-  
-</>
+      {/* CTA */}
+      <RegisterInterestCTA />
+    </>
   );
 }
