@@ -53,16 +53,12 @@ export function Contact() {
 
       {/* HERO */}
       <motion.section
-        className="relative py-24 lg:py-28 bg-background overflow-hidden"
+        className="relative py-24 lg:py-28 bg-[#020617] overflow-hidden"
         initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px 0px' }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
       >
-        {/* Premium background accents */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.22),transparent_60%)]" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(148,163,184,0.18),transparent_70%)]" />
-
         <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
 
           <div className="lg:col-span-5">
@@ -103,21 +99,6 @@ export function Contact() {
                   <li>• Current reporting pain points</li>
                 </ul>
               </div>
-            </div>
-
-            <div className="relative rounded-2xl overflow-hidden border border-border shadow-lg">
-              <img
-                src="/images/contact.png"
-                className="w-full h-auto mix-blend-color-dodge"
-                alt="Team collaborating over data dashboards"
-              />
-
-              {/* Blur/fade edges so image feels integrated */}
-              <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(15,23,42,0)_55%,rgba(15,23,42,0.65)_100%)]" />
-              <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-20 bg-gradient-to-r from-background/95 via-background/55 to-transparent backdrop-blur-md" />
-              <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-20 bg-gradient-to-l from-background/95 via-background/55 to-transparent backdrop-blur-md" />
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-background/70 to-transparent backdrop-blur-md" />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-background/70 to-transparent backdrop-blur-md" />
             </div>
 
           </div>

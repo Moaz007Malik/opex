@@ -1,11 +1,9 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
 import { Section } from "../components/Section";
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
 import { Input } from "../components/ui/Input";
-import { Badge } from "../components/ui/Badge";
 import { RegisterInterestCTA } from "../components/RegisterInterestCTA";
 import { kpiCategories } from "../data/kpis";
 
@@ -14,6 +12,7 @@ const TOTAL_KPI_COUNT = kpiCategories.reduce(
   0,
 );
 const TOTAL_CATEGORY_COUNT = kpiCategories.length;
+const ALL_CATEGORY_PREVIEW_LIMIT = 15;
 
 function normaliseText(value) {
   return String(value || "")
@@ -23,13 +22,6 @@ function normaliseText(value) {
     .trim();
 }
 
-function makeKpiKey(categoryId, kpiName) {
-  const base = normaliseText(kpiName)
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-  return `${categoryId}:${base}`;
-}
-
 function kpiWhyMatters(kpi, category) {
   if (kpi?.why) return kpi.why;
   const q = category?.leadershipQuestion;
@@ -37,95 +29,71 @@ function kpiWhyMatters(kpi, category) {
   return `Decision signal for: ${q}`;
 }
 
-function getStoredShortlist() {
-  try {
-    if (typeof window === "undefined" || !window.localStorage) return [];
-    const raw = localStorage.getItem("opex6_kpi_shortlist");
-    const parsed = raw ? JSON.parse(raw) : [];
-    return Array.isArray(parsed) ? parsed : [];
-  } catch {
-    return [];
-  }
-}
-
-function setStoredShortlist(keys) {
-  try {
-    if (typeof window === "undefined" || !window.localStorage) return;
-    localStorage.setItem("opex6_kpi_shortlist", JSON.stringify(keys));
-  } catch {
-    // Ignore storage errors (e.g. private mode).
-  }
+function buildKpiLeadershipLine(kpi, category) {
+  return `${kpi.definition} Why it matters: ${kpiWhyMatters(kpi, category)}`;
 }
 
 export function KPIsDashboards() {
-  const [kpiSearch, setKpiSearch] = useState("");
-  const [kpiCategoryFilter, setKpiCategoryFilter] = useState("all");
-  const [shortlistedKpis, setShortlistedKpis] = useState(() =>
-    getStoredShortlist(),
-  );
+  const [searchTerm, setSearchTerm] = useState("");
+  const [activeCategory, setActiveCategory] = useState("all");
+  const [showCategoryDropdown, setShowCategoryDropdown] = useState(false);
+  const [showAllInAllCategory, setShowAllInAllCategory] = useState(false);
 
   const pageTitle = `KPIs & Dashboards — OpEx6 | KPI Catalogue Across ${TOTAL_CATEGORY_COUNT} Areas`;
 
-  const search = normaliseText(kpiSearch);
+  const search = normaliseText(searchTerm);
 
-  const catalogue = useMemo(() => {
-    const categories = kpiCategories.map((category) => {
-      const kpis = (category.kpis || [])
-        .map((kpi) => ({
-          key: makeKpiKey(category.id, kpi.name),
+  const allKpis = useMemo(
+    () =>
+      kpiCategories.flatMap((category) =>
+        (category.kpis || []).map((kpi) => ({
+          id: `${category.id}-${kpi.name}`,
           name: kpi.name,
-          definition: kpi.definition,
-          whyMatters: kpiWhyMatters(kpi, category),
-        }))
-        .filter((kpi) => {
-          if (!search) return true;
-          const haystack = normaliseText(
-            `${kpi.name} ${kpi.definition} ${kpi.whyMatters} ${category.name}`,
-          );
-          return haystack.includes(search);
-        });
+          categoryId: category.id,
+          categoryName: category.name,
+          oneLineDescription: buildKpiLeadershipLine(kpi, category),
+        })),
+      ),
+    [],
+  );
 
-      return {
-        id: category.id,
-        name: category.name,
-        leadershipQuestion: category.leadershipQuestion,
-        description: category.description,
-        leadershipExplanation: category.leadershipExplanation,
-        totalCount: category.kpis?.length || 0,
-        visibleCount: kpis.length,
-        kpis,
-      };
+  const filteredKpis = useMemo(() => {
+    return allKpis.filter((kpi) => {
+      const categoryMatches =
+        activeCategory === "all" || kpi.categoryId === activeCategory;
+
+      if (!categoryMatches) return false;
+
+      if (!search) return true;
+      const haystack = normaliseText(
+        `${kpi.name} ${kpi.oneLineDescription} ${kpi.categoryName}`,
+      );
+      return haystack.includes(search);
     });
+  }, [activeCategory, allKpis, search]);
 
-    const filteredCategories =
-      kpiCategoryFilter === "all"
-        ? categories
-        : categories.filter((c) => c.id === kpiCategoryFilter);
+  const totalVisible = filteredKpis.length;
+  const isAllCategory = activeCategory === "all";
+  const activeCategoryName = isAllCategory
+    ? "All Categories"
+    : kpiCategories.find((category) => category.id === activeCategory)?.name ||
+      "Category";
+  const displayedKpis =
+    isAllCategory && !showAllInAllCategory
+      ? filteredKpis.slice(0, ALL_CATEGORY_PREVIEW_LIMIT)
+      : filteredKpis;
+  const isPreviewMode =
+    isAllCategory &&
+    !showAllInAllCategory &&
+    filteredKpis.length > ALL_CATEGORY_PREVIEW_LIMIT;
 
-    const visibleCategories = filteredCategories.filter(
-      (c) => c.visibleCount > 0,
-    );
-    const visibleKpiCount = visibleCategories.reduce(
-      (sum, c) => sum + c.visibleCount,
-      0,
-    );
+  useEffect(() => {
+    setShowAllInAllCategory(false);
+  }, [activeCategory, searchTerm]);
 
-    return {
-      categories: visibleCategories,
-      totalKpis: TOTAL_KPI_COUNT,
-      visibleKpis: visibleKpiCount,
-    };
-  }, [kpiCategoryFilter, search]);
-
-  const toggleShortlist = (kpiKey) => {
-    setShortlistedKpis((prev) => {
-      const next = prev.includes(kpiKey)
-        ? prev.filter((k) => k !== kpiKey)
-        : [...prev, kpiKey];
-      setStoredShortlist(next);
-      return next;
-    });
-  };
+  useEffect(() => {
+    setShowCategoryDropdown(false);
+  }, [activeCategory]);
 
   return (
     <>
@@ -134,49 +102,38 @@ export function KPIsDashboards() {
         meta={[
           {
             name: "description",
-            content: `Explore the ${TOTAL_KPI_COUNT}+ manufacturing KPIs across ${TOTAL_CATEGORY_COUNT} dashboard areas that the Exec App is being built around — from Production and Quality to Maintenance, Safety, Margin, and more.`,
+            content: `Explore and filter ${TOTAL_KPI_COUNT}+ manufacturing KPIs across ${TOTAL_CATEGORY_COUNT} categories with live search and category navigation.`,
           },
         ]}
       />
 
-      {/* HERO */}
-      <motion.section
-        className="py-20 lg:py-24 border-b border-border bg-background"
-        initial={{ opacity: 0, y: 32 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px 0px" }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
-      >
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center">
-          <p className="text-accent text-base font-semibold uppercase tracking-wider mb-3">
-            KPIs & Dashboards
+      <section className="border-b border-border bg-background py-14 lg:py-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-accent text-base font-semibold uppercase tracking-[0.2em] mb-3">
+            KPI Catalogue
           </p>
-
-          <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-4">
-            {TOTAL_KPI_COUNT}+ manufacturing KPIs across {TOTAL_CATEGORY_COUNT} dashboard areas.
+          <h1 className="text-4xl lg:text-6xl font-bold text-text-primary">
+            Interactive KPI Catalogue
           </h1>
-
-          <p className="text-lg text-text-secondary mb-2">
+          <p className="text-xl text-text-secondary mt-4">
             The Exec App is being structured around a fixed manufacturing KPI
-            framework —{" "}
+            framework -{" "}
             <span className="font-semibold">
               {TOTAL_KPI_COUNT}+ individual metrics
             </span>{" "}
-            grouped into {TOTAL_CATEGORY_COUNT} dashboard areas, pre-defined for plant, multi-site,
-            and board-level reviews.
+            grouped into {TOTAL_CATEGORY_COUNT} dashboard areas, pre-defined for
+            plant, multi-site, and board-level reviews.
           </p>
-          <p className="text-base text-text-secondary mb-6 max-w-3xl mx-auto">
-            Use the catalogue below to search every KPI, understand what it measures, and see why it matters for leadership reviews.
+          <p className="text-lg lg:text-xl text-text-secondary mt-4 max-w-4xl">
+            Search by KPI name or keyword, then narrow by category. The count
+            updates live as filters change.
           </p>
-
-          <p className="text-base text-text-secondary mb-6">
+          <p className="text-lg text-text-secondary mt-4 max-w-4xl">
             OpEx6 is currently in pre-launch / early-access phase. Product
             features, screenshots, integrations, availability, and pricing may
             change before general release.
           </p>
-
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 mt-6">
             <Button to="/register-interest">
               Register Interest in the Exec App
             </Button>
@@ -184,200 +141,152 @@ export function KPIsDashboards() {
               See the Exec App preview
             </Button>
           </div>
-          </div>
 
-          {/* Above-the-fold catalogue controls */}
-          <div className="mt-10 rounded-2xl border border-border bg-card-bg/40 p-5 sm:p-6">
-            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5">
-              <div className="flex flex-col sm:flex-row gap-3 sm:items-end">
-                <Input
-                  label="Search the catalogue"
-                  value={kpiSearch}
-                  onChange={(e) => setKpiSearch(e.target.value)}
-                  placeholder="e.g. OEE, OTIF, MTBF, scrap rate…"
-                  aria-label="Search the KPI catalogue"
-                  className="sm:min-w-[340px]"
-                />
+          <div className="mt-8 rounded-2xl border border-border bg-card-bg/60 p-6">
+            <div className="flex flex-col lg:flex-row gap-4 lg:items-end">
+              <Input
+                label="Search KPI name or keyword"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="Search e.g. OEE, MTTR, inventory, margin, quality..."
+                aria-label="Search KPI name or keyword"
+                className="flex-1"
+              />
 
-                <div>
-                  <label className="block text-sm font-medium tracking-[0.1em] uppercase text-text-secondary mb-1">
-                    Category
-                  </label>
-                  <select
-                    value={kpiCategoryFilter}
-                    onChange={(e) => setKpiCategoryFilter(e.target.value)}
-                    className="w-full bg-background border border-border rounded-lg px-4 py-3 text-text-primary focus:outline-none focus:ring-2 focus:ring-accent/40 focus:border-accent transition"
-                    aria-label="Filter KPI catalogue by category"
-                  >
-                    <option value="all">All categories</option>
-                    {kpiCategories.map((cat) => (
-                      <option key={cat.id} value={cat.id}>
-                        {cat.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              <div className="text-base text-text-secondary">
-                Showing{" "}
-                <span className="font-semibold text-text-primary">
-                  {catalogue.visibleKpis}
-                </span>{" "}
-                of{" "}
-                <span className="font-semibold text-text-primary">
-                  {catalogue.totalKpis}
-                </span>{" "}
-                KPIs.
+              <div className="flex justify-start lg:justify-end">
+                <button
+                  type="button"
+                  onClick={() => setShowCategoryDropdown(true)}
+                  className="px-5 py-3 rounded-xl text-base font-semibold border border-border bg-background text-text-primary hover:border-accent/60 transition w-full lg:w-auto"
+                  aria-haspopup="dialog"
+                  aria-expanded={showCategoryDropdown}
+                >
+                  Filter: {activeCategoryName}
+                </button>
               </div>
             </div>
           </div>
         </div>
-      </motion.section>
+      </section>
 
-      {/* KPI LIBRARY */}
       <Section>
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-6">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
             <div>
-              <h2 className="text-2xl font-semibold text-text-primary mb-2">
-                KPI Catalogue
+              <h2 className="text-3xl font-semibold text-text-primary mb-2">
+                {activeCategoryName}
               </h2>
-              <p className="text-base text-text-secondary max-w-3xl">
-                This is the structured KPI framework the Exec App is being built
-                around. Each KPI is discoverable, grouped into leadership
-                dashboard areas, and shown with a one-line explanation of what
-                it measures and why it matters.
+              <p className="text-lg text-text-secondary max-w-3xl">
+                Each KPI includes the measure name, a one-line leadership-focused
+                description, and its category.
               </p>
             </div>
-
-            <div className="hidden lg:flex items-end gap-3">
-              {shortlistedKpis.length > 0 && (
-                <>
-                  <Badge variant="amber">
-                    {shortlistedKpis.length} shortlisted
-                  </Badge>
-                  <Button to="/register-interest">
-                    Register interest (tailored)
-                  </Button>
-                </>
-              )}
+            <div className="sm:text-right">
+              <p className="text-base uppercase tracking-[0.18em] text-text-secondary">
+                Visible KPIs
+              </p>
+              <p className="text-6xl lg:text-7xl font-bold text-accent leading-none mt-2">
+                {totalVisible}
+              </p>
+              <p className="text-base text-text-secondary mt-2">
+                out of {TOTAL_KPI_COUNT} total KPIs
+              </p>
             </div>
           </div>
 
-          {shortlistedKpis.length > 0 && (
-            <div className="flex lg:hidden items-center gap-3 mb-4">
-              <Badge variant="amber">{shortlistedKpis.length} shortlisted</Badge>
-              <Button to="/register-interest">Register interest (tailored)</Button>
+          {totalVisible > 0 ? (
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
+              {displayedKpis.map((kpi) => (
+                <Card
+                  key={kpi.id}
+                  className="bg-card-bg border border-border rounded-xl p-5"
+                >
+                  {isAllCategory && (
+                    <p className="text-base font-semibold uppercase tracking-[0.16em] text-accent mb-3">
+                      {kpi.categoryName}
+                    </p>
+                  )}
+                  <h3 className="text-2xl font-semibold text-text-primary leading-snug mb-2">
+                    {kpi.name}
+                  </h3>
+                  <p className="text-text-secondary text-lg leading-relaxed">
+                    {kpi.oneLineDescription}
+                  </p>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <div className="mt-6 border border-border rounded-xl bg-card-bg p-6">
+              <p className="text-lg text-text-secondary">
+                No KPIs match your current search/filter. Try a broader keyword
+                or switch back to All Categories.
+              </p>
             </div>
           )}
 
-          <div className="space-y-8">
-            {catalogue.categories.map((category) => (
-              <div
-                key={category.id}
-                id={`cat-${category.id}`}
-                className="scroll-mt-24"
+          {isPreviewMode && (
+            <div className="mt-6 flex items-center justify-center">
+              <button
+                type="button"
+                onClick={() => setShowAllInAllCategory(true)}
+                className="px-6 py-3 rounded-full text-base font-semibold border border-accent text-accent hover:bg-accent hover:text-white transition"
               >
-                <div className="mb-4">
-                  <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
-                    <div className="min-w-0">
-                      <p className="text-sm uppercase tracking-[0.2em] text-accent font-semibold mb-2">
-                        Dashboard area
-                      </p>
-                      <h3 className="text-2xl font-semibold text-text-primary">
-                        {category.name}
-                      </h3>
-                      {category.leadershipQuestion && (
-                        <p className="text-text-primary mt-2 text-base font-medium">
-                          Leadership question:{" "}
-                          <span className="text-text-secondary font-semibold">
-                            {category.leadershipQuestion}
-                          </span>
-                        </p>
-                      )}
-                      <p className="text-text-secondary mt-2 text-base max-w-4xl leading-relaxed">
-                        {category.leadershipExplanation || category.description}
-                      </p>
-                    </div>
-
-                    <div className="flex items-center gap-3 shrink-0">
-                      <Badge variant="slate">
-                        {category.visibleCount}/{category.totalCount} KPIs
-                      </Badge>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
-                  {category.kpis.map((kpi) => {
-                    const isShortlisted = shortlistedKpis.includes(kpi.key);
-                    return (
-                      <Card
-                        key={kpi.key}
-                        className="bg-card-bg border border-border rounded-xl p-5 flex flex-col"
-                      >
-                        <div className="flex items-start justify-between gap-4 mb-3">
-                          <div className="min-w-0">
-                            <h4 className="text-lg font-semibold text-text-primary leading-snug break-words">
-                              {kpi.name}
-                            </h4>
-                          </div>
-                          <button
-                            type="button"
-                            onClick={() => toggleShortlist(kpi.key)}
-                            className={`shrink-0 px-3 py-1 rounded-full text-sm font-semibold uppercase tracking-wider border transition ${
-                              isShortlisted
-                                ? "bg-accent text-white border-accent"
-                                : "bg-background/50 text-text-secondary border-border hover:border-accent/60 hover:text-text-primary"
-                            }`}
-                            aria-pressed={isShortlisted}
-                            aria-label={
-                              isShortlisted
-                                ? "Remove KPI from shortlist"
-                                : "Add KPI to shortlist"
-                            }
-                          >
-                            {isShortlisted ? "Shortlisted" : "Shortlist"}
-                          </button>
-                        </div>
-
-                        <div className="space-y-3">
-                          <div>
-                            <p className="text-sm font-semibold uppercase tracking-wider text-text-secondary mb-1">
-                              What it measures
-                            </p>
-                            <p className="text-base text-text-secondary">
-                              {kpi.definition}
-                            </p>
-                          </div>
-                          <div>
-                            <p className="text-sm font-semibold uppercase tracking-wider text-text-secondary mb-1">
-                              Why it matters
-                            </p>
-                            <p className="text-base text-text-secondary clamp-2">
-                              {kpi.whyMatters}
-                            </p>
-                          </div>
-                        </div>
-                      </Card>
-                    );
-                  })}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {catalogue.visibleKpis === 0 && (
-            <div className="mt-6 border border-border rounded-xl bg-card-bg p-6">
-              <p className="text-base text-text-secondary">
-                No KPIs match your search. Try a broader term (e.g. “yield”,
-                “downtime”, “inventory”), or clear the category filter.
-              </p>
+                Show All
+              </button>
             </div>
           )}
         </div>
       </Section>
+
+      {showCategoryDropdown && (
+        <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/50">
+          <div className="bg-background border border-border rounded-2xl max-w-lg w-full mx-4 p-6 shadow-xl">
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-2xl font-semibold text-text-primary">
+                Choose KPI Category
+              </h3>
+              <button
+                type="button"
+                onClick={() => setShowCategoryDropdown(false)}
+                className="text-text-secondary hover:text-text-primary text-xl px-2"
+                aria-label="Close category filter"
+              >
+                ×
+              </button>
+            </div>
+            <p className="text-lg text-text-secondary mb-4">
+              Filter the catalogue by leadership dashboard area.
+            </p>
+            <div className="flex flex-col gap-2 max-h-[60vh] overflow-y-auto">
+              <button
+                type="button"
+                onClick={() => setActiveCategory("all")}
+                className={`w-full text-left px-4 py-3 rounded-lg text-base font-semibold border transition ${
+                  activeCategory === "all"
+                    ? "bg-accent text-white border-accent"
+                    : "bg-card-bg text-text-secondary border-border hover:text-text-primary hover:border-accent/60"
+                }`}
+              >
+                All Categories
+              </button>
+              {kpiCategories.map((category) => (
+                <button
+                  key={category.id}
+                  type="button"
+                  onClick={() => setActiveCategory(category.id)}
+                  className={`w-full text-left px-4 py-3 rounded-lg text-base font-semibold border transition ${
+                    activeCategory === category.id
+                      ? "bg-accent text-white border-accent"
+                      : "bg-card-bg text-text-secondary border-border hover:text-text-primary hover:border-accent/60"
+                  }`}
+                >
+                  {category.name}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* CTA */}
       <RegisterInterestCTA />

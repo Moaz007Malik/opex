@@ -108,7 +108,7 @@ export function About() {
                     Lived experience
                   </p>
                 </div>
-                <p className="text-text-secondary text-base leading-relaxed">
+                <p className="text-text-primary text-xl leading-relaxed font-medium">
                   OpEx6 was started by people who have spent years working with manufacturing leadership teams — in plant reviews, board packs, and continuous-improvement programmes — trying to answer the same questions with spreadsheets, exports, and manually assembled reports.
                 </p>
               </Card>
@@ -123,7 +123,7 @@ export function About() {
                     Seen the failure modes
                   </p>
                 </div>
-                <p className="text-text-secondary text-base leading-relaxed">
+                <p className="text-text-primary text-xl leading-relaxed font-medium">
                   We have seen operations reviews where half the meeting is spent debating which number is correct. We have seen CI and engineering teams struggle to prove the impact of their work because the data is scattered. We have seen finance teams trying to connect operational decisions to margin with tools that were never designed for it.
                 </p>
               </Card>
@@ -138,7 +138,7 @@ export function About() {
                     Building the alternative
                   </p>
                 </div>
-                <p className="text-text-secondary text-base leading-relaxed">
+                <p className="text-text-primary text-xl leading-relaxed font-medium">
                   OpEx6 is being built as the platform we wished those teams had: one structured operating view that connects performance, downtime, quality, safety, and margin drivers — in a format that executives, plant leaders, and finance teams can all work from.
                 </p>
               </Card>
@@ -151,7 +151,7 @@ export function About() {
       <Section className="py-20 lg:py-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center mb-14">
-            <h2 className="text-3xl font-semibold text-text-primary">
+            <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary leading-tight">
               Why OpEx6 instead of a generic BI tool?
             </h2>
           </div>
@@ -159,40 +159,40 @@ export function About() {
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
             <Card className="relative bg-card-bg border border-border rounded-2xl shadow-sm hover:shadow-md transition p-6 sm:p-7">
               <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-accent via-accent/20 to-transparent rounded-t-2xl" />
-              <h3 className="font-semibold text-xl text-text-primary mb-3">
+              <h3 className="font-semibold text-2xl text-text-primary mb-3">
                 Structured for manufacturing KPIs out of the box
               </h3>
-              <p className="text-text-secondary text-sm sm:text-base leading-relaxed">
+              <p className="text-text-primary text-lg leading-relaxed font-medium">
                 Traditional BI tools give you building blocks. OpEx6 is being designed with manufacturing KPI categories, definitions, and dashboard structures baked in.
               </p>
             </Card>
 
             <Card className="relative bg-card-bg border border-border rounded-2xl shadow-sm hover:shadow-md transition p-6 sm:p-7">
               <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-accent via-accent/20 to-transparent rounded-t-2xl" />
-              <h3 className="font-semibold text-xl text-text-primary mb-3">
+              <h3 className="font-semibold text-2xl text-text-primary mb-3">
                 Built for executive and plant reviews
               </h3>
-              <p className="text-text-secondary text-sm sm:text-base leading-relaxed">
+              <p className="text-text-primary text-lg leading-relaxed font-medium">
                 OpEx6 is focused on the views leadership teams use in weekly, monthly, and board reviews — multi-site comparisons and exception lists.
               </p>
             </Card>
 
             <Card className="relative bg-card-bg border border-border rounded-2xl shadow-sm hover:shadow-md transition p-6 sm:p-7">
               <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-accent via-accent/20 to-transparent rounded-t-2xl" />
-              <h3 className="font-semibold text-xl text-text-primary mb-3">
+              <h3 className="font-semibold text-2xl text-text-primary mb-3">
                 Operational–commercial linkage
               </h3>
-              <p className="text-text-secondary text-sm sm:text-base leading-relaxed">
+              <p className="text-text-primary text-lg leading-relaxed font-medium">
                 Connect operational signals like downtime and scrap to margin and financial impact.
               </p>
             </Card>
 
             <Card className="relative bg-card-bg border border-border rounded-2xl shadow-sm hover:shadow-md transition p-6 sm:p-7">
               <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-accent via-accent/20 to-transparent rounded-t-2xl" />
-              <h3 className="font-semibold text-xl text-text-primary mb-3">
+              <h3 className="font-semibold text-2xl text-text-primary mb-3">
                 Opinionated structure
               </h3>
-              <p className="text-text-secondary text-sm sm:text-base leading-relaxed">
+              <p className="text-text-primary text-lg leading-relaxed font-medium">
                 Executives, plant leaders, and finance teams all view the same metrics in the same way.
               </p>
             </Card>
@@ -204,7 +204,7 @@ export function About() {
       <Section className="py-20 lg:py-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center mb-14">
-            <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary">
+            <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary leading-tight">
               How we think about building OpEx6.
             </h2>
           </div>
@@ -216,10 +216,12 @@ export function About() {
                 className="relative p-6 bg-secondary border border-border rounded-2xl shadow-sm hover:shadow-md transition"
               >
                 <div className="absolute top-0 left-0 w-1 h-10 bg-accent rounded-tr-full rounded-br-full" />
-                <h3 className="font-semibold text-xl text-text-primary mb-2">
+                <h3 className="font-semibold text-2xl text-text-primary mb-2">
                   {v.title}
                 </h3>
-                <p className="text-text-secondary text-base leading-relaxed">{v.body}</p>
+                <p className="text-text-primary text-lg leading-relaxed font-medium">
+                  {v.body}
+                </p>
               </Card>
             ))}
           </div>

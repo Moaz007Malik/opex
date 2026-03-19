@@ -335,12 +335,35 @@ export function Homepage() {
 
             {/* Sub-headline */}
             <p className="text-lg text-text-secondary leading-relaxed mb-6">
-              The Exec App ships with a structured KPI framework — consistent
-              leadership views across sites, without rebuilding dashboards from
-              scratch.
+              The Exec App gives manufacturing leaders a ready-made KPI
+              framework — consistent views across sites, without rebuilding
+              dashboards.
             </p>
 
-            <ul className="mb-7 space-y-2 text-base text-text-secondary">
+            {/* Primary & secondary CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4 mb-5">
+              <Button to="/register-interest" className="px-6 py-3 justify-center text-base">
+                Register Interest
+              </Button>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 sm:items-center justify-center">
+                <a
+                  href="#objections"
+                  className="text-base text-text-secondary underline-offset-4 hover:underline"
+                >
+                  Why not Power BI/Tableau?
+                </a>
+                <span className="hidden sm:inline text-text-secondary/40">•</span>
+                <Link
+                  to="/kpis-dashboards"
+                  className="text-base text-text-secondary underline-offset-4 hover:underline"
+                >
+                  Explore KPIs &amp; Dashboards
+                </Link>
+              </div>
+            </div>
+
+            {/* Quick-scan supporting bullets (moved below CTAs) */}
+            <ul className="mt-2 space-y-2 text-base text-text-secondary">
               <li className="flex items-start gap-3">
                 <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-accent shrink-0" />
                 <span>
@@ -367,28 +390,6 @@ export function Homepage() {
                 </span>
               </li>
             </ul>
-
-            {/* Primary & secondary CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button to="/register-interest" className="px-6 py-3 justify-center text-base">
-                Register Interest
-              </Button>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 sm:items-center justify-center">
-                <a
-                  href="#objections"
-                  className="text-base text-text-secondary underline-offset-4 hover:underline"
-                >
-                  Why not Power BI/Tableau?
-                </a>
-                <span className="hidden sm:inline text-text-secondary/40">•</span>
-                <Link
-                  to="/kpis-dashboards"
-                  className="text-base text-text-secondary underline-offset-4 hover:underline"
-                >
-                  Explore KPIs &amp; Dashboards
-                </Link>
-              </div>
-            </div>
           </div>
 
           {/* Main layout */}
@@ -491,7 +492,7 @@ export function Homepage() {
               <h3 className="font-semibold text-text-primary mb-3">
                 A defined KPI system, not a blank canvas
               </h3>
-              <p className="text-text-secondary text-base leading-relaxed">
+              <p className="text-text-primary text-xl leading-relaxed font-medium">
                 Exec App is structured around{" "}
                 <span className="font-semibold text-text-primary">
                   130+ KPIs across 12 dashboard areas
@@ -504,7 +505,7 @@ export function Homepage() {
               <h3 className="font-semibold text-text-primary mb-3">
                 Consistency across sites
               </h3>
-              <p className="text-text-secondary text-base leading-relaxed">
+              <p className="text-text-primary text-xl leading-relaxed font-medium">
                 One set of KPI definitions applied everywhere — so OEE, downtime, yield, and margin mean the same thing in every plant.
               </p>
             </div>
@@ -513,13 +514,13 @@ export function Homepage() {
               <h3 className="font-semibold text-text-primary mb-3">
                 Built for leaders, not analysts
               </h3>
-              <p className="text-text-secondary text-base leading-relaxed">
+              <p className="text-text-primary text-xl leading-relaxed font-medium">
                 Views are designed for senior ops and finance — connecting performance signals to margin and cash impact without interpreting complex BI workbooks.
               </p>
             </div>
           </div>
 
-          <p className="text-center text-text-secondary text-base max-w-3xl mx-auto leading-relaxed">
+          <p className="text-center text-text-primary text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed font-medium">
             OpEx6 is not a replacement for tools like Power BI or Tableau. It sits above them as a structured, manufacturing-specific operating layer focused on leadership decisions.
           </p>
         </div>
@@ -535,7 +536,7 @@ export function Homepage() {
             <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary">
               Built by people who have lived the problem
             </h2>
-            <p className="text-text-secondary mt-4 max-w-3xl mx-auto text-base leading-relaxed">
+            <p className="text-text-primary mt-4 max-w-3xl mx-auto text-xl lg:text-2xl leading-relaxed font-medium">
               We&apos;ve sat in plant reviews and board packs where the hardest part isn&apos;t charts — it&apos;s agreeing the right number, at the right level, early enough to act.
             </p>
           </div>
@@ -559,10 +560,10 @@ export function Homepage() {
                 key={i}
                 className="bg-card-bg border border-border rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-accent transition"
               >
-                <h3 className="font-semibold text-text-primary mb-2">
+                <h3 className="font-semibold text-text-primary mb-3 text-2xl lg:text-3xl">
                   {item.title}
                 </h3>
-                <p className="text-text-secondary text-base leading-relaxed">
+                <p className="text-text-primary text-xl leading-relaxed font-medium">
                   {item.body}
                 </p>
               </div>
@@ -581,11 +582,11 @@ export function Homepage() {
       >
         <div className="max-w-7xl mx-auto px-6">
           {/* Section intro */}
-          <div className="max-w-2xl mx-auto text-center mb-12">
+          <div className="max-w-3xl mx-auto text-center mb-12">
             <p className="text-sm uppercase tracking-[0.2em] text-accent font-semibold mb-3">
               Product structure
             </p>
-            <h2 className="text-2xl lg:text-3xl font-semibold text-text-primary">
+            <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary leading-tight">
               130+ manufacturing KPIs across 12 dashboard areas — as one
               operational layer
             </h2>
@@ -595,8 +596,8 @@ export function Homepage() {
           <div className="grid md:grid-cols-3 gap-6">
             {/* Card 1 */}
             <div className="bg-card-bg border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition">
-              <p className="text-3xl font-semibold text-text-primary mb-2">12</p>
-              <p className="text-base text-text-secondary leading-relaxed">
+              <p className="text-4xl font-semibold text-text-primary mb-3">12</p>
+              <p className="text-lg text-text-primary leading-relaxed">
                 Structured dashboard areas aligned to executive, plant, and
                 multi-site reviews
               </p>
@@ -604,8 +605,8 @@ export function Homepage() {
 
             {/* Card 2 */}
             <div className="bg-card-bg border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition">
-              <p className="text-3xl font-semibold text-text-primary mb-2">130+</p>
-              <p className="text-base text-text-secondary leading-relaxed">
+              <p className="text-4xl font-semibold text-text-primary mb-3">130+</p>
+              <p className="text-lg text-text-primary leading-relaxed">
                 Manufacturing KPIs across production, quality, maintenance,
                 safety, and margin
               </p>
@@ -613,8 +614,8 @@ export function Homepage() {
 
             {/* Card 3 */}
             <div className="bg-card-bg border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition">
-              <p className="text-3xl font-semibold text-text-primary mb-2">1</p>
-              <p className="text-base text-text-secondary leading-relaxed">
+              <p className="text-4xl font-semibold text-text-primary mb-3">1</p>
+              <p className="text-lg text-text-primary leading-relaxed">
                 Unified operational intelligence layer — not another generic BI
                 workspace
               </p>
@@ -679,12 +680,12 @@ export function Homepage() {
             <p className="text-sm uppercase tracking-[0.2em] text-accent font-semibold mb-3">
               Who it's for
             </p>
-            <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary">
+            <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary leading-tight">
               Built for complex manufacturing environments
             </h2>
-            <p className="text-text-secondary mt-3 max-w-2xl mx-auto">
-              Designed for operations where margin, throughput, and cost control
-              must be understood in real time.
+            <p className="text-text-primary mt-4 max-w-2xl mx-auto text-xl leading-relaxed font-medium">
+              Designed for operations where margin, throughput, and cost control must be
+              understood in real time.
             </p>
           </div>
 
@@ -725,10 +726,10 @@ export function Homepage() {
         <div className="relative max-w-5xl mx-auto px-6">
           {/* Header */}
           <div className="text-center mb-16">
-            <p className="text-sm uppercase tracking-[0.25em] text-text-secondary mb-4">
+            <p className="text-sm uppercase tracking-[0.25em] text-accent mb-4 font-semibold">
               Reality check
             </p>
-            <h2 className="text-3xl lg:text-4xl font-semibold leading-tight max-w-3xl mx-auto">
+            <h2 className="text-4xl lg:text-5xl font-semibold leading-tight max-w-3xl mx-auto text-text-primary">
               Most manufacturing leaders still cannot answer these questions
               <span className="text-text-secondary"> fast enough</span>
             </h2>
@@ -804,7 +805,7 @@ export function Homepage() {
             <p className="text-sm uppercase tracking-[0.2em] text-accent font-semibold mb-3">
               Where it breaks
             </p>
-            <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary">
+            <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary leading-tight">
               Where margin and cash actually disappear
             </h2>
           </div>
@@ -866,7 +867,7 @@ export function Homepage() {
           <p className="text-accent text-sm uppercase tracking-[0.2em] font-semibold mb-3">
             Why operational intelligence matters
           </p>
-          <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary">
+          <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary leading-tight">
             The visibility gap manufacturing leaders actually face
           </h2>
         </div>
@@ -912,7 +913,7 @@ export function Homepage() {
           <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary leading-tight">
             Built for manufacturing. Designed for decision-making.
           </h2>
-          <p className="text-text-secondary mt-4 text-base">
+          <p className="text-text-primary mt-4 text-xl leading-relaxed font-medium">
             A structured operational intelligence layer — not just dashboards.
           </p>
         </div>
@@ -1002,7 +1003,7 @@ export function Homepage() {
           <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary leading-tight">
             Structured for deployment in weeks, not months
           </h2>
-          <p className="text-text-secondary text-base mt-4">
+          <p className="text-text-primary text-xl mt-4 leading-relaxed font-medium">
             A defined rollout approach — not an open-ended BI implementation.
           </p>
         </div>
@@ -1050,9 +1051,8 @@ export function Homepage() {
           <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary leading-tight">
             What typically triggers the search for operational intelligence
           </h2>
-          <p className="text-text-secondary text-base mt-4">
-            These are the moments where visibility gaps become impossible to
-            ignore.
+          <p className="text-text-primary text-xl mt-4 leading-relaxed font-medium">
+            These are the moments where visibility gaps become impossible to ignore.
           </p>
         </div>
 
