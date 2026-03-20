@@ -1,20 +1,16 @@
 /** Illustrative Exec App dashboard mockup — static UI only, not live product. */
 export function HeroDashboardMockup() {
   return (
-    <div className="w-full max-w-2xl mx-auto rounded-2xl border border-border bg-card-bg overflow-hidden shadow-lg">
-      {/* Top bar */}
-      <div className="flex items-center justify-between px-4 py-3 border-b border-border/60 bg-background/60">
-        <div className="flex items-center gap-2">
+    <div className="w-full max-w-2xl mx-auto">
+      <div className="rounded-2xl border border-border bg-card-bg overflow-hidden shadow-lg">
+        {/* Top bar (no label; heading is shown below the mockup) */}
+        <div className="flex items-center gap-2 px-4 py-3 border-b border-border/60 bg-background/60">
           <span className="h-2 w-2 rounded-full bg-green-500" />
           <span className="h-2 w-2 rounded-full bg-amber-400" />
           <span className="h-2 w-2 rounded-full bg-red-400" />
         </div>
-        <p className="text-[11px] text-text-secondary font-medium">
-          Exec App · Illustrative dashboard
-        </p>
-      </div>
 
-      <div className="p-6 space-y-5">
+        <div className="p-6 space-y-5">
         {/* KPI headline row */}
         <div className="flex flex-wrap gap-3">
             {[
@@ -102,25 +98,12 @@ export function HeroDashboardMockup() {
             ))}
           </div>
         </div>
-
-        {/* Footer strip */}
-        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border/60 pt-3">
-          <p className="text-[10px] text-text-secondary/70">
-            Illustrative Exec App layout. Numbers and structure are indicative and may change before general release.
-          </p>
-          <div className="flex items-center gap-2 text-[10px] text-text-secondary">
-            <span className="inline-flex items-center gap-1">
-              <span className="h-2 w-2 rounded-full bg-green-500" /> On track
-            </span>
-            <span className="inline-flex items-center gap-1">
-              <span className="h-2 w-2 rounded-full bg-amber-400" /> Watch
-            </span>
-            <span className="inline-flex items-center gap-1">
-              <span className="h-2 w-2 rounded-full bg-red-500" /> At risk
-            </span>
-          </div>
-        </div>
       </div>
+      </div>
+
+      <p className="text-xs text-text-secondary mt-4 text-center">
+        Illustrative preview — Exec App dashboard. Final product, data, and design may differ.
+      </p>
     </div>
   );
 }

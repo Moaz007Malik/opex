@@ -18,7 +18,7 @@ const legalLinks = [
   { to: '/support', label: 'Support' },
   { to: '/faq', label: 'FAQ' },
   { to: '/privacy', label: 'Privacy Notice' },
-  { to: '/cookies', label: 'Cookie Policy' },
+  { to: '/cookies', label: 'Cookie Notice' },
   { to: '/terms', label: 'Terms of Use' },
 ];
 
@@ -71,7 +71,7 @@ export function Footer() {
             </Link>
 
             <p className="text-sm text-text-secondary max-w-xs">
-              Operational Intelligence That Executives Actually Use.
+              OpEx6 Operational Intelligence That Executives Actually Use.
             </p>
             <p className="text-sm text-text-secondary max-w-xs mt-2">
               Being built around 130+ manufacturing KPIs across 12 dashboard areas — structured for plant, multi-site, and board reviews.
@@ -126,7 +126,7 @@ export function Footer() {
             </Link>
 
             <Link to="/cookies" className="hover:text-accent">
-              Cookie Policy
+              Cookie Notice
             </Link>
 
             <Link to="/terms" className="hover:text-accent">

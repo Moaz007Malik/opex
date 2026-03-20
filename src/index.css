@@ -65,6 +65,18 @@
   overflow: hidden;
 }
 
+/* Hide scrollbars while keeping horizontal scroll behavior */
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
 /* ---------- Animations ---------- */
 
 @keyframes scaleIn {

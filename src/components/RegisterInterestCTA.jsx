@@ -10,7 +10,7 @@ export function RegisterInterestCTA() {
       <div className="relative max-w-4xl mx-auto px-6">
         <div className="bg-card-bg border border-border rounded-lg shadow-xl px-8 py-12 text-center">
           <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary mb-5 leading-tight">
-            Ready to register your interest in the Exec App?
+            Register your interest. Secure your early access.
           </h2>
 
           <p className="text-text-secondary mb-4 max-w-2xl mx-auto leading-relaxed">
@@ -20,16 +20,16 @@ export function RegisterInterestCTA() {
           </p>
 
           <p className="text-highlight font-medium mb-8 text-sm sm:text-base">
-            Register interest now to secure eligibility for £50 for 50 credits + 25 free credits
-            at launch. Subject to final launch terms.
+            Early registrants will be eligible for 100 credits for £50 when the Exec App opens
+            to early users. Subject to final launch terms.
           </p>
 
           <div className="flex justify-center">
             <Button
               to="/register-interest"
-              className="px-6 py-3 text-base shadow-md hover:shadow-lg transition"
+              className="shadow-md hover:shadow-lg transition"
             >
-              Register Interest in the Exec App
+              Register My Interest
             </Button>
           </div>
 

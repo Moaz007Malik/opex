@@ -9,9 +9,8 @@ const productLinks = [
 ];
 
 const resourceLinks = [
-  { to: "/resources", label: "Blog / Resources" },
+  { to: "/resources", label: "Resources" },
   { to: "/use-cases", label: "Use Cases" },
-  { to: "/faq", label: "FAQ" },
 ];
 
 function DesktopNavLink({ to, children }) {
@@ -164,7 +163,7 @@ export function Header() {
                 aria-label="Dismiss early-access banner"
                 className="shrink-0 text-text-secondary hover:text-text-primary"
               >
-                ✕
+                X
               </button>
             </div>
           </div>
@@ -213,13 +212,6 @@ export function Header() {
 
           {/* Mobile header */}
           <div className="lg:hidden flex items-center gap-2">
-            <Link
-              to="/register-interest"
-              className="inline-flex items-center justify-center rounded-lg border border-accent/40 bg-accent/10 px-5 py-2 text-xs font-semibold uppercase tracking-wider text-accent hover:bg-accent/15 transition"
-            >
-              Register
-            </Link>
-
             <button
               type="button"
               onClick={() => setMobileOpen(true)}
@@ -230,6 +222,13 @@ export function Header() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
+
+            <Button
+              to="/register-interest"
+              className="py-2 text-xs"
+            >
+              Register Interest
+            </Button>
           </div>
         </div>
       </div>
