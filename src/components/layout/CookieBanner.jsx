@@ -27,7 +27,7 @@ export function CookieBanner() {
           This site uses only strictly necessary cookies to support core functionality. 
           No analytics or marketing cookies are used at launch.{' '}
           <Link to="/cookies" className="text-accent hover:underline">
-            Read our Cookie Policy
+            Read our Cookie Notice
           </Link>{' '}
           for details.
         </p>

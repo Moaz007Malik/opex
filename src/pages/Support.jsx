@@ -86,7 +86,7 @@ export function Support() {
         <div className="max-w-4xl mx-auto px-6 text-center">
 
           <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
-            Support
+            SUPPORT
           </p>
 
           <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
@@ -109,7 +109,7 @@ export function Support() {
           Browse support topics
         </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
 
           {SUPPORT_CATEGORIES.map((cat, i) => (
 
@@ -137,65 +137,30 @@ export function Support() {
 
 
 
-      {/* CONTACT SECTION — styled to match Contact page */}
+      {/* GET IN TOUCH */}
       <Section className="bg-secondary">
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-
-          {/* LEFT SIDE — info cards */}
-          <div className="lg:col-span-5">
-            <p className="text-sm uppercase tracking-[0.22em] text-accent font-semibold mb-3">
+        <div className="max-w-6xl mx-auto">
+          <div className="max-w-3xl">
+            <h2 className="text-3xl lg:text-4xl font-bold text-text-primary mb-4">
               Still need help?
-            </p>
-            <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary mb-4">
-              Contact the OpEx6 team.
             </h2>
-            <p className="text-base text-text-secondary leading-relaxed mb-6">
-              If you can&apos;t find the answer you&apos;re looking for in the resources above, send us a message and we&apos;ll come back with a structured response.
+            <p className="text-base text-text-secondary leading-relaxed mb-2">
+              If you cannot find the answer you are looking for, send us a message and our team will respond as soon as possible.
             </p>
-
-            <div className="grid sm:grid-cols-2 gap-4">
-              <div className="rounded-2xl border border-border bg-card-bg/50 p-5">
-                <p className="text-sm uppercase tracking-[0.18em] text-text-secondary font-semibold mb-2">
-                  Email
-                </p>
-                <a
-                  href="mailto:sales@opex6.com"
-                  className="text-text-primary font-semibold hover:underline underline-offset-4"
-                >
-                  sales@opex6.com
-                </a>
-                <p className="text-sm text-text-secondary mt-2 leading-relaxed">
-                  We aim to respond within 1 business day.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-border bg-card-bg/50 p-5">
-                <p className="text-sm uppercase tracking-[0.18em] text-text-secondary font-semibold mb-2">
-                  Helpful context
-                </p>
-                <ul className="text-sm text-text-secondary space-y-1 leading-relaxed">
-                  <li>• Which page or feature you&apos;re asking about</li>
-                  <li>• Any error messages or behaviour seen</li>
-                  <li>• How urgent the issue is</li>
-                </ul>
-              </div>
-            </div>
+            <p className="text-base text-text-secondary leading-relaxed">
+              Or email us directly at{" "}
+              <a
+                href="mailto:sales@opex6.com"
+                className="text-accent hover:underline"
+              >
+                sales@opex6.com
+              </a>
+              .
+            </p>
           </div>
 
-          {/* RIGHT SIDE — premium form card */}
-          <div className="lg:col-span-7 lg:pl-4">
+          <div className="mt-8 max-w-2xl">
             <div className="relative bg-card-bg border border-border rounded-2xl p-7 sm:p-8 shadow-xl overflow-hidden">
-              <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-accent/80 via-accent/30 to-transparent" />
-
-              <div className="mb-6">
-                <p className="text-sm uppercase tracking-[0.22em] text-text-secondary font-semibold mb-2">
-                  Submit a support request
-                </p>
-                <p className="text-base text-text-secondary leading-relaxed">
-                  Share a brief description of what you&apos;re trying to do and what&apos;s not working as expected.
-                </p>
-              </div>
-
               {sent ? (
                 <div className="bg-success/10 border border-success/40 rounded-xl p-6 text-text-primary">
                   <p className="font-medium text-lg">Message sent.</p>
@@ -235,7 +200,7 @@ export function Support() {
                     onChange={(e) =>
                       setForm((p) => ({ ...p, subject: e.target.value }))
                     }
-                    placeholder="What is this about?"
+                    placeholder="What is your enquiry about?"
                   />
 
                   <div>
@@ -248,7 +213,7 @@ export function Support() {
                       onChange={(e) =>
                         setForm((p) => ({ ...p, message: e.target.value }))
                       }
-                      placeholder="Describe what you are trying to do and what you are seeing, including any relevant pages or KPI areas."
+                      placeholder="Your message"
                       rows={6}
                       className="w-full border border-border rounded-xl px-4 py-3 bg-background/40 text-text-primary placeholder-text-secondary focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/40 transition-colors resize-y leading-relaxed"
                     />
@@ -266,17 +231,16 @@ export function Support() {
                       disabled={loading}
                       className="w-full justify-center py-3"
                     >
-                      {loading ? 'Sending…' : 'Send support request'}
+                      {loading ? 'Sending…' : 'Send Message'}
                     </Button>
                     <p className="text-text-secondary text-sm mt-3 text-center">
-                      We aim to respond within 1 business day.
+                      We aim to respond to all enquiries within 1 business day.
                     </p>
                   </div>
                 </form>
               )}
             </div>
           </div>
-
         </div>
       </Section>
 

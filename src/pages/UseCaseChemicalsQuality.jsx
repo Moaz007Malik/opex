@@ -26,7 +26,7 @@ export function UseCaseChemicalsQuality() {
         <div className="max-w-4xl mx-auto px-6">
 
           <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
-            Anonymised illustrative customer use case
+            ANONYMISED ILLUSTRATIVE CUSTOMER USE CASE
           </p>
 
           <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
@@ -39,11 +39,11 @@ export function UseCaseChemicalsQuality() {
             compliance impact.
           </p>
 
-          <p className="text-sm text-text-secondary mb-3">
+          <p className="text-sm text-text-muted italic mb-3">
             Executive sponsor: Plant Director, specialty chemicals manufacturer.
           </p>
 
-          <p className="text-xs text-text-secondary">
+          <p className="text-xs text-text-muted italic">
             These are anonymised illustrative customer use cases based on common manufacturing scenarios. They are provided for general
             information and do not represent a named customer endorsement or guarantee of results.
           </p>
@@ -59,69 +59,48 @@ export function UseCaseChemicalsQuality() {
 
 
           {/* QUOTE */}
-          <div className="border border-border bg-card-bg rounded-xl p-6 mb-10">
-            <p className="text-text-secondary italic text-sm">
-              &ldquo;The biggest change was not one KPI. It was having one place to see quality, performance, and operational exceptions
-              together instead of across disconnected spreadsheets and departmental reports.&rdquo;
+          <div className="relative border border-border bg-card-bg rounded-xl p-6 mb-10 overflow-hidden">
+            <div className="absolute left-0 top-0 bottom-0 w-1 bg-accent rounded-l-xl" aria-hidden="true" />
+            <p className="text-text-secondary italic text-sm pl-4">
+              "The biggest change was not one KPI. It was having one place to see quality, performance, and operational exceptions together instead of across disconnected spreadsheets and departmental reports."
             </p>
-
-            <p className="text-xs text-text-secondary mt-3">
-              — Plant Director, specialty chemicals manufacturer (anonymised illustrative scenario)
+            <p className="text-xs text-text-muted mt-3 pl-4">
+              — Plant Director, Specialty Chemicals Manufacturer (anonymised illustrative scenario)
             </p>
           </div>
 
 
 
           {/* KPI CARDS */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
 
-            <Card className="border border-border p-4 bg-card-bg">
-              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-1">
-                Deviation response time
-              </p>
-              <p className="text-xl font-semibold text-text-primary">-62%</p>
-              <p className="text-[10px] text-text-secondary mt-1">
-                Average reduction, illustrative scenario.
+            <Card className="border border-border p-4 bg-card-bg rounded-xl">
+              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-2">
+                DEVIATION RESPONSE TIME | -62% | Average reduction, illustrative scenario.
               </p>
             </Card>
 
-            <Card className="border border-border p-4 bg-card-bg">
-              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-1">
-                Quality-related rework
-              </p>
-              <p className="text-xl font-semibold text-text-primary">-17%</p>
-              <p className="text-[10px] text-text-secondary mt-1">
-                Illustrative scenario, not a guarantee.
+            <Card className="border border-border p-4 bg-card-bg rounded-xl">
+              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-2">
+                QUALITY-RELATED REWORK | -17% | Illustrative scenario, not a guarantee.
               </p>
             </Card>
 
-            <Card className="border border-border p-4 bg-card-bg">
-              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-1">
-                Batch release delay incidents
-              </p>
-              <p className="text-xl font-semibold text-text-primary">-28%</p>
-              <p className="text-[10px] text-text-secondary mt-1">
-                Illustrative scenario, not a guarantee.
+            <Card className="border border-border p-4 bg-card-bg rounded-xl">
+              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-2">
+                BATCH RELEASE DELAY INCIDENTS | -28% | Illustrative scenario, not a guarantee.
               </p>
             </Card>
 
-            <Card className="border border-border p-4 bg-card-bg">
-              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-1">
-                Management reporting prep time
-              </p>
-              <p className="text-xl font-semibold text-text-primary">-70%</p>
-              <p className="text-[10px] text-text-secondary mt-1">
-                Illustrative reduction in time spent preparing reports.
+            <Card className="border border-border p-4 bg-card-bg rounded-xl">
+              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-2">
+                MANAGEMENT REPORTING PREP TIME | -70% | Illustrative reduction in time spent preparing reports.
               </p>
             </Card>
 
-            <Card className="border border-border p-4 bg-card-bg">
-              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-1">
-                Estimated annualised value
-              </p>
-              <p className="text-xl font-semibold text-text-primary">£690,000</p>
-              <p className="text-[10px] text-text-secondary mt-1">
-                Illustrative value model only.
+            <Card className="border border-border p-4 bg-card-bg rounded-xl">
+              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-2">
+                ESTIMATED ANNUALISED VALUE | £690,000 | Illustrative value model only.
               </p>
             </Card>
 

@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import { BaseLayout } from './components/layout/BaseLayout';
 import { ScrollToTop } from './components/ScrollToTop';
 import { HomepageSpec } from './pages/HomepageSpec';
-import { ExecApp } from './pages/ExecApp';
+import { ExecApp } from './pages/ExecAppSpec';
 import { HowItWorks } from './pages/HowItWorks';
 import { KPIsDashboards } from './pages/KPIsDashboards';
 import { Pricing } from './pages/Pricing';

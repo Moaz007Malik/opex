@@ -22,7 +22,7 @@ export function Privacy() {
         <div className="max-w-4xl mx-auto px-6 text-center">
 
           <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
-            Legal
+            LEGAL
           </p>
 
           <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
@@ -73,9 +73,11 @@ export function Privacy() {
               <ul className="list-disc list-inside mt-3 space-y-2 text-text-secondary">
                 <li>Contact details you provide, such as name, work email address, company, and any message you choose to send.</li>
                 <li>Marketing preferences, such as whether you have opted in to receive product updates and marketing emails.</li>
+                <li>KPI category selections, business problem selections, and dashboard preferences submitted through the KPI discovery journey.</li>
                 <li>
                   Technical data such as IP address, browser type, and device information, and cookie preferences — subject to your cookie
-                  settings. For more detail, see our <Link to="/cookies" className="text-accent hover:underline">Cookie Policy</Link>.
+                  settings. For more detail, see our{' '}
+                  <Link to="/cookies" className="text-accent hover:underline underline-offset-4">Cookie Notice</Link>.
                 </li>
               </ul>
             </div>
@@ -88,6 +90,10 @@ export function Privacy() {
 
               <ul className="list-disc list-inside mt-3 space-y-2 text-text-secondary">
                 <li>Respond to enquiries and manage early-access registrations for the Exec App.</li>
+                <li>
+                  Send you a personalised confirmation email containing your KPI selections and recommended dashboards where you have
+                  completed the KPI discovery journey.
+                </li>
                 <li>Send you product updates and marketing emails where you have explicitly opted in to receive them.</li>
                 <li>Maintain records of interest registrations, support enquiries, and consent preferences.</li>
                 <li>Operate, secure, and improve this website, including understanding how it is used.</li>
@@ -176,7 +182,7 @@ export function Privacy() {
 
               <p className="text-text-secondary">
                 For information about how we use cookies and similar technologies, please see our{' '}
-                <Link to="/cookies" className="text-accent hover:underline underline-offset-4">Cookie Policy</Link>.
+                <Link to="/cookies" className="text-accent hover:underline underline-offset-4">Cookie Notice</Link>.
               </p>
             </div>
 

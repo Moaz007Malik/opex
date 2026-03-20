@@ -27,7 +27,7 @@ export function UseCasePrecisionDowntime() {
         <div className="max-w-4xl mx-auto px-6">
 
           <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
-            Anonymised illustrative customer use case
+            ANONYMISED ILLUSTRATIVE CUSTOMER USE CASE
           </p>
 
           <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
@@ -40,13 +40,12 @@ export function UseCasePrecisionDowntime() {
             reporting to structured operational review.
           </p>
 
-          <p className="text-sm text-text-secondary mb-3">
+          <p className="text-sm text-text-muted italic mb-3">
             Executive sponsor: Chief Operating Officer, UK precision engineering manufacturer.
           </p>
 
-          <p className="text-xs text-text-secondary">
-            These are anonymised illustrative customer use cases based on common manufacturing scenarios. They are provided for general
-            information and do not represent a named customer endorsement or guarantee of results.
+          <p className="text-xs text-text-muted italic">
+            These are anonymised illustrative customer use cases based on common manufacturing scenarios. They are provided for general information and do not represent a named customer endorsement or guarantee of results.
           </p>
 
         </div>
@@ -60,66 +59,61 @@ export function UseCasePrecisionDowntime() {
 
 
           {/* QUOTE */}
-          <div className="border border-border bg-card-bg rounded-xl p-6 mb-10">
-
-            <p className="text-text-secondary italic text-sm">
-              &ldquo;We knew where we were hurting, but we did not have one disciplined way to see it across shifts and machines. OpEx6 helped
-              us move from anecdotal firefighting to structured action.&rdquo;
+          <div className="relative border border-border bg-card-bg rounded-xl p-6 mb-10 overflow-hidden">
+            <div className="absolute left-0 top-0 bottom-0 w-1 bg-accent rounded-l-xl" aria-hidden="true" />
+            <p className="text-text-secondary italic text-sm pl-4">
+              "We knew where we were hurting, but we did not have one disciplined way to see it across shifts and machines. OpEx6 helped us move from anecdotal firefighting to structured action."
             </p>
-
-            <p className="text-xs text-text-secondary mt-3">
-              — COO, UK precision engineering manufacturer (anonymised illustrative scenario)
+            <p className="text-xs text-text-muted mt-3 pl-4">
+              — COO, UK Precision Engineering Manufacturer (anonymised illustrative scenario)
             </p>
-
           </div>
 
 
 
           {/* KPI CARDS */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
 
-            <Card className="border border-border p-4 bg-card-bg">
-              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-1">
-                Recurring downtime change
+            <Card className="border border-border p-4 bg-card-bg rounded-xl">
+              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-2">
+                RECURRING DOWNTIME CHANGE | -14%
               </p>
-              <p className="text-xl font-semibold text-text-primary">-14%</p>
               <p className="text-[10px] text-text-secondary mt-1">
                 Illustrative scenario, not a guarantee.
               </p>
             </Card>
 
-            <Card className="border border-border p-4 bg-card-bg">
-              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-1">
-                Schedule attainment
+            <Card className="border border-border p-4 bg-card-bg rounded-xl">
+              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-2">
+                SCHEDULE ATTAINMENT | 81% → 90%
               </p>
-              <p className="text-xl font-semibold text-text-primary">81% → 90%</p>
+              <p className="text-[10px] text-text-secondary mt-1">
+                Illustrative scenario, not a guarantee.
+              </p>
             </Card>
 
-            <Card className="border border-border p-4 bg-card-bg">
-              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-1">
-                Changeover overrun change
+            <Card className="border border-border p-4 bg-card-bg rounded-xl">
+              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-2">
+                CHANGEOVER OVERRUN CHANGE | -21%
               </p>
-              <p className="text-xl font-semibold text-text-primary">-21%</p>
               <p className="text-[10px] text-text-secondary mt-1">
                 Average over illustrative period.
               </p>
             </Card>
 
-            <Card className="border border-border p-4 bg-card-bg">
-              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-1">
-                On-time delivery change
+            <Card className="border border-border p-4 bg-card-bg rounded-xl">
+              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-2">
+                ON-TIME DELIVERY CHANGE | +8 pts
               </p>
-              <p className="text-xl font-semibold text-text-primary">+8 pts</p>
               <p className="text-[10px] text-text-secondary mt-1">
                 Illustrative scenario, not a guarantee.
               </p>
             </Card>
 
-            <Card className="border border-border p-4 bg-card-bg">
-              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-1">
-                Estimated annualised value
+            <Card className="border border-border p-4 bg-card-bg rounded-xl">
+              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-2">
+                ESTIMATED ANNUALISED VALUE | £860,000
               </p>
-              <p className="text-xl font-semibold text-text-primary">£860,000</p>
               <p className="text-[10px] text-text-secondary mt-1">
                 Illustrative value model only.
               </p>

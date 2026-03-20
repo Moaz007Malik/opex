@@ -43,20 +43,6 @@
   }
 }
 
-/* Horizontal logo carousel */
-@keyframes logoScrollX {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.logo-carousel-track {
-  animation: logoScrollX 30s linear infinite;
-}
-
 /* Text clamp helpers (no Tailwind plugin required) */
 .clamp-2 {
   display: -webkit-box;

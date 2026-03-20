@@ -7,7 +7,7 @@ export function Cookies() {
   return (
     <>
       <Helmet>
-        <title>Cookie Policy — OpEx6</title>
+        <title>Cookie Notice — OpEx6</title>
         <meta
           name="description"
           content="Information about how OpEx6 uses cookies and similar technologies on this website."
@@ -24,7 +24,7 @@ export function Cookies() {
       >
         <div className="max-w-7xl mx-auto px-6">
           <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-4">
-            Cookie Policy
+            Cookie Notice
           </h1>
           <p className="text-text-secondary text-base">
             Last updated: [TO BE INSERTED BY CLIENT BEFORE LAUNCH]

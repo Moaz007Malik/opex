@@ -10,18 +10,13 @@ export function RegisterInterestCTA() {
       <div className="relative max-w-4xl mx-auto px-6">
         <div className="bg-card-bg border border-border rounded-lg shadow-xl px-8 py-12 text-center">
           <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary mb-5 leading-tight">
-            Register your interest. Secure your early access.
+            Ready to learn more?
           </h2>
 
-          <p className="text-text-secondary mb-4 max-w-2xl mx-auto leading-relaxed">
-            OpEx6 is preparing to open the Exec App to early users. Register your interest now
-            to secure your place on the early access list — and eligibility for our pre-launch
-            credit offer.
-          </p>
-
-          <p className="text-highlight font-medium mb-8 text-sm sm:text-base">
-            Early registrants will be eligible for 100 credits for £50 when the Exec App opens
-            to early users. Subject to final launch terms.
+          <p className="text-text-secondary mb-8 max-w-2xl mx-auto leading-relaxed">
+            Register your interest now to be among the first to access the Exec App when it
+            opens to early users. Early registrants are eligible for our pre-launch offer — 100
+            credits for £50, subject to final launch terms.
           </p>
 
           <div className="flex justify-center">

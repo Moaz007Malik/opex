@@ -8,19 +8,19 @@ import { Card } from '../components/ui/Card';
 const USE_CASES = [
   {
     id: 'packaging-group-margin-visibility',
-    sector: 'Packaging Group',
+    sector: 'PACKAGING GROUP',
     title: 'How a multi-site packaging group improved margin visibility across 3 plants',
     summary: 'An anonymised illustrative use case showing how a packaging manufacturer could connect downtime, waste, and product mix to contribution and margin visibility across plants.',
   },
   {
     id: 'precision-engineering-downtime-reduction',
-    sector: 'Precision Engineering',
+    sector: 'PRECISION ENGINEERING',
     title: 'How a precision engineering manufacturer reduced downtime and improved schedule attainment',
     summary: 'An anonymised illustrative use case showing how a precision engineering operation could use structured downtime visibility to reduce recurring stops and support better schedule adherence.',
   },
   {
     id: 'chemicals-quality-and-compliance',
-    sector: 'Chemicals & Materials',
+    sector: 'CHEMICALS & MATERIALS',
     title: 'How a chemicals manufacturer improved quality visibility and reduced deviation-response time',
     summary: 'An anonymised illustrative use case showing how a chemicals manufacturer could bring batch quality, deviations, and compliance metrics into one structured view to shorten response times.',
   },
@@ -49,7 +49,7 @@ export function UseCases() {
         <div className="max-w-4xl mx-auto px-6">
 
           <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
-            Anonymised illustrative customer use cases
+            ANONYMISED ILLUSTRATIVE CUSTOMER USE CASES
           </p>
 
           <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
@@ -60,9 +60,8 @@ export function UseCases() {
             See how OpEx6 is designed to help manufacturing leaders turn siloed operational data into structured visibility, faster decisions, and measurable financial outcomes.
           </p>
 
-          <p className="text-sm text-text-secondary max-w-3xl">
-            These are anonymised illustrative customer use cases based on common manufacturing scenarios. They are provided for
-            general information and do not represent a named customer endorsement or guarantee of results.
+          <p className="text-sm text-text-secondary max-w-3xl italic">
+            These are anonymised illustrative customer use cases based on common manufacturing scenarios. They are provided for general information and do not represent a named customer endorsement or guarantee of results.
           </p>
 
         </div>
@@ -96,24 +95,9 @@ export function UseCases() {
 
               <Link
                 to={`/use-cases/${uc.id}`}
-                className="text-accent font-medium text-sm hover:underline inline-flex items-center gap-1"
+                className="text-accent font-medium text-sm hover:underline inline-flex items-center"
               >
-                View use case
-
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-
+                View use case &rarr;
               </Link>
 
             </Card>
@@ -124,8 +108,18 @@ export function UseCases() {
 
 
 
-        {/* CTA is rendered globally */}
+      </Section>
 
+      {/* FINAL CTA */}
+      <Section className="bg-background">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="text-lg text-text-secondary mb-6">
+            Interested in how the Exec App could support visibility and decision-making across your manufacturing operations?
+          </p>
+          <Button to="/register-interest" className="justify-center">
+            Register Interest in the Exec App
+          </Button>
+        </div>
       </Section>
 
     </>

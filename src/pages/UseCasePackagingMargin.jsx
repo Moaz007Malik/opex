@@ -27,7 +27,7 @@ export function UseCasePackagingMargin() {
         <div className="max-w-4xl mx-auto px-6">
 
           <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
-            Anonymised illustrative customer use case
+            ANONYMISED ILLUSTRATIVE CUSTOMER USE CASE
           </p>
 
           <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
@@ -40,11 +40,11 @@ export function UseCasePackagingMargin() {
             margin drivers into one structured executive view.
           </p>
 
-          <p className="text-sm text-text-secondary mb-3">
+          <p className="text-sm text-text-muted italic mb-3">
             Executive sponsor: Operations Director, European packaging manufacturer.
           </p>
 
-          <p className="text-xs text-text-secondary">
+          <p className="text-xs text-text-muted italic">
             These are anonymised illustrative customer use cases based on common manufacturing scenarios. They are provided for general
             information and do not represent a named customer endorsement or guarantee of results.
           </p>
@@ -60,66 +60,59 @@ export function UseCasePackagingMargin() {
 
 
           {/* QUOTE */}
-          <div className="border border-border bg-card-bg rounded-xl p-6 mb-10">
-
-            <p className="text-text-secondary italic text-sm">
-              &ldquo;We did not have a data shortage. We had a visibility shortage. OpEx6 gave us one operating language across three plants
-              and made our weekly reviews materially more useful.&rdquo;
+          <div className="relative border border-border bg-card-bg rounded-xl p-6 mb-10 overflow-hidden">
+            <div className="absolute left-0 top-0 bottom-0 w-1 bg-accent rounded-l-xl" aria-hidden="true" />
+            <p className="text-text-secondary italic text-sm pl-4">
+              "We did not have a data shortage. We had a visibility shortage. OpEx6 gave us one operating language across three plants
+              and made our weekly reviews materially more useful."
             </p>
-
-            <p className="text-xs text-text-secondary mt-3">
-              — Operations Director, European packaging manufacturer (anonymised illustrative scenario)
+            <p className="text-xs text-text-muted mt-3 pl-4">
+              — Operations Director, European Packaging Manufacturer (anonymised illustrative scenario)
             </p>
-
           </div>
 
 
 
           {/* KPI CARDS */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
 
             <Card className="border border-border p-4 bg-card-bg">
-              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-1">
-                Sites in one framework
+              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-2">
+                SITES IN ONE FRAMEWORK | 3
               </p>
-              <p className="text-xl font-semibold text-text-primary">3</p>
             </Card>
 
             <Card className="border border-border p-4 bg-card-bg">
-              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-1">
-                Reporting preparation time
+              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-2">
+                REPORTING PREPARATION TIME | -78%
               </p>
-              <p className="text-xl font-semibold text-text-primary">-78%</p>
               <p className="text-[10px] text-text-secondary mt-1">
                 From ~18 hours/week to ~4 hours/week.
               </p>
             </Card>
 
             <Card className="border border-border p-4 bg-card-bg">
-              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-1">
-                Scrap cost change (6 months)
+              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-2">
+                SCRAP COST CHANGE (6 MONTHS) | -11%
               </p>
-              <p className="text-xl font-semibold text-text-primary">-11%</p>
               <p className="text-[10px] text-text-secondary mt-1">
                 Illustrative scenario, not a guarantee.
               </p>
             </Card>
 
             <Card className="border border-border p-4 bg-card-bg">
-              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-1">
-                Unplanned downtime change
+              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-2">
+                UNPLANNED DOWNTIME CHANGE | -9%
               </p>
-              <p className="text-xl font-semibold text-text-primary">-9%</p>
               <p className="text-[10px] text-text-secondary mt-1">
                 Illustrative scenario, not a guarantee.
               </p>
             </Card>
 
             <Card className="border border-border p-4 bg-card-bg">
-              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-1">
-                Estimated annualised value
+              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-2">
+                ESTIMATED ANNUALISED VALUE | £1.18M
               </p>
-              <p className="text-xl font-semibold text-text-primary">£1.18M</p>
               <p className="text-[10px] text-text-secondary mt-1">
                 Illustrative value model only.
               </p>
@@ -228,7 +221,7 @@ export function UseCasePackagingMargin() {
           </p>
           <ul className="list-disc list-inside text-text-secondary text-sm space-y-1 mb-10">
             <li><strong>Production</strong> — throughput, OEE, and schedule attainment by line and site.</li>
-            <li><strong>Quality</strong> — scrap, rework, and cost of poor quality by product and plant.</li>
+            <li><strong>Quality</strong> — scrap, rework, and cost of quality by product and plant.</li>
             <li><strong>Downtime &amp; Reliability</strong> — recurring stoppages, changeover losses, and availability.</li>
             <li><strong>Margin Intelligence</strong> — cost per unit, waste cost, and margin by product family.</li>
             <li><strong>Inventory &amp; Materials</strong> — WIP exposure, material yield, and stock accuracy.</li>

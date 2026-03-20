@@ -9,7 +9,7 @@ import { Checkbox } from '../components/ui/Checkbox';
 import { FORMSPREE_ENDPOINT } from '../config/formspree';
 
 const WHAT_HAPPENS_NEXT = [
-  { step: 1, text: 'We receive your registration and send a confirmation by email.' },
+  { step: 1, text: 'We receive your registration and send a confirmation by email - Request email template.' },
   { step: 2, text: 'You will be contacted ahead of launch with your early access details and the pre-launch offer.' },
   { step: 3, text: 'When the Exec App opens to early users, you will be among the first to access it.' },
 ];
@@ -19,12 +19,12 @@ export function RegisterInterest() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [form, setForm] = useState({
-    name: '',
-    email: '',
-    company: '',
-    industry: '',
-    message: '',
-    consentUpdates: false,
+    fullName: '',
+    businessEmail: '',
+    jobTitle: '',
+    companyName: '',
+    confirmContact: false,
+    marketingOptIn: false,
   });
 
   const handleChange = (field, value) => {
@@ -41,12 +41,12 @@ export function RegisterInterest() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          company: form.company,
-          industry: form.industry,
-          message: form.message,
-          consentUpdates: form.consentUpdates,
+          name: form.fullName,
+          email: form.businessEmail,
+          jobTitle: form.jobTitle,
+          company: form.companyName,
+          confirmContact: form.confirmContact,
+          marketingOptIn: form.marketingOptIn,
           _sourcePage: 'register_interest',
           _sourceForm: 'exec_app_register_interest_primary',
           _noticeVersion: 'privacy_v1_terms_v1',
@@ -78,7 +78,7 @@ export function RegisterInterest() {
             </h1>
 
             <p className="text-text-secondary">
-              You are on the list. We will be in touch ahead of launch with your early access details and information about the £50 for 50 credits + 25 free credits pre-launch offer.
+              You are on the list. We will be in touch ahead of launch with your early access details and information about the £50 offer.
             </p>
           </div>
         </Section>
@@ -108,7 +108,7 @@ export function RegisterInterest() {
         <div className="max-w-4xl mx-auto px-6 text-center">
 
           <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
-            Early Access
+            EARLY ACCESS
           </p>
 
           <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
@@ -126,7 +126,7 @@ export function RegisterInterest() {
             </p>
 
             <p className="text-sm text-text-secondary">
-              Register interest now to secure eligibility for £50 for 50 credits + 25 free credits at launch. This is a pre-launch registration — no payment is taken now. Subject to final launch terms.
+              Early registrants will be eligible for 100 credits for £50 when the Exec App opens. This is a pre-launch registration — no payment is taken now. Subject to final launch terms.
             </p>
           </div>
 
@@ -145,11 +145,19 @@ export function RegisterInterest() {
             className="space-y-6 border border-border rounded-xl p-8 bg-card-bg"
           >
 
+            <p className="text-xs text-text-secondary text-left">
+              Your information is handled in accordance with our{' '}
+              <Link to="/privacy" className="text-accent hover:underline">
+                Privacy Notice
+              </Link>
+              . We will only contact you about your interest registration unless you opt in to product updates.
+            </p>
+
             <Input
               label="Full Name"
               required
-              value={form.name}
-              onChange={(e) => handleChange('name', e.target.value)}
+              value={form.fullName}
+              onChange={(e) => handleChange('fullName', e.target.value)}
               placeholder="Your full name"
             />
 
@@ -157,57 +165,42 @@ export function RegisterInterest() {
               label="Work Email"
               type="email"
               required
-              value={form.email}
-              onChange={(e) => handleChange('email', e.target.value)}
+              value={form.businessEmail}
+              onChange={(e) =>
+                handleChange('businessEmail', e.target.value)
+              }
               placeholder="you@company.com"
             />
 
             <Input
-              label="Company (optional)"
-              value={form.company}
-              onChange={(e) => handleChange('company', e.target.value)}
+              label="Job Title"
+              required
+              value={form.jobTitle}
+              onChange={(e) => handleChange('jobTitle', e.target.value)}
+              placeholder="e.g. Operations Director"
+            />
+
+            <Input
+              label="Company Name"
+              required
+              value={form.companyName}
+              onChange={(e) => handleChange('companyName', e.target.value)}
               placeholder="Your company"
             />
 
-            <Input
-              label="Industry (optional)"
-              value={form.industry}
-              onChange={(e) => handleChange('industry', e.target.value)}
-              placeholder="e.g. Food & Beverage, Packaging, Chemicals"
+            <Checkbox
+              id="confirmContact"
+              required
+              label="I confirm that OpEx6 may contact me about the product interest I am registering through this form."
+              checked={form.confirmContact}
+              onChange={(v) => handleChange('confirmContact', v)}
             />
-
-            <Input
-              label="Message (optional)"
-              value={form.message}
-              onChange={(e) => handleChange('message', e.target.value)}
-              placeholder="Anything helpful about your operations, context, or questions"
-            />
-
-
-            <p className="text-xs text-text-secondary">
-              We&apos;ll use the details you provide to respond to your enquiry and manage your early-access request. Read our{' '}
-              <Link to="/privacy" className="text-accent hover:underline">
-                Privacy Notice
-              </Link>.
-            </p>
-
-            <p className="text-xs text-text-secondary">
-              By submitting this form, you confirm you have read our{' '}
-              <Link to="/privacy" className="text-accent hover:underline">
-                Privacy Notice
-              </Link>{' '}
-              and{' '}
-              <Link to="/terms" className="text-accent hover:underline">
-                Terms of Use
-              </Link>.
-            </p>
-
 
             <Checkbox
-              id="consentUpdates"
+              id="marketingOptIn"
               label="Yes, I'd like to receive product updates and marketing emails from OpEx6."
-              checked={form.consentUpdates}
-              onChange={(v) => handleChange('consentUpdates', v)}
+              checked={form.marketingOptIn}
+              onChange={(v) => handleChange('marketingOptIn', v)}
             />
 
             {error && (
@@ -221,6 +214,18 @@ export function RegisterInterest() {
             >
               {loading ? 'Sending…' : 'Register Interest in the Exec App'}
             </Button>
+
+            <p className="text-xs text-text-secondary">
+              By submitting this form, you confirm you have read our{' '}
+              <Link to="/privacy" className="text-accent hover:underline">
+                Privacy Notice
+              </Link>{' '}
+              and{' '}
+              <Link to="/cookies" className="text-accent hover:underline">
+                Cookie Notice
+              </Link>
+              .
+            </p>
 
           </form>
 

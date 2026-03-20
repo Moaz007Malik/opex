@@ -1,4 +1,7 @@
 Options -MultiViews
 RewriteEngine On
+
+# SPA fallback for Hostinger/Apache: rewrite unknown routes to /index.html.
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^ index.html [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L,QSA]

@@ -25,7 +25,7 @@ export function Terms() {
         <div className="max-w-4xl mx-auto px-6">
 
           <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
-            Legal
+            LEGAL
           </p>
 
           <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
@@ -37,7 +37,7 @@ export function Terms() {
           </p>
 
           <p className="text-base text-text-secondary mt-4">
-            Last updated: [TO BE INSERTED BY CLIENT BEFORE LAUNCH]
+            Last updated: March 2026
           </p>
 
         </div>

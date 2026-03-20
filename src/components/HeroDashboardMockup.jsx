@@ -1,5 +1,8 @@
 /** Illustrative Exec App dashboard mockup — static UI only, not live product. */
-export function HeroDashboardMockup() {
+export function HeroDashboardMockup({
+  previewLabel = "Illustrative preview — Exec App dashboard",
+  previewDisclaimer = "Final product, data, and design may differ.",
+} = {}) {
   return (
     <div className="w-full max-w-2xl mx-auto">
       <div className="rounded-2xl border border-border bg-card-bg overflow-hidden shadow-lg">
@@ -102,7 +105,7 @@ export function HeroDashboardMockup() {
       </div>
 
       <p className="text-xs text-text-secondary mt-4 text-center">
-        Illustrative preview — Exec App dashboard. Final product, data, and design may differ.
+        {previewLabel}. {previewDisclaimer}
       </p>
     </div>
   );

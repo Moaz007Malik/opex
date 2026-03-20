@@ -68,7 +68,7 @@ public/
 |-------|------|
 | `/` | Homepage |
 | `/exec-app` | Exec App product overview |
-| `/kpis-dashboards` | KPIs & Dashboards explorer |
+| `/kpis` | KPIs & Dashboards explorer |
 | `/how-it-works` | How It Works |
 | `/pricing` | Pricing |
 | `/resources` | Resources / blog |
@@ -78,13 +78,13 @@ public/
 | `/faq` | FAQ |
 | `/about` | About OpEx6 |
 | `/contact` | Contact |
-| `/privacy-notice` | Privacy Notice |
-| `/cookie-notice` | Cookie Notice |
-| `/terms-of-use` | Terms of Use |
+| `/privacy` | Privacy Notice |
+| `/cookies` | Cookie Notice |
+| `/terms` | Terms of Use |
 
 ## Cookie banner
 
-V1 uses **essential cookies only** (e.g. to remember cookie banner dismissal). A minimal banner is shown with copy as per the brief; it links to `/cookie-notice` and has an OK button that dismisses and sets a local flag so it does not show again.
+V1 uses **essential cookies only** (e.g. to remember cookie banner dismissal). A minimal banner is shown with copy as per the brief; it links to `/cookies` and has an OK button that dismisses and sets a local flag so it does not show again.
 
 ## Brand / design
 

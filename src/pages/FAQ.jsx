@@ -137,12 +137,7 @@ export function FAQ() {
 
         </div>
 
-        {/* CTA */}
-        <div className="mt-16 text-center">
-          <Button to="/register-interest">
-            Register Interest
-          </Button>
-        </div>
+        {/* CTA intentionally omitted to match FAQ page spec */}
 
       </Section>
     </>
