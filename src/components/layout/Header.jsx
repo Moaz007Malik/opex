@@ -22,7 +22,7 @@ function DesktopNavLink({ to, children }) {
     <Link
       to={to}
       className={`font-medium text-[15px] transition-colors ${
-        active ? "text-accent" : "text-text-secondary hover:text-accent"
+        active ? "text-accent" : "text-text-primary hover:text-accent"
       }`}
     >
       {children}
@@ -40,7 +40,7 @@ function DesktopDropdown({ label, links, open, onToggle }) {
       <button
         type="button"
         onClick={() => onToggle(!open)}
-        className="font-medium text-[15px] text-text-secondary hover:text-accent transition-colors flex items-center gap-1"
+        className="font-medium text-[15px] text-text-primary hover:text-accent transition-colors flex items-center gap-1"
       >
         {label}
 
@@ -61,7 +61,7 @@ function DesktopDropdown({ label, links, open, onToggle }) {
             <Link
               key={to}
               to={to}
-              className="block px-4 py-2 text-sm text-text-secondary hover:text-accent hover:bg-background/80 transition-colors"
+              className="block px-4 py-2 text-sm text-text-primary hover:text-accent hover:bg-background/80 transition-colors"
             >
               {label}
             </Link>
@@ -83,11 +83,11 @@ function MobileLink({ to, children, onNavigate }) {
       className={`flex items-center justify-between rounded-lg px-3 py-2 text-[15px] transition-colors ${
         active
           ? "bg-accent/12 text-accent"
-          : "text-text-secondary hover:text-text-primary hover:bg-background/60"
+          : "text-text-primary hover:text-accent hover:bg-background/60"
       }`}
     >
       <span className="font-medium">{children}</span>
-      <span className={`text-xs ${active ? "text-accent" : "text-text-secondary"}`}>
+      <span className={`text-xs ${active ? "text-accent" : "text-text-primary"}`}>
         {active ? "Current" : ""}
       </span>
     </Link>
@@ -103,7 +103,7 @@ function MobileAccordion({ title, children, open, onToggle }) {
         className="w-full flex items-center justify-between px-4 py-3 text-left"
         aria-expanded={open}
       >
-        <span className="text-xs font-semibold uppercase tracking-wider text-text-secondary">
+        <span className="text-xs font-semibold uppercase tracking-wider text-text-primary">
           {title}
         </span>
         <svg
@@ -151,10 +151,10 @@ export function Header() {
       {/* Important: keep backdrop-blur off the <header> itself.
           Some mobile browsers treat backdrop-filter ancestors as a containing block for fixed children,
           which can cause the mobile menu drawer to only cover the header area. */}
-      <div className="bg-background/90 border-b border-border backdrop-blur">
+      <div className="bg-background border-b border-border">
         {bannerVisible && (
-          <div className="bg-accent/10 border-b border-accent/30">
-            <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between gap-4 text-xs sm:text-sm text-text-secondary">
+          <div className="bg-secondary/30 border-b border-border/40">
+            <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between gap-4 text-xs sm:text-sm text-text-primary">
               <p>
                 Pre-launch early access: 50 credits for £50 + 25 free credits at launch (subject to final terms). No payment taken today.
               </p>
@@ -172,12 +172,15 @@ export function Header() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
       
-          <Link to="/" className="flex items-center gap-2" aria-label="OpEx6 home">
+          <Link to="/" className="flex items-center gap-3" aria-label="OpEx6 home">
             <img
               src="/images/icon.png"
               alt="OpEx6 logo"
-              className="h-8 w-auto"
+              className="h-12 w-auto"
             />
+            <span className="text-sm sm:text-base uppercase font-semibold text-text-primary tracking-wide">
+              OpEx6
+            </span>
           </Link>
 
           {/* Desktop header */}
@@ -212,7 +215,7 @@ export function Header() {
           <div className="lg:hidden flex items-center gap-2">
             <Link
               to="/register-interest"
-              className="inline-flex items-center justify-center rounded-lg border border-accent/40 bg-accent/10 px-3 py-2 text-xs font-semibold uppercase tracking-wider text-accent hover:bg-accent/15 transition"
+              className="inline-flex items-center justify-center rounded-lg border border-accent/40 bg-accent/10 px-5 py-2 text-xs font-semibold uppercase tracking-wider text-accent hover:bg-accent/15 transition"
             >
               Register
             </Link>
@@ -250,7 +253,7 @@ export function Header() {
                 aria-label="OpEx6 home"
               >
                 <img src="/images/icon.png" alt="OpEx6 logo" className="h-7 w-auto" />
-                <span className="text-sm font-semibold text-text-primary tracking-wide">OpEx6</span>
+                <span className="text-sm uppercase font-semibold text-text-primary tracking-wide">OpEx6</span>
               </Link>
               <button
                 type="button"

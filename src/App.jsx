@@ -19,6 +19,7 @@ import { Privacy } from './pages/Privacy';
 import { Cookies } from './pages/Cookies';
 import { Terms } from './pages/Terms';
 import { Contact } from './pages/Contact';
+import { KpiDetail } from './pages/KpiDetail';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="exec-app" element={<ExecApp />} />
           <Route path="kpis" element={<KPIsDashboards />} />
           <Route path="kpis-dashboards" element={<KPIsDashboards />} />
+          <Route path="kpis/:categoryId/:kpiSlug" element={<KpiDetail />} />
           <Route path="how-it-works" element={<HowItWorks />} />
           <Route path="pricing" element={<Pricing />} />
           <Route path="resources" element={<Resources />} />

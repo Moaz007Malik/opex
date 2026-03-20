@@ -8,7 +8,7 @@ export function RegisterInterestCTA() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(148,163,184,0.25),transparent_70%)]" />
 
       <div className="relative max-w-4xl mx-auto px-6">
-        <div className="bg-card-bg border border-border rounded-3xl shadow-xl px-8 py-12 text-center">
+        <div className="bg-card-bg border border-border rounded-lg shadow-xl px-8 py-12 text-center">
           <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary mb-5 leading-tight">
             Ready to register your interest in the Exec App?
           </h2>
@@ -33,7 +33,7 @@ export function RegisterInterestCTA() {
             </Button>
           </div>
 
-          <p className="text-text-secondary text-sm mt-6 max-w-xl mx-auto leading-relaxed">
+          <p className="text-text-muted text-sm mt-6 max-w-xl mx-auto leading-relaxed">
             This is a pre-launch registration. No payment is taken at this stage. You will be
             contacted with full details ahead of launch.
           </p>

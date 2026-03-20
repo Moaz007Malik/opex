@@ -8,7 +8,6 @@ import { Card } from "../components/ui/Card";
 import { Input } from "../components/ui/Input";
 import { Checkbox } from "../components/ui/Checkbox";
 import { HeroDashboardMockup } from "../components/HeroDashboardMockup";
-import { RegisterInterestCTA } from "../components/RegisterInterestCTA";
 import { FORMSPREE_ENDPOINT } from "../config/formspree";
 
 const SECTORS = [
@@ -1091,35 +1090,31 @@ export function Homepage() {
         <h2 className="text-3xl lg:text-4xl font-bold text-text-primary text-center mb-8">
           Built to work alongside the tools you already use.
         </h2>
-        <div className="overflow-hidden mb-6">
-          <div className="flex items-center gap-6 md:gap-10 logo-carousel-track w-[200%] whitespace-nowrap">
-            {[1, 2].map((loop) => (
-              <div key={loop} className="flex items-center gap-6 md:gap-10">
-                {INTEGRATION_ITEMS.map((item) =>
-                  item.type === "image" ? (
-                    <div
-                      key={`${loop}-${item.name}`}
-                      className="h-10 w-28 md:w-32 flex items-center justify-center shrink-0 rounded-md bg-transparent"
-                    >
-                      <img
-                        src={item.src}
-                        alt={item.name}
-                        className="max-h-8 max-w-full object-contain grayscale hover:grayscale-0 transition opacity-85 hover:opacity-100"
-                      />
-                    </div>
-                  ) : (
-                    <div
-                      key={`${loop}-${item.name}`}
-                      className="h-10 w-28 md:w-32 rounded-full bg-card-bg border border-border shadow-sm flex items-center justify-center shrink-0"
-                    >
-                      <span className="text-sm text-text-secondary font-medium">
-                        {item.abbr}
-                      </span>
-                    </div>
-                  ),
-                )}
-              </div>
-            ))}
+        <div className="mb-6">
+          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
+            {INTEGRATION_ITEMS.map((item) =>
+              item.type === "image" ? (
+                <div
+                  key={item.name}
+                  className="h-10 w-28 md:w-32 flex items-center justify-center shrink-0 rounded-lg bg-transparent"
+                >
+                  <img
+                    src={item.src}
+                    alt={item.name}
+                    className="max-h-8 max-w-full object-contain grayscale hover:grayscale-0 transition opacity-85 hover:opacity-100"
+                  />
+                </div>
+              ) : (
+                <div
+                  key={item.name}
+                  className="h-10 w-28 md:w-32 rounded-full bg-card-bg border border-border shadow-sm flex items-center justify-center shrink-0"
+                >
+                  <span className="text-sm text-text-secondary font-medium">
+                    {item.abbr}
+                  </span>
+                </div>
+              ),
+            )}
           </div>
         </div>
         <div className="text-center space-y-2">
@@ -1144,8 +1139,7 @@ export function Homepage() {
         </div>
       </Section>
 
-      {/* Section 1.9 — Launch Offer CTA Banner */}
-      <RegisterInterestCTA />
+      {/* Launch offer CTA banner is rendered globally */}
     </>
   );
 }

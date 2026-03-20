@@ -2,7 +2,6 @@ import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Section } from '../components/Section';
 import { Button } from '../components/ui/Button';
-import { RegisterInterestCTA } from '../components/RegisterInterestCTA';
 import { Card } from '../components/ui/Card';
 
 const VALUES = [
@@ -228,8 +227,7 @@ export function About() {
         </div>
       </Section>
 
-      {/* CTA */}
-      <RegisterInterestCTA />
+      {/* CTA is rendered globally */}
     </>
   );
 }

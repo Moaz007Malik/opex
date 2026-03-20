@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Section } from '../components/Section';
 import { Button } from '../components/ui/Button';
-import { RegisterInterestCTA } from '../components/RegisterInterestCTA';
 import { Card } from '../components/ui/Card';
 
 const STEPS = [
@@ -265,8 +264,7 @@ export function HowItWorks() {
   </Section>
 
 
-  {/* CTA */}
-  <RegisterInterestCTA />
+  {/* CTA is rendered globally */}
 
 </>
   );

@@ -1,10 +1,9 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Section } from "../components/Section";
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
 import { Input } from "../components/ui/Input";
-import { RegisterInterestCTA } from "../components/RegisterInterestCTA";
 import { kpiCategories } from "../data/kpis";
 
 const TOTAL_KPI_COUNT = kpiCategories.reduce(
@@ -31,6 +30,14 @@ function kpiWhyMatters(kpi, category) {
 
 function buildKpiLeadershipLine(kpi, category) {
   return `${kpi.definition} Why it matters: ${kpiWhyMatters(kpi, category)}`;
+}
+
+function slugify(value) {
+  return String(value || "")
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
 
 export function KPIsDashboards() {
@@ -87,13 +94,10 @@ export function KPIsDashboards() {
     !showAllInAllCategory &&
     filteredKpis.length > ALL_CATEGORY_PREVIEW_LIMIT;
 
-  useEffect(() => {
-    setShowAllInAllCategory(false);
-  }, [activeCategory, searchTerm]);
-
-  useEffect(() => {
-    setShowCategoryDropdown(false);
-  }, [activeCategory]);
+  const openKpiInNewTab = (kpi) => {
+    const url = `/kpis/${kpi.categoryId}/${slugify(kpi.name)}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
 
   return (
     <>
@@ -107,7 +111,7 @@ export function KPIsDashboards() {
         ]}
       />
 
-      <section className="border-b border-border bg-background py-14 lg:py-16">
+      <section className="border-b border-border bg-background py-24 lg:py-28">
         <div className="max-w-7xl mx-auto px-6">
           <p className="text-accent text-base font-semibold uppercase tracking-[0.2em] mb-3">
             KPI Catalogue
@@ -147,7 +151,10 @@ export function KPIsDashboards() {
               <Input
                 label="Search KPI name or keyword"
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                  setShowAllInAllCategory(false);
+                }}
                 placeholder="Search e.g. OEE, MTTR, inventory, margin, quality..."
                 aria-label="Search KPI name or keyword"
                 className="flex-1"
@@ -199,7 +206,17 @@ export function KPIsDashboards() {
               {displayedKpis.map((kpi) => (
                 <Card
                   key={kpi.id}
-                  className="bg-card-bg border border-border rounded-xl p-5"
+                  className="bg-card-bg border border-border rounded-xl p-5 cursor-pointer"
+                  role="link"
+                  tabIndex={0}
+                  aria-label={`Open KPI details: ${kpi.name}`}
+                  onClick={() => openKpiInNewTab(kpi)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      openKpiInNewTab(kpi);
+                    }
+                  }}
                 >
                   {isAllCategory && (
                     <p className="text-base font-semibold uppercase tracking-[0.16em] text-accent mb-3">
@@ -209,7 +226,15 @@ export function KPIsDashboards() {
                   <h3 className="text-2xl font-semibold text-text-primary leading-snug mb-2">
                     {kpi.name}
                   </h3>
-                  <p className="text-text-secondary text-lg leading-relaxed">
+                  <p
+                    className="text-text-secondary text-lg leading-relaxed"
+                    style={{
+                      display: "-webkit-box",
+                      WebkitBoxOrient: "vertical",
+                      WebkitLineClamp: 3,
+                      overflow: "hidden",
+                    }}
+                  >
                     {kpi.oneLineDescription}
                   </p>
                 </Card>
@@ -260,7 +285,11 @@ export function KPIsDashboards() {
             <div className="flex flex-col gap-2 max-h-[60vh] overflow-y-auto">
               <button
                 type="button"
-                onClick={() => setActiveCategory("all")}
+                onClick={() => {
+                  setActiveCategory("all");
+                  setShowAllInAllCategory(false);
+                  setShowCategoryDropdown(false);
+                }}
                 className={`w-full text-left px-4 py-3 rounded-lg text-base font-semibold border transition ${
                   activeCategory === "all"
                     ? "bg-accent text-white border-accent"
@@ -273,7 +302,11 @@ export function KPIsDashboards() {
                 <button
                   key={category.id}
                   type="button"
-                  onClick={() => setActiveCategory(category.id)}
+                  onClick={() => {
+                    setActiveCategory(category.id);
+                    setShowAllInAllCategory(false);
+                    setShowCategoryDropdown(false);
+                  }}
                   className={`w-full text-left px-4 py-3 rounded-lg text-base font-semibold border transition ${
                     activeCategory === category.id
                       ? "bg-accent text-white border-accent"
@@ -288,8 +321,7 @@ export function KPIsDashboards() {
         </div>
       )}
 
-      {/* CTA */}
-      <RegisterInterestCTA />
+      {/* CTA is rendered globally */}
     </>
   );
 }

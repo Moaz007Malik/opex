@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { Section } from '../components/Section';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
-import { RegisterInterestCTA } from '../components/RegisterInterestCTA';
 
 const PRICING_CARDS = [
   {
@@ -377,8 +376,7 @@ export function Pricing() {
 
 
 
-  {/* CTA */}
-  <RegisterInterestCTA />
+  {/* CTA is rendered globally */}
   
 </>
   );

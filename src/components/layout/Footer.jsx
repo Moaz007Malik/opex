@@ -49,7 +49,7 @@ function FooterColumn({ title, links }) {
 
 export function Footer() {
   return (
-    <footer className="bg-secondary border-t border-border">
+    <footer className="bg-background border-t border-border">
 
       <div className="max-w-7xl mx-auto px-6 py-16">
 
@@ -64,9 +64,9 @@ export function Footer() {
               aria-label="OpEx6 home"
             >
               <img
-                src="/images/icon.png"
+                src="/images/LogoNoBG.png"
                 alt="OpEx6 logo"
-                className="h-8 w-auto"
+                className="h-12 w-auto"
               />
             </Link>
 

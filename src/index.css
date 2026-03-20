@@ -5,19 +5,20 @@
 @layer base {
   :root {
     /* Core colors — dark theme */
-    --background: #0F172A;        /* Page Background */
-    --foreground: #F8FAFC;        /* Text Primary */
+    --background: #0D1117;        /* Page Background */
+    --foreground: #FFFFFF;        /* Text Primary */
 
     /* Text tokens */
-    --text-primary: #F8FAFC;
-    /* Slightly brighter secondary for readability on dark surfaces */
-    --text-secondary: #E2E8F0;
-    --text-muted: #94A3B8;
+    --text-primary: #FFFFFF;
+    /* Body / secondary copy */
+    --text-secondary: #A0ADB8;
+    /* Dimmer grey for disclaimers / small print */
+    --text-muted: #7B8A9B;
 
     /* UI colors */
-    --accent: #6366F1;           /* Accent Indigo */
-    --border: #334155;           /* Slate border */
-    --surface: #1E293B;          /* Card / section background */
+    --accent: #5B5FEF;           /* Blue-purple accent */
+    --border: #263244;          /* Dark blue-grey border */
+    --surface: #161B27;         /* Card / section background */
     --highlight: #F59E0B;        /* Launch offer badge / pricing */
     --success: #10B981;
     --danger: #EF4444;
@@ -32,6 +33,13 @@
     color: var(--foreground);
     font-family: Inter, system-ui, -apple-system, sans-serif;
     @apply antialiased;
+  }
+
+  /* Design system: standardise most card/container corners to 8px. */
+  .rounded-xl,
+  .rounded-2xl,
+  .rounded-3xl {
+    border-radius: 0.5rem; /* 8px */
   }
 }
 

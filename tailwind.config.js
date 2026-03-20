@@ -8,16 +8,16 @@ export default {
     extend: {
       colors: {
         // Core colors — dark theme
-        background: '#0F172A', // Page Background (Dark Navy)
-        foreground: '#F8FAFC',
+        background: '#0D1117', // Page Background (dark navy)
+        foreground: '#FFFFFF',
 
         // UI surfaces
-        primary: '#0F172A',
-        secondary: '#1E293B', // Section / card background
-        'card-bg': '#1E293B',
+        primary: '#0D1117',
+        secondary: '#161B27', // Section / card background
+        'card-bg': '#161B27',
 
         // Brand / action
-        accent: '#6366F1', // Indigo buttons / highlights
+        accent: '#5B5FEF', // Blue-purple buttons / tags
 
         // Supporting colors
         highlight: '#F59E0B', // Launch offer badge / pricing callouts
@@ -25,13 +25,14 @@ export default {
         danger: '#EF4444',
 
         // Text colors
-        'text-primary': '#F8FAFC',
-        // Slightly brighter for readability on dark backgrounds
-        'text-secondary': '#E2E8F0',
-        'text-muted': '#94A3B8',
+        'text-primary': '#FFFFFF',
+        // Body / secondary copy
+        'text-secondary': '#A0ADB8',
+        // Dimmer grey for disclaimers / small print
+        'text-muted': '#7B8A9B',
 
         // Borders
-        border: '#334155',
+        border: '#263244',
       },
 
       fontFamily: {

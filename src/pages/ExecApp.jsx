@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { Section } from "../components/Section";
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
-import { RegisterInterestCTA } from "../components/RegisterInterestCTA";
 
 const MOBILE_SLIDES = [
   {
@@ -534,32 +533,7 @@ export function ExecApp() {
               generally available mobile application.
             </p>
 
-            {/* Buttons */}
-            <div className="flex flex-wrap gap-4">
-              {/* Google Play */}
-              <a
-                href="#"
-                className="flex items-center gap-3 bg-accent hover:bg-accent/90 text-white px-5 py-3 rounded-lg shadow-md transition"
-              >
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-                  alt="Google Play"
-                  className="h-8"
-                />
-              </a>
-
-              {/* App Store */}
-              <a
-                href="#"
-                className="flex items-center gap-3 bg-accent hover:bg-accent/90 text-white px-5 py-3 rounded-lg shadow-md transition"
-              >
-                <img
-                  src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-                  alt="App Store"
-                  className="h-8"
-                />
-              </a>
-            </div>
+            {/* App Store / Google Play official badges intentionally omitted */}
           </div>
 
     {/* RIGHT - PHONE (pre-framed cutout image) */}
@@ -576,8 +550,7 @@ export function ExecApp() {
         </motion.div>
       </Section>
 
-      {/* FINAL CTA */}
-      <RegisterInterestCTA />
+      {/* CTA is rendered globally */}
     </>
   );
 }

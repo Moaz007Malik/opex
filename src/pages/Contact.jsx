@@ -53,7 +53,7 @@ export function Contact() {
 
       {/* HERO */}
       <motion.section
-        className="relative py-24 lg:py-28 bg-[#020617] overflow-hidden"
+        className="relative py-24 lg:py-28 bg-background overflow-hidden"
         initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px 0px' }}
