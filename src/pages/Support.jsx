@@ -6,7 +6,8 @@ import { Section } from '../components/Section';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
 import { Input } from '../components/ui/Input';
-import { FORMSPREE_ENDPOINT } from '../config/formspree';
+import { useForm } from '@formspree/react';
+import { FORMSPREE_FORM_ID } from '../config/formspree';
 
 const SUPPORT_CATEGORIES = [
   {
@@ -33,36 +34,12 @@ const SUPPORT_CATEGORIES = [
 
 export function Support() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
-  const [loading, setLoading] = useState(false);
-  const [sent, setSent] = useState(false);
+  const [formState, handleFormSubmit] = useForm(FORMSPREE_FORM_ID);
   const [error, setError] = useState('');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+  const onSubmit = (e) => {
     setError('');
-
-    try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          subject: form.subject,
-          message: form.message,
-          _subject: `Support: ${form.subject}`,
-          source: 'support_contact',
-        }),
-      });
-
-      if (!res.ok) throw new Error('Submission failed');
-      setSent(true);
-    } catch {
-      setError('Something went wrong. Please try again or email us directly.');
-    } finally {
-      setLoading(false);
-    }
+    return handleFormSubmit(e);
   };
 
   return (
@@ -161,7 +138,7 @@ export function Support() {
 
           <div className="mt-8 max-w-2xl">
             <div className="relative bg-card-bg border border-border rounded-2xl p-7 sm:p-8 shadow-xl overflow-hidden">
-              {sent ? (
+              {formState.succeeded ? (
                 <div className="bg-success/10 border border-success/40 rounded-xl p-6 text-text-primary">
                   <p className="font-medium text-lg">Message sent.</p>
                   <p className="text-base text-text-secondary mt-2">
@@ -169,11 +146,19 @@ export function Support() {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={onSubmit} className="space-y-5">
+                  <input
+                    type="hidden"
+                    name="_subject"
+                    value={`Support: ${form.subject}`}
+                  />
+                  <input type="hidden" name="source" value="support_contact" />
+                  <input type="hidden" name="_timestamp" value={new Date().toISOString()} />
                   <div className="grid sm:grid-cols-2 gap-5">
                     <Input
                       label="Name"
                       required
+                      name="name"
                       value={form.name}
                       onChange={(e) =>
                         setForm((p) => ({ ...p, name: e.target.value }))
@@ -185,6 +170,7 @@ export function Support() {
                       label="Email"
                       type="email"
                       required
+                      name="email"
                       value={form.email}
                       onChange={(e) =>
                         setForm((p) => ({ ...p, email: e.target.value }))
@@ -196,6 +182,7 @@ export function Support() {
                   <Input
                     label="Subject"
                     required
+                    name="subject"
                     value={form.subject}
                     onChange={(e) =>
                       setForm((p) => ({ ...p, subject: e.target.value }))
@@ -209,6 +196,7 @@ export function Support() {
                     </label>
                     <textarea
                       required
+                      name="message"
                       value={form.message}
                       onChange={(e) =>
                         setForm((p) => ({ ...p, message: e.target.value }))
@@ -228,10 +216,10 @@ export function Support() {
                   <div className="pt-2">
                     <Button
                       type="submit"
-                      disabled={loading}
+                      disabled={formState.submitting}
                       className="w-full justify-center py-3"
                     >
-                      {loading ? 'Sending…' : 'Send Message'}
+                      {formState.submitting ? 'Sending…' : 'Send Message'}
                     </Button>
                     <p className="text-text-secondary text-sm mt-3 text-center">
                       We aim to respond to all enquiries within 1 business day.

@@ -8,7 +8,8 @@ import { Card } from "../components/ui/Card";
 import { Input } from "../components/ui/Input";
 import { Checkbox } from "../components/ui/Checkbox";
 import { HeroDashboardMockup } from "../components/HeroDashboardMockup";
-import { FORMSPREE_ENDPOINT } from "../config/formspree";
+import { useForm } from "@formspree/react";
+import { FORMSPREE_FORM_ID } from "../config/formspree";
 
 const SECTORS = [
   {
@@ -207,8 +208,7 @@ const INTEGRATION_ITEMS = [
 ];
 
 function HeroForm() {
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [formState, handleFormSubmit] = useForm(FORMSPREE_FORM_ID);
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -216,30 +216,16 @@ function HeroForm() {
     robot: false,
   });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!form.robot) return;
-    setLoading(true);
-    try {
-      await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          company: form.company,
-          _subject: "Homepage Hero — Register interest",
-          source: "homepage_hero",
-        }),
-      });
-      setSubmitted(true);
-    } catch (_) {
-      setLoading(false);
+  const onSubmit = (e) => {
+    // Keep your existing "not a robot" requirement enforced client-side.
+    if (!form.robot) {
+      e.preventDefault();
+      return;
     }
-    setLoading(false);
+    return handleFormSubmit(e);
   };
 
-  if (submitted) {
+  if (formState.succeeded) {
     return (
       <div className="bg-card-bg border border-border rounded-xl p-6 text-center shadow-sm">
         <p className="text-text-primary font-medium">Thank you. You're on the list.</p>
@@ -252,12 +238,16 @@ function HeroForm() {
 
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={onSubmit}
       className="bg-card-bg border border-border rounded-xl p-6 space-y-4 max-w-md mx-auto shadow-sm"
     >
+      <input type="hidden" name="_subject" value="Homepage Hero — Register interest" />
+      <input type="hidden" name="source" value="homepage_hero" />
+
       <Input
         label="Full Name"
         required
+        name="name"
         value={form.name}
         onChange={(e) => setForm((p) => ({ ...p, name: e.target.value }))}
         placeholder="Your full name"
@@ -266,6 +256,7 @@ function HeroForm() {
         label="Work Email"
         type="email"
         required
+        name="email"
         value={form.email}
         onChange={(e) => setForm((p) => ({ ...p, email: e.target.value }))}
         placeholder="you@company.com"
@@ -273,6 +264,7 @@ function HeroForm() {
       <Input
         label="Company Name"
         required
+        name="company"
         value={form.company}
         onChange={(e) => setForm((p) => ({ ...p, company: e.target.value }))}
         placeholder="Your company"
@@ -280,17 +272,23 @@ function HeroForm() {
       <Checkbox
         id="hero-robot"
         label="I am not a robot"
+        name="robot"
+        value="true"
         checked={form.robot}
         onChange={(v) => setForm((p) => ({ ...p, robot: v }))}
         required
       />
       <Button
         type="submit"
-        disabled={loading}
+        disabled={formState.submitting}
         className="w-full justify-center"
       >
-        {loading ? "Sending…" : "Register your interest in the Exec App"}
+        {formState.submitting ? "Sending…" : "Register your interest in the Exec App"}
       </Button>
+
+      {formState.errors?.length ? (
+        <p className="text-danger text-sm mt-2">{String(formState.errors[0])}</p>
+      ) : null}
     </form>
   );
 }

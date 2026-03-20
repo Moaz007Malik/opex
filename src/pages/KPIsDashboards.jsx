@@ -1,11 +1,12 @@
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Checkbox } from "../components/ui/Checkbox";
 import { Input } from "../components/ui/Input";
 import { Section } from "../components/Section";
 import { Button } from "../components/ui/Button";
-import { FORMSPREE_ENDPOINT } from "../config/formspree";
+import { useForm } from "@formspree/react";
+import { FORMSPREE_FORM_ID } from "../config/formspree";
 import { kpiCategories } from "../data/kpis";
 
 const CONFIRMATION_EMAIL_SUBJECT =
@@ -647,8 +648,8 @@ export function KPIsDashboards() {
   const [step1Error, setStep1Error] = useState("");
   const [step2Error, setStep2Error] = useState("");
 
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [formState, handleFormSubmit] = useForm(FORMSPREE_FORM_ID);
+  const timestampRef = useRef(null);
   const [error, setError] = useState("");
 
   const [form, setForm] = useState({
@@ -733,77 +734,45 @@ export function KPIsDashboards() {
     setStep(3);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = (e) => {
     setError("");
 
     if (!form.confirmContact) {
+      e.preventDefault();
       setError("Please confirm consent to be contacted to continue.");
       return;
     }
 
-    setLoading(true);
+    const timestamp = new Date().toISOString();
+    if (timestampRef.current) timestampRef.current.value = timestamp;
+
+    // Optional client-side persistence for debugging; server-side persistence is handled by Formspree.
+    const payloadToSave = {
+      fullName: form.fullName,
+      businessEmail: form.businessEmail,
+      companyName: form.companyName,
+      mobileNumber: form.mobileNumber || null,
+      marketingOptIn: !!form.marketingOptIn,
+      timestamp,
+      selectedKpiCategories: selectedCategoryNames,
+      selectedBusinessProblems: selectedProblemTexts,
+      recommendedDashboards: recommendedDashboardNames,
+      source: "kpi-discovery-journey",
+    };
+
     try {
-      const timestamp = new Date().toISOString();
-      const payloadToSave = {
-        fullName: form.fullName,
-        businessEmail: form.businessEmail,
-        companyName: form.companyName,
-        mobileNumber: form.mobileNumber || null,
-        marketingOptIn: !!form.marketingOptIn,
-        timestamp,
-        selectedKpiCategories: selectedCategoryNames,
-        selectedBusinessProblems: selectedProblemTexts,
-        recommendedDashboards: recommendedDashboardNames,
-        source: "kpi-discovery-journey",
-      };
-
-      try {
-        localStorage.setItem(
-          "kpi-discovery-journey:lastSubmission",
-          JSON.stringify(payloadToSave),
-        );
-      } catch (_) {
-        // localStorage may be blocked; submission still proceeds.
-      }
-
-      const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          // Common fields used by other OpEx6 forms
-          name: form.fullName,
-          email: form.businessEmail,
-          company: form.companyName,
-          mobileNumber: form.mobileNumber || "",
-          marketingOptIn: !!form.marketingOptIn,
-
-          // Tracking / email confirmation
-          _subject: CONFIRMATION_EMAIL_SUBJECT,
-          _replyto: form.businessEmail,
-          source: "kpi-discovery-journey",
-          _timestamp: timestamp,
-
-          // Selections
-          kpiCategories: selectedCategoryNames,
-          businessProblems: selectedProblemTexts,
-          recommendedDashboards: recommendedDashboardNames,
-
-          // Confirmation content (for Formspree auto-replies/templates)
-          confirmationEmailBody: emailBody,
-        }),
-      });
-
-      if (!res.ok) throw new Error("Submission failed");
-      setSubmitted(true);
+      localStorage.setItem(
+        "kpi-discovery-journey:lastSubmission",
+        JSON.stringify(payloadToSave),
+      );
     } catch (_) {
-      setError("Something went wrong. Please try again or contact us directly.");
-    } finally {
-      setLoading(false);
+      // localStorage may be blocked; submission still proceeds.
     }
+
+    return handleFormSubmit(e);
   };
 
-  if (submitted) {
+  if (formState.succeeded) {
     return (
       <>
         <Helmet>
@@ -1194,9 +1163,48 @@ export function KPIsDashboards() {
                     </div>
 
                     <form onSubmit={handleSubmit} className="mt-6 space-y-6">
+                      <input
+                        type="hidden"
+                        name="_subject"
+                        value={CONFIRMATION_EMAIL_SUBJECT}
+                      />
+                      <input
+                        type="hidden"
+                        name="_replyto"
+                        value={form.businessEmail}
+                      />
+                      <input type="hidden" name="source" value="kpi-discovery-journey" />
+                      <input
+                        type="hidden"
+                        name="_timestamp"
+                        ref={timestampRef}
+                      />
+
+                      <input
+                        type="hidden"
+                        name="kpiCategories"
+                        value={JSON.stringify(selectedCategoryNames)}
+                      />
+                      <input
+                        type="hidden"
+                        name="businessProblems"
+                        value={JSON.stringify(selectedProblemTexts)}
+                      />
+                      <input
+                        type="hidden"
+                        name="recommendedDashboards"
+                        value={JSON.stringify(recommendedDashboardNames)}
+                      />
+                      <input
+                        type="hidden"
+                        name="confirmationEmailBody"
+                        value={emailBody}
+                      />
+
                       <Input
                         label="Full Name"
                         required
+                        name="name"
                         value={form.fullName}
                         onChange={(e) =>
                           setForm((p) => ({
@@ -1211,6 +1219,7 @@ export function KPIsDashboards() {
                         label="Business Email"
                         type="email"
                         required
+                        name="email"
                         value={form.businessEmail}
                         onChange={(e) =>
                           setForm((p) => ({
@@ -1224,6 +1233,7 @@ export function KPIsDashboards() {
                       <Input
                         label="Company Name"
                         required
+                        name="company"
                         value={form.companyName}
                         onChange={(e) =>
                           setForm((p) => ({
@@ -1237,6 +1247,7 @@ export function KPIsDashboards() {
                       <Input
                         label="Mobile Number"
                         type="tel"
+                        name="mobileNumber"
                         value={form.mobileNumber}
                         onChange={(e) =>
                           setForm((p) => ({
@@ -1249,6 +1260,8 @@ export function KPIsDashboards() {
 
                       <Checkbox
                         id="kpi-confirm-contact"
+                        name="confirmContact"
+                        value="true"
                         required
                         label="I confirm that OpEx6 may contact me about the product interest I am registering through this form."
                         checked={form.confirmContact}
@@ -1262,6 +1275,8 @@ export function KPIsDashboards() {
 
                       <Checkbox
                         id="kpi-marketing-optin"
+                        name="marketingOptIn"
+                        value="true"
                         label="Yes, I would like to receive product updates and launch communications by email."
                         checked={form.marketingOptIn}
                         onChange={(v) =>
@@ -1272,14 +1287,22 @@ export function KPIsDashboards() {
                         }
                       />
 
+                      {!form.marketingOptIn ? (
+                        <input
+                          type="hidden"
+                          name="marketingOptIn"
+                          value="false"
+                        />
+                      ) : null}
+
                       {error && <p className="text-danger text-sm">{error}</p>}
 
                       <Button
                         type="submit"
-                        disabled={loading}
+                        disabled={formState.submitting}
                         className="w-full justify-center"
                       >
-                        {loading
+                        {formState.submitting
                           ? "Submitting..."
                           : "Submit My Interest & Save My Dashboard Selections"}
                       </Button>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -6,7 +6,8 @@ import { Section } from '../components/Section';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { Checkbox } from '../components/ui/Checkbox';
-import { FORMSPREE_ENDPOINT } from '../config/formspree';
+import { useForm } from '@formspree/react';
+import { FORMSPREE_FORM_ID } from '../config/formspree';
 
 const WHAT_HAPPENS_NEXT = [
   { step: 1, text: 'We receive your registration and send a confirmation by email - Request email template.' },
@@ -15,8 +16,8 @@ const WHAT_HAPPENS_NEXT = [
 ];
 
 export function RegisterInterest() {
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [formState, handleFormSubmit] = useForm(FORMSPREE_FORM_ID);
+  const timestampRef = useRef(null);
   const [error, setError] = useState('');
   const [form, setForm] = useState({
     fullName: '',
@@ -32,39 +33,18 @@ export function RegisterInterest() {
     setError('');
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+  const onSubmit = (e) => {
     setError('');
-    try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: form.fullName,
-          email: form.businessEmail,
-          jobTitle: form.jobTitle,
-          company: form.companyName,
-          confirmContact: form.confirmContact,
-          marketingOptIn: form.marketingOptIn,
-          _sourcePage: 'register_interest',
-          _sourceForm: 'exec_app_register_interest_primary',
-          _noticeVersion: 'privacy_v1_terms_v1',
-          _timestamp: new Date().toISOString(),
-        }),
-      });
-
-      if (!res.ok) throw new Error('Submission failed');
-      setSubmitted(true);
-
-    } catch {
-      setError('Something went wrong. Please try again or contact us directly.');
-    } finally {
-      setLoading(false);
+    if (!form.confirmContact) {
+      e.preventDefault();
+      setError('Please confirm consent to be contacted to continue.');
+      return;
     }
+    if (timestampRef.current) timestampRef.current.value = new Date().toISOString();
+    return handleFormSubmit(e);
   };
 
-  if (submitted) {
+  if (formState.succeeded) {
     return (
       <>
         <Helmet>
@@ -141,9 +121,17 @@ export function RegisterInterest() {
         <div className="max-w-xl mx-auto">
 
           <form
-            onSubmit={handleSubmit}
+            onSubmit={onSubmit}
             className="space-y-6 border border-border rounded-xl p-8 bg-card-bg"
           >
+            <input type="hidden" name="_sourcePage" value="register_interest" />
+            <input
+              type="hidden"
+              name="_sourceForm"
+              value="exec_app_register_interest_primary"
+            />
+            <input type="hidden" name="_noticeVersion" value="privacy_v1_terms_v1" />
+            <input type="hidden" name="_timestamp" ref={timestampRef} />
 
             <p className="text-xs text-text-secondary text-left">
               Your information is handled in accordance with our{' '}
@@ -156,6 +144,7 @@ export function RegisterInterest() {
             <Input
               label="Full Name"
               required
+              name="name"
               value={form.fullName}
               onChange={(e) => handleChange('fullName', e.target.value)}
               placeholder="Your full name"
@@ -165,6 +154,7 @@ export function RegisterInterest() {
               label="Work Email"
               type="email"
               required
+              name="email"
               value={form.businessEmail}
               onChange={(e) =>
                 handleChange('businessEmail', e.target.value)
@@ -175,6 +165,7 @@ export function RegisterInterest() {
             <Input
               label="Job Title"
               required
+              name="jobTitle"
               value={form.jobTitle}
               onChange={(e) => handleChange('jobTitle', e.target.value)}
               placeholder="e.g. Operations Director"
@@ -183,6 +174,7 @@ export function RegisterInterest() {
             <Input
               label="Company Name"
               required
+              name="company"
               value={form.companyName}
               onChange={(e) => handleChange('companyName', e.target.value)}
               placeholder="Your company"
@@ -190,6 +182,8 @@ export function RegisterInterest() {
 
             <Checkbox
               id="confirmContact"
+              name="confirmContact"
+              value="true"
               required
               label="I confirm that OpEx6 may contact me about the product interest I am registering through this form."
               checked={form.confirmContact}
@@ -198,10 +192,16 @@ export function RegisterInterest() {
 
             <Checkbox
               id="marketingOptIn"
+              name="marketingOptIn"
+              value="true"
               label="Yes, I'd like to receive product updates and marketing emails from OpEx6."
               checked={form.marketingOptIn}
               onChange={(v) => handleChange('marketingOptIn', v)}
             />
+
+            {!form.marketingOptIn ? (
+              <input type="hidden" name="marketingOptIn" value="false" />
+            ) : null}
 
             {error && (
               <p className="text-danger text-sm">{error}</p>
@@ -209,10 +209,10 @@ export function RegisterInterest() {
 
             <Button
               type="submit"
-              disabled={loading}
+              disabled={formState.submitting}
               className="w-full justify-center"
             >
-              {loading ? 'Sending…' : 'Register Interest in the Exec App'}
+              {formState.submitting ? 'Sending…' : 'Register Interest in the Exec App'}
             </Button>
 
             <p className="text-xs text-text-secondary">

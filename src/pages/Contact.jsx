@@ -4,41 +4,17 @@ import { motion } from 'framer-motion';
 import { Section } from '../components/Section';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
-import { FORMSPREE_ENDPOINT } from '../config/formspree';
+import { useForm } from '@formspree/react';
+import { FORMSPREE_FORM_ID } from '../config/formspree';
 
 export function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' });
-  const [loading, setLoading] = useState(false);
-  const [sent, setSent] = useState(false);
   const [error, setError] = useState('');
+  const [formState, handleFormSubmit] = useForm(FORMSPREE_FORM_ID);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
+  const onSubmit = (e) => {
     setError('');
-
-    try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          subject: form.subject,
-          message: form.message,
-          _subject: `Contact: ${form.subject}`,
-          source: 'contact_page',
-        }),
-      });
-
-      if (!res.ok) throw new Error('Submission failed');
-
-      setSent(true);
-    } catch (err) {
-      setError('Something went wrong. Please try again or email us directly.');
-    } finally {
-      setLoading(false);
-    }
+    return handleFormSubmit(e);
   };
 
   return (
@@ -120,7 +96,7 @@ export function Contact() {
                 </p>
               </div>
 
-            {sent ? (
+            {formState.succeeded ? (
               <div className="bg-success/10 border border-success/40 rounded-xl p-6 text-text-primary">
                 <p className="font-medium text-lg">Message sent.</p>
                 <p className="text-base text-text-secondary mt-2">
@@ -128,12 +104,24 @@ export function Contact() {
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={onSubmit} className="space-y-5">
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value={`Contact: ${form.subject}`}
+                />
+                <input type="hidden" name="source" value="contact_page" />
+                <input
+                  type="hidden"
+                  name="_timestamp"
+                  value={new Date().toISOString()}
+                />
                 <div className="grid sm:grid-cols-2 gap-5">
 
                 <Input
                   label="Name"
                   required
+                  name="name"
                   value={form.name}
                   onChange={(e) =>
                     setForm((p) => ({ ...p, name: e.target.value }))
@@ -145,6 +133,7 @@ export function Contact() {
                   label="Email"
                   type="email"
                   required
+                  name="email"
                   value={form.email}
                   onChange={(e) =>
                     setForm((p) => ({ ...p, email: e.target.value }))
@@ -156,6 +145,7 @@ export function Contact() {
                 <Input
                   label="Subject"
                   required
+                  name="subject"
                   value={form.subject}
                   onChange={(e) =>
                     setForm((p) => ({ ...p, subject: e.target.value }))
@@ -170,6 +160,7 @@ export function Contact() {
 
                   <textarea
                     required
+                    name="message"
                     value={form.message}
                     onChange={(e) =>
                       setForm((p) => ({ ...p, message: e.target.value }))
@@ -189,10 +180,10 @@ export function Contact() {
                 <div className="pt-2">
                   <Button
                     type="submit"
-                    disabled={loading}
+                    disabled={formState.submitting}
                     className="w-full justify-center py-3"
                   >
-                    {loading ? 'Sending…' : 'Send message'}
+                    {formState.submitting ? 'Sending…' : 'Send message'}
                   </Button>
                   <p className="text-text-secondary text-sm mt-3 text-center">
                     We aim to respond within 1 business day.

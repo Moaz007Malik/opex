@@ -5,12 +5,16 @@ export function Checkbox({
   onChange,
   required,
   className = '',
+  name,
+  value = 'true',
 }) {
   return (
     <div className={`flex items-start gap-3 ${className}`}>
       <input
         type="checkbox"
         id={id}
+        name={name}
+        value={value}
         checked={checked}
         onChange={(e) => onChange(e.target.checked)}
         required={required}
