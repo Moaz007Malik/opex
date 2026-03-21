@@ -66,11 +66,11 @@ export function Resources() {
             Resources for Manufacturing Leaders
           </h1>
 
-          <p className="text-lg text-text-secondary mb-3">
+          <p className="text-lg text-text-primary mb-3">
             Guides, articles, and operational intelligence thinking for operations directors, plant managers, and manufacturing executives.
           </p>
 
-          <p className="text-sm text-text-secondary max-w-[1400px] italic">
+          <p className="text-sm text-text-primary max-w-[1400px] italic">
             This page is a curated list of resources. Article content is illustrative and subject to change as the Exec App and OpEx6 platform develop.
           </p>
 
@@ -97,7 +97,7 @@ export function Resources() {
                 {article.title}
               </h2>
 
-              <p className="text-text-secondary text-sm mb-4">
+              <p className="text-text-primary text-sm mb-4">
                 {article.excerpt}
               </p>
 
@@ -109,7 +109,7 @@ export function Resources() {
                 Read More &rarr;
               </a>
 
-              <p className="text-text-secondary text-xs">
+              <p className="text-text-primary text-xs">
                 Full article coming soon.
               </p>
 
@@ -149,7 +149,7 @@ export function Resources() {
                 className="border border-border rounded-xl p-6 bg-card-bg"
               >
 
-                <p className="text-text-secondary text-sm">
+                <p className="text-text-primary text-sm">
                   {q}
                 </p>
 

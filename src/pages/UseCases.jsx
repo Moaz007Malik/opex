@@ -56,11 +56,11 @@ export function UseCases() {
             Customer Use Cases
           </h1>
 
-          <p className="text-lg text-text-secondary mb-4">
+          <p className="text-lg text-text-primary mb-4">
             See how OpEx6 is designed to help manufacturing leaders turn siloed operational data into structured visibility, faster decisions, and measurable financial outcomes.
           </p>
 
-          <p className="text-sm text-text-secondary max-w-[1400px] italic">
+          <p className="text-sm text-text-primary max-w-[1400px] italic">
             These are anonymised illustrative customer use cases based on common manufacturing scenarios. They are provided for general information and do not represent a named customer endorsement or guarantee of results.
           </p>
 
@@ -89,7 +89,7 @@ export function UseCases() {
                 {uc.title}
               </h2>
 
-              <p className="text-text-secondary text-sm mb-6 flex-1">
+              <p className="text-text-primary text-sm mb-6 flex-1">
                 {uc.summary}
               </p>
 
@@ -113,7 +113,7 @@ export function UseCases() {
       {/* FINAL CTA */}
       <Section className="bg-background">
         <div className="max-w-[1400px] mx-auto text-center">
-          <p className="text-lg text-text-secondary mb-6">
+          <p className="text-lg text-text-primary mb-6">
             Interested in how the Exec App could support visibility and decision-making across your manufacturing operations?
           </p>
           <Button to="/register-interest" className="justify-center">

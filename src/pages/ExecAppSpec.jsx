@@ -157,7 +157,7 @@ export function ExecApp() {
               One Dashboard Framework. Every KPI That Matters.
             </h1>
 
-            <p className="text-lg text-text-secondary mb-4 leading-relaxed">
+            <p className="text-lg text-text-primary mb-4 leading-relaxed">
               The Exec App is the operational intelligence platform being built for
               manufacturing and industrial executives. It is designed to give
               leadership teams a single, structured view of every metric that matters
@@ -165,7 +165,7 @@ export function ExecApp() {
               format structured for executive decision-making.
             </p>
 
-            <p className="text-sm text-text-secondary mb-8 leading-relaxed">
+            <p className="text-sm text-text-primary mb-8 leading-relaxed">
               OpEx6 is currently in pre-launch / early-access phase. Product features,
               screenshots, integrations, availability, and pricing may change before
               general release.
@@ -214,7 +214,7 @@ export function ExecApp() {
                 <h3 className="font-semibold text-lg text-text-primary mb-3">
                   {c.title}
                 </h3>
-                <p className="text-text-secondary text-base leading-relaxed">
+                <p className="text-text-primary text-base leading-relaxed">
                   {c.body}
                 </p>
               </Card>
@@ -240,10 +240,10 @@ export function ExecApp() {
             <table className="min-w-full border border-border rounded-2xl overflow-hidden">
               <thead className="bg-background/60">
                 <tr>
-                  <th className="text-left text-xs uppercase tracking-[0.18em] text-text-secondary px-6 py-4 border-b border-border">
+                  <th className="text-left text-xs uppercase tracking-[0.18em] text-text-primary px-6 py-4 border-b border-border">
                     Role
                   </th>
-                  <th className="text-left text-xs uppercase tracking-[0.18em] text-text-secondary px-6 py-4 border-b border-border">
+                  <th className="text-left text-xs uppercase tracking-[0.18em] text-text-primary px-6 py-4 border-b border-border">
                     What the Exec App is designed to support
                   </th>
                 </tr>
@@ -254,7 +254,7 @@ export function ExecApp() {
                     <td className="px-6 py-5 align-top text-text-primary font-medium">
                       {r.role}
                     </td>
-                    <td className="px-6 py-5 text-text-secondary leading-relaxed">
+                    <td className="px-6 py-5 text-text-primary leading-relaxed">
                       {r.body}
                     </td>
                   </tr>
@@ -283,7 +283,7 @@ export function ExecApp() {
               {ENTERPRISE_BULLETS.map((b) => (
                 <li key={b} className="flex gap-3">
                   <span className="mt-2 h-2 w-2 rounded-full bg-accent flex-shrink-0" />
-                  <span className="text-text-secondary leading-relaxed">{b}</span>
+                  <span className="text-text-primary leading-relaxed">{b}</span>
                 </li>
               ))}
             </ul>
@@ -304,7 +304,7 @@ export function ExecApp() {
             Operational problems become financial problems faster than most reports show.
           </h2>
 
-          <p className="text-lg text-text-secondary leading-relaxed mb-8 max-w-[1400px]">
+          <p className="text-lg text-text-primary leading-relaxed mb-8 max-w-[1400px]">
             A 30-minute stoppage is not just a production event. A weak BOM
             assumption is not just a finance issue. Rework, delay, consumables, and
             schedule drift do not stay inside operations — they compound into margin
@@ -315,7 +315,7 @@ export function ExecApp() {
             {FINANCIAL_BULLETS.map((b) => (
               <li key={b} className="flex gap-3">
                 <span className="mt-2 h-2 w-2 rounded-full bg-accent flex-shrink-0" />
-                <span className="text-text-secondary leading-relaxed">{b}</span>
+                <span className="text-text-primary leading-relaxed">{b}</span>
               </li>
             ))}
           </ul>
@@ -344,14 +344,14 @@ export function ExecApp() {
                 <h3 className="font-semibold text-lg text-text-primary mb-3">
                   {u.title}
                 </h3>
-                <p className="text-text-secondary text-base leading-relaxed">
+                <p className="text-text-primary text-base leading-relaxed">
                   {u.body}
                 </p>
               </Card>
             ))}
           </div>
 
-          <p className="text-xs text-text-secondary max-w-[1400px] mt-8">
+          <p className="text-xs text-text-primary max-w-[1400px] mt-8">
             Any AI-enabled insights described are intended to support human
             decision-making and are not a substitute for human review, operational
             judgment, or formal compliance processes.
@@ -373,12 +373,12 @@ export function ExecApp() {
               <h2 className="text-3xl font-bold text-text-primary mb-6">
                 Built for leadership on the move.
               </h2>
-              <p className="text-lg text-text-secondary leading-relaxed mb-4">
+              <p className="text-lg text-text-primary leading-relaxed mb-4">
                 The Exec App is being designed for use on desktop and mobile, so
                 leaders can review performance, downtime, and risk whether they are
                 on-site, travelling, or working remotely.
               </p>
-              <p className="text-text-secondary text-sm leading-relaxed">
+              <p className="text-text-primary text-sm leading-relaxed">
                 Coming soon on iPhone and Android. Planned for the App Store and
                 Google Play, subject to final launch approvals.
               </p>

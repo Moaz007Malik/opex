@@ -25,7 +25,7 @@ export function HeroDashboardMockup({
                 key={kpi.label}
                 className="flex-1 min-w-[120px] rounded-xl border border-border bg-background px-3 py-3 shadow-sm"
               >
-                <p className="text-[11px] text-text-secondary mb-1">{kpi.label}</p>
+                <p className="text-[11px] text-text-primary mb-1">{kpi.label}</p>
                 <p className="text-lg font-semibold text-text-primary leading-tight">{kpi.value}</p>
               <p
                 className={`text-[11px] mt-0.5 ${
@@ -44,16 +44,16 @@ export function HeroDashboardMockup({
           <div className="rounded-xl border border-border bg-gradient-to-b from-background to-card-bg px-4 pt-3 pb-4 shadow-sm">
             <div className="flex items-center justify-between mb-3">
               <div>
-                <p className="text-[11px] text-text-secondary uppercase tracking-wide">
+                <p className="text-[11px] text-text-primary uppercase tracking-wide">
                   Multi-site OEE trend
                 </p>
-                <p className="text-xs text-text-secondary">Last 8 weeks · Group view</p>
+                <p className="text-xs text-text-primary">Last 8 weeks · Group view</p>
               </div>
               <div className="flex gap-2">
-                <span className="inline-flex items-center gap-1 text-[11px] text-text-secondary">
+                <span className="inline-flex items-center gap-1 text-[11px] text-text-primary">
                   <span className="h-2 w-2 rounded-full bg-blue-500" /> Site A
                 </span>
-                <span className="inline-flex items-center gap-1 text-[11px] text-text-secondary">
+                <span className="inline-flex items-center gap-1 text-[11px] text-text-primary">
                   <span className="h-2 w-2 rounded-full bg-indigo-500" /> Site B
                 </span>
               </div>
@@ -72,7 +72,7 @@ export function HeroDashboardMockup({
                 </div>
               ))}
             </div>
-            <div className="mt-2 flex justify-between text-[10px] text-text-secondary/70">
+            <div className="mt-2 flex justify-between text-[10px] text-text-primary/70">
               <span>W-8</span>
               <span>W-6</span>
               <span>W-4</span>
@@ -83,7 +83,7 @@ export function HeroDashboardMockup({
 
           {/* Right-side KPI list */}
           <div className="rounded-xl border border-border bg-background p-4 shadow-sm flex flex-col gap-3">
-            <p className="text-[11px] text-text-secondary uppercase tracking-wide">
+            <p className="text-[11px] text-text-primary uppercase tracking-wide">
               Today&apos;s focus
             </p>
             {[
@@ -96,7 +96,7 @@ export function HeroDashboardMockup({
                 className="flex items-start gap-2 rounded-lg bg-card-bg/60 px-3 py-2"
               >
                 <span className="mt-1 h-1.5 w-1.5 rounded-full bg-accent" />
-                <p className="text-[12px] text-text-secondary">{item}</p>
+                <p className="text-[12px] text-text-primary">{item}</p>
               </div>
             ))}
           </div>
@@ -104,7 +104,7 @@ export function HeroDashboardMockup({
       </div>
       </div>
 
-      <p className="text-xs text-text-secondary mt-4 text-center">
+      <p className="text-xs text-text-primary mt-4 text-center">
         {previewLabel}. {previewDisclaimer}
       </p>
     </div>

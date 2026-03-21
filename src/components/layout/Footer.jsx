@@ -36,7 +36,7 @@ function FooterColumn({ title, links }) {
           <li key={to}>
             <Link
               to={to}
-              className="text-text-secondary hover:text-accent transition-colors text-sm"
+              className="text-text-primary hover:text-accent transition-colors text-base"
             >
               {label}
             </Link>
@@ -73,15 +73,15 @@ export function Footer() {
               />
             </Link>
 
-            <p className="text-sm text-text-secondary max-w-xs">
+            <p className="text-base text-text-primary max-w-xs leading-relaxed">
               OpEx6 Operational Intelligence That Executives Actually Use.
             </p>
-            <p className="text-sm text-text-secondary max-w-xs mt-2">
+            <p className="text-base text-text-primary max-w-xs mt-2 leading-relaxed">
               Being built around {KPI_FRAMEWORK.MANUFACTURING_KPI_LINE} — structured
               for plant, multi-site, and board reviews.
             </p>
 
-            <div className="text-[11px] text-text-secondary mt-6 space-y-1">
+            <div className="text-xs text-text-primary mt-6 space-y-1 leading-relaxed">
 
               <p className="font-medium text-text-primary">
                 OpEx6 Technologies Ltd
@@ -117,7 +117,7 @@ export function Footer() {
 
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-text-secondary text-center sm:text-left">
+        <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4 text-base text-text-primary text-center sm:text-left">
 
           <span>
             © {year} OpEx6 Technologies Ltd. All rights reserved.

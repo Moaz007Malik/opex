@@ -48,7 +48,7 @@ export function Checkbox({
 
       <label
         htmlFor={id}
-        className="text-sm text-text-secondary cursor-pointer select-none peer-checked:text-text-primary"
+        className="text-base text-text-primary cursor-pointer select-none"
       >
         {label}
       </label>

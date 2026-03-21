@@ -46,13 +46,13 @@ export function Contact() {
               Talk to OpEx6.
             </h1>
 
-            <p className="text-lg text-text-secondary mb-4">
+            <p className="text-lg text-text-primary mb-4">
               Questions about the Exec App, KPI framework, or enterprise pricing? Share what you're trying to solve and we’ll come back with a structured response.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-4 mb-8 mt-6">
               <div className="rounded-2xl border border-border bg-card-bg/50 p-5">
-                <p className="text-sm uppercase tracking-[0.18em] text-text-secondary font-semibold mb-2">
+                <p className="text-sm uppercase tracking-[0.18em] text-text-primary font-semibold mb-2">
                   Email
                 </p>
                 <a
@@ -61,15 +61,15 @@ export function Contact() {
                 >
                   sales@opex6.com
                 </a>
-                <p className="text-sm text-text-secondary mt-2 leading-relaxed">
+                <p className="text-sm text-text-primary mt-2 leading-relaxed">
                   We aim to respond within 1 business day.
                 </p>
               </div>
               <div className="rounded-2xl border border-border bg-card-bg/50 p-5">
-                <p className="text-sm uppercase tracking-[0.18em] text-text-secondary font-semibold mb-2">
+                <p className="text-sm uppercase tracking-[0.18em] text-text-primary font-semibold mb-2">
                   What to include
                 </p>
-                <ul className="text-sm text-text-secondary space-y-1 leading-relaxed">
+                <ul className="text-sm text-text-primary space-y-1 leading-relaxed">
                   <li>• Sites / lines to cover</li>
                   <li>• KPI areas you care about</li>
                   <li>• Current reporting pain points</li>
@@ -85,13 +85,13 @@ export function Contact() {
               <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-accent/80 via-accent/30 to-transparent" />
 
               <div className="mb-6">
-                <p className="text-sm uppercase tracking-[0.22em] text-text-secondary font-semibold mb-2">
+                <p className="text-sm uppercase tracking-[0.22em] text-text-primary font-semibold mb-2">
                   Send a message
                 </p>
                 <h2 className="text-2xl sm:text-3xl font-semibold text-text-primary leading-tight">
                   We’ll reply with next steps.
                 </h2>
-                <p className="text-base text-text-secondary mt-3 leading-relaxed">
+                <p className="text-base text-text-primary mt-3 leading-relaxed">
                   Tell us what you’re comparing (Power BI/Tableau/spreadsheets), the KPI areas you care about, and the reporting cadence you need.
                 </p>
               </div>
@@ -99,7 +99,7 @@ export function Contact() {
             {formState.succeeded ? (
               <div className="bg-success/10 border border-success/40 rounded-xl p-6 text-text-primary">
                 <p className="font-medium text-lg">Message sent.</p>
-                <p className="text-base text-text-secondary mt-2">
+                <p className="text-base text-text-primary mt-2">
                   We aim to respond to all enquiries within 1 business day.
                 </p>
               </div>
@@ -154,7 +154,7 @@ export function Contact() {
                 />
 
                 <div>
-                  <label className="block text-sm font-medium tracking-[0.1em] uppercase text-text-secondary mb-2">
+                  <label className="block text-sm font-medium tracking-[0.1em] uppercase text-text-primary mb-2">
                     Message
                   </label>
 
@@ -185,7 +185,7 @@ export function Contact() {
                   >
                     {formState.submitting ? 'Sending…' : 'Send message'}
                   </Button>
-                  <p className="text-text-secondary text-sm mt-3 text-center">
+                  <p className="text-text-primary text-sm mt-3 text-center">
                     We aim to respond within 1 business day.
                   </p>
                 </div>

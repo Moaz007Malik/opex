@@ -112,14 +112,14 @@ export function ExecApp() {
               A structured KPI layer for manufacturing leadership.
             </h1>
 
-            <p className="text-lg text-text-secondary mb-4">
+            <p className="text-lg text-text-primary mb-4">
               The Exec App is being built around{" "}
               {KPI_FRAMEWORK.MANUFACTURING_KPI_LINE} — giving leaders a single,
               structured view of performance, downtime, quality, safety, and
               margin.
             </p>
 
-            <p className="text-sm text-text-secondary mb-8">
+            <p className="text-sm text-text-primary mb-8">
               OpEx6 is currently in pre-launch / early-access phase. Product
               features, screenshots, integrations, availability, and pricing may
               change before general release.
@@ -145,20 +145,20 @@ export function ExecApp() {
             {/* Header bar */}
             <div className="relative flex items-center justify-between mb-5">
               <div>
-                <p className="text-xs uppercase tracking-[0.16em] text-text-secondary">
+                <p className="text-xs uppercase tracking-[0.16em] text-text-primary">
                   Exec App · Illustrative preview
                 </p>
                 <h2 className="text-base font-semibold text-text-primary mt-1">
                   Group Operations Dashboard
                 </h2>
                 <div className="mt-3 flex flex-wrap gap-2 text-xs">
-                  <span className="inline-flex items-center px-2.5 py-1 rounded-full border border-border bg-background/40 text-text-secondary">
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-full border border-border bg-background/40 text-text-primary">
                     {KPI_FRAMEWORK.DASHBOARD_AREAS_SHORT}
                   </span>
-                  <span className="inline-flex items-center px-2.5 py-1 rounded-full border border-border bg-background/40 text-text-secondary">
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-full border border-border bg-background/40 text-text-primary">
                     {KPI_FRAMEWORK.KPI_SHORT}
                   </span>
-                  <span className="inline-flex items-center px-2.5 py-1 rounded-full border border-border bg-background/40 text-text-secondary">
+                  <span className="inline-flex items-center px-2.5 py-1 rounded-full border border-border bg-background/40 text-text-primary">
                     Multi-site rollups
                   </span>
                 </div>
@@ -189,7 +189,7 @@ export function ExecApp() {
                   className={`px-3 py-1 rounded-full border ${
                     i === 0
                       ? "bg-accent text-white border-accent"
-                      : "border-border bg-background/40 text-text-secondary"
+                      : "border-border bg-background/40 text-text-primary"
                   }`}
                 >
                   {label}
@@ -200,7 +200,7 @@ export function ExecApp() {
             {/* KPI grid */}
             <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
               <div className="rounded-2xl border border-border bg-background/60 p-4">
-                <p className="text-xs text-text-secondary mb-1">
+                <p className="text-xs text-text-primary mb-1">
                   Group OEE
                 </p>
                 <div className="flex items-baseline gap-2 mb-1">
@@ -215,7 +215,7 @@ export function ExecApp() {
               </div>
 
               <div className="rounded-2xl border border-border bg-background/60 p-4">
-                <p className="text-xs text-text-secondary mb-1">
+                <p className="text-xs text-text-primary mb-1">
                   Scrap & rework cost
                 </p>
                 <div className="flex items-baseline gap-2 mb-1">
@@ -230,7 +230,7 @@ export function ExecApp() {
               </div>
 
               <div className="rounded-2xl border border-border bg-background/60 p-4">
-                <p className="text-xs text-text-secondary mb-1">
+                <p className="text-xs text-text-primary mb-1">
                   Unplanned downtime
                 </p>
                 <div className="flex items-baseline gap-2 mb-1">
@@ -241,7 +241,7 @@ export function ExecApp() {
                     ▼ 1.1 pts vs last month
                   </span>
                 </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 text-xs text-text-secondary">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 text-xs text-text-primary">
                   <span>Top 3 causes</span>
                   <span className="sm:text-right">
                     Bearing failure · Changeover · Blocked conveyor
@@ -250,18 +250,18 @@ export function ExecApp() {
               </div>
 
               <div className="rounded-2xl border border-border bg-background/60 p-4">
-                <p className="text-xs text-text-secondary mb-1">
+                <p className="text-xs text-text-primary mb-1">
                   Margin at risk (est.)
                 </p>
                 <div className="flex items-baseline gap-2 mb-1">
                   <span className="text-3xl font-semibold text-text-primary">
                     £612k
                   </span>
-                  <span className="text-xs text-text-secondary">
+                  <span className="text-xs text-text-primary">
                     Linked to downtime, scrap, and yield
                   </span>
                 </div>
-                <div className="h-10 rounded-lg border border-dashed border-border flex items-center justify-between px-3 text-xs text-text-secondary">
+                <div className="h-10 rounded-lg border border-dashed border-border flex items-center justify-between px-3 text-xs text-text-primary">
                   <span>Downtime ▼</span>
                   <span>Scrap ▼</span>
                   <span>Yield ▼</span>
@@ -272,10 +272,10 @@ export function ExecApp() {
             {/* Bottom panels */}
             <div className="relative grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="sm:col-span-2 rounded-2xl border border-border bg-background/60 p-4">
-                <p className="text-xs text-text-secondary mb-1">
+                <p className="text-xs text-text-primary mb-1">
                   Site comparison — OEE vs cost per unit
                 </p>
-                <div className="h-20 rounded-lg bg-[radial-gradient(circle_at_top,_rgba(148,163,184,0.6),_transparent_60%)] flex items-end justify-between px-3 pb-2 text-xs text-text-secondary">
+                <div className="h-20 rounded-lg bg-[radial-gradient(circle_at_top,_rgba(148,163,184,0.6),_transparent_60%)] flex items-end justify-between px-3 pb-2 text-xs text-text-primary">
                   <span>Plant A</span>
                   <span>Plant B</span>
                   <span>Plant C</span>
@@ -283,10 +283,10 @@ export function ExecApp() {
                 </div>
               </div>
               <div className="rounded-2xl border border-border bg-background/60 p-4">
-                <p className="text-xs text-text-secondary mb-1">
+                <p className="text-xs text-text-primary mb-1">
                   Executive notes
                 </p>
-                <ul className="space-y-1 text-xs text-text-secondary">
+                <ul className="space-y-1 text-xs text-text-primary">
                   <li>• Reliability gains starting to show in OEE.</li>
                   <li>• Scrap cost still elevated on Line 4.</li>
                   <li>• WIP days improving at Plant C.</li>
@@ -294,7 +294,7 @@ export function ExecApp() {
               </div>
             </div>
 
-            <p className="relative mt-5 text-xs text-text-secondary text-center">
+            <p className="relative mt-5 text-xs text-text-primary text-center">
               Illustrative Exec App KPI layout for demonstration only. Final product, data, and design
               may differ.
             </p>
@@ -315,7 +315,7 @@ export function ExecApp() {
           <h2 className="text-3xl font-bold text-text-primary mb-4">
             {KPI_FRAMEWORK.MANUFACTURING_KPI_LINE}.
           </h2>
-          <p className="text-text-secondary mb-6">
+          <p className="text-text-primary mb-6">
             Instead of starting from a blank BI canvas, the Exec App is being
             structured around a fixed manufacturing KPI framework. Each KPI
             comes with a definition, calculation, and view designed for
@@ -326,7 +326,7 @@ export function ExecApp() {
               <h3 className="font-semibold text-text-primary mb-2">
                 Production & Throughput
               </h3>
-              <p className="text-text-secondary text-sm">
+              <p className="text-text-primary text-sm">
                 OEE, schedule attainment, changeover losses, and shift-level
                 throughput — structured so leadership can see where capacity is
                 really being lost.
@@ -336,7 +336,7 @@ export function ExecApp() {
               <h3 className="font-semibold text-text-primary mb-2">
                 Quality, Safety & Reliability
               </h3>
-              <p className="text-text-secondary text-sm">
+              <p className="text-text-primary text-sm">
                 First-pass yield, deviation trends, incidents, MTBF/MTTR, and
                 repeat failures — helping teams surface chronic loss before a
                 major breakdown or compliance issue.
@@ -346,14 +346,14 @@ export function ExecApp() {
               <h3 className="font-semibold text-text-primary mb-2">
                 Margin, Cash & Commercial
               </h3>
-              <p className="text-text-secondary text-sm">
+              <p className="text-text-primary text-sm">
                 Cost per unit, waste cost, WIP exposure, working-capital
                 drivers, and customer performance — where data allows,
                 connecting operational changes to financial impact.
               </p>
             </div>
           </div>
-          <p className="text-sm text-text-secondary mt-6">
+          <p className="text-sm text-text-primary mt-6">
             You can explore the planned KPI and dashboard structure in more depth on the{" "}
             <Link to="/kpis-dashboards" className="text-accent hover:underline">
               KPIs &amp; Dashboards
@@ -376,7 +376,7 @@ export function ExecApp() {
             Why it matters for manufacturing leadership.
           </h2>
 
-          <p className="text-text-secondary mb-10 max-w-[1400px]">
+          <p className="text-text-primary mb-10 max-w-[1400px]">
             Most leadership teams still rely on siloed reports, last week's
             spreadsheets, and disconnected local dashboards to understand how
             operations are performing. The Exec App is being built to bring that
@@ -389,7 +389,7 @@ export function ExecApp() {
               <h3 className="font-semibold text-lg text-text-primary mb-2">
                 Faster visibility
               </h3>
-              <p className="text-text-secondary text-sm">
+              <p className="text-text-primary text-sm">
                 See OEE, throughput, downtime, and yield patterns across plants
                 without waiting for end-of-week or month-end packs.
               </p>
@@ -399,7 +399,7 @@ export function ExecApp() {
               <h3 className="font-semibold text-lg text-text-primary mb-2">
                 Aligned decisions
               </h3>
-              <p className="text-text-secondary text-sm">
+              <p className="text-text-primary text-sm">
                 Give operations, finance, and CI teams the same structured view
                 of performance so trade-offs are made from shared data.
               </p>
@@ -409,7 +409,7 @@ export function ExecApp() {
               <h3 className="font-semibold text-lg text-text-primary mb-2">
                 Board-ready clarity
               </h3>
-              <p className="text-text-secondary text-sm">
+              <p className="text-text-primary text-sm">
                 Move leadership reporting out of ad hoc spreadsheets and into a
                 repeatable, board-ready operating view.
               </p>
@@ -436,7 +436,7 @@ export function ExecApp() {
               <div key={i} className="flex gap-3">
                 <div className="w-2 h-2 mt-2 rounded-full bg-accent" />
 
-                <p className="text-text-secondary">{item}</p>
+                <p className="text-text-primary">{item}</p>
               </div>
             ))}
           </div>
@@ -461,7 +461,7 @@ export function ExecApp() {
               <div key={i} className="flex gap-3">
                 <div className="w-2 h-2 mt-2 rounded-full bg-accent" />
 
-                <p className="text-text-secondary">{item}</p>
+                <p className="text-text-primary">{item}</p>
               </div>
             ))}
           </div>
@@ -490,12 +490,12 @@ export function ExecApp() {
                   {u.title}
                 </h3>
 
-                <p className="text-text-secondary text-sm">{u.body}</p>
+                <p className="text-text-primary text-sm">{u.body}</p>
               </Card>
             ))}
           </div>
 
-          <p className="text-xs text-text-secondary max-w-[1400px] mt-6">
+          <p className="text-xs text-text-primary max-w-[1400px] mt-6">
             Any AI-enabled insights described are intended to support human
             decision-making and are not a substitute for human review,
             operational judgment, or formal compliance processes.
@@ -518,18 +518,18 @@ export function ExecApp() {
               Built for leadership on the move.
             </h2>
 
-            <p className="text-text-secondary mb-4 text-lg">
+            <p className="text-text-primary mb-4 text-lg">
               The Exec App is being designed for use on desktop and mobile, so
               leaders can review performance, downtime, and risk whether they
               are on-site, travelling, or working remotely.
             </p>
 
-            <p className="text-text-secondary text-sm mb-6">
+            <p className="text-text-primary text-sm mb-6">
               Coming soon on iPhone and Android. Planned for the App Store and
               Google Play, subject to final launch approvals.
             </p>
 
-            <p className="text-text-secondary text-xs mb-8">
+            <p className="text-text-primary text-xs mb-8">
               Visuals shown are indicative only and do not represent a live,
               generally available mobile application.
             </p>

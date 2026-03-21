@@ -23,7 +23,7 @@ export function CookieBanner() {
 
       <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
 
-        <p className="text-sm text-text-secondary max-w-3xl">
+        <p className="text-base text-text-primary max-w-3xl leading-relaxed">
           This site uses only strictly necessary cookies to support core functionality. 
           No analytics or marketing cookies are used at launch.{' '}
           <Link to="/cookies" className="text-accent hover:underline">

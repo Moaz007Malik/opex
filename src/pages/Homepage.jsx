@@ -230,7 +230,7 @@ function HeroForm() {
     return (
       <div className="bg-card-bg border border-border rounded-xl p-6 text-center shadow-sm">
         <p className="text-text-primary font-medium">Thank you. You're on the list.</p>
-        <p className="text-text-secondary text-base mt-1">
+        <p className="text-text-primary text-base mt-1">
           We'll be in touch ahead of launch.
         </p>
       </div>
@@ -332,7 +332,7 @@ export function Homepage() {
             </h1>
 
             {/* Sub-headline */}
-            <p className="text-lg text-text-secondary leading-relaxed mb-6">
+            <p className="text-lg text-text-primary leading-relaxed mb-6">
               The Exec App gives manufacturing leaders a ready-made KPI
               framework — consistent views across sites, without rebuilding
               dashboards.
@@ -346,14 +346,14 @@ export function Homepage() {
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 sm:items-center justify-center">
                 <a
                   href="#objections"
-                  className="text-base text-text-secondary underline-offset-4 hover:underline"
+                  className="text-base text-text-primary underline-offset-4 hover:underline"
                 >
                   Why not Power BI/Tableau?
                 </a>
-                <span className="hidden sm:inline text-text-secondary/40">•</span>
+                <span className="hidden sm:inline text-text-primary/40">•</span>
                 <Link
                   to="/kpis-dashboards"
-                  className="text-base text-text-secondary underline-offset-4 hover:underline"
+                  className="text-base text-text-primary underline-offset-4 hover:underline"
                 >
                   Explore KPIs &amp; Dashboards
                 </Link>
@@ -361,7 +361,7 @@ export function Homepage() {
             </div>
 
             {/* Quick-scan supporting bullets (moved below CTAs) */}
-            <ul className="mt-2 space-y-2 text-base text-text-secondary">
+            <ul className="mt-2 space-y-2 text-base text-text-primary">
               <li className="flex items-start gap-3">
                 <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-accent shrink-0" />
                 <span>
@@ -402,7 +402,7 @@ export function Homepage() {
               </div>
 
               {/* Trust strip */}
-              <div className="mt-6 flex flex-wrap gap-4 text-base text-text-secondary">
+              <div className="mt-6 flex flex-wrap gap-4 text-base text-text-primary">
                 <span>{KPI_FRAMEWORK.KPI_SHORT}</span>
                 <span>{KPI_FRAMEWORK.DASHBOARD_AREAS_SHORT}</span>
                 <span>Multi-site ready</span>
@@ -422,7 +422,7 @@ export function Homepage() {
                 <h3 className="text-2xl lg:text-3xl font-semibold text-text-primary mb-2">
                   Register for early access
                 </h3>
-                <p className="text-base text-text-secondary">
+                <p className="text-base text-text-primary">
                   Be first in line for the Exec App launch, with a limited early access offer for manufacturing leadership teams.
                 </p>
               </div>
@@ -436,7 +436,7 @@ export function Homepage() {
                 <HeroForm />
 
                 {/* Footer */}
-                <p className="text-sm text-text-secondary mt-5 leading-relaxed">
+                <p className="text-sm text-text-primary mt-5 leading-relaxed">
                   Pre-launch product. Features, integrations, and pricing may
                   evolve before general release.
                 </p>
@@ -446,7 +446,7 @@ export function Homepage() {
               <div className="mt-4 text-center">
                 <Link
                   to="/exec-app"
-                  className="text-base text-text-secondary underline-offset-4 hover:underline"
+                  className="text-base text-text-primary underline-offset-4 hover:underline"
                 >
                   Learn more about the Exec App →
                 </Link>
@@ -471,13 +471,13 @@ export function Homepage() {
         <div className="relative max-w-[1400px] mx-auto px-6">
           {/* Header */}
           <div className="text-center mb-14 max-w-[1400px] mx-auto">
-            <p className="text-base uppercase tracking-[0.22em] text-text-secondary mb-3">
+            <p className="text-base uppercase tracking-[0.22em] text-text-primary mb-3">
               Objection handling
             </p>
             <h2 className="text-3xl lg:text-4xl font-semibold leading-tight text-text-primary">
               Why not just use Power BI, Tableau, or spreadsheets?
             </h2>
-            <p className="text-text-secondary mt-4 text-base leading-relaxed">
+            <p className="text-text-primary mt-4 text-base leading-relaxed">
               Those tools visualise whatever you build. OpEx6 is a{" "}
               <span className="font-semibold text-text-primary">
                 manufacturing-specific operational intelligence layer
@@ -643,7 +643,7 @@ export function Homepage() {
           </h2>
 
           {/* Subtext */}
-          <p className="text-text-secondary text-xl mb-6 leading-relaxed">
+          <p className="text-text-primary text-xl mb-6 leading-relaxed">
             We’re onboarding a small number of manufacturing sites pre-launch.
             Register now to secure priority access and early pricing.
           </p>
@@ -661,14 +661,14 @@ export function Homepage() {
 
             <Link
               to="/exec-app"
-              className="text-base text-text-secondary underline-offset-4 hover:underline flex items-center justify-center"
+              className="text-base text-text-primary underline-offset-4 hover:underline flex items-center justify-center"
             >
               Learn more →
             </Link>
           </div>
 
           {/* Disclaimer */}
-          <p className="text-sm text-text-secondary mt-6 max-w-[1400px] mx-auto leading-relaxed">
+          <p className="text-sm text-text-primary mt-6 max-w-[1400px] mx-auto leading-relaxed">
             No payment required at this stage. Final features, pricing, and
             availability may change before general release.
           </p>
@@ -702,7 +702,7 @@ export function Homepage() {
                 <h3 className="font-semibold text-lg text-text-primary mb-2">
                   {s.name}
                 </h3>
-                <p className="text-text-secondary text-base leading-relaxed">
+                <p className="text-text-primary text-base leading-relaxed">
                   {s.description}
                 </p>
 
@@ -734,7 +734,7 @@ export function Homepage() {
             </p>
             <h2 className="text-4xl lg:text-5xl font-semibold leading-tight max-w-[1400px] mx-auto text-text-primary">
               Most manufacturing leaders still cannot answer these questions
-              <span className="text-text-secondary"> fast enough</span>
+              <span className="text-text-primary"> fast enough</span>
             </h2>
           </div>
 
@@ -767,12 +767,12 @@ export function Homepage() {
                 className="group flex items-start gap-4 p-5 rounded-xl border border-border/60 bg-card-bg/40 hover:bg-card-bg/60 transition"
               >
                 {/* Number */}
-                <div className="text-text-secondary font-semibold text-base w-6">
+                <div className="text-text-primary font-semibold text-base w-6">
                   {String(i + 1).padStart(2, "0")}
                 </div>
 
                 {/* Text */}
-                <p className="text-text-secondary text-base leading-relaxed">
+                <p className="text-text-primary text-base leading-relaxed">
                   {item.q.split(item.highlight).map((part, index, arr) => (
                     <>
                       {part}
@@ -792,7 +792,7 @@ export function Homepage() {
           <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-10" />
 
           {/* Closing */}
-          <p className="text-center text-text-secondary text-base max-w-[1400px] mx-auto leading-relaxed">
+          <p className="text-center text-text-primary text-base max-w-[1400px] mx-auto leading-relaxed">
             OpEx6 is being built to replace fragmented visibility with a
             structured, consistent operating layer — so these questions can be
             answered in minutes, not weeks.
@@ -848,7 +848,7 @@ export function Homepage() {
                 <h3 className="font-semibold text-text-primary mb-2">
                   {item.title}
                 </h3>
-                <p className="text-text-secondary text-base leading-relaxed">
+                <p className="text-text-primary text-base leading-relaxed">
                   {item.desc}
                 </p>
               </div>
@@ -856,7 +856,7 @@ export function Homepage() {
           </div>
 
           {/* Closing */}
-          <p className="text-center text-text-secondary text-base max-w-[1400px] mx-auto">
+          <p className="text-center text-text-primary text-base max-w-[1400px] mx-auto">
             OpEx6 is being built to expose hidden cost leakage before it becomes
             accepted normality.
           </p>
@@ -884,10 +884,10 @@ export function Homepage() {
             >
               {/* Problem */}
               <div>
-                <p className="text-sm uppercase text-text-secondary mb-2">
+                <p className="text-sm uppercase text-text-primary mb-2">
                   Challenge
                 </p>
-                <p className="text-text-secondary text-base leading-relaxed">
+                <p className="text-text-primary text-base leading-relaxed">
                   {row.challenge}
                 </p>
               </div>
@@ -985,7 +985,7 @@ export function Homepage() {
                 {card.title}
               </h3>
 
-              <p className="text-text-secondary text-base leading-relaxed">
+              <p className="text-text-primary text-base leading-relaxed">
                 {card.copy}
               </p>
 
@@ -1031,7 +1031,7 @@ export function Homepage() {
                   {step.title}
                 </h3>
 
-                <p className="text-text-secondary text-base leading-relaxed max-w-xs mx-auto">
+                <p className="text-text-primary text-base leading-relaxed max-w-xs mx-auto">
                   {step.body}
                 </p>
               </div>
@@ -1067,12 +1067,12 @@ export function Homepage() {
               className="bg-card-bg border border-border rounded-2xl p-6 shadow-sm hover:shadow-md hover:border-accent transition"
             >
               {/* Quote */}
-              <p className="text-text-secondary text-base leading-relaxed mb-5">
+              <p className="text-text-primary text-base leading-relaxed mb-5">
                 “{c.statement}”
               </p>
 
               {/* Footer */}
-              <div className="flex items-center justify-between text-sm text-text-secondary">
+              <div className="flex items-center justify-between text-sm text-text-primary">
                 <span className="uppercase tracking-wide text-accent font-medium">
                   {c.sector}
                 </span>
@@ -1113,7 +1113,7 @@ export function Homepage() {
                   key={item.name}
                   className="h-10 w-28 md:w-32 rounded-full bg-card-bg border border-border shadow-sm flex items-center justify-center shrink-0"
                 >
-                  <span className="text-sm text-text-secondary font-medium">
+                  <span className="text-sm text-text-primary font-medium">
                     {item.abbr}
                   </span>
                 </div>
@@ -1122,20 +1122,20 @@ export function Homepage() {
           </div>
         </div>
         <div className="text-center space-y-2">
-          <p className="text-text-secondary text-base">
+          <p className="text-text-primary text-base">
             Integration availability and scope depend on implementation. Contact
             us to discuss your systems environment.
           </p>
-          <p className="text-text-secondary text-base italic">
+          <p className="text-text-primary text-base italic">
             <Link to="/use-cases" className="underline underline-offset-4">
               Explore customer use cases
             </Link>
           </p>
-          <p className="text-text-secondary text-base">
+          <p className="text-text-primary text-base">
             Illustrative customer use cases showing how operational visibility
             can improve margin, cash, and decision speed.
           </p>
-          <p className="text-text-secondary text-sm max-w-[1400px] mx-auto">
+          <p className="text-text-primary text-sm max-w-[1400px] mx-auto">
             All third-party names, trade marks, and logos are the property of
             their respective owners and are used for identification purposes
             only.

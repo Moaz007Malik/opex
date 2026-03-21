@@ -119,12 +119,12 @@ export function Pricing() {
         Straightforward. Transparent. Structured for scale.
       </h1>
 
-      <p className="text-lg text-text-secondary mb-6">
+      <p className="text-lg text-text-primary mb-6">
         The Exec App is planned to use a credit-based commercial model. Credits
         support dashboard usage, reporting, and data connections.
       </p>
 
-      <p className="text-base text-text-secondary">
+      <p className="text-base text-text-primary">
         Pricing shown is indicative for pre-launch purposes and may change.
         Final commercial terms will be confirmed at launch.
       </p>
@@ -141,7 +141,7 @@ export function Pricing() {
             ? 'bg-highlight text-background border border-highlight/60'
             : plan.badgeVariant === 'blue'
               ? 'bg-accent/20 text-accent border border-accent/40'
-              : 'bg-card-bg text-text-secondary border border-border';
+              : 'bg-card-bg text-text-primary border border-border';
 
         return (
           <Card
@@ -158,14 +158,14 @@ export function Pricing() {
               <h2 className="text-2xl font-bold text-text-primary">
                 {plan.title}
               </h2>
-              <p className="text-base text-text-secondary font-semibold mt-1">
+              <p className="text-base text-text-primary font-semibold mt-1">
                 {plan.subtitle}
               </p>
-              <p className="text-sm text-text-secondary font-semibold mt-3">
+              <p className="text-sm text-text-primary font-semibold mt-3">
                 {plan.label}
               </p>
 
-              <p className="text-base text-text-secondary mt-4 leading-relaxed">
+              <p className="text-base text-text-primary mt-4 leading-relaxed">
                 {plan.description}
               </p>
 
@@ -173,7 +173,7 @@ export function Pricing() {
                 {plan.checklist.map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-2 text-base text-text-secondary"
+                    className="flex items-start gap-2 text-base text-text-primary"
                   >
                     <span className="text-accent mt-0.5" aria-hidden="true">
                       ✓
@@ -192,7 +192,7 @@ export function Pricing() {
                   {plan.ctaText}
                 </Button>
                 {plan.noteBelowCta && (
-                  <p className="text-sm text-text-secondary mt-4 leading-relaxed">
+                  <p className="text-sm text-text-primary mt-4 leading-relaxed">
                     {plan.noteBelowCta}
                   </p>
                 )}
@@ -211,18 +211,18 @@ export function Pricing() {
         What is a credit and how does it work?
       </h2>
 
-      <p className="text-text-secondary mb-4">
+      <p className="text-text-primary mb-4">
         In the Exec App, a credit is the basic unit of usage. Credits are
         consumed as your organisation uses dashboards, refreshes data, and runs
         reports. The exact rate card will be published at launch, but the
         intent is that credits scale with how many sites, users, and dashboards you are actively running — not just how many accounts you have created.
       </p>
 
-      <p className="text-text-secondary mb-4">
+      <p className="text-text-primary mb-4">
         As an illustrative guide, a smaller manufacturing site using a focused KPI set for leadership and plant reviews would typically consume fewer credits than a multi-site group running broader dashboards and more frequent refreshes. Final thresholds and tiers will be confirmed as part of launch.
       </p>
 
-      <p className="text-sm text-text-secondary">
+      <p className="text-sm text-text-primary">
         All examples on this page are indicative and may change before general release.
       </p>
     </div>
@@ -244,7 +244,7 @@ export function Pricing() {
             <p className="text-base font-semibold text-text-primary">
               {faq.q}
             </p>
-            <p className="text-base text-text-secondary mt-2 leading-relaxed">
+            <p className="text-base text-text-primary mt-2 leading-relaxed">
               {faq.a}
             </p>
           </div>

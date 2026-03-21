@@ -40,10 +40,10 @@ export default {
       },
 
       fontSize: {
-        // Body 18px; step up lg/xl for headings and long-form legal copy
-        base: ['1.125rem', { lineHeight: '1.65' }],
-        lg: ['1.25rem', { lineHeight: '1.6' }],
-        xl: ['1.375rem', { lineHeight: '1.55' }],
+        // Body 20px; step up lg/xl for headings and long-form legal copy
+        base: ['1.25rem', { lineHeight: '1.65' }],
+        lg: ['1.375rem', { lineHeight: '1.6' }],
+        xl: ['1.5rem', { lineHeight: '1.55' }],
         hero: ['3.5rem', { lineHeight: '1.1' }],
         'hero-lg': ['4.5rem', { lineHeight: '1.1' }],
       },

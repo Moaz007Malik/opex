@@ -107,7 +107,7 @@ function MobileAccordion({ title, children, open, onToggle }) {
           {title}
         </span>
         <svg
-          className={`w-5 h-5 text-text-secondary transition-transform ${open ? "rotate-180" : ""}`}
+          className={`w-5 h-5 text-text-primary transition-transform ${open ? "rotate-180" : ""}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -162,7 +162,7 @@ export function Header() {
                 type="button"
                 onClick={() => setBannerVisible(false)}
                 aria-label="Dismiss early-access banner"
-                className="shrink-0 text-text-secondary hover:text-text-primary"
+                className="shrink-0 text-text-primary hover:text-text-primary"
               >
                 X
               </button>
@@ -216,7 +216,7 @@ export function Header() {
             <button
               type="button"
               onClick={() => setMobileOpen(true)}
-              className="p-2 rounded-lg border border-border bg-card-bg text-text-secondary hover:text-text-primary hover:border-accent/50 transition"
+              className="p-2 rounded-lg border border-border bg-card-bg text-text-primary hover:text-text-primary hover:border-accent/50 transition"
               aria-label="Open menu"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -258,7 +258,7 @@ export function Header() {
               <button
                 type="button"
                 onClick={() => setMobileOpen(false)}
-                className="p-2 rounded-lg border border-border bg-card-bg text-text-secondary hover:text-text-primary hover:border-accent/50 transition"
+                className="p-2 rounded-lg border border-border bg-card-bg text-text-primary hover:text-text-primary hover:border-accent/50 transition"
                 aria-label="Close menu"
               >
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -269,8 +269,8 @@ export function Header() {
 
             <div className="p-4 space-y-4 overflow-y-auto h-[calc(100%-4rem)]">
               <div className="rounded-2xl border border-border bg-card-bg p-4">
-                <p className="text-sm font-semibold text-text-primary mb-1">Explore the framework</p>
-                <p className="text-xs text-text-secondary mb-3">
+                <p className="text-base font-semibold text-text-primary mb-1">Explore the framework</p>
+                <p className="text-sm text-text-primary mb-3 leading-relaxed">
                   Navigate by category, KPIs, and use cases — designed to support future “select your focus areas”
                   journeys.
                 </p>

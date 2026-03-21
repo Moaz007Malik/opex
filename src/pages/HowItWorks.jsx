@@ -56,7 +56,7 @@ function StepCard({ stepNumber, title, body }) {
         </div>
         <div>
           <h3 className="text-lg font-bold text-text-primary">{title}</h3>
-          <p className="text-sm text-text-secondary mt-3 leading-relaxed">
+          <p className="text-sm text-text-primary mt-3 leading-relaxed">
             {body}
           </p>
         </div>
@@ -90,14 +90,14 @@ export function HowItWorks() {
           <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
             From Operational Data to Executive Clarity.
           </h1>
-          <p className="text-lg text-text-secondary leading-relaxed">
+          <p className="text-lg text-text-primary leading-relaxed">
             The Exec App is designed to reduce the time and effort it takes to
             get a structured, consistent view of operational performance. The
             framework is structured for practical deployment — connecting to
             your existing systems, configuring to your operational context, and
             giving your leadership team a structured intelligence view.
           </p>
-          <p className="text-sm text-text-secondary mt-6">
+          <p className="text-sm text-text-primary mt-6">
             OpEx6 is currently in pre-launch / early-access phase. Product
             features, screenshots, integrations, availability, and pricing may
             change before general release.
@@ -132,7 +132,7 @@ export function HowItWorks() {
             A simple implementation progression.
           </h2>
 
-          <p className="text-text-secondary text-sm mb-10 max-w-[1400px]">
+          <p className="text-text-primary text-sm mb-10 max-w-[1400px]">
             Exact timelines depend on data complexity and integration scope, but
             the progression typically follows these stages.
           </p>
@@ -149,7 +149,7 @@ export function HowItWorks() {
                 <p className="font-medium text-text-primary text-sm mb-2">
                   {stage.title}
                 </p>
-                <p className="text-text-secondary text-sm">{stage.body}</p>
+                <p className="text-text-primary text-sm">{stage.body}</p>
               </Card>
             ))}
           </div>
@@ -163,7 +163,7 @@ export function HowItWorks() {
             Structured onboarding for early access customers.
           </h2>
 
-          <p className="text-text-secondary">
+          <p className="text-text-primary">
             Early access customers receive structured onboarding support to help
             map data sources, configure dashboards, and get their teams set up.
             Implementation timelines depend on the complexity and number of
@@ -174,11 +174,11 @@ export function HowItWorks() {
 
       {/* FAQ LINK */}
       <Section className="text-center">
-        <p className="text-text-secondary mb-2">
+        <p className="text-text-primary mb-2">
           Questions about setup, rollout, or integrations?
         </p>
 
-        <p className="text-text-secondary">
+        <p className="text-text-primary">
           <Link
             to="/faq"
             className="underline underline-offset-4 hover:text-accent"

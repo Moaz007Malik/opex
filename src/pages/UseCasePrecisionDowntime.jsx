@@ -34,17 +34,17 @@ export function UseCasePrecisionDowntime() {
             Reducing downtime visibility gaps in a high-mix precision engineering environment
           </h1>
 
-          <p className="text-lg text-text-secondary mb-3">
+          <p className="text-lg text-text-primary mb-3">
             A precision engineering manufacturer needed better visibility into machine downtime, changeovers, schedule adherence, and output
             reliability across a complex production environment. OpEx6 was configured to help the leadership team move from reactive
             reporting to structured operational review.
           </p>
 
-          <p className="text-sm text-text-muted italic mb-3">
+          <p className="text-base text-text-primary italic mb-3">
             Executive sponsor: Chief Operating Officer, UK precision engineering manufacturer.
           </p>
 
-          <p className="text-xs text-text-muted italic">
+          <p className="text-sm text-text-primary italic">
             These are anonymised illustrative customer use cases based on common manufacturing scenarios. They are provided for general information and do not represent a named customer endorsement or guarantee of results.
           </p>
 
@@ -61,10 +61,10 @@ export function UseCasePrecisionDowntime() {
           {/* QUOTE */}
           <div className="relative border border-border bg-card-bg rounded-xl p-6 mb-10 overflow-hidden">
             <div className="absolute left-0 top-0 bottom-0 w-1 bg-accent rounded-l-xl" aria-hidden="true" />
-            <p className="text-text-secondary italic text-sm pl-4">
+            <p className="text-text-primary italic text-sm pl-4">
               "We knew where we were hurting, but we did not have one disciplined way to see it across shifts and machines. OpEx6 helped us move from anecdotal firefighting to structured action."
             </p>
-            <p className="text-xs text-text-muted mt-3 pl-4">
+            <p className="text-sm text-text-primary mt-3 pl-4">
               — COO, UK Precision Engineering Manufacturer (anonymised illustrative scenario)
             </p>
           </div>
@@ -75,46 +75,46 @@ export function UseCasePrecisionDowntime() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-12">
 
             <Card className="border border-border p-4 bg-card-bg rounded-xl">
-              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-2">
+              <p className="text-[11px] text-text-primary uppercase tracking-wider mb-2">
                 RECURRING DOWNTIME CHANGE | -14%
               </p>
-              <p className="text-[10px] text-text-secondary mt-1">
+              <p className="text-[10px] text-text-primary mt-1">
                 Illustrative scenario, not a guarantee.
               </p>
             </Card>
 
             <Card className="border border-border p-4 bg-card-bg rounded-xl">
-              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-2">
+              <p className="text-[11px] text-text-primary uppercase tracking-wider mb-2">
                 SCHEDULE ATTAINMENT | 81% → 90%
               </p>
-              <p className="text-[10px] text-text-secondary mt-1">
+              <p className="text-[10px] text-text-primary mt-1">
                 Illustrative scenario, not a guarantee.
               </p>
             </Card>
 
             <Card className="border border-border p-4 bg-card-bg rounded-xl">
-              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-2">
+              <p className="text-[11px] text-text-primary uppercase tracking-wider mb-2">
                 CHANGEOVER OVERRUN CHANGE | -21%
               </p>
-              <p className="text-[10px] text-text-secondary mt-1">
+              <p className="text-[10px] text-text-primary mt-1">
                 Average over illustrative period.
               </p>
             </Card>
 
             <Card className="border border-border p-4 bg-card-bg rounded-xl">
-              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-2">
+              <p className="text-[11px] text-text-primary uppercase tracking-wider mb-2">
                 ON-TIME DELIVERY CHANGE | +8 pts
               </p>
-              <p className="text-[10px] text-text-secondary mt-1">
+              <p className="text-[10px] text-text-primary mt-1">
                 Illustrative scenario, not a guarantee.
               </p>
             </Card>
 
             <Card className="border border-border p-4 bg-card-bg rounded-xl">
-              <p className="text-[11px] text-text-secondary uppercase tracking-wider mb-2">
+              <p className="text-[11px] text-text-primary uppercase tracking-wider mb-2">
                 ESTIMATED ANNUALISED VALUE | £860,000
               </p>
-              <p className="text-[10px] text-text-secondary mt-1">
+              <p className="text-[10px] text-text-primary mt-1">
                 Illustrative value model only.
               </p>
             </Card>
@@ -129,7 +129,7 @@ export function UseCasePrecisionDowntime() {
             Challenge
           </h2>
 
-          <p className="text-text-secondary text-sm mb-6">
+          <p className="text-text-primary text-sm mb-6">
             The business produced high-mix, lower-volume work with frequent setup changes. Recurring downtime was hidden inside broad
             reason codes, changeover overruns were not surfaced consistently, and weekly reporting arrived too late to drive action.
           </p>
@@ -140,7 +140,7 @@ export function UseCasePrecisionDowntime() {
             Leadership questions behind the project
           </h2>
 
-          <ul className="list-disc list-inside text-text-secondary text-sm space-y-1 mb-6">
+          <ul className="list-disc list-inside text-text-primary text-sm space-y-1 mb-6">
             <li>Which changeovers are drifting furthest from standard?</li>
             <li>Which downtime reasons are recurring but still buried in broad categories?</li>
             <li>Where is schedule underperformance becoming customer-delivery risk?</li>
@@ -153,11 +153,11 @@ export function UseCasePrecisionDowntime() {
             What was implemented
           </h2>
 
-          <p className="text-text-secondary text-sm mb-3">
+          <p className="text-text-primary text-sm mb-3">
             In this illustrative scenario, the Exec App is configured to provide:
           </p>
 
-          <ul className="list-disc list-inside text-text-secondary text-sm space-y-1 mb-6">
+          <ul className="list-disc list-inside text-text-primary text-sm space-y-1 mb-6">
             <li>Machine-level downtime views.</li>
             <li>Reason-code rollups for leadership.</li>
             <li>Shift-by-shift schedule attainment views.</li>
@@ -172,7 +172,7 @@ export function UseCasePrecisionDowntime() {
             Time to rollout
           </h2>
 
-          <p className="text-text-secondary text-sm mb-6">
+          <p className="text-text-primary text-sm mb-6">
             Illustratively 6 weeks from scoping to first structured downtime and schedule review, depending on the availability of downtime
             data, tagging standards, and cell connectivity.
           </p>
@@ -183,7 +183,7 @@ export function UseCasePrecisionDowntime() {
             Results
           </h2>
 
-          <p className="text-text-secondary text-sm mb-6">
+          <p className="text-text-primary text-sm mb-6">
             In this anonymised example, recurring downtime reduced by 14%, schedule attainment improved from 81% to 90%, average changeover
             overrun reduced by 21%, on-time delivery improved by 8 percentage points, and weekly reporting preparation time reduced by
             around 65%. Leadership gains line-of-sight to where capacity is being lost and how that relates to missed schedule.
@@ -195,7 +195,7 @@ export function UseCasePrecisionDowntime() {
             ROI story
           </h2>
 
-          <p className="text-text-secondary text-sm mb-6">
+          <p className="text-text-primary text-sm mb-6">
             Illustratively, the annualised value model for this scenario is built from: recovered productive capacity (approximately
             £410,000), lower expediting and delivery penalties (approximately £260,000), reduced reporting and admin effort (approximately
             £90,000), and changeover efficiency gains (approximately £100,000). Together these give an estimated annualised total value of
@@ -208,7 +208,7 @@ export function UseCasePrecisionDowntime() {
             Why it mattered
           </h2>
 
-          <p className="text-text-secondary text-sm mb-10">
+          <p className="text-text-primary text-sm mb-10">
             The business gained faster visibility into recurring losses, clearer issue prioritisation, more disciplined weekly reviews, and
             a better connection between shop-floor loss and customer-delivery performance. A structured downtime view helped protect
             schedule reliability by focusing effort on the specific machines and causes that most threatened delivery.
@@ -218,11 +218,11 @@ export function UseCasePrecisionDowntime() {
           <h2 className="text-xl font-semibold text-text-primary mt-6 mb-3">
             KPI areas that mattered most in this scenario
           </h2>
-          <p className="text-text-secondary text-sm mb-3">
+          <p className="text-text-primary text-sm mb-3">
             This precision engineering downtime scenario drew primarily on the Downtime &amp; Reliability, Maintenance, Production, and
             Delivery &amp; Service KPI areas within the Exec App framework.
           </p>
-          <ul className="list-disc list-inside text-text-secondary text-sm space-y-1 mb-10">
+          <ul className="list-disc list-inside text-text-primary text-sm space-y-1 mb-10">
             <li><strong>Downtime &amp; Reliability</strong> — recurring stoppages, availability, and root-cause breakdowns.</li>
             <li><strong>Maintenance</strong> — planned vs reactive work, backlog, and asset criticality coverage.</li>
             <li><strong>Production</strong> — schedule attainment, changeover performance, and throughput.</li>

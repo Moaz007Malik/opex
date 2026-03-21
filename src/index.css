@@ -30,7 +30,7 @@
     background-color: var(--background);
     color: var(--foreground);
     font-family: Inter, system-ui, -apple-system, sans-serif;
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     line-height: 1.65;
     @apply antialiased;
   }

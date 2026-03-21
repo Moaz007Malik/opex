@@ -58,7 +58,7 @@ export function RegisterInterest() {
               Thank you.
             </h1>
 
-            <p className="text-text-secondary">
+            <p className="text-text-primary">
               {EARLY_ACCESS.THANK_YOU_LINE}
             </p>
           </div>
@@ -96,7 +96,7 @@ export function RegisterInterest() {
             Register Your Interest in the Exec App
           </h1>
 
-          <p className="text-lg text-text-secondary mb-8">
+          <p className="text-lg text-text-primary mb-8">
             Be among the first to access OpEx6's Exec App when it opens to early users. Register your interest now to secure your place on the early access list.
           </p>
 
@@ -106,7 +106,7 @@ export function RegisterInterest() {
               {EARLY_ACCESS.SECTION_TITLE}
             </p>
 
-            <p className="text-sm text-text-secondary">
+            <p className="text-sm text-text-primary">
               {EARLY_ACCESS.OFFER_FULL}
             </p>
           </div>
@@ -134,7 +134,7 @@ export function RegisterInterest() {
             <input type="hidden" name="_noticeVersion" value="privacy_v1_terms_v1" />
             <input type="hidden" name="_timestamp" ref={timestampRef} />
 
-            <p className="text-xs text-text-secondary text-left">
+            <p className="text-xs text-text-primary text-left">
               Your information is handled in accordance with our{' '}
               <Link to="/privacy" className="text-accent hover:underline">
                 Privacy Notice
@@ -182,7 +182,7 @@ export function RegisterInterest() {
             />
 
             <div className="space-y-3 pt-2 border-t border-border">
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-text-secondary">
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-text-primary">
                 Contact permission{" "}
                 <span className="text-danger text-base font-bold leading-none" aria-hidden="true">
                   *
@@ -200,8 +200,8 @@ export function RegisterInterest() {
             </div>
 
             <div className="space-y-3">
-              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-text-secondary">
-                Marketing <span className="text-text-muted">(optional)</span>
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-text-primary">
+                Marketing <span className="text-text-primary text-sm">(optional)</span>
               </p>
               <Checkbox
                 id="register-interest-marketing-optin"
@@ -229,7 +229,7 @@ export function RegisterInterest() {
               {formState.submitting ? 'Sending…' : 'Register Interest in the Exec App'}
             </Button>
 
-            <p className="text-xs text-text-secondary">
+            <p className="text-xs text-text-primary">
               By submitting this form, you confirm you have read our{' '}
               <Link to="/privacy" className="text-accent hover:underline">
                 Privacy Notice
@@ -267,7 +267,7 @@ export function RegisterInterest() {
                   {item.step}
                 </div>
 
-                <p className="text-text-secondary pt-1.5">
+                <p className="text-text-primary pt-1.5">
                   {item.text}
                 </p>
 
