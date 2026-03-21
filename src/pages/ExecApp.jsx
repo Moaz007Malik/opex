@@ -101,7 +101,7 @@ export function ExecApp() {
         viewport={{ once: true, margin: "-80px 0px" }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-start">
+        <div className="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-12 gap-12 items-start">
           <div className="order-2 lg:order-1 lg:col-span-5">
             <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
               The Exec App by OpEx6
@@ -305,7 +305,7 @@ export function ExecApp() {
       {/* KPI DEPTH EXPLANATION */}
       <Section>
         <motion.div
-          className="max-w-5xl mx-auto"
+          className="max-w-[1400px] mx-auto"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px 0px" }}
@@ -365,7 +365,7 @@ export function ExecApp() {
       {/* WHY IT MATTERS */}
       <Section>
         <motion.div
-          className="max-w-5xl"
+          className="max-w-[1400px]"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px 0px" }}
@@ -375,7 +375,7 @@ export function ExecApp() {
             Why it matters for manufacturing leadership.
           </h2>
 
-          <p className="text-text-secondary mb-10 max-w-3xl">
+          <p className="text-text-secondary mb-10 max-w-[1400px]">
             Most leadership teams still rely on siloed reports, last week's
             spreadsheets, and disconnected local dashboards to understand how
             operations are performing. The Exec App is being built to bring that
@@ -420,7 +420,7 @@ export function ExecApp() {
       {/* WHAT IT HELPS LEADERS SEE */}
       <Section>
         <motion.div
-          className="max-w-4xl"
+          className="max-w-[1400px]"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px 0px" }}
@@ -445,7 +445,7 @@ export function ExecApp() {
       {/* DECISION SUPPORT */}
       <Section>
         <motion.div
-          className="max-w-4xl"
+          className="max-w-[1400px]"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px 0px" }}
@@ -494,7 +494,7 @@ export function ExecApp() {
             ))}
           </div>
 
-          <p className="text-xs text-text-secondary max-w-3xl mt-6">
+          <p className="text-xs text-text-secondary max-w-[1400px] mt-6">
             Any AI-enabled insights described are intended to support human
             decision-making and are not a substitute for human review,
             operational judgment, or formal compliance processes.
@@ -505,7 +505,7 @@ export function ExecApp() {
       {/* MOBILE */}
       <Section className="rounded-2xl py-12 px-6 md:px-12 max-h-[520px] md:max-h-[560px] overflow-hidden">
         <motion.div
-          className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center"
+          className="max-w-[1400px] mx-auto grid md:grid-cols-2 gap-12 items-center"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px 0px" }}

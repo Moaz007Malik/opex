@@ -56,7 +56,7 @@ export function Resources() {
         viewport={{ once: true, margin: '-80px 0px' }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
       >
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-[1400px] mx-auto px-6">
 
           <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
             RESOURCES
@@ -70,7 +70,7 @@ export function Resources() {
             Guides, articles, and operational intelligence thinking for operations directors, plant managers, and manufacturing executives.
           </p>
 
-          <p className="text-sm text-text-secondary max-w-3xl italic">
+          <p className="text-sm text-text-secondary max-w-[1400px] italic">
             This page is a curated list of resources. Article content is illustrative and subject to change as the Exec App and OpEx6 platform develop.
           </p>
 
@@ -126,7 +126,7 @@ export function Resources() {
       {/* QUESTIONS */}
       <Section>
 
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-[1400px] mx-auto">
 
           <h2 className="text-3xl font-bold text-text-primary mb-10">
             Questions manufacturing leaders should be able to answer faster.

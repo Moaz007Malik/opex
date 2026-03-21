@@ -109,7 +109,7 @@ export function Pricing() {
     viewport={{ once: true, margin: '-80px 0px' }}
     transition={{ duration: 0.7, ease: 'easeOut' }}
   >
-      <div className="max-w-4xl mx-auto px-6 text-center">
+      <div className="max-w-[1400px] mx-auto px-6 text-center">
 
       <p className="text-accent text-sm font-semibold uppercase tracking-[0.2em] mb-3">
         PRICING
@@ -134,7 +134,7 @@ export function Pricing() {
 
   {/* PRICING CARDS */}
   <Section>
-    <div className="max-w-7xl mx-auto grid lg:grid-cols-3 gap-6">
+    <div className="max-w-[1400px] mx-auto grid lg:grid-cols-3 gap-6">
       {PRICING_CARDS.map((plan) => {
         const badgeClasses =
           plan.badgeVariant === 'amber'
@@ -206,7 +206,7 @@ export function Pricing() {
 
   {/* WHAT IS A CREDIT */}
   <Section>
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-[1400px] mx-auto">
       <h2 className="text-2xl font-bold text-text-primary mb-3">
         What is a credit and how does it work?
       </h2>
@@ -230,7 +230,7 @@ export function Pricing() {
 
   {/* PRICING FAQ */}
   <Section className="bg-background">
-    <div className="max-w-3xl mx-auto">
+    <div className="max-w-[1400px] mx-auto">
       <h2 className="text-2xl font-bold text-text-primary mb-6 text-center">
         Pricing FAQ
       </h2>

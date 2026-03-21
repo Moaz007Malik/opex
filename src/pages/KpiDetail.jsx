@@ -36,7 +36,7 @@ export function KpiDetail() {
       </Helmet>
 
       <section className="border-b border-border bg-background py-24 lg:py-28">
-        <div className="max-w-5xl mx-auto px-6">
+        <div className="max-w-[1400px] mx-auto px-6">
           <div className="mb-6">
             <Link
               to="/kpis-dashboards"

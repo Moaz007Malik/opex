@@ -263,7 +263,7 @@ export function HomepageSpec() {
         viewport={{ once: true, margin: "-80px 0px" }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <div className="relative max-w-7xl mx-auto px-6">
+        <div className="relative max-w-[1400px] mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Left */}
             <div>
@@ -281,7 +281,7 @@ export function HomepageSpec() {
                 The Command Centre Manufacturing Leaders Have Been Looking For.
               </h1>
 
-              <p className="text-xl text-text-secondary leading-relaxed mb-6 max-w-xl">
+              <p className="text-xl text-text-secondary leading-relaxed mb-6 max-w-[1400px]">
                 OpEx6's Exec App is being built to give manufacturing leaders a
                 single, structured view of performance, production, quality,
                 downtime, margin, safety — all in one place, designed to support
@@ -301,7 +301,7 @@ export function HomepageSpec() {
                 </Button>
               </div>
 
-              <p className="text-sm text-text-muted mt-4 max-w-xl leading-relaxed">
+              <p className="text-sm text-text-muted mt-4 max-w-[1400px] leading-relaxed">
                 OpEx6 is currently in pre-launch / early-access phase. Product
                 features, screenshots, integrations, availability, and pricing
                 may change before general release.
@@ -318,7 +318,7 @@ export function HomepageSpec() {
 
       {/* Stats strip */}
       <section className="py-20 bg-secondary border-y border-border">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-[1400px] mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-6">
             <div className="rounded-lg border border-border/80 bg-background/35 p-6">
               <p className="text-5xl font-bold text-text-primary mb-2">15+</p>
@@ -345,7 +345,7 @@ export function HomepageSpec() {
 
       {/* Built for operations like yours */}
       <Section>
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-4xl lg:text-5xl font-bold text-text-primary leading-tight">
               Built for complex manufacturing environments.
@@ -369,13 +369,13 @@ export function HomepageSpec() {
 
       {/* The problems that cost manufacturers the most */}
       <Section className="bg-background">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-4xl lg:text-5xl font-bold text-text-primary leading-tight">
               Most manufacturing leaders still cannot answer these questions
               fast enough.
             </h2>
-            <p className="text-text-secondary text-xl mt-5 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-text-secondary text-xl mt-5 max-w-[1400px] mx-auto leading-relaxed">
               Most manufacturing businesses run on fragmented information.
               Operations has one view, finance has another, and plant managers
               are working from spreadsheets and gut feel. By the time a clear
@@ -401,7 +401,7 @@ export function HomepageSpec() {
 
       {/* Where margin and cash actually disappear */}
       <Section>
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-4xl lg:text-5xl font-bold text-text-primary leading-tight">
               Where margin and cash actually disappear
@@ -421,7 +421,7 @@ export function HomepageSpec() {
             ))}
           </div>
 
-          <p className="text-center text-text-secondary text-xl italic mt-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-center text-text-secondary text-xl italic mt-12 max-w-[1400px] mx-auto leading-relaxed">
             OpEx6 is being built to expose hidden cost leakage before it becomes
             accepted normality.
           </p>
@@ -430,7 +430,7 @@ export function HomepageSpec() {
 
       {/* The visibility gap manufacturing leaders actually face */}
       <Section className="bg-background">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl lg:text-5xl font-bold text-text-primary leading-tight">
               The visibility gap manufacturing leaders actually face
@@ -474,8 +474,8 @@ export function HomepageSpec() {
 
       {/* Why generic BI still leaves manufacturing leaders with visibility gaps */}
       <Section>
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14 max-w-3xl mx-auto">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="text-center mb-14 max-w-[1400px] mx-auto">
             <h2 className="text-4xl lg:text-5xl font-bold text-text-primary leading-tight">
               Why generic BI still leaves manufacturing leaders with visibility
               gaps.
@@ -510,7 +510,7 @@ export function HomepageSpec() {
 
       {/* Built for manufacturing. Designed for decision-making. */}
       <Section className="bg-background">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-4xl lg:text-5xl font-bold text-text-primary leading-tight">
               Built for manufacturing. Designed for decision-making.
@@ -534,7 +534,7 @@ export function HomepageSpec() {
 
       {/* Structured for deployment in weeks, not months */}
       <Section>
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-4xl lg:text-5xl font-bold text-text-primary leading-tight">
               Structured for deployment in weeks, not months.
@@ -570,7 +570,7 @@ export function HomepageSpec() {
 
       {/* What typically triggers the search for operational intelligence */}
       <Section className="bg-background">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-4xl lg:text-5xl font-bold text-text-primary leading-tight">
               What typically triggers the search for operational intelligence.
@@ -597,7 +597,7 @@ export function HomepageSpec() {
 
       {/* Built to work alongside the tools you already use */}
       <Section>
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-10">
             <h2 className="text-4xl lg:text-5xl font-bold text-text-primary leading-tight">
               Built to work alongside the tools you already use.

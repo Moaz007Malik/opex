@@ -146,7 +146,7 @@ export function ExecApp() {
         viewport={{ once: true, margin: "-80px 0px" }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-start">
+        <div className="max-w-[1400px] mx-auto px-6 grid lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-5">
             <p className="text-accent text-sm font-semibold uppercase tracking-[0.2em] mb-3">
               THE EXEC APP BY OPEX6
@@ -177,7 +177,7 @@ export function ExecApp() {
               </Button>
             </div>
 
-            <div className="mt-6 rounded-lg bg-highlight/10 text-highlight px-4 py-3 max-w-xl text-sm">
+            <div className="mt-6 rounded-lg bg-highlight/10 text-highlight px-4 py-3 max-w-[1400px] text-sm">
               Early Access Offer: Register now to secure eligibility for 50 credits for
               £50 + 25 free credits at launch. Subject to final launch terms.
             </div>
@@ -195,7 +195,7 @@ export function ExecApp() {
       {/* WHAT THE EXEC APP IS BUILT TO SUPPORT */}
       <Section>
         <motion.div
-          className="max-w-6xl mx-auto"
+          className="max-w-[1400px] mx-auto"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px 0px" }}
@@ -226,7 +226,7 @@ export function ExecApp() {
       {/* PEOPLE ACCOUNTABLE FOR OPERATIONAL PERFORMANCE */}
       <Section className="bg-background">
         <motion.div
-          className="max-w-6xl mx-auto"
+          className="max-w-[1400px] mx-auto"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px 0px" }}
@@ -268,7 +268,7 @@ export function ExecApp() {
       {/* ENTERPRISE EXPECTATIONS */}
       <Section>
         <motion.div
-          className="max-w-6xl mx-auto"
+          className="max-w-[1400px] mx-auto"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px 0px" }}
@@ -294,7 +294,7 @@ export function ExecApp() {
       {/* OPERATIONAL TO FINANCIAL */}
       <Section className="bg-background">
         <motion.div
-          className="max-w-6xl mx-auto"
+          className="max-w-[1400px] mx-auto"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px 0px" }}
@@ -304,7 +304,7 @@ export function ExecApp() {
             Operational problems become financial problems faster than most reports show.
           </h2>
 
-          <p className="text-lg text-text-secondary leading-relaxed mb-8 max-w-4xl">
+          <p className="text-lg text-text-secondary leading-relaxed mb-8 max-w-[1400px]">
             A 30-minute stoppage is not just a production event. A weak BOM
             assumption is not just a finance issue. Rework, delay, consumables, and
             schedule drift do not stay inside operations — they compound into margin
@@ -325,7 +325,7 @@ export function ExecApp() {
       {/* USE CASES */}
       <Section>
         <motion.div
-          className="max-w-6xl mx-auto"
+          className="max-w-[1400px] mx-auto"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px 0px" }}
@@ -351,7 +351,7 @@ export function ExecApp() {
             ))}
           </div>
 
-          <p className="text-xs text-text-secondary max-w-5xl mt-8">
+          <p className="text-xs text-text-secondary max-w-[1400px] mt-8">
             Any AI-enabled insights described are intended to support human
             decision-making and are not a substitute for human review, operational
             judgment, or formal compliance processes.
@@ -362,7 +362,7 @@ export function ExecApp() {
       {/* MOBILE */}
       <Section className="bg-background">
         <motion.div
-          className="max-w-6xl mx-auto"
+          className="max-w-[1400px] mx-auto"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px 0px" }}

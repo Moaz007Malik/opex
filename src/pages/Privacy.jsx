@@ -19,7 +19,7 @@ export function Privacy() {
         viewport={{ once: true, margin: '-80px 0px' }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
       >
-        <div className="max-w-4xl mx-auto px-6 text-center">
+        <div className="max-w-[1400px] mx-auto px-6 text-center">
 
           <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
             LEGAL
@@ -44,7 +44,7 @@ export function Privacy() {
       {/* CONTENT */}
       <Section className="bg-background">
 
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-[1400px] mx-auto px-6">
 
           <div className="space-y-8 text-base leading-relaxed">
 

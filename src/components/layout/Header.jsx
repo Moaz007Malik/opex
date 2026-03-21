@@ -153,7 +153,7 @@ export function Header() {
       <div className="bg-background border-b border-border">
         {bannerVisible && (
           <div className="bg-secondary/30 border-b border-border/40">
-            <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between gap-4 text-xs sm:text-sm text-text-primary">
+            <div className="max-w-[1400px] mx-auto px-6 py-2 flex items-center justify-between gap-4 text-xs sm:text-sm text-text-primary">
               <p>
                 Pre-launch early access: 50 credits for £50 + 25 free credits at launch (subject to final terms). No payment taken today.
               </p>
@@ -169,7 +169,7 @@ export function Header() {
           </div>
         )}
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
       
           <Link to="/" className="flex items-center gap-3" aria-label="OpEx6 home">
             <img

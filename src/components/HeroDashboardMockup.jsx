@@ -4,7 +4,7 @@ export function HeroDashboardMockup({
   previewDisclaimer = "Final product, data, and design may differ.",
 } = {}) {
   return (
-    <div className="w-full max-w-2xl mx-auto">
+    <div className="w-full max-w-[1400px] mx-auto">
       <div className="rounded-2xl border border-border bg-card-bg overflow-hidden shadow-lg">
         {/* Top bar (no label; heading is shown below the mockup) */}
         <div className="flex items-center gap-2 px-4 py-3 border-b border-border/60 bg-background/60">

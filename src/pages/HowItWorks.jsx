@@ -86,7 +86,7 @@ export function HowItWorks() {
         viewport={{ once: true, margin: "-80px 0px" }}
         transition={{ duration: 0.7, ease: "easeOut" }}
       >
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-[1400px] mx-auto px-6">
           <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-6">
             From Operational Data to Executive Clarity.
           </h1>
@@ -107,7 +107,7 @@ export function HowItWorks() {
 
       {/* FOUR-STEP PROCESS */}
       <Section className="bg-background">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-[1400px] mx-auto">
           <h2 className="text-3xl font-bold text-text-primary mb-10">
             Four-step process
           </h2>
@@ -127,12 +127,12 @@ export function HowItWorks() {
 
       {/* IMPLEMENTATION TIMELINE */}
       <Section className="bg-secondary">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-[1400px] mx-auto">
           <h2 className="text-3xl font-bold text-text-primary mb-4">
             A simple implementation progression.
           </h2>
 
-          <p className="text-text-secondary text-sm mb-10 max-w-2xl">
+          <p className="text-text-secondary text-sm mb-10 max-w-[1400px]">
             Exact timelines depend on data complexity and integration scope, but
             the progression typically follows these stages.
           </p>
@@ -158,7 +158,7 @@ export function HowItWorks() {
 
       {/* IMPLEMENTATION SUPPORT */}
       <Section>
-        <div className="max-w-4xl">
+        <div className="max-w-[1400px]">
           <h2 className="text-2xl font-bold text-text-primary mb-4">
             Structured onboarding for early access customers.
           </h2>

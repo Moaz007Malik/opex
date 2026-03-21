@@ -52,7 +52,7 @@ export function RegisterInterest() {
         </Helmet>
 
         <Section>
-          <div className="max-w-xl mx-auto text-center py-16">
+          <div className="max-w-[1400px] mx-auto text-center py-16">
             <h1 className="text-3xl font-bold text-text-primary mb-4">
               Thank you.
             </h1>
@@ -85,7 +85,7 @@ export function RegisterInterest() {
         viewport={{ once: true, margin: '-80px 0px' }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
       >
-        <div className="max-w-4xl mx-auto px-6 text-center">
+        <div className="max-w-[1400px] mx-auto px-6 text-center">
 
           <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
             EARLY ACCESS
@@ -100,7 +100,7 @@ export function RegisterInterest() {
           </p>
 
 
-          <div className="bg-highlight/10 border border-highlight/40 rounded-xl p-6 text-left max-w-xl mx-auto">
+          <div className="bg-highlight/10 border border-highlight/40 rounded-xl p-6 text-left max-w-[1400px] mx-auto">
             <p className="font-semibold text-text-primary mb-1">
               Early Access Offer
             </p>
@@ -118,7 +118,7 @@ export function RegisterInterest() {
       {/* FORM */}
       <Section>
 
-        <div className="max-w-xl mx-auto">
+        <div className="max-w-[1400px] mx-auto">
 
           <form
             onSubmit={onSubmit}
@@ -238,7 +238,7 @@ export function RegisterInterest() {
       {/* WHAT HAPPENS NEXT */}
       <Section className="bg-secondary">
 
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-[1400px] mx-auto">
 
           <h2 className="text-2xl font-bold text-text-primary mb-8">
             What happens next

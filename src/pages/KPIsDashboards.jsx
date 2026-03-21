@@ -835,7 +835,7 @@ export function KPIsDashboards() {
       />
 
       <section className="border-b border-border bg-background py-24 lg:py-28">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-[1400px] mx-auto px-6">
           <p className="text-accent text-base font-semibold uppercase tracking-[0.2em] mb-3">
             KPIS &amp; DASHBOARDS
           </p>
@@ -856,7 +856,7 @@ export function KPIsDashboards() {
       </section>
 
       <Section className="bg-background">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-[1400px] mx-auto">
           <div className="relative">
             <div
               className="absolute top-5 left-0 right-0 h-px bg-border"

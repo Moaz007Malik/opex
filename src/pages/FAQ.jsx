@@ -82,9 +82,9 @@ export function FAQ() {
         viewport={{ once: true, margin: '-80px 0px' }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
       >
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-[1400px] mx-auto px-6">
 
-          <div className="max-w-3xl">
+          <div className="max-w-[1400px]">
 
             <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-4">
               Frequently Asked Questions
@@ -102,7 +102,7 @@ export function FAQ() {
       {/* FAQ GROUPS */}
       <Section>
 
-        <div className="max-w-3xl mx-auto space-y-12">
+        <div className="max-w-[1400px] mx-auto space-y-12">
 
           {faqGroups.map((group, gi) => (
 

@@ -22,7 +22,7 @@ export function Terms() {
         viewport={{ once: true, margin: '-80px 0px' }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
       >
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-[1400px] mx-auto px-6">
 
           <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
             LEGAL
@@ -48,7 +48,7 @@ export function Terms() {
       {/* TERMS CONTENT */}
       <Section>
 
-        <div className="max-w-4xl mx-auto space-y-8 text-base leading-relaxed">
+        <div className="max-w-[1400px] mx-auto space-y-8 text-base leading-relaxed">
 
           <div className="border border-border rounded-xl p-6 bg-card-bg">
             <h2 className="text-xl font-semibold text-text-primary mb-3">1. Who we are</h2>

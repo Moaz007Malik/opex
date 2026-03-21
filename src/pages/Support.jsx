@@ -60,7 +60,7 @@ export function Support() {
         viewport={{ once: true, margin: '-80px 0px' }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
       >
-        <div className="max-w-4xl mx-auto px-6 text-center">
+        <div className="max-w-[1400px] mx-auto px-6 text-center">
 
           <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
             SUPPORT
@@ -70,7 +70,7 @@ export function Support() {
             How Can We Help?
           </h1>
 
-          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+          <p className="text-lg text-text-secondary max-w-[1400px] mx-auto">
             Find answers to common questions or get in touch with the OpEx6 team directly.
           </p>
 
@@ -116,8 +116,8 @@ export function Support() {
 
       {/* GET IN TOUCH */}
       <Section className="bg-secondary">
-        <div className="max-w-6xl mx-auto">
-          <div className="max-w-3xl">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="max-w-[1400px]">
             <h2 className="text-3xl lg:text-4xl font-bold text-text-primary mb-4">
               Still need help?
             </h2>

@@ -46,7 +46,7 @@ export function UseCases() {
         viewport={{ once: true, margin: '-80px 0px' }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
       >
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-[1400px] mx-auto px-6">
 
           <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
             ANONYMISED ILLUSTRATIVE CUSTOMER USE CASES
@@ -60,7 +60,7 @@ export function UseCases() {
             See how OpEx6 is designed to help manufacturing leaders turn siloed operational data into structured visibility, faster decisions, and measurable financial outcomes.
           </p>
 
-          <p className="text-sm text-text-secondary max-w-3xl italic">
+          <p className="text-sm text-text-secondary max-w-[1400px] italic">
             These are anonymised illustrative customer use cases based on common manufacturing scenarios. They are provided for general information and do not represent a named customer endorsement or guarantee of results.
           </p>
 
@@ -112,7 +112,7 @@ export function UseCases() {
 
       {/* FINAL CTA */}
       <Section className="bg-background">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-[1400px] mx-auto text-center">
           <p className="text-lg text-text-secondary mb-6">
             Interested in how the Exec App could support visibility and decision-making across your manufacturing operations?
           </p>

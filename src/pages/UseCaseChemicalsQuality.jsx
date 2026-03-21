@@ -23,7 +23,7 @@ export function UseCaseChemicalsQuality() {
         viewport={{ once: true, margin: '-80px 0px' }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
       >
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-[1400px] mx-auto px-6">
 
           <p className="text-accent text-sm font-semibold uppercase tracking-wider mb-3">
             ANONYMISED ILLUSTRATIVE CUSTOMER USE CASE
@@ -55,7 +55,7 @@ export function UseCaseChemicalsQuality() {
 
       <Section>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-[1400px] mx-auto">
 
 
           {/* QUOTE */}

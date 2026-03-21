@@ -35,7 +35,7 @@ export function Contact() {
         viewport={{ once: true, margin: '-80px 0px' }}
         transition={{ duration: 0.7, ease: 'easeOut' }}
       >
-        <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+        <div className="relative max-w-[1400px] mx-auto px-6 grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
 
           <div className="lg:col-span-5">
             <p className="text-sm uppercase tracking-[0.22em] text-accent font-semibold mb-4">

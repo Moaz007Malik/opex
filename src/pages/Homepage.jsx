@@ -317,9 +317,9 @@ export function Homepage() {
         {/* Subtle background accent */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(148,163,184,0.15),transparent_60%)] pointer-events-none" />
 
-        <div className="relative max-w-7xl mx-auto px-6">
+        <div className="relative max-w-[1400px] mx-auto px-6">
           {/* Top header */}
-          <div className="max-w-3xl mb-14">
+          <div className="max-w-[1400px] mb-14">
             {/* Eyebrow label */}
             <p className="text-accent text-sm sm:text-base font-semibold uppercase tracking-[0.2em] mb-4">
               Manufacturing exec app · Early access
@@ -465,9 +465,9 @@ export function Homepage() {
         {/* Background */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.18),transparent_60%)]" />
 
-        <div className="relative max-w-6xl mx-auto px-6">
+        <div className="relative max-w-[1400px] mx-auto px-6">
           {/* Header */}
-          <div className="text-center mb-14 max-w-3xl mx-auto">
+          <div className="text-center mb-14 max-w-[1400px] mx-auto">
             <p className="text-base uppercase tracking-[0.22em] text-text-secondary mb-3">
               Objection handling
             </p>
@@ -517,7 +517,7 @@ export function Homepage() {
             </div>
           </div>
 
-          <p className="text-center text-text-primary text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed font-medium">
+          <p className="text-center text-text-primary text-xl lg:text-2xl max-w-[1400px] mx-auto leading-relaxed font-medium">
             OpEx6 is not a replacement for tools like Power BI or Tableau. It sits above them as a structured, manufacturing-specific operating layer focused on leadership decisions.
           </p>
         </div>
@@ -525,7 +525,7 @@ export function Homepage() {
 
       {/* Section 1.2b — Built by people who have lived the problem */}
       <Section className="bg-secondary">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-14">
             <p className="text-sm uppercase tracking-[0.2em] text-accent font-semibold mb-3">
               Why we&apos;re building this
@@ -533,7 +533,7 @@ export function Homepage() {
             <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary">
               Built by people who have lived the problem
             </h2>
-            <p className="text-text-primary mt-4 max-w-3xl mx-auto text-xl lg:text-2xl leading-relaxed font-medium">
+            <p className="text-text-primary mt-4 max-w-[1400px] mx-auto text-xl lg:text-2xl leading-relaxed font-medium">
               We&apos;ve sat in plant reviews and board packs where the hardest part isn&apos;t charts — it&apos;s agreeing the right number, at the right level, early enough to act.
             </p>
           </div>
@@ -577,9 +577,9 @@ export function Homepage() {
         viewport={{ once: true, margin: "-80px 0px" }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-[1400px] mx-auto px-6">
           {/* Section intro */}
-          <div className="max-w-3xl mx-auto text-center mb-12">
+          <div className="max-w-[1400px] mx-auto text-center mb-12">
             <p className="text-sm uppercase tracking-[0.2em] text-accent font-semibold mb-3">
               Product structure
             </p>
@@ -630,7 +630,7 @@ export function Homepage() {
         transition={{ duration: 0.65, ease: "easeOut" }}
       >
 
-        <div className="relative max-w-4xl mx-auto px-6 text-center">
+        <div className="relative max-w-[1400px] mx-auto px-6 text-center">
           {/* Headline */}
           <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary mb-5 leading-tight">
             Early access to the Exec App is limited
@@ -662,7 +662,7 @@ export function Homepage() {
           </div>
 
           {/* Disclaimer */}
-          <p className="text-sm text-text-secondary mt-6 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm text-text-secondary mt-6 max-w-[1400px] mx-auto leading-relaxed">
             No payment required at this stage. Final features, pricing, and
             availability may change before general release.
           </p>
@@ -671,7 +671,7 @@ export function Homepage() {
 
       {/* Section 1.3 — Sectors We Focus On */}
       <Section>
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-[1400px] mx-auto">
           {/* Header */}
           <div className="text-center mb-14">
             <p className="text-sm uppercase tracking-[0.2em] text-accent font-semibold mb-3">
@@ -680,7 +680,7 @@ export function Homepage() {
             <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary leading-tight">
               Built for complex manufacturing environments
             </h2>
-            <p className="text-text-primary mt-4 max-w-2xl mx-auto text-xl leading-relaxed font-medium">
+            <p className="text-text-primary mt-4 max-w-[1400px] mx-auto text-xl leading-relaxed font-medium">
               Designed for operations where margin, throughput, and cost control must be
               understood in real time.
             </p>
@@ -720,13 +720,13 @@ export function Homepage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.35),transparent_60%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(148,163,184,0.25),transparent_70%)]" />
 
-        <div className="relative max-w-5xl mx-auto px-6">
+        <div className="relative max-w-[1400px] mx-auto px-6">
           {/* Header */}
           <div className="text-center mb-16">
             <p className="text-sm uppercase tracking-[0.25em] text-accent mb-4 font-semibold">
               Reality check
             </p>
-            <h2 className="text-4xl lg:text-5xl font-semibold leading-tight max-w-3xl mx-auto text-text-primary">
+            <h2 className="text-4xl lg:text-5xl font-semibold leading-tight max-w-[1400px] mx-auto text-text-primary">
               Most manufacturing leaders still cannot answer these questions
               <span className="text-text-secondary"> fast enough</span>
             </h2>
@@ -786,7 +786,7 @@ export function Homepage() {
           <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-10" />
 
           {/* Closing */}
-          <p className="text-center text-text-secondary text-base max-w-2xl mx-auto leading-relaxed">
+          <p className="text-center text-text-secondary text-base max-w-[1400px] mx-auto leading-relaxed">
             OpEx6 is being built to replace fragmented visibility with a
             structured, consistent operating layer — so these questions can be
             answered in minutes, not weeks.
@@ -796,7 +796,7 @@ export function Homepage() {
 
       {/* Section 1.3c — Hidden Cost Leakage */}
       <Section className="bg-secondary">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-[1400px] mx-auto">
           {/* Header */}
           <div className="text-center mb-14">
             <p className="text-sm uppercase tracking-[0.2em] text-accent font-semibold mb-3">
@@ -850,7 +850,7 @@ export function Homepage() {
           </div>
 
           {/* Closing */}
-          <p className="text-center text-text-secondary text-base max-w-3xl mx-auto">
+          <p className="text-center text-text-secondary text-base max-w-[1400px] mx-auto">
             OpEx6 is being built to expose hidden cost leakage before it becomes
             accepted normality.
           </p>
@@ -860,7 +860,7 @@ export function Homepage() {
       {/* Section 1.4 — Problem / Solution Table */}
       <Section className="bg-background">
         {/* Header */}
-        <div className="text-center mb-14 max-w-3xl mx-auto">
+        <div className="text-center mb-14 max-w-[1400px] mx-auto">
           <p className="text-accent text-sm uppercase tracking-[0.2em] font-semibold mb-3">
             Why operational intelligence matters
           </p>
@@ -870,7 +870,7 @@ export function Homepage() {
         </div>
 
         {/* Grid */}
-        <div className="max-w-5xl mx-auto space-y-6">
+        <div className="max-w-[1400px] mx-auto space-y-6">
           {PROBLEM_SOLUTION.map((row, i) => (
             <div
               key={i}
@@ -903,7 +903,7 @@ export function Homepage() {
       {/* Section 1.5 — Product Feature Overview (3 cards) */}
       <Section className="bg-secondary">
         {/* Header */}
-        <div className="text-center mb-16 max-w-3xl mx-auto">
+        <div className="text-center mb-16 max-w-[1400px] mx-auto">
           <p className="text-accent text-sm uppercase tracking-[0.2em] font-semibold mb-3">
             What the Exec App delivers
           </p>
@@ -916,7 +916,7 @@ export function Homepage() {
         </div>
 
         {/* Cards */}
-        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 max-w-[1400px] mx-auto">
           {FEATURE_CARDS.map((card, i) => (
             <div
               key={i}
@@ -993,7 +993,7 @@ export function Homepage() {
       {/* Section 1.6 — How It Works (3 Steps) */}
       <Section className="bg-background">
         {/* Header */}
-        <div className="text-center mb-16 max-w-3xl mx-auto">
+        <div className="text-center mb-16 max-w-[1400px] mx-auto">
           <p className="text-accent text-sm uppercase tracking-[0.2em] font-semibold mb-3">
             How it works
           </p>
@@ -1006,7 +1006,7 @@ export function Homepage() {
         </div>
 
         {/* Steps */}
-        <div className="relative max-w-6xl mx-auto">
+        <div className="relative max-w-[1400px] mx-auto">
           {/* Connector line */}
           <div className="hidden md:block absolute top-6 left-0 right-0 h-px bg-border/40" />
 
@@ -1044,7 +1044,7 @@ export function Homepage() {
       {/* Section 1.7 — Why Leadership Teams Look for This */}
       <Section className="bg-secondary">
         {/* Header */}
-        <div className="text-center mb-14 max-w-3xl mx-auto">
+        <div className="text-center mb-14 max-w-[1400px] mx-auto">
           <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary leading-tight">
             What typically triggers the search for operational intelligence
           </h2>
@@ -1054,7 +1054,7 @@ export function Homepage() {
         </div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1400px] mx-auto">
           {LEADERSHIP_CHALLENGES.map((c, i) => (
             <div
               key={i}
@@ -1129,7 +1129,7 @@ export function Homepage() {
             Illustrative customer use cases showing how operational visibility
             can improve margin, cash, and decision speed.
           </p>
-          <p className="text-text-secondary text-sm max-w-3xl mx-auto">
+          <p className="text-text-secondary text-sm max-w-[1400px] mx-auto">
             All third-party names, trade marks, and logos are the property of
             their respective owners and are used for identification purposes
             only.

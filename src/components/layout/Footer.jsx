@@ -48,6 +48,8 @@ function FooterColumn({ title, links }) {
 }
 
 export function Footer() {
+  const year = new Date().getFullYear();
+
   return (
     <footer className="bg-background border-t border-border">
 
@@ -116,7 +118,7 @@ export function Footer() {
         <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-text-secondary text-center sm:text-left">
 
           <span>
-            © 2025 OpEx6 Technologies Ltd. All rights reserved.
+            © {year} OpEx6 Technologies Ltd. All rights reserved.
           </span>
 
           <div className="flex gap-6">

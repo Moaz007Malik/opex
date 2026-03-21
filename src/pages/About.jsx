@@ -39,7 +39,7 @@ export function About() {
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(148,163,184,0.25),transparent_65%)] pointer-events-none" />
 
-        <div className="relative max-w-6xl mx-auto px-6">
+        <div className="relative max-w-[1400px] mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-10 items-start">
             {/* Left column */}
             <div>
@@ -76,12 +76,12 @@ export function About() {
       </motion.section>
 
       <Section className="py-20 lg:py-24">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-[1400px] mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-text-primary">
               Built by people who have lived the problem.
             </h2>
-            <p className="text-text-secondary mt-4 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-text-secondary mt-4 max-w-[1400px] mx-auto leading-relaxed">
               The goal is simple: make executive operational visibility repeatable, structured, and decision-ready — without rebuilding reporting every quarter.
             </p>
           </div>
@@ -119,8 +119,8 @@ export function About() {
 
       {/* Why OpEx6 vs generic BI */}
       <Section className="py-20 lg:py-24">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="max-w-3xl mx-auto text-center mb-14">
+        <div className="max-w-[1400px] mx-auto px-6">
+          <div className="max-w-[1400px] mx-auto text-center mb-14">
             <h2 className="text-3xl lg:text-4xl font-bold text-text-primary leading-tight">
               Why OpEx6 instead of a generic BI tool?
             </h2>
@@ -168,7 +168,7 @@ export function About() {
 
       {/* How we think */}
       <Section className="py-20 lg:py-24">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-[1400px] mx-auto px-6">
           <h2 className="text-3xl lg:text-4xl font-bold text-text-primary text-center mb-14">
             How we think about building OpEx6.
           </h2>
