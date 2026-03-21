@@ -1,3 +1,5 @@
+import { EARLY_ACCESS, KPI_FRAMEWORK } from '../config/siteCopy.js';
+
 /** FAQ groups for the FAQ page. Section 10.2 — grouped by topic. */
 export const faqGroups = [
   {
@@ -33,8 +35,8 @@ export const faqGroups = [
         a: 'Registering interest tells us that your business is interested in the Exec App. You will be contacted ahead of launch with early access details, commercial information, and the pre-launch offer.',
       },
       {
-        q: 'What is the £50 for 50 credits + 25 free credits offer?',
-        a: 'Early registrants will be eligible for an introductory launch offer — 100 credits for £50 — when the Exec App opens to early users. This is a pre-launch eligibility registration. No payment is taken now. Subject to final launch terms.',
+        q: `What is the ${EARLY_ACCESS.OFFER_CORE} pre-launch offer?`,
+        a: `Early registrants will be eligible for an introductory launch offer — ${EARLY_ACCESS.OFFER_CORE} — when the Exec App opens to early users. This is a pre-launch eligibility registration. No payment is taken now. Subject to final launch terms.`,
       },
       {
         q: 'Do I need to pay anything to register my interest?',
@@ -51,7 +53,7 @@ export const faqGroups = [
     items: [
       {
         q: 'How many KPIs does the Exec App include?',
-        a: 'The Exec App is being built around 15 KPI categories and over 100 individual KPI metrics. You can explore the full planned KPI framework on the KPIs & Dashboards page.',
+        a: KPI_FRAMEWORK.FAQ_KPI_COUNT,
       },
       {
         q: 'Can OpEx6 help show which products or processes are eroding margin?',

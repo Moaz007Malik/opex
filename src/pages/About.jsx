@@ -49,10 +49,10 @@ export function About() {
               <h1 className="text-4xl sm:text-5xl font-bold text-text-primary leading-tight mb-6">
                 We built OpEx6 because too many manufacturing leaders are forced to run critical decisions on fragmented reports, spreadsheets, and delayed operational data.
               </h1>
-              <p className="text-base sm:text-lg text-text-secondary leading-relaxed mb-5">
+              <p className="text-lg sm:text-xl text-text-primary leading-relaxed mb-5">
                 The result is slow escalation of issues, inconsistent site comparisons, and leadership conversations that arrive days or weeks after the losses have already happened. OpEx6 is being built to give manufacturing leaders a single, structured operating view they can actually use.
               </p>
-              <p className="text-sm text-text-muted">
+              <p className="text-lg text-text-primary leading-relaxed">
                 OpEx6 is currently in pre-launch / early-access phase. Product features, screenshots, integrations, availability, and pricing may change before general release.
               </p>
             </div>
@@ -63,10 +63,10 @@ export function About() {
                 <div className="text-accent text-sm uppercase tracking-[0.2em] font-semibold">
                   OPERATIONAL VISIBILITY FOCUS
                 </div>
-                <p className="text-base text-text-secondary leading-relaxed">
+                <p className="text-lg text-text-primary leading-relaxed">
                   In many manufacturing businesses, plant teams work hard to generate reports — OEE, downtime, scrap, safety, margin — but by the time those reports reach executives, they are often out of date, inconsistent across sites, or trapped in slide decks that are difficult to act on.
                 </p>
-                <p className="text-base text-text-secondary leading-relaxed">
+                <p className="text-lg text-text-primary leading-relaxed">
                   Leaders are left stitching together shop-floor data, finance summaries, and anecdotal feedback to answer basic questions: Where are we losing margin? Which sites are underperforming? How much capacity is tied up in downtime, changeovers, and WIP? OpEx6 exists to make those questions faster and easier to answer.
                 </p>
               </Card>
@@ -81,35 +81,35 @@ export function About() {
             <h2 className="text-3xl lg:text-4xl font-bold text-text-primary">
               Built by people who have lived the problem.
             </h2>
-            <p className="text-text-secondary mt-4 max-w-[1400px] mx-auto leading-relaxed">
+            <p className="text-text-primary text-lg mt-4 max-w-[1400px] mx-auto leading-relaxed">
               The goal is simple: make executive operational visibility repeatable, structured, and decision-ready — without rebuilding reporting every quarter.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-3 gap-6">
             <Card className="bg-card-bg border border-border rounded-2xl p-6 shadow-sm">
-              <h3 className="text-sm uppercase tracking-[0.18em] text-text-secondary font-semibold mb-4">
+              <h3 className="text-base uppercase tracking-[0.18em] text-text-primary font-semibold mb-4">
                 01 — LIVED EXPERIENCE:
               </h3>
-              <p className="text-text-primary leading-relaxed">
+              <p className="text-text-primary text-lg leading-relaxed">
                 OpEx6 was started by people who have spent years working with manufacturing leadership teams — in plant reviews, board packs, and continuous-improvement programmes — trying to answer the same questions with spreadsheets, exports, and manually assembled reports.
               </p>
             </Card>
 
             <Card className="bg-card-bg border border-border rounded-2xl p-6 shadow-sm">
-              <h3 className="text-sm uppercase tracking-[0.18em] text-text-secondary font-semibold mb-4">
+              <h3 className="text-base uppercase tracking-[0.18em] text-text-primary font-semibold mb-4">
                 02 — SEEN THE FAILURE MODES:
               </h3>
-              <p className="text-text-primary leading-relaxed">
+              <p className="text-text-primary text-lg leading-relaxed">
                 We have seen operations reviews where half the meeting is spent debating which number is correct. We have seen CI and engineering teams struggle to prove the impact of their work because the data is scattered. We have seen finance teams trying to connect operational decisions to margin with tools that were never designed for it.
               </p>
             </Card>
 
             <Card className="bg-card-bg border border-border rounded-2xl p-6 shadow-sm">
-              <h3 className="text-sm uppercase tracking-[0.18em] text-text-secondary font-semibold mb-4">
+              <h3 className="text-base uppercase tracking-[0.18em] text-text-primary font-semibold mb-4">
                 03 — BUILDING THE ALTERNATIVE:
               </h3>
-              <p className="text-text-primary leading-relaxed">
+              <p className="text-text-primary text-lg leading-relaxed">
                 OpEx6 is being built as the platform we wished those teams had: one structured operating view that connects performance, downtime, quality, safety, and margin drivers — in a format that executives, plant leaders, and finance teams can all work from.
               </p>
             </Card>
@@ -131,7 +131,7 @@ export function About() {
               <h3 className="font-semibold text-2xl text-text-primary mb-3">
                 Structured for manufacturing KPIs out of the box
               </h3>
-              <p className="text-text-primary text-lg leading-relaxed font-medium">
+              <p className="text-text-primary text-xl leading-relaxed font-medium">
                 Traditional BI tools give you building blocks. OpEx6 is being designed with manufacturing KPI categories, definitions, and dashboard structures baked in.
               </p>
             </Card>
@@ -140,7 +140,7 @@ export function About() {
               <h3 className="font-semibold text-2xl text-text-primary mb-3">
                 Built for executive and plant reviews
               </h3>
-              <p className="text-text-primary text-lg leading-relaxed font-medium">
+              <p className="text-text-primary text-xl leading-relaxed font-medium">
                 OpEx6 is focused on the views leadership teams use in weekly, monthly, and board reviews — multi-site comparisons and exception lists.
               </p>
             </Card>
@@ -149,7 +149,7 @@ export function About() {
               <h3 className="font-semibold text-2xl text-text-primary mb-3">
                 Operational-commercial linkage
               </h3>
-              <p className="text-text-primary text-lg leading-relaxed font-medium">
+              <p className="text-text-primary text-xl leading-relaxed font-medium">
                 Connect operational signals like downtime and scrap to margin and financial impact.
               </p>
             </Card>
@@ -158,7 +158,7 @@ export function About() {
               <h3 className="font-semibold text-2xl text-text-primary mb-3">
                 Opinionated structure
               </h3>
-              <p className="text-text-primary text-lg leading-relaxed font-medium">
+              <p className="text-text-primary text-xl leading-relaxed font-medium">
                 Executives, plant leaders, and finance teams all view the same metrics in the same way.
               </p>
             </Card>
@@ -182,7 +182,7 @@ export function About() {
                 <h3 className="font-semibold text-2xl text-text-primary mb-2">
                   {v.title} —
                 </h3>
-                <p className="text-text-primary text-lg leading-relaxed font-medium">
+                <p className="text-text-primary text-xl leading-relaxed font-medium">
                   {v.body}
                 </p>
               </Card>

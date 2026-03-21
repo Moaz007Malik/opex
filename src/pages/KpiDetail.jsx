@@ -2,14 +2,7 @@ import { useMemo } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useParams } from 'react-router-dom';
 import { kpiCategories } from '../data/kpis';
-
-function slugify(value) {
-  return String(value || '')
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-}
+import { slugify } from '../utils/slugify.js';
 
 export function KpiDetail() {
   const { categoryId, kpiSlug } = useParams();
@@ -39,7 +32,7 @@ export function KpiDetail() {
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="mb-6">
             <Link
-              to="/kpis-dashboards"
+              to="/kpis"
               className="text-accent hover:underline underline-offset-4"
             >
               Back to KPI catalogue
@@ -48,32 +41,32 @@ export function KpiDetail() {
 
           {!category || !kpi ? (
             <div className="border border-border rounded-2xl bg-card-bg p-6">
-              <p className="text-lg font-semibold text-text-primary">
+              <p className="text-xl font-semibold text-text-primary">
                 KPI not found
               </p>
-              <p className="text-text-secondary mt-2">
+              <p className="text-text-primary text-lg mt-2">
                 The KPI you’re looking for doesn’t exist (or the link is
                 incorrect).
               </p>
             </div>
           ) : (
             <div className="border border-border rounded-2xl bg-card-bg p-6 sm:p-8">
-              <p className="text-sm uppercase tracking-[0.18em] text-text-secondary font-semibold mb-2">
+              <p className="text-base uppercase tracking-[0.18em] text-text-primary font-semibold mb-2">
                 {category.name}
               </p>
               <h1 className="text-4xl font-bold text-text-primary leading-tight mb-4">
                 {kpi.name}
               </h1>
 
-              <p className="text-text-secondary text-lg leading-relaxed mb-6">
+              <p className="text-text-primary text-xl leading-relaxed mb-6">
                 {kpi.definition}
               </p>
 
               <div className="space-y-3">
-                <p className="text-sm uppercase tracking-[0.18em] text-text-secondary font-semibold mb-1">
+                <p className="text-base uppercase tracking-[0.18em] text-text-primary font-semibold mb-1">
                   Why it matters
                 </p>
-                <p className="text-text-primary text-base leading-relaxed">
+                <p className="text-text-primary text-lg leading-relaxed">
                   {kpi.why ||
                     category.leadershipQuestion ||
                     'Helps leadership turn operational signals into faster, more consistent decisions.'}

@@ -39,12 +39,12 @@ function FaqAccordionItem({ item, isOpen, onToggle }) {
         onClick={onToggle}
         className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-background/70 transition"
       >
-        <span className="font-medium text-text-primary">
+        <span className="text-lg font-medium text-text-primary pr-3">
           {item.q}
         </span>
 
         <svg
-          className={`w-5 h-5 text-text-secondary transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          className={`w-5 h-5 shrink-0 text-text-primary transition-transform ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -55,7 +55,7 @@ function FaqAccordionItem({ item, isOpen, onToggle }) {
       </button>
 
       {isOpen && (
-        <div className="px-6 pb-5 text-sm text-text-secondary">
+        <div className="px-6 pb-5 text-lg text-text-primary leading-relaxed">
           {formatAnswer(item.a)}
         </div>
       )}
@@ -90,7 +90,7 @@ export function FAQ() {
               Frequently Asked Questions
             </h1>
 
-            <p className="text-text-secondary">
+            <p className="text-text-primary text-xl max-w-3xl">
               Answers to common questions about the Exec App, early access, integrations, and pricing.
             </p>
 
@@ -108,7 +108,7 @@ export function FAQ() {
 
             <div key={gi}>
 
-              <h2 className="text-xl font-bold text-text-primary mb-4">
+              <h2 className="text-2xl font-bold text-text-primary mb-4">
                 {group.title}
               </h2>
 

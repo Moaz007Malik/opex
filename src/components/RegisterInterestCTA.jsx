@@ -1,4 +1,5 @@
 import { Button } from "./ui/Button";
+import { EARLY_ACCESS } from "../config/siteCopy.js";
 
 export function RegisterInterestCTA() {
   return (
@@ -13,10 +14,8 @@ export function RegisterInterestCTA() {
             Ready to learn more?
           </h2>
 
-          <p className="text-text-secondary mb-8 max-w-[1400px] mx-auto leading-relaxed">
-            Register your interest now to be among the first to access the Exec App when it
-            opens to early users. Early registrants are eligible for our pre-launch offer — 100
-            credits for £50, subject to final launch terms.
+          <p className="text-text-primary mb-8 max-w-[1400px] mx-auto leading-relaxed text-lg">
+            {EARLY_ACCESS.CTA_PARAGRAPH}
           </p>
 
           <div className="flex justify-center">
@@ -28,7 +27,7 @@ export function RegisterInterestCTA() {
             </Button>
           </div>
 
-          <p className="text-text-muted text-sm mt-6 max-w-[1400px] mx-auto leading-relaxed">
+          <p className="text-text-primary text-sm mt-6 max-w-[1400px] mx-auto leading-relaxed">
             This is a pre-launch registration. No payment is taken at this stage. You will be
             contacted with full details ahead of launch.
           </p>

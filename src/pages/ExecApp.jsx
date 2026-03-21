@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { Section } from "../components/Section";
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
+import { EARLY_ACCESS, KPI_FRAMEWORK } from "../config/siteCopy.js";
 
 const MOBILE_SLIDES = [
   {
@@ -112,9 +113,10 @@ export function ExecApp() {
             </h1>
 
             <p className="text-lg text-text-secondary mb-4">
-              The Exec App is being built around 130+ manufacturing KPIs across
-              12 dashboard areas — giving leaders a single, structured view of
-              performance, downtime, quality, safety, and margin.
+              The Exec App is being built around{" "}
+              {KPI_FRAMEWORK.MANUFACTURING_KPI_LINE} — giving leaders a single,
+              structured view of performance, downtime, quality, safety, and
+              margin.
             </p>
 
             <p className="text-sm text-text-secondary mb-8">
@@ -128,8 +130,7 @@ export function ExecApp() {
                 Register interest in the Exec App
               </Button>
               <div className="rounded-lg bg-highlight/10 text-highlight text-xs px-4 py-3 max-w-md">
-                Early Access Offer: Register now to secure eligibility for £50 for 50 credits + 25 free
-                credits at launch. Subject to final launch terms.
+                {EARLY_ACCESS.HERO_CTA_LINE}
               </div>
             </div>
           </div>
@@ -152,10 +153,10 @@ export function ExecApp() {
                 </h2>
                 <div className="mt-3 flex flex-wrap gap-2 text-xs">
                   <span className="inline-flex items-center px-2.5 py-1 rounded-full border border-border bg-background/40 text-text-secondary">
-                    12 dashboard areas
+                    {KPI_FRAMEWORK.DASHBOARD_AREAS_SHORT}
                   </span>
                   <span className="inline-flex items-center px-2.5 py-1 rounded-full border border-border bg-background/40 text-text-secondary">
-                    130+ KPIs
+                    {KPI_FRAMEWORK.KPI_SHORT}
                   </span>
                   <span className="inline-flex items-center px-2.5 py-1 rounded-full border border-border bg-background/40 text-text-secondary">
                     Multi-site rollups
@@ -312,7 +313,7 @@ export function ExecApp() {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className="text-3xl font-bold text-text-primary mb-4">
-            130+ manufacturing KPIs across 12 dashboard areas.
+            {KPI_FRAMEWORK.MANUFACTURING_KPI_LINE}.
           </h2>
           <p className="text-text-secondary mb-6">
             Instead of starting from a blank BI canvas, the Exec App is being

@@ -167,7 +167,7 @@ export function Contact() {
                     }
                     placeholder="Share your context (sites, KPI areas, what you use today, and what 'good' looks like)."
                     rows={6}
-                    className="w-full border border-border rounded-xl px-4 py-3 bg-background/40 text-text-primary placeholder-text-secondary focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/40 transition-colors resize-y leading-relaxed"
+                    className="w-full border border-border rounded-xl px-4 py-3 bg-background/40 text-text-primary placeholder:text-text-muted/90 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/40 transition-colors resize-y leading-relaxed"
                   />
                 </div>
 

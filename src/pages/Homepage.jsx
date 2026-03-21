@@ -10,6 +10,7 @@ import { Checkbox } from "../components/ui/Checkbox";
 import { HeroDashboardMockup } from "../components/HeroDashboardMockup";
 import { useForm } from "@formspree/react";
 import { FORMSPREE_FORM_ID } from "../config/formspree";
+import { EARLY_ACCESS, KPI_FRAMEWORK } from "../config/siteCopy.js";
 
 const SECTORS = [
   {
@@ -88,9 +89,9 @@ const FEATURE_CARDS = [
     copy: "Track every metric that matters — OEE, throughput, yield, margin, downtime, safety — within a single structured dashboard framework. Designed to give leadership consistent, accessible operational visibility.",
   },
   {
-    title: "15 KPI Categories, 100+ Metrics",
+    title: KPI_FRAMEWORK.CATEGORIES_METRICS_TITLE,
     icon: "grid",
-    copy: "From Production and Quality to Sustainability and Commercial Performance, the Exec App is structured to support every dimension of operational intelligence your leadership team needs.",
+    copy: KPI_FRAMEWORK.CATEGORIES_METRICS_COPY,
   },
   {
     title: "Exportable Operational Reporting",
@@ -364,8 +365,10 @@ export function Homepage() {
               <li className="flex items-start gap-3">
                 <span className="mt-[7px] h-1.5 w-1.5 rounded-full bg-accent shrink-0" />
                 <span>
-                  <span className="text-text-primary font-semibold">130+ KPIs</span>{" "}
-                  across 12 dashboard areas
+                  <span className="text-text-primary font-semibold">
+                    {KPI_FRAMEWORK.KPI_SHORT}
+                  </span>{" "}
+                  across {KPI_FRAMEWORK.DASHBOARD_AREAS_SHORT}
                 </span>
               </li>
               <li className="flex items-start gap-3">
@@ -400,8 +403,8 @@ export function Homepage() {
 
               {/* Trust strip */}
               <div className="mt-6 flex flex-wrap gap-4 text-base text-text-secondary">
-                <span>130+ KPIs</span>
-                <span>12 dashboard areas</span>
+                <span>{KPI_FRAMEWORK.KPI_SHORT}</span>
+                <span>{KPI_FRAMEWORK.DASHBOARD_AREAS_SHORT}</span>
                 <span>Multi-site ready</span>
                 <span>Executive reporting layer</span>
               </div>
@@ -426,7 +429,7 @@ export function Homepage() {
 
               {/* Offer highlight */}
               <div className="mb-5 rounded-lg bg-highlight/10 text-highlight text-base px-4 py-3 font-medium">
-                Early Access Offer: Register now to secure eligibility for £50 for 50 credits + 25 free credits at launch
+                {EARLY_ACCESS.HERO_CTA_LINE}
               </div>
 
                 {/* Form */}
@@ -492,7 +495,7 @@ export function Homepage() {
               <p className="text-text-primary text-xl leading-relaxed font-medium">
                 Exec App is structured around{" "}
                 <span className="font-semibold text-text-primary">
-                  130+ KPIs across 12 dashboard areas
+                  {KPI_FRAMEWORK.KPI_SHORT} across {KPI_FRAMEWORK.DASHBOARD_AREAS_SHORT}
                 </span>
                 , so sites don&apos;t drift into different templates, definitions, and rollups.
               </p>
@@ -584,8 +587,7 @@ export function Homepage() {
               Product structure
             </p>
             <h2 className="text-3xl lg:text-4xl font-semibold text-text-primary leading-tight">
-              130+ manufacturing KPIs across 12 dashboard areas — as one
-              operational layer
+              {KPI_FRAMEWORK.MANUFACTURING_KPI_LINE} — as one operational layer
             </h2>
           </div>
 
@@ -593,7 +595,9 @@ export function Homepage() {
           <div className="grid md:grid-cols-3 gap-6">
             {/* Card 1 */}
             <div className="bg-card-bg border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition">
-              <p className="text-4xl font-semibold text-text-primary mb-3">12</p>
+              <p className="text-4xl font-semibold text-text-primary mb-3">
+                {KPI_FRAMEWORK.DASHBOARD_AREAS_COUNT}
+              </p>
               <p className="text-lg text-text-primary leading-relaxed">
                 Structured dashboard areas aligned to executive, plant, and
                 multi-site reviews
@@ -602,7 +606,9 @@ export function Homepage() {
 
             {/* Card 2 */}
             <div className="bg-card-bg border border-border rounded-2xl p-6 shadow-sm hover:shadow-md transition">
-              <p className="text-4xl font-semibold text-text-primary mb-3">130+</p>
+              <p className="text-4xl font-semibold text-text-primary mb-3">
+                {KPI_FRAMEWORK.KPI_COUNT_LABEL}
+              </p>
               <p className="text-lg text-text-primary leading-relaxed">
                 Manufacturing KPIs across production, quality, maintenance,
                 safety, and margin
@@ -644,7 +650,7 @@ export function Homepage() {
 
           {/* Offer highlight */}
           <div className="inline-flex items-center justify-center px-5 py-3 rounded-xl bg-highlight/20 text-highlight font-medium text-base mb-8">
-            £50 for 50 credits + 25 free credits at launch
+            {EARLY_ACCESS.OFFER_PROMO_LINE}
           </div>
 
           {/* CTA */}

@@ -4,6 +4,7 @@ import { Section } from "../components/Section";
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
 import { HeroDashboardMockup } from "../components/HeroDashboardMockup";
+import { EARLY_ACCESS } from "../config/siteCopy.js";
 
 const SUPPORT_CARDS = [
   {
@@ -178,8 +179,7 @@ export function ExecApp() {
             </div>
 
             <div className="mt-6 rounded-lg bg-highlight/10 text-highlight px-4 py-3 max-w-[1400px] text-sm">
-              Early Access Offer: Register now to secure eligibility for 50 credits for
-              £50 + 25 free credits at launch. Subject to final launch terms.
+              {EARLY_ACCESS.HERO_CTA_LINE}
             </div>
           </div>
 

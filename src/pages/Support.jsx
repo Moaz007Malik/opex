@@ -70,7 +70,7 @@ export function Support() {
             How Can We Help?
           </h1>
 
-          <p className="text-lg text-text-secondary max-w-[1400px] mx-auto">
+          <p className="text-xl text-text-primary max-w-[1400px] mx-auto leading-relaxed">
             Find answers to common questions or get in touch with the OpEx6 team directly.
           </p>
 
@@ -94,11 +94,11 @@ export function Support() {
 
               <Card className="h-full border border-border rounded-xl p-6 bg-card-bg hover:shadow-md hover:border-accent transition-all">
 
-                <h3 className="font-semibold text-text-primary mb-2">
+                <h3 className="text-xl font-semibold text-text-primary mb-2">
                   {cat.title}
                 </h3>
 
-                <p className="text-text-secondary text-sm">
+                <p className="text-text-primary text-base leading-relaxed">
                   {cat.description}
                 </p>
 
@@ -121,10 +121,10 @@ export function Support() {
             <h2 className="text-3xl lg:text-4xl font-bold text-text-primary mb-4">
               Still need help?
             </h2>
-            <p className="text-base text-text-secondary leading-relaxed mb-2">
+            <p className="text-lg text-text-primary leading-relaxed mb-2">
               If you cannot find the answer you are looking for, send us a message and our team will respond as soon as possible.
             </p>
-            <p className="text-base text-text-secondary leading-relaxed">
+            <p className="text-lg text-text-primary leading-relaxed">
               Or email us directly at{" "}
               <a
                 href="mailto:sales@opex6.com"
@@ -134,6 +134,13 @@ export function Support() {
               </a>
               .
             </p>
+            <p className="text-lg text-text-primary leading-relaxed mt-3">
+              For a dedicated enquiry form, visit the{" "}
+              <Link to="/contact" className="text-accent hover:underline underline-offset-4">
+                Contact
+              </Link>{" "}
+              page.
+            </p>
           </div>
 
           <div className="mt-8 max-w-2xl">
@@ -141,7 +148,7 @@ export function Support() {
               {formState.succeeded ? (
                 <div className="bg-success/10 border border-success/40 rounded-xl p-6 text-text-primary">
                   <p className="font-medium text-lg">Message sent.</p>
-                  <p className="text-base text-text-secondary mt-2">
+                  <p className="text-lg text-text-primary mt-2 leading-relaxed">
                     We aim to respond to all enquiries within 1 business day.
                   </p>
                 </div>
@@ -191,7 +198,7 @@ export function Support() {
                   />
 
                   <div>
-                    <label className="block text-sm font-medium tracking-[0.1em] uppercase text-text-secondary mb-2">
+                    <label className="block text-base font-medium tracking-[0.1em] uppercase text-text-primary mb-2">
                       Message
                     </label>
                     <textarea
@@ -203,7 +210,7 @@ export function Support() {
                       }
                       placeholder="Your message"
                       rows={6}
-                      className="w-full border border-border rounded-xl px-4 py-3 bg-background/40 text-text-primary placeholder-text-secondary focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/40 transition-colors resize-y leading-relaxed"
+                      className="w-full border border-border rounded-xl px-4 py-3 bg-background/40 text-text-primary placeholder:text-text-muted/90 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/40 transition-colors resize-y leading-relaxed"
                     />
                   </div>
 
@@ -221,7 +228,7 @@ export function Support() {
                     >
                       {formState.submitting ? 'Sending…' : 'Send Message'}
                     </Button>
-                    <p className="text-text-secondary text-sm mt-3 text-center">
+                    <p className="text-text-primary text-base mt-3 text-center leading-relaxed">
                       We aim to respond to all enquiries within 1 business day.
                     </p>
                   </div>

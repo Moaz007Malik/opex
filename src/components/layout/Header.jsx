@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "../ui/Button";
+import { EARLY_ACCESS } from "../../config/siteCopy.js";
 
 const productLinks = [
   { to: "/exec-app", label: "Exec App" },
@@ -155,7 +156,7 @@ export function Header() {
           <div className="bg-secondary/30 border-b border-border/40">
             <div className="max-w-[1400px] mx-auto px-6 py-2 flex items-center justify-between gap-4 text-xs sm:text-sm text-text-primary">
               <p>
-                Pre-launch early access: 50 credits for £50 + 25 free credits at launch (subject to final terms). No payment taken today.
+                {EARLY_ACCESS.HEADER_BANNER}
               </p>
               <button
                 type="button"

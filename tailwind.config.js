@@ -24,12 +24,12 @@ export default {
         success: '#10B981',
         danger: '#EF4444',
 
-        // Text colors
+        // Text colors — body copy uses full white for maximum readability on dark UI
         'text-primary': '#FFFFFF',
-        // Body / secondary copy
-        'text-secondary': '#A0ADB8',
-        // Dimmer grey for disclaimers / small print
-        'text-muted': '#7B8A9B',
+        // Long-form / paragraph text (same as primary — easy to read)
+        'text-secondary': '#FFFFFF',
+        // Meta, captions, placeholders (softer than body, still readable)
+        'text-muted': '#B4C0CC',
 
         // Borders
         border: '#263244',
@@ -40,6 +40,10 @@ export default {
       },
 
       fontSize: {
+        // Body 18px; step up lg/xl for headings and long-form legal copy
+        base: ['1.125rem', { lineHeight: '1.65' }],
+        lg: ['1.25rem', { lineHeight: '1.6' }],
+        xl: ['1.375rem', { lineHeight: '1.55' }],
         hero: ['3.5rem', { lineHeight: '1.1' }],
         'hero-lg': ['4.5rem', { lineHeight: '1.1' }],
       },

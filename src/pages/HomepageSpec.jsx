@@ -6,6 +6,7 @@ import { Section } from "../components/Section";
 import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
 import { HeroDashboardMockup } from "../components/HeroDashboardMockup";
+import { EARLY_ACCESS, KPI_FRAMEWORK } from "../config/siteCopy.js";
 
 const SECTORS = [
   {
@@ -145,8 +146,8 @@ const DECISION_MAKING = [
     copy: "Track every KPI that matters — production, quality, downtime, safety, margin, and more — in a single, consistently formatted operational intelligence view.",
   },
   {
-    title: "15 KPI Categories, 100+ Metrics",
-    copy: "The Exec App is structured around a fixed manufacturing KPI framework. 15 KPI categories and 100+ individual metrics — structured so your leadership team always reads the same numbers.",
+    title: KPI_FRAMEWORK.CATEGORIES_METRICS_TITLE,
+    copy: KPI_FRAMEWORK.CATEGORIES_METRICS_COPY,
   },
   {
     title: "Exportable Operational Reporting",
@@ -273,15 +274,14 @@ export function HomepageSpec() {
               </p>
 
               <div className="inline-flex items-center px-5 py-2 rounded-lg bg-highlight/15 border border-highlight/30 text-highlight text-base font-semibold mb-6">
-                Early Access Offer: Register now to secure eligibility for 50
-                credits for £50 + 25 free credits at launch.
+                {EARLY_ACCESS.HERO_CTA_LINE}
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-text-primary leading-tight mb-5">
                 The Command Centre Manufacturing Leaders Have Been Looking For.
               </h1>
 
-              <p className="text-xl text-text-secondary leading-relaxed mb-6 max-w-[1400px]">
+              <p className="text-xl text-text-primary leading-relaxed mb-6 max-w-[1400px]">
                 OpEx6's Exec App is being built to give manufacturing leaders a
                 single, structured view of performance, production, quality,
                 downtime, margin, safety — all in one place, designed to support
@@ -301,7 +301,7 @@ export function HomepageSpec() {
                 </Button>
               </div>
 
-              <p className="text-sm text-text-muted mt-4 max-w-[1400px] leading-relaxed">
+              <p className="text-sm text-text-primary mt-4 max-w-[1400px] leading-relaxed">
                 OpEx6 is currently in pre-launch / early-access phase. Product
                 features, screenshots, integrations, availability, and pricing
                 may change before general release.
@@ -321,20 +321,24 @@ export function HomepageSpec() {
         <div className="max-w-[1400px] mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-6">
             <div className="rounded-lg border border-border/80 bg-background/35 p-6">
-              <p className="text-5xl font-bold text-text-primary mb-2">15+</p>
-              <p className="text-text-secondary text-lg leading-relaxed font-semibold">
+              <p className="text-5xl font-bold text-text-primary mb-2">
+                {KPI_FRAMEWORK.DASHBOARD_AREAS_COUNT}
+              </p>
+              <p className="text-text-primary text-lg leading-relaxed font-semibold">
                 KPI Categories — structured across a single dashboard framework
               </p>
             </div>
             <div className="rounded-lg border border-border/80 bg-background/35 p-6">
-              <p className="text-5xl font-bold text-text-primary mb-2">100+</p>
-              <p className="text-text-secondary text-lg leading-relaxed font-semibold">
+              <p className="text-5xl font-bold text-text-primary mb-2">
+                {KPI_FRAMEWORK.KPI_COUNT_LABEL}
+              </p>
+              <p className="text-text-primary text-lg leading-relaxed font-semibold">
                 Individual KPI metrics — built into the Exec App at launch
               </p>
             </div>
             <div className="rounded-lg border border-border/80 bg-background/35 p-6">
               <p className="text-5xl font-bold text-text-primary mb-2">1</p>
-              <p className="text-text-secondary text-lg leading-relaxed font-semibold">
+              <p className="text-text-primary text-lg leading-relaxed font-semibold">
                 Platform — designed to replace fragmented spreadsheets, reports,
                 and disconnected systems
               </p>
@@ -358,7 +362,7 @@ export function HomepageSpec() {
                 <h3 className="font-semibold text-xl text-text-primary mb-2">
                   {s.title}
                 </h3>
-                <p className="text-text-secondary text-lg leading-relaxed">
+                <p className="text-text-primary text-lg leading-relaxed">
                   {s.copy}
                 </p>
               </Card>
@@ -375,7 +379,7 @@ export function HomepageSpec() {
               Most manufacturing leaders still cannot answer these questions
               fast enough.
             </h2>
-            <p className="text-text-secondary text-xl mt-5 max-w-[1400px] mx-auto leading-relaxed">
+            <p className="text-text-primary text-xl mt-5 max-w-[1400px] mx-auto leading-relaxed">
               Most manufacturing businesses run on fragmented information.
               Operations has one view, finance has another, and plant managers
               are working from spreadsheets and gut feel. By the time a clear
@@ -390,7 +394,7 @@ export function HomepageSpec() {
                 <h3 className="font-semibold text-xl text-text-primary mb-2">
                   {c.title}:
                 </h3>
-                <p className="text-text-secondary text-lg leading-relaxed">
+                <p className="text-text-primary text-lg leading-relaxed">
                   {c.copy}
                 </p>
               </Card>
@@ -414,14 +418,14 @@ export function HomepageSpec() {
                 <h3 className="font-semibold text-xl text-text-primary mb-2">
                   {m.title}:
                 </h3>
-                <p className="text-text-secondary text-lg leading-relaxed">
+                <p className="text-text-primary text-lg leading-relaxed">
                   {m.copy}
                 </p>
               </Card>
             ))}
           </div>
 
-          <p className="text-center text-text-secondary text-xl italic mt-12 max-w-[1400px] mx-auto leading-relaxed">
+          <p className="text-center text-text-primary text-xl italic mt-12 max-w-[1400px] mx-auto leading-relaxed">
             OpEx6 is being built to expose hidden cost leakage before it becomes
             accepted normality.
           </p>
@@ -457,12 +461,12 @@ export function HomepageSpec() {
                 className="grid md:grid-cols-2 gap-0 border-t border-border/60"
               >
                 <div className="p-6 border-r border-border/60">
-                  <p className="text-text-secondary text-lg leading-relaxed">
+                  <p className="text-text-primary text-lg leading-relaxed">
                     {row.challenge}
                   </p>
                 </div>
                 <div className="p-6">
-                  <p className="text-text-secondary text-lg leading-relaxed">
+                  <p className="text-text-primary text-lg leading-relaxed">
                     {row.support}
                   </p>
                 </div>
@@ -480,7 +484,7 @@ export function HomepageSpec() {
               Why generic BI still leaves manufacturing leaders with visibility
               gaps.
             </h2>
-            <p className="text-text-secondary text-xl mt-5 leading-relaxed">
+            <p className="text-text-primary text-xl mt-5 leading-relaxed">
               Most manufacturing businesses already have ERP, MES, or some form
               of reporting. But having data is not the same as having
               visibility. Generic BI tools can build charts from that data but
@@ -499,7 +503,7 @@ export function HomepageSpec() {
                 <h3 className="font-semibold text-xl text-text-primary mb-2">
                   {c.title}:
                 </h3>
-                <p className="text-text-secondary text-lg leading-relaxed">
+                <p className="text-text-primary text-lg leading-relaxed">
                   {c.copy}
                 </p>
               </Card>
@@ -523,7 +527,7 @@ export function HomepageSpec() {
                 <h3 className="font-semibold text-xl text-text-primary mb-2">
                   {c.title}:
                 </h3>
-                <p className="text-text-secondary text-lg leading-relaxed">
+                <p className="text-text-primary text-lg leading-relaxed">
                   {c.copy}
                 </p>
               </Card>
@@ -550,7 +554,7 @@ export function HomepageSpec() {
                 <h3 className="font-semibold text-xl text-text-primary mb-2">
                   {s.title}
                 </h3>
-                <p className="text-text-secondary text-lg leading-relaxed">
+                <p className="text-text-primary text-lg leading-relaxed">
                   {s.copy}
                 </p>
               </Card>
@@ -560,7 +564,7 @@ export function HomepageSpec() {
           <div className="text-center mt-10">
             <Link
               to="/how-it-works"
-              className="text-text-secondary hover:text-accent underline underline-offset-4"
+              className="text-text-primary hover:text-accent underline underline-offset-4"
             >
               See the full How It Works
             </Link>
@@ -580,7 +584,7 @@ export function HomepageSpec() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {FAQ_QUESTIONS.map((q) => (
               <Card key={q.quote} className="border-border bg-card-bg">
-                <p className="text-text-secondary text-lg leading-relaxed italic mb-4">
+                <p className="text-text-primary text-lg leading-relaxed italic mb-4">
                   “{q.quote}”
                 </p>
                 <Link
@@ -619,12 +623,12 @@ export function HomepageSpec() {
                     />
                   ) : (
                     <div className="h-10 flex items-center justify-center">
-                      <span className="text-text-secondary text-sm font-semibold text-center">
+                      <span className="text-text-primary text-sm font-semibold text-center">
                         {item.label}
                       </span>
                     </div>
                   )}
-                  <span className="text-text-secondary text-sm font-semibold text-center">
+                  <span className="text-text-primary text-sm font-semibold text-center">
                     {item.label}
                   </span>
                 </div>
@@ -632,7 +636,7 @@ export function HomepageSpec() {
             </div>
           </div>
 
-          <p className="text-text-secondary text-lg text-center mt-6">
+          <p className="text-text-primary text-lg text-center mt-6">
             Integration availability and scope depends on implementation.
             Contact us to discuss your systems environment.
           </p>

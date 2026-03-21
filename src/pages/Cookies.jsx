@@ -26,48 +26,48 @@ export function Cookies() {
           <h1 className="text-4xl lg:text-5xl font-bold text-text-primary mb-4">
             Cookie Notice
           </h1>
-          <p className="text-text-secondary text-base">
+          <p className="text-text-primary text-xl">
             Last updated: [TO BE INSERTED BY CLIENT BEFORE LAUNCH]
           </p>
         </div>
       </motion.section>
 
       <Section>
-        <div className="max-w-[1400px] mx-auto grid lg:grid-cols-[220px_1fr] gap-12">
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-[220px_1fr] gap-12">
 
           {/* TABLE OF CONTENTS */}
           <aside className="hidden lg:block">
-            <nav className="sticky top-28 text-base space-y-3">
+            <nav className="sticky top-28 text-xl space-y-3">
               <p className="font-semibold text-text-primary mb-2">On this page</p>
 
-              <a href="#overview" className="block text-text-secondary hover:text-accent hover:underline underline-offset-4">
+              <a href="#overview" className="block text-text-primary hover:text-accent hover:underline underline-offset-4">
                 Overview
               </a>
 
-              <a href="#categories" className="block text-text-secondary hover:text-accent hover:underline underline-offset-4">
+              <a href="#categories" className="block text-text-primary hover:text-accent hover:underline underline-offset-4">
                 Cookie categories
               </a>
 
-              <a href="#nonessential" className="block text-text-secondary hover:text-accent hover:underline underline-offset-4">
+              <a href="#nonessential" className="block text-text-primary hover:text-accent hover:underline underline-offset-4">
                 Non-essential cookies
               </a>
 
-              <a href="#preferences" className="block text-text-secondary hover:text-accent hover:underline underline-offset-4">
+              <a href="#preferences" className="block text-text-primary hover:text-accent hover:underline underline-offset-4">
                 Changing preferences
               </a>
 
-              <a href="#information" className="block text-text-secondary hover:text-accent hover:underline underline-offset-4">
+              <a href="#information" className="block text-text-primary hover:text-accent hover:underline underline-offset-4">
                 More information
               </a>
             </nav>
           </aside>
 
           {/* CONTENT */}
-          <div className="bg-card-bg border border-border rounded-xl p-7 sm:p-8 shadow-sm space-y-10 text-base text-text-secondary leading-relaxed">
+          <div className="max-w-3xl bg-card-bg border border-border rounded-xl p-7 sm:p-8 shadow-sm space-y-10 text-xl text-text-primary leading-relaxed text-pretty">
 
             {/* SECTION 1 */}
             <section id="overview">
-              <h2 className="text-xl font-semibold text-text-primary mb-3">
+              <h2 className="text-3xl font-semibold text-text-primary mb-3">
                 1. Overview
               </h2>
 
@@ -81,12 +81,12 @@ export function Cookies() {
 
             {/* SECTION 2 */}
             <section id="categories">
-              <h2 className="text-xl font-semibold text-text-primary mb-4">
+              <h2 className="text-3xl font-semibold text-text-primary mb-4">
                 2. Cookie categories and purpose
               </h2>
 
               <div className="overflow-x-auto">
-                <table className="w-full text-left text-sm">
+                <table className="w-full text-left leading-relaxed">
 
                   <thead className="bg-secondary">
 
@@ -128,7 +128,7 @@ export function Cookies() {
                       </td>
 
                       <td className="py-3 px-3 border-b border-border align-top">
-                        <code className="bg-secondary px-1.5 py-0.5 rounded text-sm">
+                        <code className="bg-secondary px-1.5 py-0.5 rounded text-lg">
                           opex6_cookie_banner_dismissed
                         </code>{" "}
                         — stored in local storage to remember that you have seen the banner (persistently until you clear your browser storage).
@@ -146,7 +146,7 @@ export function Cookies() {
 
             {/* SECTION 3 */}
             <section id="nonessential">
-              <h2 className="text-xl font-semibold text-text-primary mb-3">
+              <h2 className="text-3xl font-semibold text-text-primary mb-3">
                 3. Non-essential cookies
               </h2>
 
@@ -160,7 +160,7 @@ export function Cookies() {
 
             {/* SECTION 4 */}
             <section id="preferences">
-              <h2 className="text-xl font-semibold text-text-primary mb-3">
+              <h2 className="text-3xl font-semibold text-text-primary mb-3">
                 4. How to withdraw or change your preferences
               </h2>
 
@@ -179,7 +179,7 @@ export function Cookies() {
 
             {/* SECTION 5 */}
             <section id="information">
-              <h2 className="text-xl font-semibold text-text-primary mb-3">
+              <h2 className="text-3xl font-semibold text-text-primary mb-3">
                 5. More information
               </h2>
 

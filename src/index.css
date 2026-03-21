@@ -10,10 +10,8 @@
 
     /* Text tokens */
     --text-primary: #FFFFFF;
-    /* Body / secondary copy */
-    --text-secondary: #A0ADB8;
-    /* Dimmer grey for disclaimers / small print */
-    --text-muted: #7B8A9B;
+    --text-secondary: #FFFFFF;
+    --text-muted: #B4C0CC;
 
     /* UI colors */
     --accent: #5B5FEF;           /* Blue-purple accent */
@@ -32,6 +30,8 @@
     background-color: var(--background);
     color: var(--foreground);
     font-family: Inter, system-ui, -apple-system, sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.65;
     @apply antialiased;
   }
 

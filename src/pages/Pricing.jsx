@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Section } from '../components/Section';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
+import { EARLY_ACCESS } from '../config/siteCopy.js';
 
 const PRICING_CARDS = [
   {
@@ -13,10 +14,9 @@ const PRICING_CARDS = [
     title: "Register Interest",
     subtitle: "Pre-launch early-access offer",
     label: "Register now to secure eligibility",
-    description:
-      "Register your interest now to secure your place on the early access list. Early registrants will be eligible for our pre-launch offer — 100 credits for £50 + 25 free credits — when the Exec App opens to early users. Subject to final launch terms.",
+    description: EARLY_ACCESS.PRICING_CARD_DESCRIPTION,
     checklist: [
-      "100 platform credits",
+      EARLY_ACCESS.PRICING_CHECKLIST_CREDITS,
       "Access to all KPI categories",
       "All 15 dashboard modules",
       "Export and reporting tools",

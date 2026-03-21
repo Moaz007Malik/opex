@@ -15,7 +15,7 @@ export function Input({ label, error, className = '', ...props }) {
           rounded-lg
           px-4 py-3
           text-text-primary
-          placeholder-text-secondary
+          placeholder:text-text-muted/90
           focus:outline-none
           focus:ring-2
           focus:ring-accent/40

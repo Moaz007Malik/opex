@@ -8,6 +8,7 @@ import { Input } from '../components/ui/Input';
 import { Checkbox } from '../components/ui/Checkbox';
 import { useForm } from '@formspree/react';
 import { FORMSPREE_FORM_ID } from '../config/formspree';
+import { EARLY_ACCESS } from '../config/siteCopy.js';
 
 const WHAT_HAPPENS_NEXT = [
   { step: 1, text: 'We receive your registration and send a confirmation by email - Request email template.' },
@@ -58,7 +59,7 @@ export function RegisterInterest() {
             </h1>
 
             <p className="text-text-secondary">
-              You are on the list. We will be in touch ahead of launch with your early access details and information about the £50 offer.
+              {EARLY_ACCESS.THANK_YOU_LINE}
             </p>
           </div>
         </Section>
@@ -72,7 +73,7 @@ export function RegisterInterest() {
         <title>Register Your Interest — OpEx6 | Exec App Early Access</title>
         <meta
           name="description"
-          content="Register your interest in the OpEx6 Exec App. Be among the first to access it when it opens to early users. Pre-launch offer: 100 credits for £50."
+          content={`Register your interest in the OpEx6 Exec App. Be among the first to access it when it opens to early users. ${EARLY_ACCESS.META_OFFER_FRAGMENT}`}
         />
       </Helmet>
 
@@ -102,11 +103,11 @@ export function RegisterInterest() {
 
           <div className="bg-highlight/10 border border-highlight/40 rounded-xl p-6 text-left max-w-[1400px] mx-auto">
             <p className="font-semibold text-text-primary mb-1">
-              Early Access Offer
+              {EARLY_ACCESS.SECTION_TITLE}
             </p>
 
             <p className="text-sm text-text-secondary">
-              Early registrants will be eligible for 100 credits for £50 when the Exec App opens. This is a pre-launch registration — no payment is taken now. Subject to final launch terms.
+              {EARLY_ACCESS.OFFER_FULL}
             </p>
           </div>
 
@@ -180,24 +181,37 @@ export function RegisterInterest() {
               placeholder="Your company"
             />
 
-            <Checkbox
-              id="confirmContact"
-              name="confirmContact"
-              value="true"
-              required
-              label="I confirm that OpEx6 may contact me about the product interest I am registering through this form."
-              checked={form.confirmContact}
-              onChange={(v) => handleChange('confirmContact', v)}
-            />
+            <div className="space-y-3 pt-2 border-t border-border">
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-text-secondary">
+                Contact permission{" "}
+                <span className="text-danger text-base font-bold leading-none" aria-hidden="true">
+                  *
+                </span>
+              </p>
+              <Checkbox
+                id="register-interest-confirm-contact"
+                name="confirmContact"
+                value="true"
+                required
+                label="I confirm that OpEx6 may contact me about the product interest I am registering through this form."
+                checked={form.confirmContact}
+                onChange={(v) => handleChange('confirmContact', v)}
+              />
+            </div>
 
-            <Checkbox
-              id="marketingOptIn"
-              name="marketingOptIn"
-              value="true"
-              label="Yes, I'd like to receive product updates and marketing emails from OpEx6."
-              checked={form.marketingOptIn}
-              onChange={(v) => handleChange('marketingOptIn', v)}
-            />
+            <div className="space-y-3">
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-text-secondary">
+                Marketing <span className="text-text-muted">(optional)</span>
+              </p>
+              <Checkbox
+                id="register-interest-marketing-optin"
+                name="marketingOptIn"
+                value="true"
+                label="Yes, I would like to receive product updates and marketing communications by email."
+                checked={form.marketingOptIn}
+                onChange={(v) => handleChange('marketingOptIn', v)}
+              />
+            </div>
 
             {!form.marketingOptIn ? (
               <input type="hidden" name="marketingOptIn" value="false" />

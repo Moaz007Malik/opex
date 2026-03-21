@@ -8,6 +8,8 @@ import { Button } from "../components/ui/Button";
 import { useForm } from "@formspree/react";
 import { FORMSPREE_FORM_ID } from "../config/formspree";
 import { kpiCategories } from "../data/kpis";
+import { KpiCatalogue } from "../components/KpiCatalogue";
+import { EARLY_ACCESS, KPI_FRAMEWORK } from "../config/siteCopy.js";
 
 const CONFIRMATION_EMAIL_SUBJECT =
   "Your OpEx6 KPI selections and early access confirmation";
@@ -342,7 +344,7 @@ function StepCircle({ status, stepNumber }) {
   }
 
   return (
-    <div className="w-10 h-10 rounded-full border border-border text-text-muted flex items-center justify-center font-bold bg-background/30">
+    <div className="w-10 h-10 rounded-full border border-border text-text-primary flex items-center justify-center font-bold bg-background/30">
       {stepNumber}
     </div>
   );
@@ -617,7 +619,7 @@ function buildConfirmationEmailBody({
     "Thank you for exploring the OpEx6 KPI framework. Here is a summary of your selections and your early access confirmation.",
     "",
     "Your early access offer",
-    "You have secured eligibility for our early access offer — 100 credits for £50 when the Exec App opens to early users. We will contact you with full details ahead of launch. No payment is taken at this stage. Subject to final launch terms.",
+    EARLY_ACCESS.OFFER_EMAIL_CONFIRMATION,
     "",
     "Your KPI categories",
     buildNumberedList(selectedCategoryNames),
@@ -684,8 +686,7 @@ export function KPIsDashboards() {
     [recommendedDashboards],
   );
 
-  const offerReminderText =
-    "You have secured eligibility for 100 credits for £50 when the Exec App opens. Subject to final launch terms.";
+  const offerReminderText = EARLY_ACCESS.OFFER_REMINDER_SHORT;
 
   const progressPercent = ((step - 1) / 2) * 100;
 
@@ -789,7 +790,7 @@ export function KPIsDashboards() {
             </h1>
 
             <div className="rounded-2xl border border-border bg-card-bg/50 p-6">
-              <p className="text-text-secondary text-lg leading-relaxed">
+              <p className="text-text-primary text-xl leading-relaxed">
                 We have sent a summary of your KPI categories, business challenges, and recommended dashboards to{" "}
                 <span className="text-text-primary font-semibold">
                   {form.businessEmail}
@@ -801,7 +802,7 @@ export function KPIsDashboards() {
                 <p className="font-semibold text-text-primary mb-1">
                   Early access offer
                 </p>
-                <p className="text-text-secondary">{offerReminderText}</p>
+                <p className="text-text-primary text-lg leading-relaxed">{offerReminderText}</p>
               </div>
 
               <div className="mt-8">
@@ -811,7 +812,7 @@ export function KPIsDashboards() {
               </div>
             </div>
 
-            <p className="text-xs text-text-muted mt-10">
+            <p className="text-sm text-text-primary mt-10">
               Examples, use cases, and outcome statements are illustrative and do
               not guarantee specific business results.
             </p>
@@ -842,18 +843,21 @@ export function KPIsDashboards() {
           <h1 className="text-4xl lg:text-6xl font-bold text-text-primary">
             Explore the KPI Framework Built Into the Exec App.
           </h1>
-          <p className="text-xl text-text-secondary mt-4 max-w-4xl">
-            The Exec App is structured around 15 Dashboards and over 150+
-            individual metrics. Select the categories that matter to your business, tell us the problems you need to solve, and we will show you which dashboards are most relevant to you — and secure your early access offer.
+          <p className="text-2xl text-text-primary mt-4 max-w-4xl">
+            {KPI_FRAMEWORK.STRUCTURED_APP_LINE}
           </p>
 
-          <p className="text-lg text-text-secondary mt-4 max-w-4xl">
+          <p className="text-xl text-text-primary mt-4 max-w-4xl">
             OpEx6 is currently in the pre-launch / early-access phase. Product
             features, screenshots, integrations, availability, and pricing may
             change before general release.
           </p>
         </div>
       </section>
+
+      <Section className="bg-background border-t border-border">
+        <KpiCatalogue />
+      </Section>
 
       <Section className="bg-background">
         <div className="max-w-[1400px] mx-auto">
@@ -882,10 +886,10 @@ export function KPIsDashboards() {
                       stepNumber={s.step}
                     />
                     <div className="pt-2">
-                      <p className="text-sm font-semibold text-text-primary">
+                      <p className="text-base font-semibold text-text-primary">
                         Step {s.step}
                       </p>
-                      <p className="text-sm text-text-secondary">
+                      <p className="text-base text-text-primary">
                         {s.label}
                       </p>
                     </div>
@@ -901,7 +905,7 @@ export function KPIsDashboards() {
                 <h2 className="text-3xl font-bold text-text-primary mb-2">
                   Step 1 — Which KPI areas matter most to your business?
                 </h2>
-                <p className="text-lg text-text-secondary max-w-4xl">
+                <p className="text-xl text-text-primary max-w-4xl">
                   Select all categories that are relevant to your operation. You can select as many as you need. Your selections will be used to recommend the most relevant dashboards for your business.
                 </p>
 
@@ -934,17 +938,17 @@ export function KPIsDashboards() {
                         <div className="flex items-start gap-3 pr-10">
                           <div
                             className={`mt-0.5 ${
-                              selected ? "text-accent" : "text-text-secondary"
+                              selected ? "text-accent" : "text-text-primary"
                             }`}
                             aria-hidden="true"
                           >
                             <Icon name={cat.icon} />
                           </div>
                           <div>
-                            <p className="text-lg font-semibold text-text-primary">
+                            <p className="text-xl font-semibold text-text-primary">
                               {cat.label}
                             </p>
-                            <p className="text-sm text-text-secondary mt-1">
+                            <p className="text-base text-text-primary mt-1">
                               {cat.subLabel}
                             </p>
                           </div>
@@ -954,7 +958,7 @@ export function KPIsDashboards() {
                   })}
                 </div>
 
-                <p className="text-text-secondary mt-5 text-sm">
+                <p className="text-text-primary mt-5 text-base">
                   {selectedCategoryIds.length} categories selected
                 </p>
 
@@ -981,7 +985,7 @@ export function KPIsDashboards() {
                 <h2 className="text-3xl font-bold text-text-primary mb-2">
                   Step 2 — What business problems are you trying to solve?
                 </h2>
-                <p className="text-lg text-text-secondary max-w-4xl">
+                <p className="text-xl text-text-primary max-w-4xl">
                   Select all that apply to your current situation. Your selections help us identify which dashboards will deliver the most value for your specific operational challenges.
                 </p>
 
@@ -1011,7 +1015,7 @@ export function KPIsDashboards() {
                           <TickIcon className="w-3.5 h-3.5" />
                         </div>
 
-                        <p className="text-text-secondary text-base">
+                        <p className="text-text-primary text-lg">
                           {p.text}
                         </p>
                       </button>
@@ -1019,7 +1023,7 @@ export function KPIsDashboards() {
                   })}
                 </div>
 
-                <p className="text-text-secondary mt-5 text-sm">
+                <p className="text-text-primary mt-5 text-base">
                   {selectedProblemIds.length} business problems selected
                 </p>
 
@@ -1065,7 +1069,7 @@ export function KPIsDashboards() {
                     &larr; Back to business problems
                   </Button>
                 </div>
-                <p className="text-lg text-text-secondary max-w-4xl">
+                <p className="text-xl text-text-primary max-w-4xl">
                   Based on your selections, here are the dashboard areas from the Exec App that are most relevant to your business. Register your interest below to save your results, receive your early access offer, and be notified when the Exec App launches.
                 </p>
 
@@ -1078,13 +1082,13 @@ export function KPIsDashboards() {
                       >
                         <div className="flex items-start justify-between gap-3">
                           <div>
-                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold border border-accent/40 bg-accent/10 text-accent">
+                            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold border border-accent/40 bg-accent/10 text-accent">
                               Recommended for you
                             </span>
-                            <h3 className="text-xl font-semibold text-text-primary mt-4">
+                            <h3 className="text-2xl font-semibold text-text-primary mt-4">
                               {d.name}
                             </h3>
-                            <p className="text-text-secondary mt-2">
+                            <p className="text-text-primary text-lg mt-2">
                               {d.description}
                             </p>
                           </div>
@@ -1102,7 +1106,7 @@ export function KPIsDashboards() {
 
                     <div className="space-y-4">
                       <div>
-                        <p className="text-sm uppercase tracking-[0.18em] text-text-secondary font-semibold">
+                        <p className="text-base uppercase tracking-[0.18em] text-text-primary font-semibold">
                           KPI categories selected
                         </p>
                         <p className="text-text-primary mt-1">
@@ -1111,14 +1115,14 @@ export function KPIsDashboards() {
                       </div>
 
                       <div>
-                        <p className="text-sm uppercase tracking-[0.18em] text-text-secondary font-semibold">
+                        <p className="text-base uppercase tracking-[0.18em] text-text-primary font-semibold">
                           Business problems selected
                         </p>
                         <div className="mt-2 space-y-1">
                           {selectedProblemTexts.map((text) => (
                             <div
                               key={text}
-                              className="text-text-secondary text-sm"
+                              className="text-text-primary text-base"
                             >
                               {text}
                             </div>
@@ -1127,14 +1131,14 @@ export function KPIsDashboards() {
                       </div>
 
                       <div>
-                        <p className="text-sm uppercase tracking-[0.18em] text-text-secondary font-semibold">
+                        <p className="text-base uppercase tracking-[0.18em] text-text-primary font-semibold">
                           Recommended dashboards
                         </p>
                         <div className="mt-2 space-y-1">
                           {recommendedDashboardNames.map((name) => (
                             <div
                               key={name}
-                              className="text-text-secondary text-sm"
+                              className="text-text-primary text-base"
                             >
                               {name}
                             </div>
@@ -1148,17 +1152,16 @@ export function KPIsDashboards() {
                     <h3 className="text-2xl font-bold text-text-primary mb-2">
                       Register your interest and save your results.
                     </h3>
-                    <p className="text-text-secondary text-lg leading-relaxed">
+                    <p className="text-text-primary text-xl leading-relaxed">
                       Submit your details below to save your KPI selections, receive your personalised dashboard recommendations by email, and secure your early access offer for when the Exec App launches.
                     </p>
 
                     <div className="mt-6 bg-highlight/10 border border-highlight/40 rounded-xl p-5">
                       <p className="font-semibold text-text-primary mb-1">
-                        Early Access Offer
+                        {EARLY_ACCESS.SECTION_TITLE}
                       </p>
-                      <p className="text-text-secondary text-sm leading-relaxed">
-                        Early registrants will be eligible for 100 credits for
-                        &pound;50 when the Exec App opens. This is a pre-launch registration — no payment is taken now. Subject to final launch terms.
+                      <p className="text-text-primary text-base leading-relaxed">
+                        {EARLY_ACCESS.OFFER_FULL}
                       </p>
                     </div>
 
@@ -1307,7 +1310,7 @@ export function KPIsDashboards() {
                           : "Submit My Interest & Save My Dashboard Selections"}
                       </Button>
 
-                      <p className="text-xs text-text-secondary">
+                      <p className="text-sm text-text-primary">
                         By submitting this form, you confirm you have read our{" "}
                         <Link to="/privacy" className="text-accent hover:underline">
                           Privacy Notice
@@ -1325,7 +1328,7 @@ export function KPIsDashboards() {
             )}
           </div>
 
-          <p className="text-xs text-text-muted mt-12">
+          <p className="text-sm text-text-primary mt-12">
             Examples, use cases, and outcome statements are illustrative and do
             not guarantee specific business results.
           </p>

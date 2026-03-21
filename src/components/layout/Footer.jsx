@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { KPI_FRAMEWORK } from '../../config/siteCopy.js';
 
 const productLinks = [
   { to: '/exec-app', label: 'Exec App' },
@@ -76,7 +77,8 @@ export function Footer() {
               OpEx6 Operational Intelligence That Executives Actually Use.
             </p>
             <p className="text-sm text-text-secondary max-w-xs mt-2">
-              Being built around 130+ manufacturing KPIs across 12 dashboard areas — structured for plant, multi-site, and board reviews.
+              Being built around {KPI_FRAMEWORK.MANUFACTURING_KPI_LINE} — structured
+              for plant, multi-site, and board reviews.
             </p>
 
             <div className="text-[11px] text-text-secondary mt-6 space-y-1">
