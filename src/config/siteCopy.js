@@ -40,21 +40,21 @@ export const EARLY_ACCESS = {
     "Pre-launch early access: 50 credits for £50 + 25 free credits at launch (subject to final terms). No payment taken today.",
   /** Hero / product highlight line */
   HERO_CTA_LINE:
-    "Early Access Offer: Register now to secure eligibility for 100 credits for £50 when the Exec App opens. Subject to final launch terms.",
+    "Early Access Offer: Register now to secure eligibility for 50 credits for £50 + 25 free credits when the Exec App opens. Subject to final launch terms.",
   /** Compact one-line promo (e.g. mid-page CTA strip) */
   OFFER_PROMO_LINE:
     "50 credits for £50 when the Exec App opens. Subject to final launch terms.",
   /** Register Interest — thank you */
   THANK_YOU_LINE:
-    "You are on the list. We will be in touch ahead of launch with your early access details and information about the pre-launch offer (100 credits for £50).",
+    "You are on the list. We will be in touch ahead of launch with your early access details and information about the pre-launch offer (50 credits for £50 + 25 free credits).",
   /** Meta description fragment */
   META_OFFER_FRAGMENT: "Pre-launch offer: 50 credits for £50 + 25 free credits at launch.",
   /** Bottom-of-page CTA band */
   CTA_PARAGRAPH:
-    "Register your interest now to be among the first to access the Exec App when it opens to early users. Early registrants are eligible for our pre-launch offer — 100 credits for £50, subject to final launch terms.",
+    "Register your interest now to be among the first to access the Exec App when it opens to early users. Early registrants are eligible for our pre-launch offer — 50 credits for £50 + 25 free credits, subject to final launch terms.",
   /** Pricing — early access card */
   PRICING_CARD_DESCRIPTION:
-    "Register your interest now to secure your place on the early access list. Early registrants will be eligible for our pre-launch offer — 100 credits for £50 — when the Exec App opens to early users. Subject to final launch terms.",
+    "Register your interest now to secure your place on the early access list. Early registrants will be eligible for our pre-launch offer — 50 credits for £50 + 25 free credits — when the Exec App opens to early users. Subject to final launch terms.",
   /** Pricing checklist line (matches offer) */
-  PRICING_CHECKLIST_CREDITS: "Pre-launch offer: 100 credits for £50",
+  PRICING_CHECKLIST_CREDITS: "Pre-launch offer: 50 credits for £50 + 25 free credits",
 };
