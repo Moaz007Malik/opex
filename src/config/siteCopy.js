@@ -32,7 +32,7 @@ export const EARLY_ACCESS = {
     "Pre-launch early access: 50 credits for £50 + 25 free credits at launch (subject to final terms). No payment taken today.",
   /** KPI journey confirmation email body */
   OFFER_EMAIL_CONFIRMATION:
-    "You have secured eligibility for our early access offer — 100 credits for £50 when the Exec App opens to early users. We will contact you with full details ahead of launch. No payment is taken at this stage. Subject to final launch terms.",
+    "You have secured eligibility for our early access offer — 50 credits for £50 + 25 free credits when the Exec App opens to early users. We will contact you with full details ahead of launch. No payment is taken at this stage. Subject to final launch terms.",
   OFFER_REMINDER_SHORT:
     "You have secured eligibility for 50 credits for £50 + 25 free credits at launch. Subject to final launch terms.",
   /** Global header banner */
